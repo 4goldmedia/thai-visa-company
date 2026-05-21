@@ -1,0 +1,96 @@
+/* =============================================================================
+   Design tokens — calm fintech palette
+   Warm neutrals, high contrast text, restrained accents
+   ============================================================================= */
+
+:root {
+  /* Typography stacks (Geist variables set on <html> in layout.tsx) */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+
+  /* Type rhythm */
+  --leading-body: 1.625;
+  --leading-heading: 1.2;
+  --tracking-heading: -0.025em;
+
+  /* Surfaces */
+  --background: oklch(0.988 0.004 95);
+  --foreground: oklch(0.17 0.012 265);
+  --card: oklch(0.996 0.002 95);
+  --card-foreground: oklch(0.17 0.012 265);
+  --popover: oklch(0.996 0.002 95);
+  --popover-foreground: oklch(0.17 0.012 265);
+
+  /* Brand / UI */
+  --primary: oklch(0.2 0.014 265);
+  --primary-foreground: oklch(0.985 0.002 95);
+  --secondary: oklch(0.965 0.006 95);
+  --secondary-foreground: oklch(0.22 0.012 265);
+  --muted: oklch(0.965 0.006 95);
+  --muted-foreground: oklch(0.46 0.02 265);
+  --accent: oklch(0.955 0.008 95);
+  --accent-foreground: oklch(0.22 0.012 265);
+  --destructive: oklch(0.52 0.19 27);
+  --border: oklch(0.9 0.008 95);
+  --input: oklch(0.9 0.008 95);
+  --ring: oklch(0.62 0.02 265);
+
+  /* Text selection */
+  --selection-background: oklch(0.9 0.03 250);
+  --selection-foreground: oklch(0.15 0.012 265);
+
+  /* Shape */
+  --radius: 0.75rem;
+
+  /* Charts & sidebar (shadcn compat) */
+  --chart-1: oklch(0.55 0.02 265);
+  --chart-2: oklch(0.48 0.02 265);
+  --chart-3: oklch(0.4 0.02 265);
+  --chart-4: oklch(0.32 0.02 265);
+  --chart-5: oklch(0.24 0.02 265);
+  --sidebar: oklch(0.982 0.004 95);
+  --sidebar-foreground: oklch(0.17 0.012 265);
+  --sidebar-primary: oklch(0.2 0.014 265);
+  --sidebar-primary-foreground: oklch(0.985 0.002 95);
+  --sidebar-accent: oklch(0.955 0.008 95);
+  --sidebar-accent-foreground: oklch(0.22 0.012 265);
+  --sidebar-border: oklch(0.9 0.008 95);
+  --sidebar-ring: oklch(0.62 0.02 265);
+}
+
+.dark {
+  --background: oklch(0.16 0.012 265);
+  --foreground: oklch(0.97 0.004 95);
+  --card: oklch(0.2 0.012 265);
+  --card-foreground: oklch(0.97 0.004 95);
+  --popover: oklch(0.2 0.012 265);
+  --popover-foreground: oklch(0.97 0.004 95);
+  --primary: oklch(0.95 0.006 95);
+  --primary-foreground: oklch(0.18 0.012 265);
+  --secondary: oklch(0.26 0.012 265);
+  --secondary-foreground: oklch(0.97 0.004 95);
+  --muted: oklch(0.26 0.012 265);
+  --muted-foreground: oklch(0.72 0.02 95);
+  --accent: oklch(0.28 0.012 265);
+  --accent-foreground: oklch(0.97 0.004 95);
+  --destructive: oklch(0.65 0.18 22);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.58 0.02 95);
+  --selection-background: oklch(0.32 0.04 250);
+  --selection-foreground: oklch(0.97 0.004 95);
+  --chart-1: oklch(0.75 0.02 95);
+  --chart-2: oklch(0.62 0.02 95);
+  --chart-3: oklch(0.5 0.02 95);
+  --chart-4: oklch(0.4 0.02 95);
+  --chart-5: oklch(0.3 0.02 95);
+  --sidebar: oklch(0.18 0.012 265);
+  --sidebar-foreground: oklch(0.97 0.004 95);
+  --sidebar-primary: oklch(0.95 0.006 95);
+  --sidebar-primary-foreground: oklch(0.18 0.012 265);
+  --sidebar-accent: oklch(0.26 0.012 265);
+  --sidebar-accent-foreground: oklch(0.97 0.004 95);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.58 0.02 95);
+}

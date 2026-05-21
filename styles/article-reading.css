@@ -1,0 +1,37 @@
+/* =============================================================================
+   Article reading — editorial measure, rhythm, calm chrome
+   ============================================================================= */
+
+[data-slot="article-layout"] {
+  --article-measure: 36rem;
+  --article-measure-wide: 40rem;
+  --article-leading: 1.75;
+  --article-leading-tight: 1.65;
+  --article-section-gap: 2.75rem;
+}
+
+@media (min-width: 640px) {
+  [data-slot="article-layout"] {
+    --article-section-gap: 3.25rem;
+  }
+}
+
+[data-slot="article-layout"] [id="article-content"] {
+  max-width: var(--article-measure);
+}
+
+[data-slot="article-layout"] [id="article-content"] ::selection {
+  background-color: var(--selection-background);
+  color: var(--selection-foreground);
+}
+
+/* Smooth in-page anchor jumps */
+[data-slot="article-layout"] :is(h2, h3) {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 1024px) {
+  [data-slot="article-layout"] :is(h2, h3) {
+    scroll-margin-top: 6rem;
+  }
+}

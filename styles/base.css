@@ -1,0 +1,106 @@
+/* =============================================================================
+   Global base — typography, document defaults, accessibility
+   ============================================================================= */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply border-border;
+  }
+
+  html {
+    @apply h-full font-sans text-foreground;
+    scroll-behavior: smooth;
+    /* Sticky navbar (h-14 / lg:h-16) — anchor + skip-link offset */
+    scroll-padding-top: 3.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-full bg-background text-foreground;
+    font-size: 1rem;
+    line-height: var(--leading-body);
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  ::selection {
+    background-color: var(--selection-background);
+    color: var(--selection-foreground);
+  }
+
+  /* Headings — rhythm only; size comes from components */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: var(--tracking-heading);
+    line-height: var(--leading-heading);
+    text-wrap: balance;
+    color: inherit;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    @apply underline-offset-4;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  :is(
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    summary,
+    [role="button"],
+    [tabindex]:not([tabindex="-1"])
+  ):focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 4rem;
+    }
+  }
+
+  /* Defer layout/paint for below-fold homepage sections (LCP-friendly) */
+  main#main-content > section:not(#hero) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 36rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
