@@ -30,18 +30,12 @@ function FAQItem({
   triggerClassName,
   contentClassName,
 }: FAQItemProps) {
-  const headingId = `faq-${value}-heading`
-
   return (
     <AccordionItem
       value={value}
       className={cn("border-border/50 not-last:border-b", className)}
     >
-      <h3 id={headingId} className="sr-only">
-        {question}
-      </h3>
       <AccordionTrigger
-        aria-labelledby={headingId}
         className={cn(
           "min-h-11 items-center gap-3 rounded-none border-0 py-3 text-left",
           "text-[15px] font-medium leading-[1.4] text-foreground",

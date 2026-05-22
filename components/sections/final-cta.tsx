@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionHeading } from "@/components/layout/section-heading"
 import { ContactCtaGroup } from "@/components/cta"
+import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import { SectionReveal } from "@/components/motion"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
@@ -15,6 +16,8 @@ type FinalCTAProps = {
   eyebrow?: string
   footnote?: string
   showExploreCta?: boolean
+  /** Google rating trust line above contact buttons */
+  showReviewSummary?: boolean
   className?: string
 }
 
@@ -25,6 +28,7 @@ function FinalCTA({
   eyebrow = "Get in touch",
   footnote = defaultFinalCtaFootnote,
   showExploreCta = true,
+  showReviewSummary = true,
   className,
 }: FinalCTAProps) {
   return (
@@ -38,7 +42,14 @@ function FinalCTA({
       />
 
       <div className="mt-5 border-t border-border/50 pt-5 sm:mt-6 sm:pt-6">
-        <ContactCtaGroup showExplore={showExploreCta} />
+        {showReviewSummary ? (
+          <GoogleReviewSummary layout="inline" size="sm" />
+        ) : null}
+
+        <ContactCtaGroup
+          showExplore={showExploreCta}
+          className={showReviewSummary ? "mt-4 sm:mt-5" : undefined}
+        />
 
         <p className="mt-4 text-[13px] leading-[1.6] text-muted-foreground sm:mt-5 sm:text-sm sm:leading-snug">
           {footnote}
@@ -57,6 +68,7 @@ type FinalCTASectionProps = {
   eyebrow?: string
   footnote?: string
   showExploreCta?: boolean
+  showReviewSummary?: boolean
   className?: string
 }
 

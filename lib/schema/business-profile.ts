@@ -1,4 +1,4 @@
-import { contactLinks } from "@/lib/navigation"
+import { contactLinks } from "@/lib/contact"
 import { getSiteUrl } from "@/lib/seo"
 import { siteConfig } from "@/lib/site"
 

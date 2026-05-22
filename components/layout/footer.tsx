@@ -1,7 +1,8 @@
 import Link from "next/link"
 
 import { Container } from "@/components/layout/container"
-import { contactLinks, ctaLabels } from "@/lib/cta"
+import { FooterMessagingLinks } from "@/components/cta/footer-messaging-links"
+import { contactLinks } from "@/lib/contact"
 import {
   footerLegalLinks,
   footerResourceLinks,
@@ -35,7 +36,7 @@ function FooterNavGroup({ title, links }: FooterNavGroupProps) {
   const navId = title.toLowerCase().replace(/\s+/g, "-")
 
   return (
-    <nav aria-labelledby={`footer-${navId}`} className="min-w-0">
+    <nav aria-labelledby={`footer-${navId}`} className="min-w-0 break-words">
       <h3 id={`footer-${navId}`} className={footerHeadingClass}>
         {title}
       </h3>
@@ -123,20 +124,7 @@ function FooterBrand() {
       </p>
 
       <ul className="mt-4 flex flex-col gap-1 p-0 sm:mt-5">
-        <li>
-          <FooterContactItem
-            href={contactLinks.line}
-            label={ctaLabels.line}
-            external
-          />
-        </li>
-        <li>
-          <FooterContactItem
-            href={contactLinks.whatsapp}
-            label={ctaLabels.whatsapp}
-            external
-          />
-        </li>
+        <FooterMessagingLinks />
         <li>
           <FooterContactItem
             href={`mailto:${contactLinks.email}`}

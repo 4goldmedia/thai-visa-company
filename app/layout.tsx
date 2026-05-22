@@ -1,8 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google"
 
-import { Footer } from "@/components/layout/footer"
-import { Navbar } from "@/components/layout/navbar"
-import { SkipLink } from "@/components/layout/skip-link"
+import { SiteShell } from "@/components/layout/site-shell"
 import { SiteBusinessJsonLd } from "@/components/seo/site-business-json-ld"
 import { rootMetadata, viewport } from "@/lib/seo"
 import { siteConfig } from "@/lib/site"
@@ -47,10 +45,7 @@ export default function RootLayout({
         )}
       >
         <SiteBusinessJsonLd />
-        <SkipLink />
-        <Navbar />
-        <div className="flex min-h-0 flex-1 flex-col">{children}</div>
-        <Footer />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   )

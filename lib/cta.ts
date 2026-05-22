@@ -1,4 +1,4 @@
-import { contactLinks } from "@/lib/navigation"
+import { messagingChannelLabels } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 
 import {
@@ -8,9 +8,9 @@ import {
 
 /** Canonical CTA copy — use across homepage for consistency */
 export const ctaLabels = {
-  line: "Chat on LINE",
-  lineShort: "LINE",
-  whatsapp: "WhatsApp",
+  line: messagingChannelLabels.line,
+  lineShort: messagingChannelLabels.lineShort,
+  whatsapp: messagingChannelLabels.whatsapp,
   exploreVisas: "Explore visa options",
   learnMore: "Learn more",
   readGuide: "Read guide",
@@ -22,7 +22,7 @@ export const ctaHref = {
   contactForm: "/contact",
 } as const
 
-export { contactLinks }
+export { contactLinks } from "@/lib/contact"
 
 /** Navbar / compact header buttons */
 export const navbarCtaPrimaryClass = cn(

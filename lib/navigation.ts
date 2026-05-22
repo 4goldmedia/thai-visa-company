@@ -9,13 +9,6 @@ export const mainNavLinks = [
 
 export type MainNavLink = (typeof mainNavLinks)[number]
 
-export const contactLinks = {
-  line: process.env.NEXT_PUBLIC_LINE_URL ?? "https://line.me/",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/",
-  email:
-    process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@thaivisacompany.com",
-} as const
-
 /** Footer navigation — shared structure for SEO and consistent site IA */
 export const footerVisaLinks = [
   { label: "All visa services", href: "/visas" },

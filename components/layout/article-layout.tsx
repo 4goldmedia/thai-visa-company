@@ -374,15 +374,15 @@ function ArticleLayout({
       <Container className="pb-6 sm:pb-8">
         <div className={cn(tocSlot ? articleGridClass : articleColumnClass)}>
           {tocSlot ? (
-            <div className="order-2 min-w-0 lg:order-1 lg:col-start-1">
+            <div className="order-1 min-w-0 lg:col-start-1">
               {tocSlot}
             </div>
           ) : null}
 
           <div
             className={cn(
-              "order-1 min-w-0",
-              tocSlot ? "lg:col-start-2" : ""
+              "min-w-0",
+              tocSlot ? "order-2 lg:col-start-2" : "order-1"
             )}
           >
             <ArticleBody>{children}</ArticleBody>

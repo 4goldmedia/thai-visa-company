@@ -48,6 +48,7 @@ function ResourcesToolbar({
                 id="resources-search-placeholder"
                 type="search"
                 disabled
+                aria-disabled="true"
                 placeholder="Search by topic or keyword"
                 aria-describedby="resources-search-hint"
                 className={cn(

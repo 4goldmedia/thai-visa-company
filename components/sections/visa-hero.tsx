@@ -1,7 +1,8 @@
-import { BadgeCheck, MessageCircle, Star } from "lucide-react"
+import { BadgeCheck, MessageCircle } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 import { ContactCtaGroup } from "@/components/cta"
+import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { motionClass } from "@/lib/motion-classes"
@@ -9,7 +10,7 @@ import {
   mobileReadableWidthClass,
   sectionEyebrowClass,
 } from "@/lib/section-styles"
-import { siteConfig } from "@/lib/site"
+import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
 import { cn } from "@/lib/utils"
 
 type VisaHeroTrustItem = {
@@ -52,41 +53,25 @@ const defaultTrustItems: ReadonlyArray<VisaHeroTrustItem> = [
 ]
 
 const defaultReviewProof: VisaHeroReviewProof = {
-  rating: 4.9,
-  reviewCount: "120+",
-  source: "Google",
+  rating: defaultGoogleReviewSummary.rating,
+  reviewCount: defaultGoogleReviewSummary.reviewCount,
+  source: defaultGoogleReviewSummary.sourceLabel,
 }
 
 function VisaHeroReviewBadge({
   rating,
   reviewCount,
-  source = "Google",
+  source = defaultGoogleReviewSummary.sourceLabel,
 }: VisaHeroReviewProof) {
-  const label = `${siteConfig.name} is rated ${rating} out of 5 on ${source} from more than ${reviewCount} reviews`
-
   return (
-    <div
-      className="flex flex-wrap items-center gap-x-3 gap-y-1"
-      role="group"
-      aria-label={label}
-    >
-      <div className="flex items-center gap-1.5" aria-hidden>
-        <div className="flex gap-px">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <Star
-              key={index}
-              className="size-3 fill-amber-500/75 text-amber-500/75"
-            />
-          ))}
-        </div>
-        <span className="text-sm font-semibold tabular-nums tracking-tight text-foreground">
-          {rating}
-        </span>
-      </div>
-      <p className="text-[13px] leading-snug text-muted-foreground">
-        on {source} · {reviewCount} reviews
-      </p>
-    </div>
+    <GoogleReviewSummary
+      rating={rating}
+      reviewCount={reviewCount}
+      sourceLabel={source}
+      layout="inline"
+      size="sm"
+      includeBusinessInLabel
+    />
   )
 }
 

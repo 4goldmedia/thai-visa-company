@@ -1,4 +1,5 @@
-import { ReviewCard, StarRating } from "@/components/cards/review-card"
+import { ReviewCard } from "@/components/cards/review-card"
+import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionHeading } from "@/components/layout/section-heading"
@@ -11,15 +12,8 @@ import {
 } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
-import {
-  googleReviewsUrl,
-  platformBusinessProfile,
-} from "@/lib/schema/business-profile"
-
-const reviewSummary = {
-  rating: platformBusinessProfile.googleReviews.aggregateRating.ratingValue,
-  reviewCount: platformBusinessProfile.googleReviews.aggregateRating.reviewCount,
-} as const
+import { googleReviewsUrl, platformBusinessProfile } from "@/lib/schema/business-profile"
+import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
 
 const reviews = platformBusinessProfile.reviews.map((item) => ({
   name: item.author,
@@ -41,18 +35,15 @@ function Reviews() {
           titleClassName="max-w-xl"
           className="flex-1"
         />
-        <aside
-          className="shrink-0 sm:text-right"
-          aria-label={`${reviewSummary.rating} out of 5 average from ${reviewSummary.reviewCount} Google reviews`}
-        >
-          <p className="text-xl font-semibold tabular-nums tracking-tight text-foreground sm:text-2xl">
-            {reviewSummary.rating}
-          </p>
-          <StarRating rating={reviewSummary.rating} className="mt-1.5 sm:justify-end" />
-          <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground">
-            {reviewSummary.reviewCount} Google reviews
-          </p>
-        </aside>
+        <GoogleReviewSummary
+          rating={defaultGoogleReviewSummary.rating}
+          reviewCount={defaultGoogleReviewSummary.reviewCount}
+          href={defaultGoogleReviewSummary.href}
+          layout="stacked"
+          size="md"
+          linkToReviews
+          className="shrink-0 sm:items-end"
+        />
       </div>
 
       <ul
@@ -103,4 +94,4 @@ function ReviewsSection() {
   )
 }
 
-export { Reviews, ReviewsSection, reviews, reviewSummary }
+export { Reviews, ReviewsSection, reviews, defaultGoogleReviewSummary as reviewSummary }

@@ -94,6 +94,33 @@ Requirements:
 
 ---
 
+## Google Review Summary
+
+**Component:** `components/ui/google-review-summary.tsx`  
+**Data:** `lib/reviews/google-summary.ts` → `platformBusinessProfile`
+
+| Placement | Layout | Notes |
+|-----------|--------|--------|
+| Homepage hero | `inline` `sm` | `includeBusinessInLabel` |
+| Reviews section | `stacked` `md` | `linkToReviews` |
+| Final CTA (home + visas) | `inline` `sm` | Above `ContactCtaGroup` |
+| Visa hero | `inline` `sm` | Via `VisaHeroReviewBadge` |
+
+---
+
+## Mobile Contact Bar
+
+**Location:** `components/layout/mobile-contact-bar.tsx`  
+**Integration:** `SiteShell` → `app/layout.tsx` (all marketing routes)
+
+Requirements:
+- mobile-only (`lg:hidden`)
+- sticky bottom, LINE + WhatsApp
+- content offset + `scroll-padding-bottom` (no overlap with footer or anchors)
+- hidden when mobile nav menu is open
+
+---
+
 ## Footer
 
 Requirements:

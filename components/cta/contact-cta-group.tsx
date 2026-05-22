@@ -1,18 +1,9 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
-import {
-  contactLinks,
-  ctaHref,
-  ctaLabels,
-} from "@/lib/cta"
-import {
-  ctaButtonPrimaryClass,
-  ctaButtonSecondaryClass,
-  ctaStackClass,
-  ctaTertiaryLinkClass,
-} from "@/lib/section-styles"
+import { MessagingCtaPair } from "@/components/cta/messaging-cta-pair"
+import { ctaHref, ctaLabels } from "@/lib/cta"
+import { ctaTertiaryLinkClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 type ContactCtaGroupProps = {
@@ -27,26 +18,7 @@ function ContactCtaGroup({
 }: ContactCtaGroupProps) {
   return (
     <div className={cn("flex flex-col gap-3", className)}>
-      <div className={ctaStackClass}>
-        <Button asChild className={ctaButtonPrimaryClass}>
-          <a
-            href={contactLinks.line}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {ctaLabels.line}
-          </a>
-        </Button>
-        <Button asChild variant="outline" className={ctaButtonSecondaryClass}>
-          <a
-            href={contactLinks.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {ctaLabels.whatsapp}
-          </a>
-        </Button>
-      </div>
+      <MessagingCtaPair layout="stack" />
 
       {showExplore ? (
         <Link href={ctaHref.exploreVisas} className={ctaTertiaryLinkClass}>

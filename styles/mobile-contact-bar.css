@@ -1,0 +1,21 @@
+/* =============================================================================
+   Mobile contact bar — global layout offset & scroll padding (marketing site)
+   ============================================================================= */
+
+:root {
+  /* Bar chrome: pt-2.5 + h-10 buttons + min pb — keep in sync with component */
+  --mobile-contact-bar-height: 3.75rem;
+}
+
+@media (max-width: 1023px) {
+  html {
+    scroll-padding-bottom: calc(
+      var(--mobile-contact-bar-height) + env(safe-area-inset-bottom, 0px)
+    );
+  }
+
+  /* Hide when mobile nav drawer is open — avoids duplicate CTAs and overlap */
+  html[data-mobile-nav-open] [data-slot="mobile-contact-bar"] {
+    display: none;
+  }
+}

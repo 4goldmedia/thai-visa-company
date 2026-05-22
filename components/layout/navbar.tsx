@@ -5,16 +5,9 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
+import { MessagingCtaPair } from "@/components/cta/messaging-cta-pair"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/layout/container"
-import {
-  contactLinks,
-  ctaLabels,
-  navbarCtaPrimaryClass,
-  navbarCtaSecondaryClass,
-  navbarMenuCtaPrimaryClass,
-  navbarMenuCtaSecondaryClass,
-} from "@/lib/cta"
 import { motionClass } from "@/lib/motion-classes"
 import { mainNavLinks } from "@/lib/navigation"
 import { siteConfig } from "@/lib/site"
@@ -97,6 +90,16 @@ function Navbar({ className }: NavbarProps) {
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  React.useEffect(() => {
+    const root = document.documentElement
+    if (menuOpen) {
+      root.setAttribute("data-mobile-nav-open", "")
+    } else {
+      root.removeAttribute("data-mobile-nav-open")
+    }
+    return () => root.removeAttribute("data-mobile-nav-open")
+  }, [menuOpen])
 
   React.useEffect(() => {
     if (!menuOpen) return
@@ -283,99 +286,13 @@ type NavbarCTAsProps = {
 }
 
 function NavbarCTAs({ layout, onNavigate }: NavbarCTAsProps) {
-  const isMobileMenu = layout === "mobile-menu"
-  const isMobileBar = layout === "mobile-bar"
-
-  const primaryClass = isMobileMenu
-    ? navbarMenuCtaPrimaryClass
-    : navbarCtaPrimaryClass
-  const secondaryClass = isMobileMenu
-    ? navbarMenuCtaSecondaryClass
-    : navbarCtaSecondaryClass
-
-  if (isMobileBar) {
-    return (
-      <div className="flex items-center gap-2">
-        <Button asChild className={primaryClass}>
-          <a
-            href={contactLinks.line}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={ctaLabels.line}
-          >
-            {ctaLabels.lineShort}
-          </a>
-        </Button>
-        <Button
-          asChild
-          variant="outline"
-          className={cn(secondaryClass, "hidden min-[480px]:inline-flex")}
-        >
-          <a
-            href={contactLinks.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={ctaLabels.whatsapp}
-          >
-            {ctaLabels.whatsapp}
-          </a>
-        </Button>
-      </div>
-    )
-  }
-
-  if (isMobileMenu) {
-    return (
-      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-        <Button asChild className={primaryClass}>
-          <a
-            href={contactLinks.line}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onNavigate}
-          >
-            {ctaLabels.line}
-          </a>
-        </Button>
-        <Button asChild variant="outline" className={secondaryClass}>
-          <a
-            href={contactLinks.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onNavigate}
-          >
-            {ctaLabels.whatsapp}
-          </a>
-        </Button>
-      </div>
-    )
-  }
+  const pairLayout =
+    layout === "mobile-menu"
+      ? "navbar-menu"
+      : "navbar-compact"
 
   return (
-    <div className="flex items-center gap-2">
-      <Button asChild className={primaryClass}>
-        <a
-          href={contactLinks.line}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={ctaLabels.line}
-          onClick={onNavigate}
-        >
-          {ctaLabels.lineShort}
-        </a>
-      </Button>
-      <Button asChild variant="outline" className={secondaryClass}>
-        <a
-          href={contactLinks.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={ctaLabels.whatsapp}
-          onClick={onNavigate}
-        >
-          {ctaLabels.whatsapp}
-        </a>
-      </Button>
-    </div>
+    <MessagingCtaPair layout={pairLayout} onNavigate={onNavigate} />
   )
 }
 

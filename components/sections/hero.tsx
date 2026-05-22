@@ -1,6 +1,7 @@
-import { BadgeCheck, Clock, MessageCircle, Star } from "lucide-react"
+import { BadgeCheck, Clock, MessageCircle } from "lucide-react"
 
 import { ContactCtaGroup } from "@/components/cta"
+import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { motionClass } from "@/lib/motion-classes"
@@ -85,8 +86,7 @@ function Hero() {
         className={cn(
           "flex w-full flex-col",
           mobileReadableWidthClass,
-          "lg:max-w-[36rem]",
-          motionClass.fadeUpMount
+          "lg:max-w-[36rem]"
         )}
       >
         <p className={sectionEyebrowClass}>Thailand visa specialists</p>
@@ -108,28 +108,7 @@ function Hero() {
         <ContactCtaGroup className="mt-5 sm:mt-6" />
 
         <div className="mt-6 border-t border-border/50 pt-5 sm:mt-7 sm:pt-6">
-          <div
-            className="flex flex-wrap items-center gap-x-3 gap-y-1"
-            role="group"
-            aria-label={`${siteConfig.name} is rated 4.9 out of 5 on Google from more than 120 reviews`}
-          >
-            <div className="flex items-center gap-1.5" aria-hidden>
-              <div className="flex gap-px">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="size-3 fill-amber-500/75 text-amber-500/75"
-                  />
-                ))}
-              </div>
-              <span className="text-sm font-semibold tabular-nums tracking-tight text-foreground">
-                4.9
-              </span>
-            </div>
-            <p className="text-[13px] leading-snug text-muted-foreground">
-              on Google · 120+ reviews
-            </p>
-          </div>
+          <GoogleReviewSummary layout="inline" size="sm" includeBusinessInLabel />
 
           <ul className="mt-4 flex flex-col gap-2.5 sm:mt-5">
             {trustIndicators.map((item) => (
