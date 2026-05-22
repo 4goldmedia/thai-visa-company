@@ -151,7 +151,11 @@ function ArticleHeader({
         {title}
       </h1>
 
-      {lead ? <p className={articleLeadClass}>{lead}</p> : null}
+      {lead ? (
+        <p className={articleLeadClass} data-page-summary role="doc-subtitle">
+          {lead}
+        </p>
+      ) : null}
 
       {metadata ? <ArticleMetadataBar metadata={metadata} /> : null}
     </header>
@@ -312,7 +316,11 @@ function ArticleCta({
 function ArticleCtaPlaceholder() {
   return (
     <ArticleCta>
-      <ContactCtaGroup showExplore={false} />
+      <ContactCtaGroup
+        showExplore={false}
+        analyticsSurface="article"
+        analyticsCtaId="article_cta_contact"
+      />
       <p className="mt-4 text-[13px] leading-[1.6] text-muted-foreground sm:text-sm sm:leading-snug">
         {defaultFinalCtaFootnote}
       </p>

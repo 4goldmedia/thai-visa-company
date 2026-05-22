@@ -1,74 +1,163 @@
+import type { ContentJsonLdNode } from "@/lib/schema"
+import type { ArticleInput } from "@/lib/schema/types"
+
 // -----------------------------------------------------------------------------
-// Collections
+// Collections — MDX article registry
 // -----------------------------------------------------------------------------
 
 export const contentCollectionIds = ["resources", "visa-guides"] as const
 
 export type ContentCollectionId = (typeof contentCollectionIds)[number]
 
+/** App Router path segment for an article, e.g. `how-to-get-thailand-retirement-visa` */
+export type ContentSlug = string
+
+export type ContentArticlePath = `/${string}`
+
+/** Registry lookup key: `<collection>/<slug>` */
+export type ContentArticleKey = `${ContentCollectionId}/${string}`
+
 // -----------------------------------------------------------------------------
-// SEO
+// Primitives
 // -----------------------------------------------------------------------------
 
-import type { ContentJsonLdNode } from "@/lib/schema"
-import type { ArticleInput } from "@/lib/schema/types"
+/** ISO calendar date for publish metadata — `YYYY-MM-DD` */
+export type ContentIsoDate = string
 
-type ContentArticleSchemaType = NonNullable<ArticleInput["type"]>
+/** Stable id for accordion / FAQ schema (`value` in Radix, FAQPage) */
+export type ContentFaqId = string
+
+/** In-page anchor id for MDX headings and table of contents */
+export type ContentHeadingId = string
+
+// -----------------------------------------------------------------------------
+// SEO — shared by visa pages, articles, and index content
+// -----------------------------------------------------------------------------
 
 export type ContentSeo = {
-  /** Page `<title>` and JSON-LD headline (can match `title`) */
+  /** Page `<title>` segment or absolute title */
   title: string
-  /** Meta description and social preview copy */
+  /** Meta description, Open Graph, and JSON-LD description */
   description: string
-  keywords?: string[]
+  keywords?: ReadonlyArray<string>
+  /** Social title override */
   ogTitle?: string
+  /** Social description override */
   ogDescription?: string
-  /** When true, sets noindex on the page */
+  /** When true, metadata helpers set noindex */
   noIndex?: boolean
 }
 
-/** Optional structured data extensions per article */
+/** Minimal SEO block for visa landing pages (no OG overrides by default) */
+export type ContentVisaPageSeo = Pick<
+  ContentSeo,
+  "title" | "description" | "keywords"
+>
+
+// -----------------------------------------------------------------------------
+// FAQ — visible UI + FAQPage JSON-LD (must match)
+// -----------------------------------------------------------------------------
+
+export type ContentFaqItem = {
+  value: ContentFaqId
+  question: string
+  answer: string
+}
+
+export type ContentFaqSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  items: ReadonlyArray<ContentFaqItem>
+}
+
+// -----------------------------------------------------------------------------
+// Related content & navigation links
+// -----------------------------------------------------------------------------
+
+export type ContentRelatedLink = {
+  category: string
+  title: string
+  description: string
+  href: string
+}
+
+/** @alias ContentRelatedLink — used by `RelatedResources` section */
+export type RelatedResourceItem = ContentRelatedLink
+
+export type ContentRelatedSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  items: ReadonlyArray<ContentRelatedLink>
+  /** Link to resources index or hub */
+  indexHref?: string
+}
+
+// -----------------------------------------------------------------------------
+// CTA blocks — article sidebars and closing sections
+// -----------------------------------------------------------------------------
+
+export type ContentCta = {
+  title: string
+  description: string
+  eyebrow?: string
+  footnote?: string
+}
+
+// -----------------------------------------------------------------------------
+// Featured image — MDX / schema placeholders
+// -----------------------------------------------------------------------------
+
+/**
+ * Featured image path under `public/`, e.g. `/images/articles/<slug>.jpg`.
+ * Omit to use the per-slug placeholder pattern in JSON-LD.
+ */
+export type ContentFeaturedImage = string
+
+type ContentArticleSchemaType = NonNullable<ArticleInput["type"]>
+
 export type ContentArticleSchema = {
   primaryType?: ContentArticleSchemaType
-  /**
-   * Featured image path under `public/`, e.g. `/images/articles/<slug>.jpg`.
-   * When omitted, schema uses the per-slug placeholder pattern.
-   */
-  featuredImage?: string
+  featuredImage?: ContentFeaturedImage
   additionalNodes?: ReadonlyArray<ContentJsonLdNode>
 }
 
 // -----------------------------------------------------------------------------
-// Shared article frontmatter
+// Publishable document base
 // -----------------------------------------------------------------------------
 
-/**
- * Base metadata every article exports from `content/articles/<collection>/<slug>/meta.ts`.
- * Collection-specific types extend this shape.
- */
-export type ContentArticleBase = {
-  collection: ContentCollectionId
-  slug: string
+export type ContentPublishable = {
+  slug: ContentSlug
   title: string
   description: string
-  /** ISO date — `YYYY-MM-DD` */
-  publishedAt: string
-  /** ISO date — `YYYY-MM-DD` */
-  updatedAt?: string
-  /** Display category, e.g. "Visa guide" */
-  category: string
-  tags: string[]
+  publishedAt: ContentIsoDate
+  updatedAt?: ContentIsoDate
   published: boolean
-  seo: ContentSeo
-  /** Optional schema.org extensions for JSON-LD `@graph` */
-  schema?: ContentArticleSchema
 }
 
-export type ContentArticlePath = `/${string}`
+// -----------------------------------------------------------------------------
+// MDX article frontmatter (collection meta)
+// -----------------------------------------------------------------------------
 
 export type ContentArticleTocItem = {
   id: string
   label: string
+}
+
+/**
+ * Base metadata every MDX article exports from
+ * `content/articles/<collection>/<slug>/meta.ts`.
+ */
+export type ContentArticleBase = ContentPublishable & {
+  collection: ContentCollectionId
+  /** Canonical URL path, e.g. `/resources/<slug>` */
+  path: ContentArticlePath
+  /** Display category, e.g. "Visa guide" */
+  category: string
+  tags: ReadonlyArray<string>
+  seo: ContentSeo
+  schema?: ContentArticleSchema
 }
 
 export type ContentArticleModule<TMeta extends ContentArticleBase = ContentArticleBase> =
@@ -77,11 +166,42 @@ export type ContentArticleModule<TMeta extends ContentArticleBase = ContentArtic
     meta: TMeta
   }
 
-/** Registry lookup key: `<collection>/<slug>` */
-export type ContentArticleKey = `${ContentCollectionId}/${string}`
-
 export type ContentArticleRegistryEntry<TMeta extends ContentArticleBase> = {
   collection: TMeta["collection"]
-  slug: string
+  slug: ContentSlug
   load: () => Promise<ContentArticleModule<TMeta>>
+}
+
+// -----------------------------------------------------------------------------
+// MDX article layout fields (resources, visa guides)
+// -----------------------------------------------------------------------------
+
+export type ContentArticleLayoutMeta = {
+  eyebrow: string
+  lead: string
+  headingId: ContentHeadingId
+  readingTime?: string
+  tableOfContents: ReadonlyArray<ContentArticleTocItem>
+  faq: ReadonlyArray<ContentFaqItem>
+}
+
+// -----------------------------------------------------------------------------
+// Visa landing pages — typed content model (data in `lib/visas/content/*`)
+// -----------------------------------------------------------------------------
+
+export type ContentVisaProcessStep = {
+  step: number
+  title: string
+  description: string
+}
+
+/** Visa page final CTA — aligns with `FinalCTASection` */
+export type ContentVisaFinalCta = ContentCta
+
+export type ContentVisaPath = `/visas/${string}`
+
+export type ContentVisaPageBase = ContentPublishable & {
+  path: ContentVisaPath
+  seo: ContentVisaPageSeo
+  finalCta: ContentVisaFinalCta
 }

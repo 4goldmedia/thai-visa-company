@@ -1,19 +1,26 @@
-import type { ResourceArticleMeta } from "@/lib/content/articles/resources"
-import type { VisaGuideArticleMeta } from "@/lib/content/articles/visa-guides"
+import type { ResourceArticleMeta } from "@/lib/content/collections/resources"
+import type { VisaGuideArticleMeta } from "@/lib/content/collections/visa-guides"
 import { toContentArticleKey } from "@/lib/content/collections"
 import type {
+  ContentArticleBase,
   ContentArticleKey,
   ContentArticleModule,
   ContentCollectionId,
 } from "@/lib/content/types"
 
 // -----------------------------------------------------------------------------
-// Article loaders — one entry per `content/articles/<collection>/<slug>/`
+// Registry — add one entry per `content/articles/<collection>/<slug>/`
 // -----------------------------------------------------------------------------
 
-const articleLoaders = {
-  "resources/how-to-get-thailand-retirement-visa":
-    async (): Promise<ContentArticleModule<ResourceArticleMeta>> => {
+const articleEntries = {
+  "resources/how-to-get-thailand-retirement-visa": {
+    collection: "resources",
+    slug: "how-to-get-thailand-retirement-visa",
+    loadMeta: () =>
+      import(
+        "@/content/articles/resources/how-to-get-thailand-retirement-visa/meta"
+      ).then((m) => m.meta),
+    loadModule: async (): Promise<ContentArticleModule<ResourceArticleMeta>> => {
       const [{ default: Content }, { meta }] = await Promise.all([
         import(
           "@/content/articles/resources/how-to-get-thailand-retirement-visa/content.mdx"
@@ -24,15 +31,13 @@ const articleLoaders = {
       ])
       return { default: Content, meta }
     },
-} as const satisfies Record<
-  string,
-  () => Promise<ContentArticleModule<ResourceArticleMeta | VisaGuideArticleMeta>>
->
+  },
+} as const
 
-export type RegisteredContentArticleKey = keyof typeof articleLoaders
+export type RegisteredContentArticleKey = keyof typeof articleEntries
 
 export const registeredContentArticleKeys = Object.keys(
-  articleLoaders,
+  articleEntries,
 ) as RegisteredContentArticleKey[]
 
 export function parseContentArticleKey(
@@ -49,7 +54,23 @@ export function parseContentArticleKey(
 export function isRegisteredContentArticleKey(
   key: string,
 ): key is RegisteredContentArticleKey {
-  return key in articleLoaders
+  return key in articleEntries
+}
+
+export function getRegistryKeysForCollection(
+  collection: ContentCollectionId,
+): RegisteredContentArticleKey[] {
+  return registeredContentArticleKeys.filter((key) =>
+    key.startsWith(`${collection}/`),
+  )
+}
+
+export async function loadArticleMeta(
+  key: RegisteredContentArticleKey,
+): Promise<ContentArticleBase | null> {
+  const entry = articleEntries[key]
+  if (!entry) return null
+  return entry.loadMeta()
 }
 
 export async function loadContentArticle(
@@ -57,9 +78,9 @@ export async function loadContentArticle(
 ): Promise<
   ContentArticleModule<ResourceArticleMeta | VisaGuideArticleMeta> | null
 > {
-  const loader = articleLoaders[key]
-  if (!loader) return null
-  return loader()
+  const entry = articleEntries[key]
+  if (!entry) return null
+  return entry.loadModule()
 }
 
 export async function loadContentArticleBySlug(
@@ -73,22 +94,14 @@ export async function loadContentArticleBySlug(
   return loadContentArticle(key)
 }
 
-export function getRegistryKeysForCollection(
-  collection: ContentCollectionId,
-): RegisteredContentArticleKey[] {
-  return registeredContentArticleKeys.filter((key) =>
-    key.startsWith(`${collection}/`),
-  )
-}
-
 export async function getPublishedKeysForCollection(
   collection: ContentCollectionId,
 ): Promise<RegisteredContentArticleKey[]> {
   const keys = getRegistryKeysForCollection(collection)
   const published = await Promise.all(
     keys.map(async (key) => {
-      const mod = await loadContentArticle(key)
-      return mod?.meta.published ? key : null
+      const meta = await loadArticleMeta(key)
+      return meta?.published ? key : null
     }),
   )
   return published.filter((key): key is RegisteredContentArticleKey => key !== null)
@@ -98,8 +111,8 @@ export async function getPublishedPathsForCollection(
   collection: ContentCollectionId,
 ): Promise<string[]> {
   const keys = await getPublishedKeysForCollection(collection)
-  const modules = await Promise.all(keys.map((key) => loadContentArticle(key)))
-  return modules
-    .filter((mod): mod is NonNullable<typeof mod> => mod !== null)
-    .map((mod) => mod.meta.path)
+  const metas = await Promise.all(keys.map((key) => loadArticleMeta(key)))
+  return metas
+    .filter((meta): meta is ContentArticleBase => meta !== null)
+    .map((meta) => meta.path)
 }

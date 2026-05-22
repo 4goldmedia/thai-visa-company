@@ -37,6 +37,7 @@ function ResourcesArticleGrid({
             title={article.title}
             description={article.description}
             href={article.path}
+            status={article.status}
             className="w-full"
           />
         </li>

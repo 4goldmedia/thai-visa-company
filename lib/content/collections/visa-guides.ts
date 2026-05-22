@@ -2,29 +2,22 @@ import { getArticlePath } from "@/lib/content/collections"
 import { toArticleLayoutMetadata } from "@/lib/content/schema"
 import type {
   ContentArticleBase,
-  ContentArticleTocItem,
+  ContentArticleLayoutMeta,
+  ContentArticleModule,
   ContentSeo,
 } from "@/lib/content/types"
-import type { VisaFaqItem } from "@/lib/visas/types"
 
-/**
- * Long-form visa guides (future route: `/visas/guides/[slug]`).
- * Mirrors resource articles but lives in the visa-guides collection.
- */
-export type VisaGuideArticleMeta = ContentArticleBase & {
-  collection: "visa-guides"
-  path: `/visas/guides/${string}`
-  /** Visa slug this guide supports, e.g. `retirement` */
-  visaSlug?: string
-  eyebrow: string
-  lead: string
-  headingId: string
-  readingTime?: string
-  tableOfContents: ReadonlyArray<ContentArticleTocItem>
-  faq: ReadonlyArray<VisaFaqItem>
-}
+export type VisaGuideArticleMeta = ContentArticleBase &
+  ContentArticleLayoutMeta & {
+    collection: "visa-guides"
+    path: `/visas/guides/${string}`
+    visaSlug?: string
+  }
 
-type DefineVisaGuideArticleInput = Omit<VisaGuideArticleMeta, "collection" | "path"> & {
+type DefineVisaGuideArticleInput = Omit<
+  VisaGuideArticleMeta,
+  "collection" | "path"
+> & {
   seo: ContentSeo
 }
 
@@ -60,3 +53,5 @@ export function toVisaGuideArticlePageProps(meta: VisaGuideArticleMeta) {
     visaSlug: meta.visaSlug,
   }
 }
+
+export type VisaGuideArticleModule = ContentArticleModule<VisaGuideArticleMeta>

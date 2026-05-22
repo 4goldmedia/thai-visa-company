@@ -1,3 +1,5 @@
+import { analyticsDataAttributes } from "@/lib/analytics/attributes"
+import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { getMessagingChannels } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 
@@ -9,13 +11,19 @@ const footerLinkClass = cn(
 )
 
 /**
- * Footer list of LINE and WhatsApp links — env-based URLs.
+ * Footer list of LINE and WhatsApp links — `getMessagingChannels()` registry.
  */
 function FooterMessagingLinks() {
   const channels = getMessagingChannels()
 
   return (
-    <>
+    <div
+      className="contents"
+      {...analyticsDataAttributes({
+        ctaId: analyticsCtaIds.footerContact,
+        surface: "global",
+      })}
+    >
       {channels.map((channel) => (
         <li key={channel.id}>
           <a
@@ -30,7 +38,7 @@ function FooterMessagingLinks() {
           </a>
         </li>
       ))}
-    </>
+    </div>
   )
 }
 

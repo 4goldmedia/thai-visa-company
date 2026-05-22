@@ -1,8 +1,8 @@
 import {
   buildFaqSchemaGraph,
+  JsonLdScript,
   normalizeFaqItems,
-} from "@/lib/schema/faq-schema"
-import { JsonLdScript } from "@/lib/schema/json-ld-script"
+} from "@/lib/seo/schema"
 import type { FaqItemInput } from "@/lib/schema/types"
 import type { VisaFaqItem } from "@/lib/visas/types"
 

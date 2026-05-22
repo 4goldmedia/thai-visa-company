@@ -1,4 +1,4 @@
-import { defineResourceArticle } from "@/lib/content/articles/resources"
+import { defineResourceArticle } from "@/lib/content/collections/resources"
 import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
 
 export const meta = defineResourceArticle({

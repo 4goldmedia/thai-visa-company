@@ -5,6 +5,8 @@ Final cross-cutting review of the Thailand visa marketing platform before launch
 
 **Verdict:** **Conditional go** — core experience is production-grade in architecture, UX, and code quality; **launch blockers** are incomplete routes, broken internal links, and unfinished conversion/analytics wiring—not visual polish.
 
+> **Updated audit (May 2026):** [FINAL_ARCHITECTURE_AUDIT.md](./FINAL_ARCHITECTURE_AUDIT.md) — nav/404 fixes, planned resource cards, JSON-LD filter; **85% conditional go**.
+
 ---
 
 ## Executive scorecard

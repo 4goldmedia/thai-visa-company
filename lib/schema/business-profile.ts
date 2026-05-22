@@ -1,27 +1,30 @@
-import { contactLinks } from "@/lib/contact"
+import { CONTACT_URLS } from "@/lib/contact"
 import { getSiteUrl } from "@/lib/seo"
-import { siteConfig } from "@/lib/site"
+import {
+  getSiteContactPhone,
+  siteBrand,
+  siteLocation,
+  siteMetadata,
+  siteSocial,
+} from "@/lib/site"
 
 import type {
   AggregateRatingInput,
   ReviewItemInput,
 } from "@/lib/schema/types"
 
-/** Google Business / Maps reviews listing */
-export const googleReviewsUrl =
-  process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL ??
-  "https://www.google.com/maps"
+/** Google Business / Maps reviews listing — from `siteSocial` */
+export const googleReviewsUrl = siteSocial.googleReviews
 
 /**
  * Single source of truth for Organization & LocalBusiness schema.
  * Import here for JSON-LD; mirror key fields in UI where needed.
  */
 export const platformBusinessProfile = {
-  name: siteConfig.name,
-  tagline: siteConfig.tagline,
+  name: siteBrand.name,
+  tagline: siteBrand.tagline,
   url: () => getSiteUrl().origin,
-  description:
-    "Professional Thailand visa support for foreigners. Clear guidance on retirement, DTV, business, Elite, and long-stay visas—with fast, practical help on LINE and WhatsApp.",
+  description: siteMetadata.defaultDescription,
   /** Visa expertise signals for search and AI extraction */
   knowsAbout: [
     "Thailand visa application",
@@ -35,16 +38,16 @@ export const platformBusinessProfile = {
   serviceType: "Thailand visa consulting",
   areaServed: ["Thailand", "Worldwide"] as const,
   contact: {
-    email: contactLinks.email,
-    line: contactLinks.line,
-    whatsapp: contactLinks.whatsapp,
-    telephone: process.env.NEXT_PUBLIC_CONTACT_PHONE,
+    email: CONTACT_URLS.email,
+    line: CONTACT_URLS.line,
+    whatsapp: CONTACT_URLS.whatsapp,
+    telephone: getSiteContactPhone(),
   },
   googleReviews: {
-    url: googleReviewsUrl,
+    url: siteSocial.googleReviews,
     aggregateRating: {
       ratingValue: 4.9,
-      reviewCount: "120+",
+      reviewCount: 120,
       bestRating: 5,
       worstRating: 1,
     } satisfies AggregateRatingInput,
@@ -74,13 +77,10 @@ export const platformBusinessProfile = {
     },
   ] satisfies ReadonlyArray<ReviewItemInput>,
   address: {
-    addressLocality: "Bangkok",
-    addressCountry: "TH",
+    addressLocality: siteLocation.addressLocality,
+    addressCountry: siteLocation.addressCountry,
   },
-  geo: {
-    latitude: 13.7563,
-    longitude: 100.5018,
-  },
+  geo: siteLocation.geo,
   priceRange: "$$",
   availableLanguages: ["English", "Thai"] as const,
 } as const

@@ -1,27 +1,18 @@
-import { buildResourceArticleSchemaGraph } from "@/lib/schema/article-schema"
-import { JsonLdScript } from "@/lib/schema/json-ld-script"
 import type { ResourceArticlePageProps } from "@/lib/content"
-import type { JsonLdNode } from "@/lib/schema/types"
+import { buildResourceArticleRouteSchemaGraph } from "@/lib/content/routing"
+import { JsonLdScript } from "@/lib/seo/schema"
 
 export type ArticleJsonLdProps = {
   article: ResourceArticlePageProps
-  additionalNodes?: ReadonlyArray<JsonLdNode>
   id?: string
 }
 
 /**
- * Resource article Article JSON-LD.
- * Breadcrumbs via `ArticleLayout`; FAQ via `FaqJsonLd` on `ArticleInlineFaq`.
+ * Resource article JSON-LD — Article + BreadcrumbList (+ meta.schema extensions).
+ * FAQ schema is rendered separately via `FaqJsonLd` on `ArticleInlineFaq`.
  */
-function ArticleJsonLd({
-  article,
-  additionalNodes,
-  id = "schema-article",
-}: ArticleJsonLdProps) {
-  const graph = buildResourceArticleSchemaGraph({
-    article,
-    additionalNodes,
-  })
+function ArticleJsonLd({ article, id = "schema-article" }: ArticleJsonLdProps) {
+  const graph = buildResourceArticleRouteSchemaGraph({ article })
 
   return <JsonLdScript data={graph} id={id} />
 }

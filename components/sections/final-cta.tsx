@@ -7,6 +7,7 @@ import { SectionReveal } from "@/components/motion"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
 import { mobileReadableWidthClass, sectionBandClass } from "@/lib/section-styles"
+import type { AnalyticsSurface } from "@/lib/analytics"
 import { cn } from "@/lib/utils"
 
 type FinalCTAProps = {
@@ -18,6 +19,9 @@ type FinalCTAProps = {
   showExploreCta?: boolean
   /** Google rating trust line above contact buttons */
   showReviewSummary?: boolean
+  visaSlug?: string
+  analyticsSurface?: AnalyticsSurface
+  analyticsCtaId?: string
   className?: string
 }
 
@@ -29,6 +33,9 @@ function FinalCTA({
   footnote = defaultFinalCtaFootnote,
   showExploreCta = true,
   showReviewSummary = true,
+  visaSlug,
+  analyticsSurface = "homepage",
+  analyticsCtaId = "final_cta_contact",
   className,
 }: FinalCTAProps) {
   return (
@@ -48,6 +55,9 @@ function FinalCTA({
 
         <ContactCtaGroup
           showExplore={showExploreCta}
+          analyticsSurface={analyticsSurface}
+          analyticsCtaId={analyticsCtaId}
+          visaSlug={visaSlug}
           className={showReviewSummary ? "mt-4 sm:mt-5" : undefined}
         />
 
@@ -69,6 +79,9 @@ type FinalCTASectionProps = {
   footnote?: string
   showExploreCta?: boolean
   showReviewSummary?: boolean
+  visaSlug?: string
+  analyticsSurface?: AnalyticsSurface
+  analyticsCtaId?: string
   className?: string
 }
 

@@ -1,5 +1,7 @@
 # LAUNCH CHECKLIST
 
+> **Launch & growth sequencing:** [LAUNCH_AND_GROWTH_SYSTEM.md](./LAUNCH_AND_GROWTH_SYSTEM.md)  
+> **Final architecture audit:** [FINAL_ARCHITECTURE_AUDIT.md](./FINAL_ARCHITECTURE_AUDIT.md)  
 > Full audit: **`PRODUCTION_READINESS.md`** · Accessibility · Responsive · Performance docs in repo root.
 
 ## Technical

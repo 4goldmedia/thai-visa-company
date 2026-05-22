@@ -1,5 +1,27 @@
 # VISA PAGE ARCHITECTURE
 
+## Routing & SEO (centralized)
+
+```
+lib/visas/
+  registry.ts          → visaRegistry (all five visa pages)
+  content/<slug>.ts    → page content + seo block
+  routing/
+    visas.ts           → resolveVisaPageContext(slug)
+    seo.ts             → metadata + JSON-LD (WebPage, Service, BreadcrumbList)
+  schema/visa.ts       → buildVisaPageSchemaGraph
+  related.ts           → resolveRelatedVisas (registry + topical defaults)
+```
+
+App routes:
+
+| Route | Entry |
+|-------|--------|
+| `app/visas/[slug]/page.tsx` | `resolveVisaPageContext` (dtv, elite, business, education) |
+| `app/visas/retirement/page.tsx` | Same context resolver for retirement |
+
+`resolveVisaPageContext` returns: `visa`, `metadata`, `breadcrumbs`, `relatedVisas`.
+
 ## Purpose
 
 Visa pages serve as:
@@ -23,8 +45,9 @@ They should:
 4. Benefits
 5. Process
 6. FAQ
-7. Related Resources
-8. Final CTA
+7. Related visa services (registry-backed suggestions)
+8. Related resources (guides)
+9. Final CTA
 
 ---
 

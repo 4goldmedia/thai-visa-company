@@ -1,14 +1,11 @@
-import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { ResourceArticlePageView } from "@/components/templates/resource-article-page"
 import {
-  buildResourceArticleMetadata,
   getResourceArticleStaticParams,
-  resolveResourceArticleRelated,
-  resolveResourceArticleRoute,
-} from "@/lib/resources/routing"
-import type { ResourceArticleRouteParams } from "@/lib/resources/routing"
+  resolveResourceArticlePageContext,
+} from "@/lib/content/routing"
+import type { ResourceArticleRouteParams } from "@/lib/content/routing"
 
 /** Only pre-render slugs from the content registry */
 export const dynamicParams = false
@@ -21,28 +18,19 @@ export async function generateStaticParams() {
   return getResourceArticleStaticParams()
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
-  const route = await resolveResourceArticleRoute(slug)
-
-  if (!route) {
-    return {}
-  }
-
-  return buildResourceArticleMetadata(route.module.meta)
+  const context = await resolveResourceArticlePageContext(slug)
+  return context?.metadata ?? {}
 }
 
 export default async function ResourceArticlePage({ params }: PageProps) {
   const { slug } = await params
-  const route = await resolveResourceArticleRoute(slug)
+  const context = await resolveResourceArticlePageContext(slug)
 
-  if (!route) {
+  if (!context) {
     notFound()
   }
 
-  const related = await resolveResourceArticleRelated(route.page)
-
-  return <ResourceArticlePageView route={route} related={related} />
+  return <ResourceArticlePageView context={context} />
 }

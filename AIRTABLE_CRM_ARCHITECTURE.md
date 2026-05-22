@@ -1,5 +1,7 @@
 # AIRTABLE CRM ARCHITECTURE
 
+**Operations:** day-to-day intake, qualification, SLAs, and follow-up → [CRM_WORKFLOW_SYSTEM.md](./CRM_WORKFLOW_SYSTEM.md)
+
 ## Goal
 
 Create a lightweight CRM system for:

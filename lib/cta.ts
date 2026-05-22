@@ -6,6 +6,10 @@ import {
   ctaButtonSecondaryClass,
 } from "@/lib/section-styles"
 
+/** Short reassurance above messaging buttons — trust without pressure */
+export const ctaReassuranceLine =
+  "Free to ask · We typically reply the same business day"
+
 /** Canonical CTA copy — use across homepage for consistency */
 export const ctaLabels = {
   line: messagingChannelLabels.line,
@@ -17,12 +21,14 @@ export const ctaLabels = {
   contactForm: "Contact form",
 } as const
 
+import { homeSectionAnchors } from "@/lib/navigation"
+
 export const ctaHref = {
-  exploreVisas: "/visas",
+  exploreVisas: homeSectionAnchors.visaServices,
   contactForm: "/contact",
 } as const
 
-export { contactLinks } from "@/lib/contact"
+export { CONTACT_URLS, contactLinks } from "@/lib/contact"
 
 /** Navbar / compact header buttons */
 export const navbarCtaPrimaryClass = cn(

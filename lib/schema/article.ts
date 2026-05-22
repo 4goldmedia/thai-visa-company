@@ -7,7 +7,7 @@ import { getSchemaEntityIds } from "@/lib/schema/site"
 import type { ArticleAuthorInput, ArticleInput, JsonLdNode } from "@/lib/schema/types"
 import { compactNode, toAbsoluteUrl } from "@/lib/schema/utils"
 import { getSiteUrl } from "@/lib/seo"
-import { siteConfig } from "@/lib/site"
+import { siteBrand, siteLocale } from "@/lib/site"
 
 function resolveArticleAuthor(
   author: ArticleInput["author"],
@@ -46,7 +46,7 @@ export function buildArticle(input: ArticleInput): JsonLdNode {
     description: input.description,
     ...(input.abstract ? { abstract: input.abstract } : {}),
     url: pageUrl,
-    inLanguage: siteConfig.locale,
+    inLanguage: siteLocale.html,
     datePublished: input.datePublished,
     dateModified: input.dateUpdated ?? input.datePublished,
     ...(input.articleSection ? { articleSection: input.articleSection } : {}),
@@ -56,7 +56,7 @@ export function buildArticle(input: ArticleInput): JsonLdNode {
     isPartOf: {
       "@type": "WebSite",
       "@id": ids.website,
-      name: siteConfig.name,
+      name: siteBrand.name,
       url: getSiteUrl().origin,
     },
     ...(imageUrl

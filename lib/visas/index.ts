@@ -1,24 +1,62 @@
-import { visaPages, visaPageList } from "@/lib/visas/content"
-import { visaSlugs, type VisaPageContent, type VisaSlug } from "@/lib/visas/types"
-
-export function isVisaSlug(value: string): value is VisaSlug {
-  return (visaSlugs as readonly string[]).includes(value)
-}
+import {
+  getRegisteredVisaSlugs,
+  getVisaFromRegistry,
+  isVisaSlug,
+  registeredVisaSlugs,
+  visaRegistry,
+} from "@/lib/visas/registry"
+import type { VisaPageContent, VisaSlug } from "@/lib/visas/types"
 
 export function getVisaBySlug(slug: string): VisaPageContent | undefined {
   if (!isVisaSlug(slug)) return undefined
-  return visaPages[slug]
+  return getVisaFromRegistry(slug)
 }
 
 export function getAllVisaSlugs(): VisaSlug[] {
-  return [...visaSlugs]
+  return getRegisteredVisaSlugs()
 }
 
 export function getVisaPath(slug: VisaSlug): `/visas/${VisaSlug}` {
   return `/visas/${slug}`
 }
 
-export { visaPages, visaPageList, visaSlugs }
-export type { VisaPageContent, VisaSlug }
+export {
+  visaRegistry,
+  registeredVisaSlugs as visaSlugs,
+  getVisaFromRegistry,
+  getRegisteredVisaSlugs,
+  isVisaSlug,
+}
+
+export { visaPages, visaPageList } from "@/lib/visas/content"
+export {
+  retirementVisaPage,
+  dtvVisaPage,
+  eliteVisaPage,
+  businessVisaPage,
+  educationVisaPage,
+} from "@/lib/visas/content"
+
+export {
+  buildVisaPageMetadata,
+  buildVisaPageRouteFaqSchemaGraph,
+  buildVisaPageRouteSchemaGraph,
+  getVisaPagePaths,
+  getVisaPageRouteBreadcrumbs,
+  getVisaPageStaticParams,
+  resolveVisaPageContext,
+  type ResolvedVisaPageContext,
+  type VisaPageRouteParams,
+  type VisaPageStaticParam,
+} from "@/lib/visas/routing"
+
+export {
+  defaultRelatedVisaSlugs,
+  resolveRelatedVisas,
+  visaToRelatedLink,
+} from "@/lib/visas/related"
+
 export { getVisaSectionIds } from "@/lib/visas/section-ids"
 export type { VisaSectionIds } from "@/lib/visas/section-ids"
+
+export type { VisaPageContent, VisaSlug }

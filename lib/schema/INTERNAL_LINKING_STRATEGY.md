@@ -1,5 +1,20 @@
 # INTERNAL LINKING STRATEGY
 
+Implementation: **`lib/content/related.ts`** — scoring, topic taxonomy, and cross-type resolvers.
+
+| Resolver | Direction |
+|----------|-----------|
+| `resolveRelatedArticles` | article → article |
+| `resolveRelatedVisas` | visa → visa |
+| `resolveRelatedVisasForArticle` | article → visa |
+| `resolveRelatedArticlesForVisa` | visa → article |
+| `resolveArticleCrossLinks` / `resolveVisaCrossLinks` | unified bundle + CTA |
+| `resolveCtaLinkOpportunities` | contact / resources / visa CTAs |
+
+Priority: **manual links** → **explicit slugs** → **tag/category/topic score** (never random).
+
+---
+
 ## Goal
 
 Strengthen:

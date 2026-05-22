@@ -8,12 +8,9 @@ import { SectionReveal } from "@/components/motion"
 import { sectionContentOffsetClass, textLinkClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
-export type RelatedResourceItem = {
-  category: string
-  title: string
-  description: string
-  href: string
-}
+import type { RelatedResourceItem } from "@/lib/content/types"
+
+export type { RelatedResourceItem }
 
 type RelatedResourcesProps = {
   /** Stable id for `aria-labelledby` on the parent `<section>` */

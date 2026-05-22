@@ -1,6 +1,16 @@
 import type { VisaHeroProps } from "@/components/sections/visa-hero"
 import type { VisaOverviewContent } from "@/components/sections/visa-overview"
 import type { VisaRequirementsBlock } from "@/components/sections/visa-requirements"
+import type {
+  ContentFaqItem,
+  ContentFaqSection,
+  ContentRelatedLink,
+  ContentRelatedSection,
+  ContentVisaFinalCta,
+  ContentVisaPageSeo,
+  ContentVisaProcessStep,
+  ContentVisaPath,
+} from "@/lib/content/types"
 
 export const visaSlugs = [
   "retirement",
@@ -12,31 +22,17 @@ export const visaSlugs = [
 
 export type VisaSlug = (typeof visaSlugs)[number]
 
-export type VisaProcessStep = {
-  step: number
-  title: string
-  description: string
-}
+/** @alias ContentVisaProcessStep */
+export type VisaProcessStep = ContentVisaProcessStep
 
-export type VisaFaqItem = {
-  value: string
-  question: string
-  answer: string
-}
+/** @alias ContentFaqItem — shared with MDX articles */
+export type VisaFaqItem = ContentFaqItem
 
-export type VisaRelatedResource = {
-  category: string
-  title: string
-  description: string
-  href: string
-}
+/** @alias ContentRelatedLink */
+export type VisaRelatedResource = ContentRelatedLink
 
-export type VisaPageSeo = {
-  /** Metadata title segment — uses root title template */
-  title: string
-  description: string
-  keywords?: string[]
-}
+/** @alias ContentVisaPageSeo */
+export type VisaPageSeo = ContentVisaPageSeo
 
 export type VisaPageContent = {
   slug: VisaSlug
@@ -68,23 +64,16 @@ export type VisaPageContent = {
     eyebrow?: string
     steps: ReadonlyArray<VisaProcessStep>
   }
-  faq: {
-    title?: string
-    description?: string
-    eyebrow?: string
-    items: ReadonlyArray<VisaFaqItem>
-  }
-  relatedResources: {
-    title?: string
-    description?: string
-    eyebrow?: string
-    items: ReadonlyArray<VisaRelatedResource>
-    indexHref?: string
-  }
-  finalCta: {
-    title: string
-    description: string
-    eyebrow?: string
-    footnote?: string
-  }
+  faq: ContentFaqSection
+  /** Optional manual related visa cards — merged with `relatedVisaSlugs` / defaults */
+  relatedVisas?: ContentRelatedSection
+  /** Registry slugs for automatic related visa suggestions */
+  relatedVisaSlugs?: ReadonlyArray<VisaSlug>
+  relatedResources: ContentRelatedSection
+  finalCta: ContentVisaFinalCta
+}
+
+/** Narrow visa path for a known slug */
+export function visaPath(slug: VisaSlug): ContentVisaPath {
+  return `/visas/${slug}`
 }

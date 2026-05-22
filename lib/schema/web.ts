@@ -3,7 +3,7 @@ import { buildOrganizationReference } from "@/lib/schema/organization"
 import type { JsonLdNode } from "@/lib/schema/types"
 import { compactNode, toAbsoluteUrl } from "@/lib/schema/utils"
 import type { WebPageInput } from "@/lib/schema/types"
-import { siteConfig } from "@/lib/site"
+import { siteBrand, siteLocale, siteMetadata } from "@/lib/site"
 import { getSiteUrl } from "@/lib/seo"
 
 export function buildWebSite(): JsonLdNode {
@@ -14,10 +14,10 @@ export function buildWebSite(): JsonLdNode {
   return compactNode({
     "@type": "WebSite",
     "@id": ids.website,
-    name: siteConfig.name,
+    name: siteBrand.name,
     url: origin,
-    description: siteConfig.defaultDescription,
-    inLanguage: siteConfig.locale,
+    description: siteMetadata.defaultDescription,
+    inLanguage: siteLocale.html,
     publisher,
   })
 }
@@ -31,11 +31,11 @@ export function buildWebPage(input: WebPageInput): JsonLdNode {
     name: input.name,
     description: input.description,
     url: pageUrl,
-    inLanguage: siteConfig.locale,
+    inLanguage: siteLocale.html,
     isPartOf: {
       "@type": "WebSite",
       "@id": ids.website,
-      name: siteConfig.name,
+      name: siteBrand.name,
       url: getSiteUrl().origin,
     },
   })

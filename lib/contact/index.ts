@@ -4,10 +4,18 @@
  */
 
 export {
+  CONTACT_ENV_KEYS,
+  CONTACT_URL_FALLBACKS,
+  CONTACT_URLS,
+  getContactEmail,
+  getContactUrl,
   getLineUrl,
   getWhatsAppUrl,
-  getContactEmail,
-} from "@/lib/contact/env"
+  isDefaultContactUrl,
+  normalizeContactUrl,
+} from "@/lib/contact/constants"
+
+export type { ContactUrlKey } from "@/lib/contact/constants"
 
 export {
   contactLinks,

@@ -1,4 +1,8 @@
-import { getContactEmail, getLineUrl, getWhatsAppUrl } from "@/lib/contact/env"
+import {
+  CONTACT_URLS,
+  getContactUrl,
+  isDefaultContactUrl,
+} from "@/lib/contact/constants"
 
 export type MessagingChannelId = "line" | "whatsapp"
 
@@ -36,12 +40,8 @@ const channelDefinitions: Record<
   },
 }
 
-/** Resolved URLs from environment variables */
-export const contactLinks = {
-  line: getLineUrl(),
-  whatsapp: getWhatsAppUrl(),
-  email: getContactEmail(),
-} as const
+/** @deprecated Use `CONTACT_URLS` from `@/lib/contact` */
+export const contactLinks = CONTACT_URLS
 
 /** LINE first, WhatsApp second — site-wide conversion priority */
 export const messagingChannelOrder: readonly MessagingChannelId[] = [
@@ -50,13 +50,13 @@ export const messagingChannelOrder: readonly MessagingChannelId[] = [
 ] as const
 
 export function getMessagingChannelUrl(id: MessagingChannelId): string {
-  return contactLinks[id]
+  return getContactUrl(id)
 }
 
 export function getMessagingChannel(id: MessagingChannelId): MessagingChannel {
   return {
     ...channelDefinitions[id],
-    url: getMessagingChannelUrl(id),
+    url: getContactUrl(id),
   }
 }
 
@@ -65,8 +65,5 @@ export function getMessagingChannels(): readonly MessagingChannel[] {
 }
 
 export function isMessagingChannelConfigured(id: MessagingChannelId): boolean {
-  const url = getMessagingChannelUrl(id)
-  const fallback =
-    id === "line" ? "https://line.me/" : "https://wa.me/"
-  return url !== fallback
+  return !isDefaultContactUrl(id)
 }

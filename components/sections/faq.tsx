@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/layout/section-heading"
 import { SectionReveal } from "@/components/motion"
 import { FaqJsonLd } from "@/components/seo/faq-json-ld"
 import { FAQAccordion, FAQItem } from "@/components/ui/faq-item"
+import { homepageAiCopy } from "@/lib/seo/ai-search"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { sectionContentOffsetClass, sectionDividerClass } from "@/lib/section-styles"
 import type { VisaFaqItem } from "@/lib/visas/types"
@@ -14,31 +15,31 @@ const defaultFaqItems: ReadonlyArray<VisaFaqItem> = [
     value: "processing-time",
     question: "How long does a Thai visa take?",
     answer:
-      "Processing times depend on your nationality, visa type, and current embassy workload. We review your situation first and give you a realistic timeline before you apply.",
+      "Most Thailand visa applications take a few days to several weeks, depending on visa type, nationality, and embassy workload. We review your file first and give a realistic range before you apply—not a generic estimate.",
   },
   {
     value: "right-visa",
     question: "Which Thai visa is right for me?",
     answer:
-      "It depends on how long you plan to stay and what you will do in Thailand. We help you compare options such as tourist, business, DTV, retirement, and education visas.",
+      "The right visa depends on how long you will stay and what you will do in Thailand (tourism, work, retirement, study, or remote work). We compare tourist, business, DTV, retirement, Elite, and education options for your situation.",
   },
   {
     value: "full-process",
     question: "Can you help with the full process?",
     answer:
-      "Yes. We support the full journey: eligibility review, document preparation, submission guidance, and follow-up until your application is complete.",
+      "Yes. Thai Visa Company supports eligibility review, document checklists, submission guidance, and follow-up on LINE or WhatsApp until your application is complete.",
   },
   {
     value: "immigration-visit",
     question: "Do I need to visit immigration myself?",
     answer:
-      "Some visas require an in-person step or extension visit, while others do not. We explain what applies to your case so you know what to expect in advance.",
+      "Some routes require an embassy visit or an in-person immigration step; others do not. We explain what applies to your nationality and visa type before you travel or submit.",
   },
   {
     value: "response-time",
     question: "How quickly do you respond?",
     answer:
-      "Most clients reach us on LINE or WhatsApp. We aim to reply the same day with clear next steps, often much sooner during business hours.",
+      "We typically reply the same business day on LINE or WhatsApp, often sooner during Bangkok hours. Message us with your nationality, visa goal, and timeline for clear next steps.",
   },
 ]
 
@@ -120,9 +121,10 @@ function FaqSection({
 }: FaqSectionProps) {
   const schemaConfig = jsonLd ?? {}
   const schemaEnabled = schemaConfig.enabled !== false
-  const schemaName = schemaConfig.name ?? "Thailand visa FAQ"
+  const schemaName = schemaConfig.name ?? homepageAiCopy.faqSchemaName
   const schemaPath = schemaConfig.path ?? "/"
-  const schemaDescription = schemaConfig.description ?? description
+  const schemaDescription =
+    schemaConfig.description ?? homepageAiCopy.faqSchemaDescription
 
   return (
     <Section

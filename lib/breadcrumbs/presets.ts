@@ -27,3 +27,7 @@ export function getResourceArticleBreadcrumbs(input: {
     { label: input.title, href: input.path },
   ]
 }
+
+export function getContactPageBreadcrumbs(): BreadcrumbLink[] {
+  return [homeBreadcrumb, { label: "Contact", href: "/contact" }]
+}

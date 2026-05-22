@@ -1,37 +1,24 @@
-import { getResourceArticles } from "@/lib/resources"
+import { getPublishedResourceArticles } from "@/lib/resources"
+import { resourcesIndexContent } from "@/lib/resources"
 import {
-  buildBreadcrumbList,
-  buildCollectionPage,
-  buildItemList,
-  buildPageSchemaGraph,
+  buildResourcesIndexSchemaGraph,
   JsonLdScript,
-} from "@/lib/schema"
+} from "@/lib/seo/schema"
 
 function ResourcesIndexJsonLd() {
-  const articles = getResourceArticles()
+  const articles = getPublishedResourceArticles()
+  const { hero } = resourcesIndexContent
 
-  const graph = buildPageSchemaGraph({
-    nodes: [
-      buildCollectionPage({
-        path: "/resources",
-        name: "Thailand visa guides",
-        description:
-          "Practical Thailand visa guides for foreigners planning time in Thailand.",
-      }),
-      buildItemList({
-        items: articles.map((article) => ({
-          name: article.title,
-          path: article.path,
-        })),
-      }),
-      buildBreadcrumbList([
-        { name: "Home", path: "/" },
-        { name: "Resources", path: "/resources" },
-      ]),
-    ],
+  const graph = buildResourcesIndexSchemaGraph({
+    name: hero.title,
+    description: hero.overview,
+    articles: articles.map((article) => ({
+      name: article.title,
+      path: article.path,
+    })),
   })
 
-  return <JsonLdScript data={graph} />
+  return <JsonLdScript data={graph} id="schema-resources-index" />
 }
 
 export { ResourcesIndexJsonLd }

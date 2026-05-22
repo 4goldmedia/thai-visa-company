@@ -6,16 +6,7 @@ type ResourceArticleJsonLdProps = {
 }
 
 function ResourceArticleJsonLd({ article }: ResourceArticleJsonLdProps) {
-  return (
-    <ArticleJsonLd
-      article={article}
-      additionalNodes={
-        article.schema?.additionalNodes
-          ? [...article.schema.additionalNodes]
-          : undefined
-      }
-    />
-  )
+  return <ArticleJsonLd article={article} />
 }
 
 export { ResourceArticleJsonLd }

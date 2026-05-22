@@ -6,11 +6,13 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
 import { MessagingCtaPair } from "@/components/cta/messaging-cta-pair"
+import { analyticsDataAttributes } from "@/lib/analytics/attributes"
+import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/layout/container"
 import { motionClass } from "@/lib/motion-classes"
 import { mainNavLinks } from "@/lib/navigation"
-import { siteConfig } from "@/lib/site"
+import { siteBrand } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 const SCROLL_THRESHOLD = 8
@@ -274,8 +276,8 @@ function NavbarLogo() {
         "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
       )}
     >
-      <span className="sr-only">{siteConfig.name} — Home</span>
-      <span aria-hidden>{siteConfig.name}</span>
+      <span className="sr-only">{siteBrand.name} — Home</span>
+      <span aria-hidden>{siteBrand.shortName}</span>
     </Link>
   )
 }
@@ -291,8 +293,20 @@ function NavbarCTAs({ layout, onNavigate }: NavbarCTAsProps) {
       ? "navbar-menu"
       : "navbar-compact"
 
+  const ctaId =
+    layout === "mobile-menu"
+      ? analyticsCtaIds.navbarMenuContact
+      : analyticsCtaIds.navbarContact
+
   return (
-    <MessagingCtaPair layout={pairLayout} onNavigate={onNavigate} />
+    <div
+      {...analyticsDataAttributes({
+        ctaId,
+        surface: "global",
+      })}
+    >
+      <MessagingCtaPair layout={pairLayout} onNavigate={onNavigate} />
+    </div>
   )
 }
 

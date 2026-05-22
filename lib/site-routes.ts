@@ -129,7 +129,7 @@ export const siteRoutes = [
     group: "marketing",
     changeFrequency: "monthly",
     priority: 0.8,
-    published: false,
+    published: true,
   },
 
   // Legal

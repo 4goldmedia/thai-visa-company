@@ -57,7 +57,12 @@ function ResourcesIndexHero({
             Prefer a direct answer? Message us on LINE or WhatsApp.
           </p>
 
-          <ContactCtaGroup className="mt-4 sm:mt-5" showExplore={false} />
+          <ContactCtaGroup
+            className="mt-4 sm:mt-5"
+            showExplore={false}
+            analyticsSurface="resources"
+            analyticsCtaId="hero_contact"
+          />
         </div>
       </Container>
     </Section>

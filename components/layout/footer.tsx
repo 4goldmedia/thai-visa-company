@@ -2,12 +2,14 @@ import Link from "next/link"
 
 import { Container } from "@/components/layout/container"
 import { FooterMessagingLinks } from "@/components/cta/footer-messaging-links"
-import { contactLinks } from "@/lib/contact"
+import { CONTACT_URLS } from "@/lib/contact"
 import {
   footerLegalLinks,
   footerResourceLinks,
   footerVisaLinks,
+  homeSectionAnchors,
 } from "@/lib/navigation"
+import { siteRoutes } from "@/lib/site-routes"
 import { siteConfig } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -127,8 +129,8 @@ function FooterBrand() {
         <FooterMessagingLinks />
         <li>
           <FooterContactItem
-            href={`mailto:${contactLinks.email}`}
-            label={contactLinks.email}
+            href={`mailto:${CONTACT_URLS.email}`}
+            label={CONTACT_URLS.email}
           />
         </li>
       </ul>
@@ -138,6 +140,10 @@ function FooterBrand() {
 
 function FooterLegalBar() {
   const year = new Date().getFullYear()
+  const publishedLegalLinks = footerLegalLinks.filter((item) => {
+    const route = siteRoutes.find((entry) => entry.path === item.href)
+    return route?.published === true
+  })
 
   return (
     <div
@@ -150,23 +156,25 @@ function FooterLegalBar() {
         © {year} {siteConfig.name}
       </p>
 
-      <nav aria-label="Legal">
-        <ul className="flex flex-wrap gap-x-5 gap-y-2 p-0">
-          {footerLegalLinks.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={cn(
-                  footerLinkClass,
-                  "min-h-8 text-[12px] sm:text-[13px]"
-                )}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {publishedLegalLinks.length > 0 ? (
+        <nav aria-label="Legal">
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 p-0">
+            {publishedLegalLinks.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={cn(
+                    footerLinkClass,
+                    "min-h-8 text-[12px] sm:text-[13px]"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
     </div>
   )
 }
@@ -176,7 +184,9 @@ type FooterProps = {
 }
 
 function Footer({ className }: FooterProps) {
-  const reviewsLinks = [{ label: "Client reviews", href: "/reviews" }] as const
+  const reviewsLinks = [
+    { label: "Client reviews", href: homeSectionAnchors.reviews },
+  ] as const
   const contactNavLinks = [{ label: "Contact us", href: "/contact" }] as const
 
   return (

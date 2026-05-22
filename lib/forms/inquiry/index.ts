@@ -6,7 +6,10 @@ export {
   submitInquiryToAirtable,
 } from "@/lib/forms/inquiry/airtable"
 export type { AirtableLeadRecord } from "@/lib/forms/inquiry/airtable"
-export { trackInquiryEvent } from "@/lib/forms/inquiry/analytics"
+export {
+  trackInquiryEvent,
+  trackInquirySubmit,
+} from "@/lib/analytics"
 export type {
   InquiryAnalyticsEvent,
   InquiryAnalyticsEventName,

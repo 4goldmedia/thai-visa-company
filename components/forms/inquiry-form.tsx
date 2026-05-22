@@ -6,22 +6,26 @@ import { Loader2 } from "lucide-react"
 import { FormField } from "@/components/forms/form-field"
 import { InquiryFormSuccess } from "@/components/forms/inquiry-form-success"
 import { Button } from "@/components/ui/button"
+import { createInquiryFormDefaults } from "@/lib/forms/inquiry/defaults"
+import { submitInquiry } from "@/lib/forms/inquiry/submit"
 import {
-  createInquiryFormDefaults,
   inquiryFieldNames,
-  inquiryVisaOptions,
-  submitInquiry,
-  trackInquiryEvent,
-  toInquiryPayload,
-  validateInquiryForm,
   type InquiryFormErrors,
   type InquiryFormPayload,
   type InquiryFormResult,
   type InquiryFormValues,
   type InquiryLeadSource,
+} from "@/lib/forms/inquiry/types"
+import {
+  inquiryVisaOptions,
   type InquiryVisaInterest,
-} from "@/lib/forms/inquiry"
+} from "@/lib/forms/inquiry/visa-options"
+import {
+  toInquiryPayload,
+  validateInquiryForm,
+} from "@/lib/forms/inquiry/validation"
 import { focusFirstInquiryError } from "@/lib/forms/inquiry/focus-first-error"
+import { useInquiryAnalytics } from "@/lib/analytics/use-inquiry-analytics"
 import {
   formCardClass,
   formDescriptionClass,
@@ -48,6 +52,8 @@ export type InquiryFormProps = {
   pagePath?: string
   title?: string
   description?: string
+  /** Short line under description — e.g. time to complete */
+  timeEstimate?: string
   submitLabel?: string
   trustNote?: string
   /** Override default `/api/inquiry` submit */
@@ -73,6 +79,7 @@ function InquiryForm({
   pagePath,
   title = "Ask about your visa",
   description = "Share a few details and we will reply with clear next steps—no obligation.",
+  timeEstimate,
   submitLabel = "Send inquiry",
   trustNote = "We typically reply within one business day on LINE, WhatsApp, or email.",
   onSubmit,
@@ -94,15 +101,15 @@ function InquiryForm({
     "idle" | "submitting" | "success" | "error"
   >("idle")
   const [formError, setFormError] = React.useState<string | null>(null)
-  const hasStartedRef = React.useRef(false)
 
   const isSubmitting = status === "submitting"
   const fieldDisabled = isSubmitting
 
-  React.useEffect(() => {
-    if (!trackView) return
-    trackInquiryEvent({ name: "inquiry_form_view", leadSource, pagePath })
-  }, [trackView, leadSource, pagePath])
+  const inquiryAnalytics = useInquiryAnalytics({
+    leadSource,
+    pagePath,
+    trackView,
+  })
 
   function applyFieldErrors(nextErrors: InquiryFormErrors) {
     setErrors(nextErrors)
@@ -114,10 +121,7 @@ function InquiryForm({
     field: K,
     value: InquiryFormValues[K],
   ) {
-    if (!hasStartedRef.current) {
-      hasStartedRef.current = true
-      trackInquiryEvent({ name: "inquiry_form_start", leadSource, pagePath })
-    }
+    inquiryAnalytics.trackStart()
 
     setValues((prev) => ({ ...prev, [field]: value }))
     if (errors?.[field as keyof InquiryFormErrors]) {
@@ -138,7 +142,7 @@ function InquiryForm({
     setErrors(null)
     setFormError(null)
     setStatus("idle")
-    hasStartedRef.current = false
+    inquiryAnalytics.resetSession()
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -153,7 +157,7 @@ function InquiryForm({
 
     setErrors(null)
     setStatus("submitting")
-    trackInquiryEvent({ name: "inquiry_form_submit", leadSource, pagePath })
+    inquiryAnalytics.trackSubmit()
 
     const payload = toInquiryPayload(values, { leadSource, pagePath })
 
@@ -178,17 +182,17 @@ function InquiryForm({
           setErrors(null)
           setFormError(result.message)
         }
-        trackInquiryEvent({ name: "inquiry_form_error", leadSource, pagePath })
+        inquiryAnalytics.trackError()
         return
       }
 
       setStatus("success")
-      trackInquiryEvent({ name: "inquiry_form_success", leadSource, pagePath })
+      inquiryAnalytics.trackSuccess()
     } catch {
       setStatus("error")
       setErrors(null)
       setFormError(NETWORK_ERROR_MESSAGE)
-      trackInquiryEvent({ name: "inquiry_form_error", leadSource, pagePath })
+      inquiryAnalytics.trackError()
     }
   }
 
@@ -220,6 +224,11 @@ function InquiryForm({
         </h2>
         {description ? (
           <p className={formDescriptionClass}>{description}</p>
+        ) : null}
+        {timeEstimate ? (
+          <p className="mt-2 text-[13px] leading-snug text-muted-foreground sm:text-sm">
+            {timeEstimate}
+          </p>
         ) : null}
       </header>
 

@@ -45,7 +45,7 @@ function FAQItem({
           triggerClassName
         )}
       >
-        <span className="pr-1">{question}</span>
+        {question}
       </AccordionTrigger>
       <AccordionContent
         className={cn("text-muted-foreground", contentClassName)}

@@ -15,10 +15,11 @@ Track:
 
 ## CTA Clicks
 
-Track:
-- LINE clicks
-- WhatsApp clicks
-- inquiry form submissions
+Track (via `@/lib/analytics`):
+- `line_click` / `whatsapp_click` — `trackLineClick`, `trackWhatsAppClick`
+- `inquiry_submission` — `trackInquirySubmit`
+- `visa_page_cta_click` — `trackVisaPageCtaClick` (+ `data-analytics-*` on visa CTAs)
+- `article_cta_click` — `trackArticleCtaClick` (+ `data-analytics-*` on article CTAs)
 
 ---
 

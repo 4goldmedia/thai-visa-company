@@ -1,4 +1,5 @@
 export {
+  getContactPageBreadcrumbs,
   getResourceArticleBreadcrumbs,
   getVisaPageBreadcrumbs,
   homeBreadcrumb,

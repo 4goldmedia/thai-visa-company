@@ -1,4 +1,4 @@
-import { siteConfig } from "@/lib/site"
+import { siteLocale } from "@/lib/site"
 import { toAbsoluteUrl } from "@/lib/schema/utils"
 import type { FaqItemInput, JsonLdEntityRef, JsonLdNode } from "@/lib/schema/types"
 
@@ -46,7 +46,7 @@ export function buildFaqPage(
     ...(options.name ? { name: options.name } : {}),
     ...(options.description ? { description: options.description } : {}),
     ...(pageUrl ? { url: pageUrl } : {}),
-    inLanguage: options.inLanguage ?? siteConfig.locale,
+    inLanguage: options.inLanguage ?? siteLocale.html,
     ...(options.about ? { about: options.about } : {}),
     ...(pageUrl
       ? {

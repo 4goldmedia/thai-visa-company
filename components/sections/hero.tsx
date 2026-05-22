@@ -7,6 +7,7 @@ import { Section } from "@/components/layout/section"
 import { motionClass } from "@/lib/motion-classes"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { mobileReadableWidthClass, sectionEyebrowClass } from "@/lib/section-styles"
+import { homepageAiCopy } from "@/lib/seo/ai-search"
 import { siteConfig } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -95,17 +96,24 @@ function Hero() {
           id={sectionHeadingIds.hero}
           className="mt-2 text-[1.375rem] font-semibold leading-[1.22] tracking-tight text-balance text-foreground sm:mt-2.5 sm:text-[1.75rem] md:text-[1.875rem] lg:text-[2rem] lg:leading-[1.15]"
         >
-          <span className="block">{siteConfig.name}</span>
+          <span className="block">{homepageAiCopy.primaryHeading}</span>
           <span className="mt-1 block text-[0.92em] font-medium text-foreground/90 sm:mt-1.5">
-            {siteConfig.tagline}
+            {homepageAiCopy.secondaryLine}
           </span>
         </h1>
 
-        <p className="mt-3 text-[15px] leading-[1.7] text-muted-foreground sm:mt-3.5 sm:leading-relaxed">
-          {siteConfig.defaultDescription}
+        <p
+          className="mt-3 text-[15px] leading-[1.7] text-muted-foreground sm:mt-3.5 sm:leading-relaxed"
+          data-page-summary
+        >
+          {homepageAiCopy.heroLeadLine}
         </p>
 
-        <ContactCtaGroup className="mt-5 sm:mt-6" />
+        <ContactCtaGroup
+          className="mt-5 sm:mt-6"
+          analyticsSurface="homepage"
+          analyticsCtaId="hero_contact"
+        />
 
         <div className="mt-6 border-t border-border/50 pt-5 sm:mt-7 sm:pt-6">
           <GoogleReviewSummary layout="inline" size="sm" includeBusinessInLabel />

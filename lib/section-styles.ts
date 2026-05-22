@@ -5,7 +5,7 @@ export const mobileReadableWidthClass = "max-w-[30rem]"
 
 /** Eyebrow label above section titles */
 export const sectionEyebrowClass =
-  "text-[11px] font-medium text-muted-foreground sm:text-xs sm:text-[13px]"
+  "text-xs font-medium text-muted-foreground sm:text-[13px]"
 
 /** Gap between eyebrow, title, and description */
 export const sectionHeadingGapClass = "gap-2 sm:gap-2.5 md:gap-3"

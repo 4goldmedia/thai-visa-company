@@ -1,11 +1,13 @@
-import { buildPlatformBusinessSchemaGraph, JsonLdScript } from "@/lib/schema"
+import { buildSiteBusinessSchemaGraph, JsonLdScript } from "@/lib/seo/schema"
 
 /**
- * Site-wide Organization + LocalBusiness JSON-LD (trust, contact, Google reviews).
- * Mounted in the root layout so every page inherits business entity signals.
+ * Organization + LocalBusiness — render once in root layout.
+ * Branding and contact points come from `lib/site/config` via `platformBusinessProfile`.
  */
 function SiteBusinessJsonLd() {
-  return <JsonLdScript data={buildPlatformBusinessSchemaGraph()} id="schema-business" />
+  return (
+    <JsonLdScript data={buildSiteBusinessSchemaGraph()} id="schema-business" />
+  )
 }
 
 export { SiteBusinessJsonLd }

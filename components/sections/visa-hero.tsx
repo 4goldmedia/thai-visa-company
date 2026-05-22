@@ -20,7 +20,7 @@ type VisaHeroTrustItem = {
 
 type VisaHeroReviewProof = {
   rating: number
-  reviewCount: string
+  reviewCount: string | number
   source?: string
 }
 
@@ -38,6 +38,8 @@ type VisaHeroProps = {
   reviewProof?: VisaHeroReviewProof
   /** Show tertiary “Explore visa options” link — off by default on visa pages */
   showExploreCta?: boolean
+  /** Visa slug for analytics, e.g. `retirement` */
+  visaSlug?: string
   className?: string
 }
 
@@ -83,6 +85,7 @@ function VisaHero({
   trustItems = defaultTrustItems,
   reviewProof = defaultReviewProof,
   showExploreCta = false,
+  visaSlug,
   className,
 }: VisaHeroProps) {
   return (
@@ -104,13 +107,19 @@ function VisaHero({
         {title}
       </h1>
 
-      <p className="mt-3 text-[15px] leading-[1.7] text-pretty text-muted-foreground sm:mt-3.5 sm:text-base sm:leading-relaxed">
+      <p
+        className="mt-3 text-[15px] leading-[1.7] text-pretty text-muted-foreground sm:mt-3.5 sm:text-base sm:leading-relaxed"
+        data-page-summary
+      >
         {overview}
       </p>
 
       <ContactCtaGroup
         className="mt-5 sm:mt-6"
         showExplore={showExploreCta}
+        analyticsSurface="visa_page"
+        analyticsCtaId="hero_contact"
+        visaSlug={visaSlug}
       />
 
       <div className="mt-6 border-t border-border/50 pt-5 sm:mt-7 sm:pt-6">

@@ -4,6 +4,8 @@ import * as React from "react"
 import { Check } from "lucide-react"
 
 import { MessagingCtaPair } from "@/components/cta/messaging-cta-pair"
+import { analyticsDataAttributes } from "@/lib/analytics/attributes"
+import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { Button } from "@/components/ui/button"
 import {
   getInquirySuccessAnnouncement,
@@ -111,7 +113,14 @@ function InquiryFormSuccess({
           <p className={cn(formTrustNoteClass, "mt-1.5 max-w-[32rem]")}>
             {inquirySuccessContent.supportLead}
           </p>
-          <div className="mt-3.5 sm:mt-4" aria-labelledby={supportId}>
+          <div
+            className="mt-3.5 sm:mt-4"
+            aria-labelledby={supportId}
+            {...analyticsDataAttributes({
+              ctaId: analyticsCtaIds.inquirySuccessContact,
+              surface: "global",
+            })}
+          >
             <MessagingCtaPair layout="success" />
           </div>
         </div>

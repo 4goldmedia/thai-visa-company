@@ -1,7 +1,7 @@
-import type { ResourceArticleMeta } from "@/lib/content/articles/resources"
+import type { ResourceArticleMeta } from "@/lib/content/collections/resources"
 import type { ResourceArticle } from "@/lib/resources/types"
 
-/** Resources index card */
+/** Resources index card from collection meta */
 export function resourceMetaToIndexCard(meta: ResourceArticleMeta): ResourceArticle {
   return {
     slug: meta.slug,
@@ -11,5 +11,6 @@ export function resourceMetaToIndexCard(meta: ResourceArticleMeta): ResourceArti
     description: meta.description,
     path: meta.path,
     readingTime: meta.readingTime,
+    status: "published",
   }
 }

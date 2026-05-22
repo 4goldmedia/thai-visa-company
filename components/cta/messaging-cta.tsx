@@ -1,10 +1,7 @@
 import * as React from "react"
 
 import { Button } from "@/components/ui/button"
-import {
-  getMessagingChannel,
-  type MessagingChannelId,
-} from "@/lib/contact"
+import { getMessagingChannel, type MessagingChannelId } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 
 export type MessagingCtaLabelMode = "full" | "short"
@@ -25,7 +22,7 @@ const opensNewTabHint = (
 )
 
 /**
- * Accessible external CTA for LINE or WhatsApp — URLs from env vars.
+ * Accessible external CTA for LINE or WhatsApp — uses centralized `getMessagingChannel`.
  */
 function MessagingCta({
   channel,
@@ -38,8 +35,7 @@ function MessagingCta({
   const config = getMessagingChannel(channel)
   const visibleLabel =
     labelMode === "short" ? config.shortLabel : config.label
-  const ariaLabel =
-    labelMode === "short" ? config.ariaLabel : undefined
+  const ariaLabel = labelMode === "short" ? config.ariaLabel : undefined
 
   return (
     <Button

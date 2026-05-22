@@ -14,6 +14,8 @@ export type ResourceCategory = {
   placeholder?: boolean
 }
 
+export type ResourceArticleStatus = "published" | "planned"
+
 export type ResourceArticle = {
   slug: string
   categoryId: ResourceCategoryId
@@ -23,13 +25,17 @@ export type ResourceArticle = {
   description: string
   path: `/resources/${string}`
   readingTime?: string
+  /** Planned stubs are visible on the index but not linked until MDX ships */
+  status?: ResourceArticleStatus
 }
 
-export type ResourceIndexSeo = {
-  title: string
-  description: string
-  keywords?: string[]
-}
+import type { ContentSeo } from "@/lib/content/types"
+
+/** @alias ContentSeo — resources index metadata */
+export type ResourceIndexSeo = Pick<
+  ContentSeo,
+  "title" | "description" | "keywords"
+>
 
 export type ResourcesIndexContent = {
   seo: ResourceIndexSeo

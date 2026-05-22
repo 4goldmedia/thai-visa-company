@@ -1,9 +1,9 @@
+import type { BreadcrumbLink } from "@/lib/breadcrumbs"
 import {
   breadcrumbsToSchemaItems,
-  type BreadcrumbLink,
-} from "@/lib/breadcrumbs"
-import { buildBreadcrumbSchemaGraph } from "@/lib/schema/breadcrumb-schema"
-import { JsonLdScript } from "@/lib/schema/json-ld-script"
+  buildBreadcrumbSchemaGraph,
+  JsonLdScript,
+} from "@/lib/seo/schema"
 
 type BreadcrumbJsonLdProps = {
   items: ReadonlyArray<BreadcrumbLink>
