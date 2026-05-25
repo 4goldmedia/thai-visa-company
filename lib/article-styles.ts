@@ -33,10 +33,10 @@ export const articleEyebrowClass = cn(
 )
 
 export const articleTitleClass = cn(
-  "font-semibold tracking-[-0.02em] text-balance text-foreground",
-  "text-[1.5rem] leading-[1.2]",
-  "sm:text-[1.625rem] sm:leading-[1.18]",
-  "md:text-[1.75rem] md:leading-[1.15]"
+  "font-display font-semibold tracking-[var(--tracking-display)] text-balance text-foreground",
+  "text-[length:var(--text-display)] leading-[var(--leading-display)]",
+  "sm:text-[length:var(--text-display-md)]",
+  "md:text-[length:var(--text-display-lg)]",
 )
 
 export const articleLeadClass = cn(

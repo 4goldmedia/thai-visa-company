@@ -24,7 +24,7 @@ export default function Home() {
         className="flex flex-1 flex-col overflow-x-clip bg-background"
       >
         <HeroSection />
-        <PageAtAGlance items={homepageAiCopy.atAGlance} />
+        <PageAtAGlance {...homepageAiCopy.atAGlance} />
         <VisaTypesSection />
         <WhyChooseUsSection />
         <ProcessSection />

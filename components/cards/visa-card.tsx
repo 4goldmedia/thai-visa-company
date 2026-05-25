@@ -1,20 +1,18 @@
 import Link from "next/link"
-import { ArrowRight, CircleCheck } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
+import { OptimizedImage } from "@/components/ui/optimized-image"
 import { ctaLabels } from "@/lib/cta"
-import { cardSurfaceClass } from "@/lib/section-styles"
+import type { VisaCardImage } from "@/lib/media/photography"
 import { cn } from "@/lib/utils"
 
 type VisaCardProps = {
-  /** Visa name, e.g. Tourist Visa */
   title: string
-  /** Short supporting description */
   description: string
-  /** Primary value proposition for this visa type */
-  benefit: string
-  /** Destination URL for the card CTA */
+  /** @deprecated Use description only — kept for data compatibility */
+  benefit?: string
   href: string
-  /** CTA label — defaults to "Learn more" */
+  image: VisaCardImage
   ctaLabel?: string
   className?: string
 }
@@ -22,56 +20,40 @@ type VisaCardProps = {
 function VisaCard({
   title,
   description,
-  benefit,
   href,
+  image,
   ctaLabel = ctaLabels.learnMore,
   className,
 }: VisaCardProps) {
   return (
-    <article
-      data-slot="visa-card"
-      className={cn(
-        "group relative flex h-full min-h-0 flex-col rounded-xl",
-        cardSurfaceClass,
-        className
-      )}
-    >
-      <div className="flex flex-1 flex-col">
-        <h3 className="text-[15px] font-medium leading-snug text-foreground sm:text-base">
-          {title}
-        </h3>
+    <article data-slot="visa-card" className={cn("visa-card-ref group relative", className)}>
+      <div className="visa-card-ref__media">
+        <OptimizedImage
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+          className="object-cover"
+        />
+      </div>
 
-        <p className="mt-2 flex-1 text-[14px] leading-[1.65] text-muted-foreground sm:mt-2.5 sm:leading-relaxed">
-          {description}
-        </p>
-
-        <div className="mt-4 flex flex-col gap-3 sm:mt-5">
-          <p className="flex items-start gap-2 text-[13px] leading-snug text-foreground/90 sm:text-sm">
-            <CircleCheck
-              className="mt-0.5 size-3.5 shrink-0 text-foreground/35"
-              aria-hidden
-            />
-            <span>
-              <span className="sr-only">Key benefit: </span>
-              {benefit}
-            </span>
-          </p>
-
-          <span
-            className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/80 transition-colors group-hover:text-foreground"
+      <div className="visa-card-ref__body">
+        <h3 className="visa-card-ref__title">{title}</h3>
+        <p className="visa-card-ref__description">{description}</p>
+        <div className="visa-card-ref__footer">
+          <span className="sr-only">{ctaLabel}</span>
+          <ArrowRight
+            className="visa-card-ref__arrow size-4"
             aria-hidden
-          >
-            {ctaLabel}
-            <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-          </span>
+          />
         </div>
       </div>
 
       <Link
         href={href}
         className={cn(
-          "absolute inset-0 rounded-xl",
-          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          "absolute inset-0 rounded-[var(--radius-md)]",
+          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
         )}
       >
         <span className="sr-only">

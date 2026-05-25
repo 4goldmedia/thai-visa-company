@@ -6,10 +6,19 @@ import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import type { AnalyticsSurface } from "@/lib/analytics"
 import { ctaHref, ctaLabels, ctaReassuranceLine } from "@/lib/cta"
-import { ctaTertiaryLinkClass } from "@/lib/section-styles"
+import {
+  ctaTertiaryLinkClass,
+  heroCtaGroupClass,
+  heroCtaReassuranceClass,
+  heroCtaTertiaryLinkClass,
+  heroPremiumCtaGroupClass,
+  heroPremiumExploreLinkClass,
+} from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 type ContactCtaGroupProps = {
+  /** Visual density for hero vs inner pages */
+  layout?: "default" | "hero" | "hero-premium"
   /** Optional line above buttons — defaults to site-wide reassurance */
   reassurance?: string | null
   /** Show tertiary link to visa services */
@@ -24,6 +33,7 @@ type ContactCtaGroupProps = {
 }
 
 function ContactCtaGroup({
+  layout = "default",
   reassurance = ctaReassuranceLine,
   showExplore = true,
   analyticsSurface = "homepage",
@@ -32,6 +42,8 @@ function ContactCtaGroup({
   articleSlug,
   className,
 }: ContactCtaGroupProps) {
+  const isHero = layout === "hero"
+  const isHeroPremium = layout === "hero-premium"
   const groupAnalytics = analyticsDataAttributes({
     ctaId: analyticsCtaId,
     surface: analyticsSurface,
@@ -51,21 +63,44 @@ function ContactCtaGroup({
 
   return (
     <div
-      className={cn("flex flex-col gap-3", className)}
+      className={cn(
+        isHeroPremium
+          ? heroPremiumCtaGroupClass
+          : isHero
+            ? heroCtaGroupClass
+            : "flex flex-col gap-3",
+        className,
+      )}
       {...groupAnalytics}
     >
       {reassurance ? (
-        <p className="text-[13px] font-medium leading-snug text-foreground/85 sm:text-sm">
+        <p
+          className={cn(
+            isHero
+              ? heroCtaReassuranceClass
+              : "text-sm leading-snug text-muted-foreground",
+          )}
+        >
           {reassurance}
         </p>
       ) : null}
 
-      <MessagingCtaPair layout="stack" />
+      <MessagingCtaPair
+        layout={
+          isHeroPremium ? "hero-premium" : isHero ? "hero" : "stack"
+        }
+      />
 
       {showExplore ? (
         <Link
           href={ctaHref.exploreVisas}
-          className={ctaTertiaryLinkClass}
+          className={
+            isHeroPremium
+              ? heroPremiumExploreLinkClass
+              : isHero
+                ? heroCtaTertiaryLinkClass
+                : ctaTertiaryLinkClass
+          }
           {...exploreAnalytics}
         >
           {ctaLabels.exploreVisas}

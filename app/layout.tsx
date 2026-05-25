@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Inter_Tight } from "next/font/google"
 
 import { AnalyticsRoot } from "@/components/analytics"
 import { SiteShell } from "@/components/layout/site-shell"
@@ -25,6 +25,14 @@ const geistMono = Geist_Mono({
   adjustFontFallback: true,
 })
 
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "600"],
+  adjustFontFallback: true,
+})
+
 export const metadata = rootMetadata
 export { viewport }
 
@@ -36,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang={siteLocale.html}
-      className={cn(geistSans.variable, geistMono.variable)}
+      className={cn(geistSans.variable, geistMono.variable, interTight.variable)}
       suppressHydrationWarning
     >
       <body

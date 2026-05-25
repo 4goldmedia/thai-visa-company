@@ -16,7 +16,7 @@ export const siteBrand = {
   name: "Thai Visa Company",
   /** Compact label — nav, mobile chrome, constrained UI */
   shortName: "Thai Visa",
-  tagline: "Thailand visas, made simple.",
+  tagline: "Moving to Thailand, handled beautifully.",
 } as const
 
 export type SiteBrand = typeof siteBrand

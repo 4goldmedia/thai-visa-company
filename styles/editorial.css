@@ -1,0 +1,86 @@
+/* =============================================================================
+   Media surfaces — hero photography, architectural frames
+   ============================================================================= */
+
+@layer components {
+  .hero-media-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid oklch(0.87 0.014 85 / 0.85);
+    background-color: var(--ivory-muted);
+    aspect-ratio: 4 / 5;
+  }
+
+  .hero-media-frame--immersive {
+    aspect-ratio: auto;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  @media (min-width: 640px) {
+    .hero-media-frame {
+      aspect-ratio: 5 / 6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-media-frame {
+      aspect-ratio: 4 / 5;
+      min-height: 28rem;
+    }
+  }
+
+  .hero-media-frame__image {
+    object-fit: cover;
+    object-position: center 32%;
+    transform: scale(1.01);
+  }
+
+  .hero-media-frame__overlay {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay);
+  }
+
+  .hero-media-frame__wash {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background: var(--hero-warm-wash);
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+  }
+
+  .hero-media-caption {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-sans);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: oklch(0.98 0.005 95 / 0.88);
+    background: linear-gradient(
+      180deg,
+      oklch(0.2 0.02 55 / 0%) 0%,
+      oklch(0.2 0.02 55 / 28%) 100%
+    );
+  }
+
+  .section-eyebrow-marker::before {
+    content: "";
+    display: inline-block;
+    width: 0.375rem;
+    height: 0.375rem;
+    margin-right: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--text-tertiary);
+    vertical-align: 0.125rem;
+  }
+}

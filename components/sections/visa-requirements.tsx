@@ -82,7 +82,7 @@ function VisaRequirementsPanel({
       aria-labelledby={panelHeadingId}
       className={cn(
         "min-w-0 py-6 first:pt-0 last:pb-0 sm:py-7",
-        "lg:rounded-xl lg:border lg:border-border/50 lg:bg-card/30 lg:px-5 lg:py-5 lg:first:pt-5 lg:last:pb-5"
+        "lg:rounded-[var(--radius)] lg:border lg:border-border/50 lg:bg-card/30 lg:px-5 lg:py-5 lg:first:pt-5 lg:last:pb-5"
       )}
     >
       <h3 id={panelHeadingId} className={panelTitleClass}>

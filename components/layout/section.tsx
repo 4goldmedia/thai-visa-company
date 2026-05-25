@@ -7,12 +7,13 @@ import { cn } from "@/lib/utils"
 const sectionVariants = cva("", {
   variants: {
     spacing: {
-      /** Standard homepage sections — tighter on small screens */
-      default: "py-12 sm:py-14 md:py-16 lg:py-20 xl:py-24",
-      /** FAQs, closing CTA */
-      compact: "py-10 sm:py-12 md:py-14 lg:py-16 xl:py-20",
-      /** Hero */
-      spacious: "py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28",
+      /** Standard sections — premium vertical rhythm */
+      default:
+        "py-[var(--space-section-y)] sm:py-[calc(var(--space-section-y)+0.5rem)] md:py-[var(--space-section-y-lg)]",
+      compact:
+        "py-[var(--space-section-y-sm)] sm:py-[var(--space-section-y)]",
+      spacious:
+        "py-[var(--space-section-y-hero)] sm:py-[calc(var(--space-section-y)+0.25rem)] md:py-[var(--space-section-y-lg)] lg:py-[calc(var(--space-section-y-lg)+0.75rem)]",
     },
   },
   defaultVariants: {

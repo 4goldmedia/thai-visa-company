@@ -7,7 +7,7 @@
   @keyframes motion-fade-up {
     from {
       opacity: 0;
-      transform: translate3d(0, 10px, 0);
+      transform: translate3d(0, 6px, 0);
     }
     to {
       opacity: 1;
@@ -15,9 +15,9 @@
     }
   }
 
-  /* Hero / above-the-fold mount */
+  /* Hero / above-the-fold mount — subtle, fast */
   .motion-fade-up-mount {
-    animation: motion-fade-up 0.42s cubic-bezier(0.22, 0.03, 0.26, 1) both;
+    animation: motion-fade-up 0.32s cubic-bezier(0.22, 0.03, 0.26, 1) both;
   }
 
   .motion-delay-60 {
@@ -37,10 +37,10 @@
   @supports (animation-timeline: view()) {
     .motion-reveal-in-view {
       opacity: 0;
-      transform: translate3d(0, 10px, 0);
+      transform: translate3d(0, 6px, 0);
       animation: motion-fade-up linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 22%;
+      animation-range: entry 0% entry 18%;
     }
   }
 
@@ -53,8 +53,8 @@
   @supports (animation-timeline: view()) {
     .motion-stagger > .motion-stagger-item {
       opacity: 0;
-      transform: translate3d(0, 8px, 0);
-      animation: motion-fade-up 0.42s cubic-bezier(0.22, 0.03, 0.26, 1) both;
+      transform: translate3d(0, 5px, 0);
+      animation: motion-fade-up 0.38s cubic-bezier(0.22, 0.03, 0.26, 1) both;
       animation-timeline: view();
       animation-range: entry 0% entry 18%;
     }

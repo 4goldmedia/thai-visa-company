@@ -21,7 +21,11 @@ import {
   articleTocNavClass,
 } from "@/lib/article-styles"
 import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
-import { mobileReadableWidthClass, sectionBandClass } from "@/lib/section-styles"
+import {
+  cardPlaceholderClass,
+  mobileReadableWidthClass,
+  sectionBandClass,
+} from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 // -----------------------------------------------------------------------------
@@ -261,7 +265,7 @@ function ArticleRelatedResources({
 
 function ArticleRelatedResourcesPlaceholder() {
   return (
-    <p className="rounded-xl border border-dashed border-border/60 bg-muted/5 px-4 py-3.5 text-[14px] leading-relaxed text-muted-foreground">
+    <p className={cardPlaceholderClass}>
       Pass a <code className="text-foreground/80">RelatedResources</code> or{" "}
       <code className="text-foreground/80">RelatedResourcesSection</code> via the{" "}
       <code className="text-foreground/80">relatedResources</code> slot.

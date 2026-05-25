@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { cardShellClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 type FAQItemProps = {
@@ -80,7 +81,8 @@ function FAQAccordion({
       defaultValue={defaultValue}
       aria-labelledby={ariaLabelledBy}
       className={cn(
-        "w-full overflow-hidden rounded-xl border border-border/50 bg-card",
+        cardShellClass,
+        "w-full",
         className
       )}
     >

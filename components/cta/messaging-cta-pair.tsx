@@ -19,11 +19,19 @@ import {
   ctaButtonPrimaryClass,
   ctaButtonSecondaryClass,
   ctaStackClass,
+  heroCtaButtonPrimaryClass,
+  heroCtaButtonSecondaryClass,
+  heroCtaStackClass,
+  heroPremiumCtaButtonPrimaryClass,
+  heroPremiumCtaButtonSecondaryClass,
+  heroPremiumCtaStackClass,
 } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 export type MessagingCtaPairLayout =
   | "stack"
+  | "hero"
+  | "hero-premium"
   | "success"
   | "navbar-compact"
   | "navbar-menu"
@@ -119,6 +127,35 @@ function MessagingCtaPair({
           channel="whatsapp"
           variant="outline"
           className={mobileContactBarButtonSecondaryClass}
+        />
+      </div>
+    )
+  }
+
+  if (layout === "hero") {
+    return (
+      <div className={cn(heroCtaStackClass, className)}>
+        <MessagingCta channel="line" className={heroCtaButtonPrimaryClass} />
+        <MessagingCta
+          channel="whatsapp"
+          variant="outline"
+          className={heroCtaButtonSecondaryClass}
+        />
+      </div>
+    )
+  }
+
+  if (layout === "hero-premium") {
+    return (
+      <div className={cn(heroPremiumCtaStackClass, className)}>
+        <MessagingCta
+          channel="line"
+          className={heroPremiumCtaButtonPrimaryClass}
+        />
+        <MessagingCta
+          channel="whatsapp"
+          variant="outline"
+          className={heroPremiumCtaButtonSecondaryClass}
         />
       </div>
     )

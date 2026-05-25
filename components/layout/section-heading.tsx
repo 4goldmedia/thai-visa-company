@@ -1,6 +1,7 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
+import { sectionTitleClass, sectionTitleLgClass } from "@/lib/design/typography"
 import {
   sectionDescriptionClass,
   sectionEyebrowClass,
@@ -23,18 +24,15 @@ const sectionHeadingVariants = cva(
   }
 )
 
-const titleVariants = cva(
-  "font-semibold tracking-tight text-balance text-foreground",
-  {
+const titleVariants = cva("", {
     variants: {
       align: {
         left: "max-w-2xl",
         center: "mx-auto max-w-2xl",
       },
       size: {
-        default:
-          "text-lg leading-snug sm:text-xl md:text-2xl lg:text-[1.75rem] lg:leading-snug",
-        lg: "text-xl leading-snug sm:text-2xl lg:text-3xl lg:leading-snug",
+        default: sectionTitleClass,
+        lg: sectionTitleLgClass,
       },
     },
     defaultVariants: {

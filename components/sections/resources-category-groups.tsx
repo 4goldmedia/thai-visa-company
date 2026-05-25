@@ -4,19 +4,12 @@ import { SectionReveal } from "@/components/motion"
 import { ResourcesArticleGrid } from "@/components/sections/resources-article-grid"
 import { resourcesIndexSectionIds } from "@/lib/resources/section-ids"
 import { groupArticlesByCategory } from "@/lib/resources"
-import { sectionContentOffsetClass } from "@/lib/section-styles"
+import { sectionTitleLgClass } from "@/lib/design/typography"
+import { cardPlaceholderClass, sectionContentOffsetClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
-const groupTitleClass =
-  "text-lg font-semibold tracking-tight text-foreground sm:text-xl"
-
 const groupDescriptionClass =
-  "mt-2 max-w-2xl text-[15px] leading-[1.7] text-pretty text-muted-foreground sm:text-base sm:leading-relaxed"
-
-const placeholderClass = cn(
-  "rounded-xl border border-dashed border-border/60 bg-muted/5 px-4 py-5",
-  "text-[14px] leading-relaxed text-muted-foreground sm:py-6"
-)
+  "mt-2 max-w-2xl text-[length:var(--text-body)] leading-[var(--leading-body)] text-pretty text-muted-foreground sm:text-[length:var(--text-body-md)]"
 
 type ResourcesCategoryGroupsProps = {
   sectionId?: string
@@ -30,14 +23,14 @@ function ResourcesCategoryGroups({
   return (
     <Section id={sectionId} spacing="default" aria-label="Article collections">
       <Container>
-        <div className="flex flex-col gap-12 sm:gap-14 md:gap-16">
+        <div className="flex flex-col gap-14 sm:gap-16 md:gap-20">
           {groups.map(({ category, articles }) => {
             const headingId = `resources-category-${category.id}`
 
             return (
               <SectionReveal key={category.id} className="flex flex-col">
                 <header>
-                  <h2 id={headingId} className={groupTitleClass}>
+                  <h2 id={headingId} className={sectionTitleLgClass}>
                     {category.label}
                   </h2>
                   {category.description ? (
@@ -47,7 +40,7 @@ function ResourcesCategoryGroups({
 
                 <div className={sectionContentOffsetClass}>
                   {category.placeholder && articles.length === 0 ? (
-                    <p className={placeholderClass} role="status">
+                    <p className={cardPlaceholderClass} role="status">
                       Comparison guides are in progress. Message us on LINE if
                       you want help choosing between visa types today.
                     </p>

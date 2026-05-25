@@ -6,6 +6,10 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Design docs may contain example class strings — never scan for utilities */
+@source not "../docs/**";
+@source not inline("py-[var(--space-section-y*)]");
+
 @import "../styles/tokens.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -13,6 +17,7 @@
 @theme inline {
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
   --font-heading: var(--font-heading);
 
   --color-background: var(--background);
@@ -47,16 +52,22 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-xl: var(--radius-md);
+  --radius-2xl: var(--radius-md);
+  --radius-3xl: var(--radius-md);
+  --radius-4xl: var(--radius-md);
 }
 
 @import "../styles/base.css";
+@import "../styles/editorial.css";
+@import "../styles/hero-premium.css";
+@import "../styles/navbar-ref.css";
+@import "../styles/visa-grid.css";
+@import "../styles/at-a-glance.css";
+@import "../styles/hero-contact-strip.css";
 @import "../styles/motion.css";
 @import "../styles/mobile-contact-bar.css";
 @import "../styles/article-reading.css";

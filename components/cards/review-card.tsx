@@ -59,12 +59,7 @@ function ReviewCard({
   return (
     <article
       data-slot="review-card"
-      className={cn(
-        "flex h-full flex-col rounded-xl",
-        cardSurfaceClass,
-        "hover:bg-card",
-        className
-      )}
+      className={cn("flex h-full flex-col", cardSurfaceClass, className)}
     >
       <StarRating rating={rating} />
 

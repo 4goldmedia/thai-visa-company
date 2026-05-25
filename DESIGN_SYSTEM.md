@@ -1,5 +1,7 @@
 # DESIGN SYSTEM
 
+> **Superseded for brand direction.** Canonical design intelligence lives in [`docs/design/brand-system.md`](docs/design/brand-system.md) and [`docs/design/ui-principles.md`](docs/design/ui-principles.md). Use Apple / Linear / Bilt–style modern product premium — not legacy radius or mixed guidance below. Current frontend drift: [`docs/design/design-audit.md`](docs/design/design-audit.md).
+
 ## Overall Design Direction
 
 The design should feel:

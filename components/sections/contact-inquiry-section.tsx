@@ -17,12 +17,12 @@ function ContactInquirySection() {
       aria-labelledby={contactSectionIds.inquiryHeading}
     >
       <Container size="content">
-        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-start lg:gap-10 xl:gap-12">
-          <div className="flex flex-col gap-4 lg:sticky lg:top-24 lg:gap-5">
+        <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-12 xl:gap-14">
+          <div className="flex flex-col gap-5 lg:sticky lg:top-24 lg:gap-6">
             <div>
               <h2
                 id={contactSectionIds.inquiryHeading}
-                className="text-[15px] font-semibold tracking-tight text-foreground sm:text-base"
+                className="text-base font-semibold tracking-tight text-foreground sm:text-lg"
               >
                 {messagingAside.title}
               </h2>

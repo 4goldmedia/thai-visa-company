@@ -1,0 +1,78 @@
+/* Hero contact strip — desktop-only integrated concierge row */
+
+@layer components {
+  .hero-contact-strip {
+    display: none;
+    max-width: 36rem;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-contact-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 1px auto;
+      align-items: center;
+      gap: 0 1.375rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background-color: color-mix(in srgb, var(--surface-elevated) 92%, var(--background));
+      padding: 1rem 1.125rem 1rem 1.25rem;
+      box-shadow:
+        0 1px 2px color-mix(in srgb, var(--palette-text) 4%, transparent),
+        0 10px 32px -14px color-mix(in srgb, var(--palette-text) 12%, transparent);
+    }
+  }
+
+  .hero-contact-strip__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .hero-contact-strip__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--foreground);
+  }
+
+  .hero-contact-strip__subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.45;
+    color: var(--text-secondary);
+  }
+
+  .hero-contact-strip__rule {
+    display: none;
+    width: 1px;
+    height: 2.5rem;
+    background-color: var(--border-subtle);
+  }
+
+  @media (min-width: 1024px) {
+    .hero-contact-strip__rule {
+      display: block;
+      justify-self: center;
+    }
+  }
+
+  .hero-contact-strip__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 0.625rem;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .messaging-platform-action {
+      box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.65);
+    }
+
+    .messaging-platform-action:hover {
+      box-shadow:
+        inset 0 1px 0 oklch(1 0 0 / 0.65),
+        0 1px 3px color-mix(in srgb, var(--palette-text) 5%, transparent);
+    }
+  }
+}

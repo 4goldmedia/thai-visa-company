@@ -23,7 +23,7 @@ function TrustCard({
     <article
       data-slot="trust-card"
       className={cn(
-        "flex h-full gap-3 rounded-xl sm:gap-3.5",
+        "flex h-full gap-3 sm:gap-3.5",
         cardSurfaceClass,
         className
       )}

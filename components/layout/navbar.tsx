@@ -8,7 +8,6 @@ import { Menu, X } from "lucide-react"
 import { MessagingCtaPair } from "@/components/cta/messaging-cta-pair"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
-import { Button } from "@/components/ui/button"
 import { Container } from "@/components/layout/container"
 import { motionClass } from "@/lib/motion-classes"
 import { mainNavLinks } from "@/lib/navigation"
@@ -17,17 +16,15 @@ import { cn } from "@/lib/utils"
 
 const SCROLL_THRESHOLD = 8
 
-const navLinkClass =
-  "rounded-md px-2 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-
 const mobileNavLinkClass = cn(
-  "flex min-h-11 items-center rounded-xl px-3.5",
+  "flex min-h-11 items-center rounded-[var(--radius)] px-3.5",
   "text-[15px] font-medium leading-snug tracking-normal text-foreground",
   "transition-[color,background-color] duration-200 ease-out hover:bg-muted active:bg-muted/80 motion-reduce:transition-none",
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
 )
 
 function isNavLinkActive(pathname: string, href: string): boolean {
+  if (href.startsWith("/#")) return pathname === "/"
   if (href === "/") return pathname === "/"
   return pathname === href || pathname.startsWith(`${href}/`)
 }
@@ -67,10 +64,14 @@ type NavbarProps = {
 }
 
 function Navbar({ className }: NavbarProps) {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = React.useState(false)
   const [menuOpen, setMenuOpen] = React.useState(false)
   const headerRef = React.useRef<HTMLElement>(null)
   const menuPanelId = React.useId()
+
+  const isHome = pathname === "/"
+  const immersiveAtTop = isHome && !scrolled && !menuOpen
 
   const closeMenu = React.useCallback(() => setMenuOpen(false), [])
 
@@ -130,48 +131,50 @@ function Navbar({ className }: NavbarProps) {
       ref={headerRef}
       data-slot="navbar"
       data-scrolled={scrolled || undefined}
+      data-hero-immersive={immersiveAtTop || undefined}
       className={cn(
         "sticky top-0 z-50 w-full shrink-0 transition-[background-color,box-shadow,border-color] duration-200 ease-out motion-reduce:transition-none",
         scrolled || menuOpen
-          ? "border-b border-border/70 bg-background/90 shadow-sm backdrop-blur-md supports-[backdrop-filter]:bg-background/80"
-          : "border-b border-transparent bg-transparent",
-        className
+          ? "border-b border-border bg-background/95 backdrop-blur-[6px] supports-[backdrop-filter]:bg-background/92"
+          : immersiveAtTop
+            ? "border-b border-transparent bg-transparent"
+            : "border-b border-transparent bg-background",
+        className,
       )}
     >
       <Container>
-        <div className="relative flex h-14 items-center justify-between gap-3 lg:h-16">
+        <div className="relative flex h-14 items-center justify-between gap-4 lg:h-[4.25rem]">
           <NavbarLogo />
 
           <nav
             className="absolute left-1/2 hidden -translate-x-1/2 lg:flex"
             aria-label="Main navigation"
           >
-            <ul className="flex items-center gap-1 xl:gap-2">
+            <ul className="navbar-ref__nav-list flex items-center">
               {mainNavLinks.map((item) => (
                 <li key={item.href}>
                   <NavbarNavLink
                     href={item.href}
                     label={item.label}
-                    className={navLinkClass}
+                    className="navbar-ref__nav-link"
                   />
                 </li>
               ))}
             </ul>
           </nav>
 
-          <div className="hidden items-center gap-2 lg:flex">
-            <NavbarCTAs layout="desktop" />
+          <div className="hidden items-center lg:flex">
+            <NavbarConsultCta />
           </div>
 
-          <div className="flex items-center gap-2 lg:hidden">
-            <NavbarCTAs layout="mobile-bar" />
+          <div className="flex items-center justify-end lg:hidden">
             <button
               type="button"
               className={cn(
-                "inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-foreground transition-colors",
+                "inline-flex size-11 shrink-0 items-center justify-center rounded-[var(--radius)] border border-border bg-background text-foreground transition-colors",
                 "hover:bg-muted active:bg-muted/80",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-                menuOpen && "border-border bg-muted"
+                menuOpen && "border-border bg-muted",
               )}
               aria-expanded={menuOpen}
               aria-controls={menuPanelId}
@@ -194,6 +197,22 @@ function Navbar({ className }: NavbarProps) {
         onClose={closeMenu}
       />
     </header>
+  )
+}
+
+function NavbarConsultCta() {
+  return (
+    <Link
+      href="/contact"
+      className="navbar-ref__consult"
+      {...analyticsDataAttributes({
+        ctaId: analyticsCtaIds.navbarContact,
+        surface: "global",
+        ctaLabel: "Book a consultation",
+      })}
+    >
+      Book a consultation
+    </Link>
   )
 }
 
@@ -235,8 +254,8 @@ function MobileNavMenu({ open, panelId, onClose }: MobileNavMenuProps) {
       id={panelId}
       ref={panelRef}
       className={cn(
-        "absolute inset-x-0 top-full z-50 border-b border-border bg-background shadow-sm lg:hidden",
-        motionClass.mobileMenuIn
+        "absolute inset-x-0 top-full z-50 border-b border-border/60 bg-background lg:hidden",
+        motionClass.mobileMenuIn,
       )}
     >
       <Container className="py-4 pb-5">
@@ -260,7 +279,7 @@ function MobileNavMenu({ open, panelId, onClose }: MobileNavMenuProps) {
           <h3 className="mb-3 px-3.5 text-xs font-medium tracking-wide text-muted-foreground uppercase">
             Contact
           </h3>
-          <NavbarCTAs layout="mobile-menu" onNavigate={onClose} />
+          <NavbarCTAs onNavigate={onClose} />
         </div>
       </Container>
     </div>
@@ -272,40 +291,32 @@ function NavbarLogo() {
     <Link
       href="/"
       className={cn(
-        "rounded-md text-sm font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80",
-        "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+        "rounded-md transition-opacity hover:opacity-80",
+        "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
       )}
     >
       <span className="sr-only">{siteBrand.name} — Home</span>
-      <span aria-hidden>{siteBrand.shortName}</span>
+      <span className="navbar-ref__logo" aria-hidden>
+        {siteBrand.name}
+      </span>
     </Link>
   )
 }
 
 type NavbarCTAsProps = {
-  layout: "desktop" | "mobile-bar" | "mobile-menu"
   onNavigate?: () => void
 }
 
-function NavbarCTAs({ layout, onNavigate }: NavbarCTAsProps) {
-  const pairLayout =
-    layout === "mobile-menu"
-      ? "navbar-menu"
-      : "navbar-compact"
-
-  const ctaId =
-    layout === "mobile-menu"
-      ? analyticsCtaIds.navbarMenuContact
-      : analyticsCtaIds.navbarContact
-
+/** LINE + WhatsApp — mobile menu only (bar stays hamburger-only below lg). */
+function NavbarCTAs({ onNavigate }: NavbarCTAsProps) {
   return (
     <div
       {...analyticsDataAttributes({
-        ctaId,
+        ctaId: analyticsCtaIds.navbarMenuContact,
         surface: "global",
       })}
     >
-      <MessagingCtaPair layout={pairLayout} onNavigate={onNavigate} />
+      <MessagingCtaPair layout="navbar-menu" onNavigate={onNavigate} />
     </div>
   )
 }

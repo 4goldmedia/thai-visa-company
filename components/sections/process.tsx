@@ -4,7 +4,7 @@ import { Section } from "@/components/layout/section"
 import { SectionHeading } from "@/components/layout/section-heading"
 import { SectionReveal } from "@/components/motion"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
-import { sectionContentOffsetClass } from "@/lib/section-styles"
+import { cardShellClass, sectionContentOffsetClass } from "@/lib/section-styles"
 import type { VisaProcessStep } from "@/lib/visas/types"
 import { cn } from "@/lib/utils"
 
@@ -69,8 +69,9 @@ function Process({
         className={cn(
           sectionContentOffsetClass,
           "list-none p-0",
-          "flex flex-col divide-y divide-border/50 overflow-hidden rounded-xl border border-border/50",
-          "sm:grid sm:grid-cols-2 sm:gap-4 sm:divide-y-0 sm:overflow-visible sm:rounded-none sm:border-0"
+          cardShellClass,
+          "flex flex-col divide-y divide-border/50",
+          "sm:grid sm:grid-cols-[repeat(2,minmax(0,1fr))] sm:gap-[var(--space-grid-gap)] sm:divide-y-0 sm:overflow-visible sm:rounded-none sm:border-0"
         )}
       >
         {steps.map((item) => (
@@ -78,7 +79,7 @@ function Process({
             key={item.step}
             className={cn(
               "min-w-0 px-3.5 py-3.5",
-              "sm:rounded-xl sm:border sm:border-border/50 sm:bg-card",
+              "sm:rounded-[var(--radius)] sm:border sm:border-border/50 sm:bg-card",
               "sm:transition-[border-color,background-color] sm:duration-200 sm:ease-out",
               "sm:hover:border-border/70 sm:hover:bg-muted/5",
               "motion-reduce:sm:transition-none"

@@ -6,6 +6,8 @@
 **Build:** `npm run build` passes (14 static routes + inquiry API)  
 **Refinements applied this pass:** Nav/footer 404 fixes, planned resource cards (no dead links), JSON-LD ItemList published-only, eyebrow typography (12px min), legal footer hidden until routes ship.
 
+**Design pass:** [PREMIUM_DESIGN_REFINEMENT.md](./PREMIUM_DESIGN_REFINEMENT.md) — Bilt-inspired typography, spacing, flat cards, calmer hero, motion restraint.
+
 ---
 
 ## Executive summary

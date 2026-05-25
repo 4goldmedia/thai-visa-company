@@ -3,6 +3,7 @@
  * Used by metadata, JSON-LD, and visible “at a glance” blocks (not keyword lists).
  */
 
+import type { AtAGlanceContent } from "@/lib/content/at-a-glance"
 import { siteBrand, siteMetadata } from "@/lib/site/config"
 
 export const aiSearchEntity = {
@@ -24,24 +25,50 @@ export const aiSearchEntity = {
 } as const
 
 export const homepageAiCopy = {
-  /** Topic-first h1 — answers “what is this page?” for crawlers and AI */
-  primaryHeading: "Thailand visa support for foreigners",
+  /** Eyebrow above homepage H1 */
+  heroEyebrow: "Thailand Visa & Relocation Experts",
+  /** Homepage H1 — visible hero headline */
+  primaryHeading: "Your move to Thailand, made simple.",
   secondaryLine: `${siteBrand.name} — ${siteBrand.tagline}`,
   /** Visible hero lead — scannable in ~5 seconds */
   heroLeadLine:
-    "Clear guidance on tourist, long-stay, and specialist routes—with fast replies on LINE and WhatsApp.",
+    "We handle the paperwork and processes so you can focus on your new life in Thailand.",
+  heroContactStrip: {
+    title: "Chat with our team",
+    subtitle: "Fast replies on visas, documents, and timelines.",
+  },
   /** Standalone extractable summary (meta description + WebPage schema) */
   extractableSummary:
-    "Thai Visa Company helps foreigners understand Thailand visa requirements, prepare documents, and apply with clear guidance. Support covers tourist, business, DTV, retirement, Elite, and education routes—with replies on LINE and WhatsApp.",
-  webPageName: "Thailand visa support for foreigners",
+    "Thai Visa Company helps foreigners relocate to Thailand with clear visa guidance, document support, and hands-on application help. Tourist, business, DTV, retirement, Elite, and education routes—with replies on LINE and WhatsApp.",
+  webPageName: "Your move to Thailand, made simple",
   faqSchemaName: "Thailand visa FAQ — Thai Visa Company",
   faqSchemaDescription:
     "Common questions about Thailand visa types, processing times, and how Thai Visa Company supports applications.",
-  atAGlance: [
-    "Visa guidance for tourist, business, DTV, retirement, Elite, and education routes.",
-    "Support on LINE and WhatsApp—most inquiries answered the same business day.",
-    "Based in Bangkok; serving applicants worldwide and already in Thailand.",
-  ] as const,
+  atAGlance: {
+    title: "At a glance",
+    context:
+      "Operational essentials for planning your move—clear, current, and easy to scan.",
+    items: [
+      {
+        icon: "routes",
+        label: "Visa pathways",
+        description:
+          "Tourist, business, DTV, retirement, Elite, and education routes.",
+      },
+      {
+        icon: "response",
+        label: "Responsive support",
+        description:
+          "LINE and WhatsApp—most inquiries answered the same business day.",
+      },
+      {
+        icon: "location",
+        label: "Bangkok-based",
+        description:
+          "Serving applicants worldwide and already in Thailand.",
+      },
+    ],
+  } satisfies AtAGlanceContent,
 } as const
 
 export const contactAiCopy = {

@@ -18,12 +18,14 @@ function OptimizedImage({
   loading,
   priority,
   quality = 85,
+  fill,
   ...props
 }: OptimizedImageProps) {
   return (
     <Image
-      className={cn("h-auto w-full", className)}
+      className={cn(!fill && "h-auto w-full", className)}
       sizes={sizes}
+      fill={fill}
       loading={priority ? undefined : (loading ?? "lazy")}
       quality={quality}
       priority={priority}

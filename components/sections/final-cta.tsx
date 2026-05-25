@@ -48,7 +48,7 @@ function FinalCTA({
         titleClassName="max-w-xl"
       />
 
-      <div className="mt-5 border-t border-border/50 pt-5 sm:mt-6 sm:pt-6">
+      <div className="mt-6 border-t border-border/40 pt-6 sm:mt-8 sm:pt-7">
         {showReviewSummary ? (
           <GoogleReviewSummary layout="inline" size="sm" />
         ) : null}

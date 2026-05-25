@@ -199,7 +199,7 @@ function Footer({ className }: FooterProps) {
       )}
     >
       <Container>
-        <div className="py-10 sm:py-12 lg:py-14">
+        <div className="py-12 sm:py-14 lg:py-16">
           <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:gap-12 xl:gap-16">
             <div className="border-b border-border/50 pb-8 lg:w-[min(100%,17.5rem)] lg:shrink-0 lg:border-b-0 lg:pb-0 lg:pr-4">
               <FooterBrand />

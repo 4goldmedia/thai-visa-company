@@ -38,7 +38,7 @@ function ResourceCard({
       data-slot="resource-card"
       data-status={status}
       className={cn(
-        "relative flex h-full min-h-0 flex-col rounded-xl",
+        "relative flex h-full min-h-0 flex-col",
         cardSurfaceClass,
         !isPlanned && "group",
         isPlanned && "border-dashed bg-muted/5",
@@ -85,7 +85,7 @@ function ResourceCard({
         <Link
           href={href}
           className={cn(
-            "absolute inset-0 rounded-xl",
+            "absolute inset-0 rounded-lg",
             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           )}
         >

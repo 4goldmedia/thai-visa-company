@@ -1,7 +1,6 @@
-import { MessagingCtaPair } from "@/components/cta/messaging-cta-pair"
+import { MessagingPlatformAction } from "@/components/cta/messaging-platform-action"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
-import { mobileContactBarShellClass } from "@/lib/mobile-contact-bar-styles"
 import { cn } from "@/lib/utils"
 
 type MobileContactBarProps = {
@@ -9,24 +8,24 @@ type MobileContactBarProps = {
 }
 
 /**
- * Sticky bottom contact bar — mobile only (`lg:hidden`).
- * LINE first, WhatsApp second — `MessagingCtaPair` / `CONTACT_URLS`.
- * Hidden while mobile nav is open (`data-mobile-nav-open` on `<html>`).
+ * Sticky bottom messaging bar — mobile/tablet only; conversation-first conversion.
  */
 function MobileContactBar({ className }: MobileContactBarProps) {
   return (
     <nav
       data-slot="mobile-contact-bar"
-      aria-label="Quick contact"
-      className={cn(mobileContactBarShellClass, className)}
+      aria-label="Message us on LINE or WhatsApp"
+      className={cn("mobile-messaging-bar", className)}
     >
       <div
+        className="mobile-messaging-bar__inner"
         {...analyticsDataAttributes({
           ctaId: analyticsCtaIds.mobileBarContact,
           surface: "global",
         })}
       >
-        <MessagingCtaPair layout="mobile-bar" />
+        <MessagingPlatformAction channel="line" density="bar" />
+        <MessagingPlatformAction channel="whatsapp" density="bar" />
       </div>
     </nav>
   )

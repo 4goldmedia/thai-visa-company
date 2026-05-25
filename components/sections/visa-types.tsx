@@ -1,45 +1,48 @@
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+
 import { VisaCard } from "@/components/cards/visa-card"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
-import { SectionHeading } from "@/components/layout/section-heading"
-import { SectionReveal, StaggerGrid, StaggerGridItem } from "@/components/motion"
+import { StaggerGrid, StaggerGridItem } from "@/components/motion"
+import { visaCardPhotography } from "@/lib/media/photography"
+import { homeSectionAnchors } from "@/lib/navigation"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
-import { sectionContentOffsetClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 const visaTypes = [
   {
+    slug: "retirement",
     title: "Retirement Visa",
-    description:
-      "Long-term stay in Thailand for eligible retirees and dependents.",
+    description: "Long-term stay for eligible retirees and dependents.",
     benefit: "Clear eligibility guidance and renewal support",
     href: "/visas/retirement",
   },
   {
+    slug: "dtv",
     title: "DTV Visa",
-    description:
-      "Remote work and qualifying activities for digital travelers.",
+    description: "Remote work and qualifying activities for digital travelers.",
     benefit: "Structured requirements explained in plain language",
     href: "/visas/dtv",
   },
   {
+    slug: "elite",
     title: "Elite Visa",
-    description:
-      "Premium long-term residency through Thailand Elite membership.",
+    description: "Premium long-term residency through Thailand Elite membership.",
     benefit: "Hands-on support for detailed applications",
     href: "/visas/elite",
   },
   {
+    slug: "business",
     title: "Business Visa",
-    description:
-      "Work, investment, and company-related permissions in Thailand.",
+    description: "Work, investment, and company-related permissions in Thailand.",
     benefit: "Practical advice aligned to your business setup",
     href: "/visas/business",
   },
   {
+    slug: "education",
     title: "Education Visa",
-    description:
-      "Study at approved Thai schools, language centers, and universities.",
+    description: "Study at approved Thai schools, language centers, and universities.",
     benefit: "Document preparation and enrollment coordination",
     href: "/visas/education",
   },
@@ -48,38 +51,44 @@ const visaTypes = [
 function VisaTypes() {
   return (
     <div className="flex flex-col">
-      <SectionReveal>
-        <SectionHeading
-          id={sectionHeadingIds.visaTypes}
-          eyebrow="Visa services"
-          title="Find the right visa for your plans"
-          description="Compare the most common pathways. Each option includes clear next steps and direct support when you are ready."
-          descriptionClassName="max-w-xl"
-        />
-      </SectionReveal>
+      <header className="visa-section-header">
+        <div>
+          <p className="visa-section-header__eyebrow">Visa options</p>
+          <h2
+            id={sectionHeadingIds.visaTypes}
+            className="sr-only"
+          >
+            Find the right visa for your plans
+          </h2>
+        </div>
+        <Link
+          href={homeSectionAnchors.visaServices}
+          className="visa-section-header__link group"
+        >
+          View all visas
+          <ArrowRight
+            className="size-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
+            aria-hidden
+          />
+        </Link>
+      </header>
 
       <StaggerGrid
         aria-label="Thailand visa types"
         className={cn(
-          sectionContentOffsetClass,
-          "grid list-none grid-cols-1 gap-3.5 p-0 sm:gap-4",
-          "sm:grid-cols-2 sm:gap-5",
-          "lg:grid-cols-6 lg:gap-x-5 lg:gap-y-6"
+          "mt-[var(--space-heading-offset-md)] grid list-none grid-cols-1 gap-[var(--space-visa-grid-gap)] p-0",
+          "sm:grid-cols-2 sm:gap-[var(--space-visa-grid-gap-lg)]",
+          "lg:mt-[var(--space-heading-offset-lg)] lg:grid-cols-5 lg:gap-[var(--space-visa-grid-gap-lg)]",
         )}
       >
-        {visaTypes.map((visa, index) => (
-          <StaggerGridItem
-            key={visa.href}
-            className={cn(
-              "flex min-w-0 sm:h-full lg:col-span-2",
-              index === 3 && "lg:col-start-2"
-            )}
-          >
+        {visaTypes.map((visa) => (
+          <StaggerGridItem key={visa.href} className="flex min-w-0 sm:h-full">
             <VisaCard
               title={visa.title}
               description={visa.description}
               benefit={visa.benefit}
               href={visa.href}
+              image={visaCardPhotography[visa.slug]}
               className="w-full"
             />
           </StaggerGridItem>
@@ -94,6 +103,7 @@ function VisaTypesSection() {
     <Section
       id={sectionIds.visaTypes}
       aria-labelledby={sectionHeadingIds.visaTypes}
+      className="pt-[var(--space-visa-section-top)] sm:pt-[calc(var(--space-visa-section-top)+0.5rem)]"
     >
       <Container>
         <VisaTypes />
