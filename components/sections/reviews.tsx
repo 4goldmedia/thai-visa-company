@@ -31,12 +31,15 @@ function Reviews() {
         <GoogleReviewSummary
           rating={defaultGoogleReviewSummary.rating}
           reviewCount={defaultGoogleReviewSummary.reviewCount}
+          bestRating={defaultGoogleReviewSummary.bestRating}
           href={defaultGoogleReviewSummary.href}
           layout="stacked"
           size="md"
           variant="dark"
+          stackedScoreStyle="editorial"
+          showStackedStars={false}
           linkToReviews
-          className="shrink-0 sm:items-end"
+          className="shrink-0"
         />
       </header>
 

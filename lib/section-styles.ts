@@ -256,3 +256,14 @@ export const cardPlaceholderClass = cn(
 export const cardShellClass = cn(
   "overflow-hidden rounded-[var(--radius)] border border-border/50 bg-card",
 )
+
+/** Global rating stars — hero, Google summary, review cards */
+export const ratingStarRowClass = "flex gap-px"
+
+export const ratingStarIconClass = "size-3 shrink-0"
+
+export const ratingStarIconMdClass = "size-3.5 shrink-0"
+
+export const ratingStarFilledClass = "fill-amber-500/75 text-amber-500/75"
+
+export const ratingStarEmptyClass = "fill-transparent text-border/80"

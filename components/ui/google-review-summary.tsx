@@ -23,6 +23,10 @@ export type GoogleReviewSummaryProps = {
   includeBusinessInLabel?: boolean
   /** `dark` — reviews band (#23211E) */
   variant?: "light" | "dark"
+  /** Stacked layout only — hide stars (e.g. when cards already show ratings) */
+  showStackedStars?: boolean
+  /** Stacked layout — editorial score with /5 denominator */
+  stackedScoreStyle?: "default" | "editorial"
   className?: string
 }
 
@@ -61,9 +65,13 @@ function GoogleReviewSummary({
   linkToReviews = false,
   includeBusinessInLabel = false,
   variant = "light",
+  showStackedStars = true,
+  stackedScoreStyle = "default",
   className,
 }: GoogleReviewSummaryProps) {
   const isDark = variant === "dark"
+  const isEditorialStacked =
+    stackedScoreStyle === "editorial" && layout === "stacked"
   const data: GoogleReviewSummaryData = {
     rating,
     reviewCount,
@@ -79,24 +87,35 @@ function GoogleReviewSummary({
   const isStacked = layout === "stacked"
   const isMd = size === "md"
 
+  const best = bestRating ?? 5
+
   const ratingClass = cn(
-    "font-semibold tabular-nums tracking-tight",
-    isDark ? "text-[#f6f3ee]" : "text-foreground",
-    isStacked
-      ? isMd
-        ? "text-2xl sm:text-3xl"
-        : "text-xl sm:text-2xl"
-      : isMd
-        ? "text-base sm:text-lg"
-        : "text-sm",
+    "tabular-nums tracking-tight",
+    isEditorialStacked
+      ? "google-review-summary__score-value font-display font-medium text-[clamp(2rem,4vw,2.75rem)] leading-none text-[#f6f3ee]"
+      : cn(
+          "font-semibold",
+          isDark ? "text-[#f6f3ee]" : "text-foreground",
+          isStacked
+            ? isMd
+              ? "text-2xl sm:text-3xl"
+              : "text-xl sm:text-2xl"
+            : isMd
+              ? "text-base sm:text-lg"
+              : "text-sm",
+        ),
   )
 
   const metaClass = cn(
     "leading-snug",
-    isDark
-      ? "text-[color-mix(in_srgb,#f6f3ee_68%,transparent)]"
-      : "text-muted-foreground",
-    isMd ? "text-sm sm:text-[15px]" : "text-[13px] sm:text-sm",
+    isEditorialStacked
+      ? "google-review-summary__meta-line text-[length:var(--text-small)] text-[color-mix(in_srgb,#f6f3ee_62%,transparent)]"
+      : cn(
+          isDark
+            ? "text-[color-mix(in_srgb,#f6f3ee_68%,transparent)]"
+            : "text-muted-foreground",
+          isMd ? "text-sm sm:text-[15px]" : "text-[13px] sm:text-sm",
+        ),
   )
 
   const content = (
@@ -107,23 +126,42 @@ function GoogleReviewSummary({
       aria-label={ariaLabel}
       className={cn(
         isStacked
-          ? "flex flex-col items-start gap-1.5 sm:items-end sm:text-right"
+          ? cn(
+              "flex flex-col",
+              isEditorialStacked
+                ? "google-review-summary--editorial items-start gap-2 sm:items-end sm:gap-2.5 sm:text-right"
+                : "items-start gap-1.5 sm:items-end sm:text-right",
+            )
           : "flex flex-wrap items-center gap-x-2.5 gap-y-1.5",
         isDark && "google-review-summary--dark",
+        isEditorialStacked && "google-review-summary--editorial",
         className,
       )}
     >
       {isStacked ? (
         <>
           <p className={ratingClass} data-rating>
-            {rating}
+            {isEditorialStacked ? (
+              <>
+                {rating}
+                <span className="google-review-summary__score-denominator text-[0.58em] font-normal tracking-normal text-[color-mix(in_srgb,#f6f3ee_52%,transparent)]">
+                  /{best}
+                </span>
+              </>
+            ) : (
+              rating
+            )}
           </p>
-          <StarRating
-            rating={rating}
-            variant={variant}
-            className={cn(isMd && "[&_svg]:size-3.5")}
-          />
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+          {showStackedStars && !isEditorialStacked ? (
+            <StarRating rating={rating} size={isMd ? "md" : "sm"} />
+          ) : null}
+          <div
+            className={cn(
+              "flex flex-wrap items-center gap-x-2 gap-y-1",
+              isEditorialStacked &&
+                "google-review-summary__meta-row gap-x-2.5 gap-y-1.5",
+            )}
+          >
             <p className={metaClass}>{countLabel}</p>
             <GoogleMark variant={variant} />
           </div>
@@ -131,7 +169,7 @@ function GoogleReviewSummary({
       ) : (
         <>
           <div className="flex items-center gap-1.5" aria-hidden>
-            <StarRating rating={rating} variant={variant} />
+            <StarRating rating={rating} size={isMd ? "md" : "sm"} />
             <span className={ratingClass}>{rating}</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">

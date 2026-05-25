@@ -1,43 +1,37 @@
 import { cn } from "@/lib/utils"
 
 type ProcessStepProps = {
-  /** Step position in the flow (displayed as 1, 2, 3…) */
+  /** Step position in the flow (1–4) */
   step: number
-  /** Step headline */
   title: string
-  /** Concise supporting description */
   description: string
   className?: string
 }
 
-function ProcessStep({
-  step,
-  title,
-  description,
-  className,
-}: ProcessStepProps) {
+function formatStepNumber(step: number): string {
+  return String(step).padStart(2, "0")
+}
+
+/**
+ * Open editorial process step — large numeral, title, supporting copy (no card chrome).
+ */
+function ProcessStep({ step, title, description, className }: ProcessStepProps) {
   return (
     <article
       data-slot="process-step"
       data-step={step}
-      className={cn("flex gap-3 sm:gap-3.5", className)}
+      className={cn("process-flow__step", className)}
     >
-      <span
-        className="flex size-7 shrink-0 items-center justify-center rounded-md bg-muted/40 text-[11px] font-medium tabular-nums text-muted-foreground sm:size-8 sm:text-xs"
-        aria-hidden
-      >
-        {step}
-      </span>
+      <p className="process-flow__number" aria-hidden>
+        {formatStepNumber(step)}
+      </p>
 
-      <div className="min-w-0 flex-1">
-        <h3 className="text-[15px] font-medium leading-snug tracking-tight text-foreground">
-          <span className="sr-only">Step {step}: </span>
-          {title}
-        </h3>
-        <p className="mt-1.5 text-[14px] leading-[1.65] text-muted-foreground sm:mt-2 sm:text-[15px] sm:leading-relaxed">
-          {description}
-        </p>
-      </div>
+      <h3 className="process-flow__title">
+        <span className="sr-only">Step {step}: </span>
+        {title}
+      </h3>
+
+      <p className="process-flow__description">{description}</p>
     </article>
   )
 }

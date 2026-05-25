@@ -4,7 +4,7 @@ import { Section } from "@/components/layout/section"
 import { SectionHeading } from "@/components/layout/section-heading"
 import { SectionReveal } from "@/components/motion"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
-import { cardShellClass, sectionContentOffsetClass } from "@/lib/section-styles"
+import { sectionContentOffsetClass } from "@/lib/section-styles"
 import type { VisaProcessStep } from "@/lib/visas/types"
 import { cn } from "@/lib/utils"
 
@@ -13,25 +13,25 @@ const defaultProcessSteps: ReadonlyArray<VisaProcessStep> = [
     step: 1,
     title: "Contact us",
     description:
-      "Message us on LINE or WhatsApp. Tell us your plans and we reply with what happens next.",
+      "Message us on LINE or WhatsApp and tell us what you're planning.",
   },
   {
     step: 2,
     title: "We review your situation",
     description:
-      "We confirm eligibility, timing, and the documents that apply to your case.",
+      "We assess eligibility, timing, and the visa pathways that fit your case.",
   },
   {
     step: 3,
-    title: "We prepare your visa process",
+    title: "Document preparation",
     description:
-      "We map out each step and help you gather requirements without guesswork.",
+      "We guide you through requirements, forms, and supporting documents.",
   },
   {
     step: 4,
-    title: "Ongoing support",
+    title: "Application & ongoing support",
     description:
-      "We stay available for questions and updates as your application progresses.",
+      "We stay available throughout the process and help with updates or renewals.",
   },
 ]
 
@@ -47,11 +47,12 @@ type ProcessProps = {
 
 function Process({
   headingId,
-  title = "How your application moves forward",
-  description = "A simple four-step flow. You always know what we are handling and what you need to do next.",
+  title = "How your move to Thailand moves forward",
+  description =
+    "A simple four-step process. Clear guidance from first message to approval.",
   eyebrow = "How it works",
   steps,
-  processAriaLabel = "Visa application process",
+  processAriaLabel = "How your move to Thailand works",
   className,
 }: ProcessProps) {
   return (
@@ -66,25 +67,10 @@ function Process({
 
       <ol
         aria-label={processAriaLabel}
-        className={cn(
-          sectionContentOffsetClass,
-          "list-none p-0",
-          cardShellClass,
-          "flex flex-col divide-y divide-border/50",
-          "sm:grid sm:grid-cols-[repeat(2,minmax(0,1fr))] sm:gap-[var(--space-grid-gap)] sm:divide-y-0 sm:overflow-visible sm:rounded-none sm:border-0"
-        )}
+        className={cn("process-flow", sectionContentOffsetClass)}
       >
         {steps.map((item) => (
-          <li
-            key={item.step}
-            className={cn(
-              "min-w-0 px-3.5 py-3.5",
-              "sm:rounded-[var(--radius)] sm:border sm:border-border/50 sm:bg-card",
-              "sm:transition-[border-color,background-color] sm:duration-200 sm:ease-out",
-              "sm:hover:border-border/70 sm:hover:bg-muted/5",
-              "motion-reduce:sm:transition-none"
-            )}
-          >
+          <li key={item.step} className="process-flow__item">
             <ProcessStep
               step={item.step}
               title={item.title}
@@ -122,7 +108,7 @@ function ProcessSection({
       aria-labelledby={headingId}
       className={sectionClassName}
     >
-      <Container size="content">
+      <Container>
         <Process headingId={headingId} steps={steps} {...processProps} />
       </Container>
     </Section>

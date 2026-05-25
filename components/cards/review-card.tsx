@@ -1,6 +1,13 @@
 import { Star } from "lucide-react"
 
 import { OptimizedImage } from "@/components/ui/optimized-image"
+import {
+  ratingStarEmptyClass,
+  ratingStarFilledClass,
+  ratingStarIconClass,
+  ratingStarIconMdClass,
+  ratingStarRowClass,
+} from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 type ReviewCardProps = {
@@ -16,41 +23,22 @@ type ReviewCardProps = {
 
 type StarRatingProps = {
   rating: number
-  variant?: "light" | "dark"
+  /** Matches Google summary `md` stacked layout */
+  size?: "sm" | "md"
   className?: string
 }
 
 function StarRating({
   rating,
-  variant = "light",
+  size = "sm",
   className,
 }: StarRatingProps) {
   const normalized = Math.min(5, Math.max(1, Math.round(rating)))
-
-  if (variant === "dark") {
-    return (
-      <div
-        className={cn("reviews-card__stars", className)}
-        role="img"
-        aria-label={`${normalized} out of 5 stars`}
-      >
-        {Array.from({ length: 5 }).map((_, index) => {
-          const filled = index < normalized
-          return (
-            <Star
-              key={index}
-              data-filled={filled ? "true" : "false"}
-              aria-hidden
-            />
-          )
-        })}
-      </div>
-    )
-  }
+  const iconClass = size === "md" ? ratingStarIconMdClass : ratingStarIconClass
 
   return (
     <div
-      className={cn("flex gap-px", className)}
+      className={cn(ratingStarRowClass, className)}
       role="img"
       aria-label={`${normalized} out of 5 stars`}
     >
@@ -58,10 +46,8 @@ function StarRating({
         <Star
           key={index}
           className={cn(
-            "size-3 shrink-0",
-            index < normalized
-              ? "fill-amber-500/75 text-amber-500/75"
-              : "fill-transparent text-border/80",
+            iconClass,
+            index < normalized ? ratingStarFilledClass : ratingStarEmptyClass,
           )}
           aria-hidden
         />
@@ -88,7 +74,7 @@ function ReviewCard({
       data-slot="review-card"
       className={cn("reviews-card", className)}
     >
-      <StarRating rating={rating} variant="dark" />
+      <StarRating rating={rating} />
 
       <blockquote className="reviews-card__quote">
         <p>{review}</p>

@@ -29,7 +29,7 @@ export const homepageClientReviews: ReadonlyArray<ClientReview> = [
     id: "james-r",
     name: "James R.",
     location: "United Kingdom",
-    visaType: "DTV Visa",
+    visaType: "Retirement Visa",
     rating: 5,
     review:
       "The process was much easier than expected. Fast replies and clear explanations throughout.",

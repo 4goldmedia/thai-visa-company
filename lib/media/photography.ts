@@ -27,6 +27,15 @@ export type VisaGalleryImage = {
 /** @deprecated Use VisaGalleryImage */
 export type VisaCardImage = VisaGalleryImage
 
+/** Editorial section imagery — calm Thailand lifestyle (homepage transition band) */
+export const editorialPhotography = {
+  movingSimple: {
+    src: "/images/editorial/moving-simple.jpg",
+    alt: "Long-tail boats on calm water in Thailand, suggesting a peaceful and guided move abroad",
+    objectPosition: "center 42%",
+  },
+} as const
+
 /** Local temp assets — swap files in `public/images/hero/` when brand photography ships */
 export const heroPhotography = {
   homepage: {

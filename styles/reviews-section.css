@@ -9,8 +9,6 @@
     --reviews-border: color-mix(in srgb, var(--reviews-fg) 12%, transparent);
     --reviews-card-bg: color-mix(in srgb, var(--reviews-fg) 6%, var(--reviews-bg));
     --reviews-card-border: color-mix(in srgb, var(--reviews-fg) 10%, transparent);
-    --reviews-star: #c9a962;
-
     border-top: 1px solid color-mix(in srgb, var(--reviews-fg) 8%, transparent);
     border-bottom: none;
     background-color: var(--reviews-bg);
@@ -117,13 +115,24 @@
     outline-offset: 3px;
   }
 
-  /* Google summary — dark band variant */
-  .reviews-section .google-review-summary--dark {
-    color: var(--reviews-fg);
+  /* Google summary — editorial score block (no duplicate stars) */
+  .reviews-section .google-review-summary--editorial {
+    min-width: 0;
   }
 
-  .reviews-section .google-review-summary--dark [data-rating] {
-    color: var(--reviews-fg);
+  .reviews-section .google-review-summary--editorial .google-review-summary__score-value {
+    letter-spacing: -0.03em;
+  }
+
+  .reviews-section .google-review-summary--editorial .google-review-summary__meta-row {
+    align-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .reviews-section .google-review-summary--editorial {
+      align-items: flex-end;
+      text-align: right;
+    }
   }
 
   /* Review card */
@@ -142,26 +151,6 @@
     .reviews-card {
       padding: 1.5rem 1.625rem 1.625rem;
     }
-  }
-
-  .reviews-card__stars {
-    display: flex;
-    gap: 0.125rem;
-  }
-
-  .reviews-card__stars svg {
-    width: 0.9375rem;
-    height: 0.9375rem;
-  }
-
-  .reviews-card__stars svg[data-filled="true"] {
-    fill: var(--reviews-star);
-    color: var(--reviews-star);
-  }
-
-  .reviews-card__stars svg[data-filled="false"] {
-    fill: transparent;
-    color: var(--reviews-card-border);
   }
 
   .reviews-card__quote {
