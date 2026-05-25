@@ -11,13 +11,17 @@
  */
 
 export type HeroMediaAsset = {
-  /** Path under `/public` (e.g. `/images/hero/hero-skyline.jpg`) or allowed remote URL */
+  /** Path under `/public` (e.g. `/images/hero/Bangkok-skyline-LS.webp`) or allowed remote URL */
   src: string
   alt: string
   caption?: string
-  /** Intrinsic dimensions — stabilizes Next/Image `fill` layout (CLS) */
-  width?: number
-  height?: number
+}
+
+/** Homepage hero — landscape desktop + portrait mobile */
+export type ResponsiveHeroMedia = {
+  desktop: HeroMediaAsset
+  mobile: HeroMediaAsset
+  caption?: string
 }
 
 export type VisaGalleryImage = {
@@ -42,18 +46,22 @@ export const editorialPhotography = {
 /** Local temp assets — swap files in `public/images/hero/` when brand photography ships */
 export const heroPhotography = {
   homepage: {
-    src: "/images/hero/hero-skyline.jpg",
-    alt: "Luxury terrace overlooking the Bangkok skyline at golden hour, suggesting premium long-stay living in Thailand",
+    desktop: {
+      src: "/images/hero/Bangkok-skyline-LS.webp",
+      alt: "Bangkok skyline at golden hour from a luxury terrace, suggesting premium long-stay living in Thailand",
+    },
+    mobile: {
+      src: "/images/hero/Bangkok-skyline-MV.webp",
+      alt: "Bangkok skyline at golden hour, suggesting premium long-stay living in Thailand",
+    },
     caption: "Long-stay living, handled with care",
-    width: 1024,
-    height: 546,
   },
   contact: {
     src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
     alt: "Calm interior workspace with soft daylight",
     caption: "Personal guidance, same business day",
   },
-} as const satisfies Record<string, HeroMediaAsset>
+} as const satisfies Record<string, HeroMediaAsset | ResponsiveHeroMedia>
 
 /**
  * Visa gallery — contextual lifestyle photography per route.

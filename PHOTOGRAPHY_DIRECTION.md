@@ -38,7 +38,7 @@ The site should feel: *moving to Thailand, handled beautifully.*
 
 | Key | Default | Replace with |
 |-----|---------|--------------|
-| `homepage` | `/public/images/hero/hero-skyline.jpg` (local; do not hot-link Unsplash for LCP) | Bangkok skyline terrace at golden hour |
+| `homepage` | `Bangkok-skyline-LS.webp` (md+) + `Bangkok-skyline-MV.webp` (&lt;md) | Bangkok skyline terrace at golden hour |
 | `contact` | Unsplash calm interior | Brand photography |
 
 Configure in `lib/media/photography.ts`.

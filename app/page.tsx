@@ -6,6 +6,7 @@ import { MovingSimpleSection } from "@/components/sections/moving-simple"
 import { ProcessSection } from "@/components/sections/process"
 import { ResourcesPreviewSection } from "@/components/sections/resources-preview"
 import { ReviewsSection } from "@/components/sections/reviews"
+import { WhyThailandSection } from "@/components/sections/why-thailand"
 import { VisaTypesSection } from "@/components/sections/visa-types"
 import { WhyChooseUsSection } from "@/components/sections/why-choose-us"
 import { HomeJsonLd } from "@/components/seo/home-json-ld"
@@ -31,6 +32,7 @@ export default function Home() {
         <MovingSimpleSection />
         <ProcessSection />
         <ReviewsSection />
+        <WhyThailandSection />
         <FinalCTASection showExploreCta={false} />
         <FaqSection />
         <ResourcesPreviewSection />

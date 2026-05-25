@@ -42,22 +42,17 @@
       background: linear-gradient(
         90deg,
         var(--background) 0%,
-        oklch(0.985 0.009 95 / 72%) 14%,
-        oklch(0.985 0.009 95 / 48%) 30%,
-        oklch(0.985 0.009 95 / 18%) 46%,
-        oklch(0.985 0.009 95 / 0%) 58%
+        oklch(0.985 0.009 95 / 58%) 14%,
+        oklch(0.985 0.009 95 / 34%) 30%,
+        oklch(0.985 0.009 95 / 10%) 46%,
+        oklch(0.985 0.009 95 / 0%) 54%
       );
     }
   }
 
-  /* Full-bleed environment — desktop */
-  .hero-premium__environment {
-    display: none;
-  }
-
+  /* Full-bleed environment — lg+ only (visibility via hidden lg:block in markup) */
   @media (min-width: 1024px) {
     .hero-premium__environment {
-      display: block;
       position: absolute;
       inset: 0;
       left: var(--hero-ref-image-start);
@@ -77,14 +72,14 @@
       border-radius: 0;
     }
 
-    .hero-premium__environment .hero-media-frame__image {
+    .hero-premium__environment .hero-media-frame__layer img {
       object-fit: cover;
-      object-position: right center;
-      filter: saturate(0.97) contrast(0.99) brightness(1.02);
+      object-position: center center;
+      filter: contrast(1.04);
     }
 
     .hero-premium__environment .hero-media-frame__wash {
-      opacity: 0.38;
+      opacity: 0.2;
     }
 
     /* Skyline stays sharp — no background blur on immersive hero */
@@ -95,8 +90,8 @@
     .hero-premium__environment .hero-media-frame__overlay {
       background: linear-gradient(
         180deg,
-        oklch(0.22 0.02 55 / 0%) 55%,
-        oklch(0.22 0.02 55 / 8%) 100%
+        oklch(0.22 0.02 55 / 0%) 60%,
+        oklch(0.22 0.02 55 / 4%) 100%
       );
     }
 
@@ -277,45 +272,27 @@
     margin-top: 2.5rem;
   }
 
-  @media (min-width: 1024px) {
-    .hero-premium__scene {
-      display: none;
-    }
-  }
-
   .hero-premium__scene .hero-media-frame {
     aspect-ratio: 21 / 9;
     max-height: 26rem;
   }
 
-  .hero-premium__scene .hero-media-frame__image {
+  .hero-premium__scene .hero-media-frame__layer img {
     object-fit: cover;
-    object-position: center right;
-    filter: saturate(0.97) contrast(0.99) brightness(1.02);
-  }
-
-  @media (min-width: 640px) and (max-width: 1023px) {
-    .hero-premium__scene .hero-media-frame__image {
-      object-position: right center;
-    }
+    object-position: center center;
+    filter: contrast(1.04);
   }
 
   .hero-premium__scene .hero-media-frame__wash {
-    opacity: 0.42;
+    opacity: 0.22;
   }
 
   .hero-premium__scene .hero-media-frame__overlay {
     background: linear-gradient(
       180deg,
-      oklch(0.22 0.02 55 / 0%) 60%,
-      oklch(0.22 0.02 55 / 6%) 100%
+      oklch(0.22 0.02 55 / 0%) 65%,
+      oklch(0.22 0.02 55 / 3%) 100%
     );
-  }
-
-  @media (min-width: 1536px) {
-    .hero-premium__environment .hero-media-frame__image {
-      object-position: right center;
-    }
   }
 
   /* Panel column — flex-centers card within image composition zone */

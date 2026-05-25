@@ -4,7 +4,7 @@ import type { LucideIcon } from "lucide-react"
 import { HeroContactStrip } from "@/components/cta/hero-contact-strip"
 import { HeroReferenceCtaGroup } from "@/components/cta/hero-reference-cta-group"
 import { Container } from "@/components/layout/container"
-import { HeroMediaFrame } from "@/components/media/hero-media-frame"
+import { HeroResponsiveMediaFrame } from "@/components/media/hero-responsive-media-frame"
 import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import { motionClass } from "@/lib/motion-classes"
 import { heroPhotography } from "@/lib/media/photography"
@@ -67,7 +67,7 @@ function HomepageHeroTrustPanel() {
  * Other routes continue to use PageHero.
  */
 function HomepageHero() {
-  const media = heroPhotography.homepage
+  const heroMedia = heroPhotography.homepage
 
   return (
     <section
@@ -77,8 +77,13 @@ function HomepageHero() {
     >
       <div className="hero-premium__atmosphere" aria-hidden />
 
-      <div className="hero-premium__environment" aria-hidden>
-        <HeroMediaFrame asset={media} variant="immersive" priority />
+      {/* Desktop full-bleed — not mounted in layout below lg (avoids loading LS on mobile) */}
+      <div className="hero-premium__environment hidden lg:block" aria-hidden>
+        <HeroResponsiveMediaFrame
+          assets={heroMedia}
+          variant="immersive"
+          priority
+        />
       </div>
 
       <Container className="hero-premium__container">
@@ -133,14 +138,15 @@ function HomepageHero() {
           </div>
         </div>
 
+        {/* Mobile/tablet inline scene — hidden on lg where environment takes over */}
         <div
           className={cn(
-            "hero-premium__scene",
+            "hero-premium__scene lg:hidden",
             motionClass.fadeUpMount,
             motionClass.delay60,
           )}
         >
-          <HeroMediaFrame asset={media} priority />
+          <HeroResponsiveMediaFrame assets={heroMedia} priority />
         </div>
       </Container>
     </section>

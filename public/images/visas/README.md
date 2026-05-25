@@ -9,7 +9,7 @@ Art direction: **people + lifestyle context** for relocation / mobility — not 
 | `dtv.jpg` | dtv | Remote work on balcony with city view (digital nomad) |
 | `elite.jpg` | elite | Refined interior, premium long-stay lifestyle |
 | `business.jpg` | business | Executive team meeting, international business |
-| `retirement.jpg` | retirement | Calm outdoor lifestyle, relaxed long-stay living |
+| `retirement.jpg` | retirement | Golden-hour beach with lounge chairs — calm premium retirement living |
 | `education.jpg` | education | Warm social group — family / relocation community feel |
 
 Replace files in place and update `alt` + `objectPosition` in `photography.ts` when brand photography ships.

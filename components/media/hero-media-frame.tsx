@@ -36,16 +36,11 @@ function HeroMediaFrame({
       <OptimizedImage
         src={asset.src}
         alt={asset.alt}
-        width={asset.width}
-        height={asset.height}
         fill
         priority={priority}
-        sizes={
-          isImmersive
-            ? "(max-width: 1023px) 100vw, 68vw"
-            : "(max-width: 1024px) 100vw, 480px"
-        }
-        className="hero-media-frame__image"
+        quality={100}
+        sizes="100vw"
+        className="hero-media-frame__image object-cover object-center"
       />
       {isImmersive ? (
         <span className="hero-media-frame__depth" aria-hidden />

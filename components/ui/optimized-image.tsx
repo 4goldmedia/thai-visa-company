@@ -19,7 +19,9 @@ function OptimizedImage({
   priority,
   quality = 85,
   fill,
-  ...props
+  width,
+  height,
+  ...rest
 }: OptimizedImageProps) {
   return (
     <Image
@@ -29,7 +31,7 @@ function OptimizedImage({
       loading={priority ? undefined : (loading ?? "lazy")}
       quality={quality}
       priority={priority}
-      {...props}
+      {...(fill ? rest : { ...rest, width, height })}
     />
   )
 }

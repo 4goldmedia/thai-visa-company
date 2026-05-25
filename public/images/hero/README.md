@@ -2,26 +2,21 @@
 
 Production homepage hero images live here as static files referenced from `lib/media/photography.ts`.
 
-## Current asset
+## Current assets
 
-| File | Used by | Dimensions (source) |
+| File | Used by | Dimensions (export) |
 |------|---------|---------------------|
-| `hero-skyline.jpg` | Homepage immersive hero | Bangkok skyline terrace at golden hour (wide cinematic) |
+| `Bangkok-skyline-LS.webp` | Homepage hero — **md+** (landscape) | 2560×1630 WebP |
+| `Bangkok-skyline-MV.webp` | Homepage hero — **below md** (portrait) | 1536×2048 WebP |
 
-## Replacing the image
+## Replacing images
 
-1. Export brand photography as progressive JPEG or WebP (recommended width **2400px**, aspect **3:2** or **16:10** for immersive crop; current source is 1024×665).
-2. Replace `hero-skyline.jpg` (or add `hero-skyline.webp` and update `heroPhotography.homepage.src` in `lib/media/photography.ts`).
-3. Update the `alt` string in `lib/media/photography.ts` to describe the new scene accurately.
-4. Hard-refresh the browser; Next.js image cache may require restarting `npm run dev` after filename changes.
-
-## Do not
-
-- Rely on hot-linked Unsplash URLs for the homepage hero (IDs can 404; failed loads show **alt text** in the layout).
-- Use prompt text or captions as visible hero content — captions are optional UI only (`hero-media-caption`).
+1. Export brand photography as high-quality WebP (desktop **2400–3200px** wide landscape; mobile **1200–1536px** wide portrait).
+2. Replace files in place and update `heroPhotography.homepage` in `lib/media/photography.ts` if paths change.
+3. Hard-refresh; restart `npm run dev` after filename changes.
 
 ## Code
 
-- Asset registry: `lib/media/photography.ts`
-- Frame component: `components/media/hero-media-frame.tsx`
+- Asset registry: `lib/media/photography.ts` → `heroPhotography.homepage`
+- Responsive frame: `components/media/hero-responsive-media-frame.tsx`
 - Homepage layout: `components/sections/homepage-hero.tsx`
