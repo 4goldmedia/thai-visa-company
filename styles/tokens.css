@@ -129,7 +129,9 @@
   --width-hero-prose: 34rem;
   --hero-ref-min-height: 34rem;
   --hero-ref-min-height-lg: 40rem;
-  --hero-ref-image-start: 38%;
+  /** Homepage hero — cinematic viewport band (minus header handled in CSS) */
+  --hero-ref-viewport-min: 88vh;
+  --hero-ref-image-start: 34%;
   --hero-ref-copy-max: 32rem;
   --hero-ref-panel-width: 19.5rem;
   --hero-ref-panel-padding: 1.625rem;

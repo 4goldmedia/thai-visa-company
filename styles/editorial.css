@@ -20,13 +20,17 @@
   }
 
   @media (min-width: 640px) {
-    .hero-media-frame {
+    .hero-media-frame:not(.hero-media-frame--immersive) {
       aspect-ratio: 5 / 6;
     }
   }
 
+  .hero-media-frame--immersive {
+    min-height: 100%;
+  }
+
   @media (min-width: 1024px) {
-    .hero-media-frame {
+    .hero-media-frame:not(.hero-media-frame--immersive) {
       aspect-ratio: 4 / 5;
       min-height: 28rem;
     }

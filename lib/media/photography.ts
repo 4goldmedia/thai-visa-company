@@ -11,10 +11,13 @@
  */
 
 export type HeroMediaAsset = {
-  /** Path under `/public` (e.g. `/images/hero/homepage.jpg`) or allowed remote URL */
+  /** Path under `/public` (e.g. `/images/hero/hero-skyline.jpg`) or allowed remote URL */
   src: string
   alt: string
   caption?: string
+  /** Intrinsic dimensions — stabilizes Next/Image `fill` layout (CLS) */
+  width?: number
+  height?: number
 }
 
 export type VisaGalleryImage = {
@@ -39,9 +42,11 @@ export const editorialPhotography = {
 /** Local temp assets — swap files in `public/images/hero/` when brand photography ships */
 export const heroPhotography = {
   homepage: {
-    src: "/images/hero/homepage.jpg",
-    alt: "Sunlit modern residence with warm natural materials, suggesting comfortable long-stay living in Thailand",
+    src: "/images/hero/hero-skyline.jpg",
+    alt: "Luxury terrace overlooking the Bangkok skyline at golden hour, suggesting premium long-stay living in Thailand",
     caption: "Long-stay living, handled with care",
+    width: 1024,
+    height: 546,
   },
   contact: {
     src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
@@ -72,8 +77,8 @@ export const visaGalleryPhotography = {
   },
   retirement: {
     src: "/images/visas/retirement.jpg",
-    alt: "Person working outdoors in a calm natural setting, suggesting relaxed premium long-stay retirement life",
-    objectPosition: "center 42%",
+    alt: "Calm tropical beach at golden hour with lounge chairs and palm trees, suggesting relaxed premium retirement life in Thailand",
+    objectPosition: "center 55%",
   },
   education: {
     src: "/images/visas/education.jpg",

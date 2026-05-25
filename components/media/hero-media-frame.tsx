@@ -36,6 +36,8 @@ function HeroMediaFrame({
       <OptimizedImage
         src={asset.src}
         alt={asset.alt}
+        width={asset.width}
+        height={asset.height}
         fill
         priority={priority}
         sizes={
@@ -45,6 +47,9 @@ function HeroMediaFrame({
         }
         className="hero-media-frame__image"
       />
+      {isImmersive ? (
+        <span className="hero-media-frame__depth" aria-hidden />
+      ) : null}
       <span className="hero-media-frame__wash" aria-hidden />
       <span className="hero-media-frame__overlay" aria-hidden />
       {asset.caption ? (

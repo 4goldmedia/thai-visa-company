@@ -17,7 +17,10 @@
   @media (min-width: 1024px) {
     .hero-premium {
       --hero-header-offset: 4rem;
-      min-height: calc(var(--hero-ref-min-height-lg) + var(--hero-header-offset));
+      min-height: max(
+        calc(var(--hero-ref-min-height-lg) + var(--hero-header-offset)),
+        calc(var(--hero-ref-viewport-min) + var(--hero-header-offset))
+      );
       padding-top: calc(var(--hero-header-offset) + 2.75rem);
       padding-bottom: 4rem;
     }
@@ -39,10 +42,10 @@
       background: linear-gradient(
         90deg,
         var(--background) 0%,
-        oklch(0.985 0.009 95 / 98%) 12%,
-        oklch(0.985 0.009 95 / 78%) 28%,
-        oklch(0.985 0.009 95 / 32%) 48%,
-        oklch(0.985 0.009 95 / 0%) 68%
+        oklch(0.985 0.009 95 / 72%) 14%,
+        oklch(0.985 0.009 95 / 48%) 30%,
+        oklch(0.985 0.009 95 / 18%) 46%,
+        oklch(0.985 0.009 95 / 0%) 58%
       );
     }
   }
@@ -59,12 +62,15 @@
       inset: 0;
       left: var(--hero-ref-image-start);
       z-index: 0;
+      min-height: 100%;
       pointer-events: none;
     }
 
     .hero-premium__environment .hero-media-frame--immersive {
       position: absolute;
       inset: 0;
+      width: 100%;
+      height: 100%;
       min-height: 100%;
       aspect-ratio: auto;
       border: none;
@@ -72,18 +78,25 @@
     }
 
     .hero-premium__environment .hero-media-frame__image {
-      object-position: 62% 42%;
+      object-fit: cover;
+      object-position: right center;
+      filter: saturate(0.97) contrast(0.99) brightness(1.02);
     }
 
     .hero-premium__environment .hero-media-frame__wash {
-      opacity: 0.55;
+      opacity: 0.38;
+    }
+
+    /* Skyline stays sharp — no background blur on immersive hero */
+    .hero-premium__environment .hero-media-frame__depth {
+      display: none;
     }
 
     .hero-premium__environment .hero-media-frame__overlay {
       background: linear-gradient(
         180deg,
-        oklch(0.22 0.02 55 / 0%) 50%,
-        oklch(0.22 0.02 55 / 14%) 100%
+        oklch(0.22 0.02 55 / 0%) 55%,
+        oklch(0.22 0.02 55 / 8%) 100%
       );
     }
 
@@ -110,7 +123,10 @@
       grid-template-columns: minmax(0, var(--hero-ref-copy-max)) minmax(0, 1fr);
       align-items: center;
       column-gap: 2.5rem;
-      min-height: var(--hero-ref-min-height);
+      min-height: max(
+        var(--hero-ref-min-height),
+        calc(var(--hero-ref-viewport-min) - 10rem)
+      );
     }
   }
 
@@ -268,8 +284,38 @@
   }
 
   .hero-premium__scene .hero-media-frame {
-    aspect-ratio: 16 / 10;
-    max-height: 24rem;
+    aspect-ratio: 21 / 9;
+    max-height: 26rem;
+  }
+
+  .hero-premium__scene .hero-media-frame__image {
+    object-fit: cover;
+    object-position: center right;
+    filter: saturate(0.97) contrast(0.99) brightness(1.02);
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .hero-premium__scene .hero-media-frame__image {
+      object-position: right center;
+    }
+  }
+
+  .hero-premium__scene .hero-media-frame__wash {
+    opacity: 0.42;
+  }
+
+  .hero-premium__scene .hero-media-frame__overlay {
+    background: linear-gradient(
+      180deg,
+      oklch(0.22 0.02 55 / 0%) 60%,
+      oklch(0.22 0.02 55 / 6%) 100%
+    );
+  }
+
+  @media (min-width: 1536px) {
+    .hero-premium__environment .hero-media-frame__image {
+      object-position: right center;
+    }
   }
 
   /* Panel column — flex-centers card within image composition zone */
@@ -280,10 +326,11 @@
   @media (min-width: 1024px) {
     .hero-premium__panel-slot {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: flex-end;
       align-self: stretch;
       min-height: var(--hero-ref-min-height);
+      padding-bottom: 2.5rem;
     }
   }
 
