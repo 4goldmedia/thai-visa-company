@@ -2,9 +2,12 @@
  * Photography direction & default hero assets.
  *
  * Production heroes live under `/public/images/hero/` (local paths only).
- * Visa card thumbnails live under `/public/images/visas/`.
+ * Visa gallery imagery lives under `/public/images/visas/`.
+ *
+ * Art direction: people + lifestyle context (relocation / mobility), not empty architecture.
  *
  * @see PHOTOGRAPHY_DIRECTION.md
+ * @see public/images/visas/README.md
  */
 
 export type HeroMediaAsset = {
@@ -14,10 +17,15 @@ export type HeroMediaAsset = {
   caption?: string
 }
 
-export type VisaCardImage = {
+export type VisaGalleryImage = {
   src: string
   alt: string
+  /** Per-image crop focal point for editorial consistency */
+  objectPosition?: string
 }
+
+/** @deprecated Use VisaGalleryImage */
+export type VisaCardImage = VisaGalleryImage
 
 /** Local temp assets — swap files in `public/images/hero/` when brand photography ships */
 export const heroPhotography = {
@@ -33,26 +41,37 @@ export const heroPhotography = {
   },
 } as const satisfies Record<string, HeroMediaAsset>
 
-/** Visa card thumbnails — one file per route slug */
-export const visaCardPhotography = {
-  retirement: {
-    src: "/images/visas/retirement.jpg",
-    alt: "Comfortable residential setting suggesting long-term retirement living in Thailand",
-  },
+/**
+ * Visa gallery — contextual lifestyle photography per route.
+ * Sources: Unsplash (premium editorial selects); replace with brand shoots in `public/images/visas/`.
+ */
+export const visaGalleryPhotography = {
   dtv: {
     src: "/images/visas/dtv.jpg",
-    alt: "Modern workspace with natural light, suggesting remote work in Thailand",
+    alt: "Professional working on a laptop on a balcony overlooking the city, suggesting remote work life in Thailand",
+    objectPosition: "center 35%",
   },
   elite: {
     src: "/images/visas/elite.jpg",
-    alt: "Premium interior with refined materials, suggesting Elite residency lifestyle",
+    alt: "Person in a refined interior setting with laptop, suggesting premium long-stay residency lifestyle",
+    objectPosition: "center 40%",
   },
   business: {
     src: "/images/visas/business.jpg",
-    alt: "Professional office environment suggesting business activity in Thailand",
+    alt: "Business team in a modern meeting room, suggesting international business relocation to Thailand",
+    objectPosition: "center 45%",
+  },
+  retirement: {
+    src: "/images/visas/retirement.jpg",
+    alt: "Person working outdoors in a calm natural setting, suggesting relaxed premium long-stay retirement life",
+    objectPosition: "center 42%",
   },
   education: {
     src: "/images/visas/education.jpg",
-    alt: "Bright study space suggesting education and learning in Thailand",
+    alt: "Group of friends in a warm social setting, suggesting family relocation and study life in Thailand",
+    objectPosition: "center 38%",
   },
-} as const satisfies Record<string, VisaCardImage>
+} as const satisfies Record<string, VisaGalleryImage>
+
+/** @deprecated Use visaGalleryPhotography */
+export const visaCardPhotography = visaGalleryPhotography

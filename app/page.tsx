@@ -1,7 +1,7 @@
 import { FinalCTASection } from "@/components/sections/final-cta"
 import { FaqSection } from "@/components/sections/faq"
 import { HeroSection } from "@/components/sections/hero"
-import { PageAtAGlance } from "@/components/sections/page-at-a-glance"
+import { TrustBar } from "@/components/sections/trust-bar"
 import { ProcessSection } from "@/components/sections/process"
 import { ResourcesPreviewSection } from "@/components/sections/resources-preview"
 import { ReviewsSection } from "@/components/sections/reviews"
@@ -24,7 +24,7 @@ export default function Home() {
         className="flex flex-1 flex-col overflow-x-clip bg-background"
       >
         <HeroSection />
-        <PageAtAGlance {...homepageAiCopy.atAGlance} />
+        <TrustBar {...homepageAiCopy.trustBar} />
         <VisaTypesSection />
         <WhyChooseUsSection />
         <ProcessSection />

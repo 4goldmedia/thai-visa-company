@@ -59,14 +59,14 @@ export const platformBusinessProfile = {
       location: "United Kingdom",
       ratingValue: 5,
       reviewBody:
-        "Replied quickly on LINE and explained my tourist visa options in a way that was easy to follow.",
+        "The process was much easier than expected. Fast replies and clear explanations throughout.",
     },
     {
       author: "Emily K.",
       location: "United States",
       ratingValue: 5,
       reviewBody:
-        "DTV requirements were laid out step by step. I always knew what to prepare before sending anything.",
+        "Every step was explained in plain language. I always knew what to prepare before sending documents.",
     },
     {
       author: "Markus W.",

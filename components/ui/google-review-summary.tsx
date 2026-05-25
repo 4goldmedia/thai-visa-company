@@ -21,16 +21,27 @@ export type GoogleReviewSummaryProps = {
   linkToReviews?: boolean
   /** Include business name in screen reader label */
   includeBusinessInLabel?: boolean
+  /** `dark` — reviews band (#23211E) */
+  variant?: "light" | "dark"
   className?: string
 }
 
-function GoogleMark({ className }: { className?: string }) {
+function GoogleMark({
+  className,
+  variant = "light",
+}: {
+  className?: string
+  variant?: "light" | "dark"
+}) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-md border border-border/50 bg-muted/30 px-1.5 py-px",
-        "text-[10px] font-medium tracking-tight text-muted-foreground sm:text-[11px]",
-        className
+        "inline-flex items-center rounded-md border px-1.5 py-px",
+        "text-[10px] font-medium tracking-tight sm:text-[11px]",
+        variant === "dark"
+          ? "border-[color-mix(in_srgb,#f6f3ee_14%,transparent)] bg-[color-mix(in_srgb,#f6f3ee_6%,transparent)] text-[color-mix(in_srgb,#f6f3ee_55%,transparent)]"
+          : "border-border/50 bg-muted/30 text-muted-foreground",
+        className,
       )}
       aria-hidden
     >
@@ -49,8 +60,10 @@ function GoogleReviewSummary({
   size = "sm",
   linkToReviews = false,
   includeBusinessInLabel = false,
+  variant = "light",
   className,
 }: GoogleReviewSummaryProps) {
+  const isDark = variant === "dark"
   const data: GoogleReviewSummaryData = {
     rating,
     reviewCount,
@@ -67,19 +80,23 @@ function GoogleReviewSummary({
   const isMd = size === "md"
 
   const ratingClass = cn(
-    "font-semibold tabular-nums tracking-tight text-foreground",
+    "font-semibold tabular-nums tracking-tight",
+    isDark ? "text-[#f6f3ee]" : "text-foreground",
     isStacked
       ? isMd
         ? "text-2xl sm:text-3xl"
         : "text-xl sm:text-2xl"
       : isMd
         ? "text-base sm:text-lg"
-        : "text-sm"
+        : "text-sm",
   )
 
   const metaClass = cn(
-    "leading-snug text-muted-foreground",
-    isMd ? "text-sm sm:text-[15px]" : "text-[13px] sm:text-sm"
+    "leading-snug",
+    isDark
+      ? "text-[color-mix(in_srgb,#f6f3ee_68%,transparent)]"
+      : "text-muted-foreground",
+    isMd ? "text-sm sm:text-[15px]" : "text-[13px] sm:text-sm",
   )
 
   const content = (
@@ -92,32 +109,36 @@ function GoogleReviewSummary({
         isStacked
           ? "flex flex-col items-start gap-1.5 sm:items-end sm:text-right"
           : "flex flex-wrap items-center gap-x-2.5 gap-y-1.5",
-        className
+        isDark && "google-review-summary--dark",
+        className,
       )}
     >
       {isStacked ? (
         <>
-          <p className={ratingClass}>{rating}</p>
+          <p className={ratingClass} data-rating>
+            {rating}
+          </p>
           <StarRating
             rating={rating}
+            variant={variant}
             className={cn(isMd && "[&_svg]:size-3.5")}
           />
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
             <p className={metaClass}>{countLabel}</p>
-            <GoogleMark />
+            <GoogleMark variant={variant} />
           </div>
         </>
       ) : (
         <>
           <div className="flex items-center gap-1.5" aria-hidden>
-            <StarRating rating={rating} />
+            <StarRating rating={rating} variant={variant} />
             <span className={ratingClass}>{rating}</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
             <p className={metaClass}>
               on {sourceLabel} · {countLabel}
             </p>
-            <GoogleMark />
+            <GoogleMark variant={variant} />
           </div>
         </>
       )}
@@ -133,7 +154,9 @@ function GoogleReviewSummary({
         className={cn(
           "rounded-lg outline-none transition-colors",
           "hover:opacity-90",
-          "focus-visible:ring-3 focus-visible:ring-ring/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          isDark
+            ? "focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[color-mix(in_srgb,#f6f3ee_35%,transparent)]"
+            : "focus-visible:ring-3 focus-visible:ring-ring/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         )}
         aria-label={`${ariaLabel}. View on Google`}
       >

@@ -1,79 +1,80 @@
+import { ArrowRight } from "lucide-react"
+
 import { ReviewCard } from "@/components/cards/review-card"
 import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
-import { SectionHeading } from "@/components/layout/section-heading"
 import { SectionReveal } from "@/components/motion"
-import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import {
-  sectionContentOffsetClass,
-  sectionDividerClass,
-  textLinkClass,
-} from "@/lib/section-styles"
+  clientReviewsSectionCopy,
+  homepageClientReviews,
+} from "@/lib/content/client-reviews"
+import { googleReviewsUrl } from "@/lib/schema/business-profile"
+import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
+import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { cn } from "@/lib/utils"
 
-import { googleReviewsUrl, platformBusinessProfile } from "@/lib/schema/business-profile"
-import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
-
-const reviews = platformBusinessProfile.reviews.map((item) => ({
-  name: item.author,
-  location: item.location ?? "",
-  rating: item.ratingValue,
-  review: item.reviewBody,
-}))
-
 function Reviews() {
+  const { eyebrow, title, description, footerLink } = clientReviewsSectionCopy
+
   return (
     <SectionReveal className="flex flex-col">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
-        <SectionHeading
-          id={sectionHeadingIds.reviews}
-          wrapper="div"
-          eyebrow="Client reviews"
-          title="Trusted by foreigners across Thailand"
-          description="Clients value clear visa guidance and fast replies when requirements change."
-          titleClassName="max-w-xl"
-          className="flex-1"
-        />
+      <header className="reviews-section__header">
+        <div className="reviews-section__intro">
+          <p className="reviews-section__eyebrow">{eyebrow}</p>
+          <h2 id={sectionHeadingIds.reviews} className="reviews-section__title">
+            {title}
+          </h2>
+          <p className="reviews-section__description">{description}</p>
+        </div>
+
         <GoogleReviewSummary
           rating={defaultGoogleReviewSummary.rating}
           reviewCount={defaultGoogleReviewSummary.reviewCount}
           href={defaultGoogleReviewSummary.href}
           layout="stacked"
           size="md"
+          variant="dark"
           linkToReviews
           className="shrink-0 sm:items-end"
         />
-      </div>
+      </header>
 
       <ul
         aria-label="Client review excerpts"
         className={cn(
-          sectionContentOffsetClass,
-          "grid list-none grid-cols-1 gap-3.5 p-0 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5"
+          "reviews-section__grid",
+          "mt-[var(--space-heading-offset-md)] lg:mt-[var(--space-heading-offset-lg)]",
         )}
       >
-        {reviews.map((item) => (
-          <li key={item.name} className="flex min-w-0 sm:h-full">
+        {homepageClientReviews.map((item) => (
+          <li key={item.id} className="flex min-w-0">
             <ReviewCard
               name={item.name}
               location={item.location}
+              visaType={item.visaType}
               review={item.review}
               rating={item.rating}
+              avatarSrc={item.avatar.src}
+              avatarAlt={item.avatar.alt}
               className="w-full"
             />
           </li>
         ))}
       </ul>
 
-      <p className="mt-6 sm:mt-7">
+      <p className="mt-8 sm:mt-9">
         <a
           href={googleReviewsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={textLinkClass}
+          className="reviews-section__footer-link group"
         >
-          View all reviews on Google
+          {footerLink}
+          <ArrowRight
+            className="size-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
+            aria-hidden
+          />
         </a>
       </p>
     </SectionReveal>
@@ -85,7 +86,7 @@ function ReviewsSection() {
     <Section
       id={sectionIds.reviews}
       aria-labelledby={sectionHeadingIds.reviews}
-      className={sectionDividerClass}
+      className="reviews-section"
     >
       <Container>
         <Reviews />
@@ -94,4 +95,4 @@ function ReviewsSection() {
   )
 }
 
-export { Reviews, ReviewsSection, reviews, defaultGoogleReviewSummary as reviewSummary }
+export { Reviews, ReviewsSection, homepageClientReviews as reviews }

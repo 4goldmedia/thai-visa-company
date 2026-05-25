@@ -1,30 +1,52 @@
 import { Star } from "lucide-react"
 
-import { cardSurfaceClass } from "@/lib/section-styles"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 import { cn } from "@/lib/utils"
 
 type ReviewCardProps = {
-  /** Reviewer display name */
   name: string
-  /** Optional country or location */
-  location?: string
-  /** Review body — keep concise for scannability */
+  location: string
+  visaType: string
   review: string
-  /** Star rating from 1 to 5 */
   rating: number
-  /** Show a subtle Google review label */
-  fromGoogle?: boolean
+  avatarSrc: string
+  avatarAlt: string
+  className?: string
+}
+
+type StarRatingProps = {
+  rating: number
+  variant?: "light" | "dark"
   className?: string
 }
 
 function StarRating({
   rating,
+  variant = "light",
   className,
-}: {
-  rating: number
-  className?: string
-}) {
+}: StarRatingProps) {
   const normalized = Math.min(5, Math.max(1, Math.round(rating)))
+
+  if (variant === "dark") {
+    return (
+      <div
+        className={cn("reviews-card__stars", className)}
+        role="img"
+        aria-label={`${normalized} out of 5 stars`}
+      >
+        {Array.from({ length: 5 }).map((_, index) => {
+          const filled = index < normalized
+          return (
+            <Star
+              key={index}
+              data-filled={filled ? "true" : "false"}
+              aria-hidden
+            />
+          )
+        })}
+      </div>
+    )
+  }
 
   return (
     <div
@@ -39,7 +61,7 @@ function StarRating({
             "size-3 shrink-0",
             index < normalized
               ? "fill-amber-500/75 text-amber-500/75"
-              : "fill-transparent text-border/80"
+              : "fill-transparent text-border/80",
           )}
           aria-hidden
         />
@@ -48,43 +70,46 @@ function StarRating({
   )
 }
 
+/**
+ * Dark-band client review card — stars, quote, avatar + meta.
+ */
 function ReviewCard({
   name,
   location,
+  visaType,
   review,
   rating,
-  fromGoogle = false,
+  avatarSrc,
+  avatarAlt,
   className,
 }: ReviewCardProps) {
   return (
     <article
       data-slot="review-card"
-      className={cn("flex h-full flex-col", cardSurfaceClass, className)}
+      className={cn("reviews-card", className)}
     >
-      <StarRating rating={rating} />
+      <StarRating rating={rating} variant="dark" />
 
-      <header className="mt-2.5 min-w-0 sm:mt-3">
-        <p className="text-[14px] font-medium leading-snug text-foreground">
-          {name}
-          {location ? (
-            <span className="font-normal text-muted-foreground">
-              {" "}
-              · {location}
-            </span>
-          ) : null}
-        </p>
-        {fromGoogle ? (
-          <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-            Google review
-          </p>
-        ) : null}
-      </header>
-
-      <blockquote className="mt-2 flex-1 border-0 p-0 sm:mt-2.5">
-        <p className="text-[14px] leading-[1.7] text-foreground/85">
-          {review}
-        </p>
+      <blockquote className="reviews-card__quote">
+        <p>{review}</p>
       </blockquote>
+
+      <footer className="reviews-card__profile">
+        <div className="reviews-card__avatar">
+          <OptimizedImage
+            src={avatarSrc}
+            alt={avatarAlt}
+            width={44}
+            height={44}
+            className="size-full object-cover"
+          />
+        </div>
+        <div className="reviews-card__meta">
+          <p className="reviews-card__name">{name}</p>
+          <p className="reviews-card__location">{location}</p>
+          <p className="reviews-card__visa">{visaType}</p>
+        </div>
+      </footer>
     </article>
   )
 }

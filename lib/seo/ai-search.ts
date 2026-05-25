@@ -3,7 +3,7 @@
  * Used by metadata, JSON-LD, and visible “at a glance” blocks (not keyword lists).
  */
 
-import type { AtAGlanceContent } from "@/lib/content/at-a-glance"
+import { homepageTrustBar } from "@/lib/content/trust-bar"
 import { siteBrand, siteMetadata } from "@/lib/site/config"
 
 export const aiSearchEntity = {
@@ -44,31 +44,7 @@ export const homepageAiCopy = {
   faqSchemaName: "Thailand visa FAQ — Thai Visa Company",
   faqSchemaDescription:
     "Common questions about Thailand visa types, processing times, and how Thai Visa Company supports applications.",
-  atAGlance: {
-    title: "At a glance",
-    context:
-      "Operational essentials for planning your move—clear, current, and easy to scan.",
-    items: [
-      {
-        icon: "routes",
-        label: "Visa pathways",
-        description:
-          "Tourist, business, DTV, retirement, Elite, and education routes.",
-      },
-      {
-        icon: "response",
-        label: "Responsive support",
-        description:
-          "LINE and WhatsApp—most inquiries answered the same business day.",
-      },
-      {
-        icon: "location",
-        label: "Bangkok-based",
-        description:
-          "Serving applicants worldwide and already in Thailand.",
-      },
-    ],
-  } satisfies AtAGlanceContent,
+  trustBar: homepageTrustBar,
 } as const
 
 export const contactAiCopy = {
