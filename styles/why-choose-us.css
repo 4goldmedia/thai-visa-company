@@ -16,8 +16,8 @@
     padding: 0;
     list-style: none;
     overflow: hidden;
-    border: 1px solid var(--why-divider);
-    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--why-divider) 85%, transparent);
+    border-radius: var(--radius-card);
     background-color: color-mix(
       in srgb,
       var(--surface-elevated) 40%,
@@ -77,7 +77,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid color-mix(in srgb, var(--palette-text) 7%, var(--why-divider));
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-input);
     color: var(--text-secondary);
     background-color: color-mix(
       in srgb,

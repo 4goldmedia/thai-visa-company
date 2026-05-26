@@ -34,8 +34,9 @@ export const homepageAiCopy = {
   heroLeadLine:
     "We handle the paperwork and processes so you can focus on your new life in Thailand.",
   heroContactStrip: {
-    title: "Chat with our team",
-    subtitle: "Fast replies on visas, documents, and timelines.",
+    title: "Speak with a specialist",
+    subtitle:
+      "Replies within 24 hours on visas, timelines, and relocation guidance.",
   },
   /** Standalone extractable summary (meta description + WebPage schema) */
   extractableSummary:

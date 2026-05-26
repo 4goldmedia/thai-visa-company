@@ -16,7 +16,7 @@ export const formErrorClass =
 
 /** Text inputs and selects — 44px touch target on mobile */
 export const formControlClass = cn(
-  "h-11 w-full min-w-0 rounded-[var(--radius)] border border-border bg-background px-3.5",
+  "h-11 w-full min-w-0 rounded-[var(--radius-input)] border border-border/70 bg-background px-3.5",
   "text-[15px] text-foreground placeholder:text-muted-foreground/65",
   "transition-[border-color,box-shadow] duration-200 ease-out",
   "hover:border-border/70",
@@ -38,7 +38,7 @@ export const formSelectClass = cn(
 )
 
 export const formCardClass = cn(
-  "rounded-[var(--radius)] border border-border bg-card p-5 sm:p-6 md:p-7"
+  "rounded-[var(--radius-card)] border border-border/60 bg-card p-5 sm:p-6 md:p-7"
 )
 
 export const formTitleClass =

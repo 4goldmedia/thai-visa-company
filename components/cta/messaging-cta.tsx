@@ -10,6 +10,8 @@ export type MessagingCtaProps = {
   channel: MessagingChannelId
   /** Button style — primary for LINE, outline for WhatsApp by convention */
   variant?: "primary" | "outline"
+  /** Skip shadcn Button — for concierge surfaces with custom CSS */
+  unstyled?: boolean
   /** Visible label: full (“Chat on LINE”) or short (“LINE”) */
   labelMode?: MessagingCtaLabelMode
   className?: string
@@ -27,6 +29,7 @@ const opensNewTabHint = (
 function MessagingCta({
   channel,
   variant = channel === "line" ? "primary" : "outline",
+  unstyled = false,
   labelMode = "full",
   className,
   onClick,
@@ -37,27 +40,36 @@ function MessagingCta({
     labelMode === "short" ? config.shortLabel : config.label
   const ariaLabel = labelMode === "short" ? config.ariaLabel : undefined
 
+  const anchor = (
+    <a
+      href={config.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={ariaLabel}
+      data-contact-channel={channel}
+      onClick={onClick}
+      className={unstyled ? className : undefined}
+    >
+      {children ?? (
+        <>
+          {visibleLabel}
+          {opensNewTabHint}
+        </>
+      )}
+    </a>
+  )
+
+  if (unstyled) {
+    return anchor
+  }
+
   return (
     <Button
       asChild
       variant={variant === "outline" ? "outline" : "default"}
       className={className}
     >
-      <a
-        href={config.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={ariaLabel}
-        data-contact-channel={channel}
-        onClick={onClick}
-      >
-        {children ?? (
-          <>
-            {visibleLabel}
-            {opensNewTabHint}
-          </>
-        )}
-      </a>
+      {anchor}
     </Button>
   )
 }

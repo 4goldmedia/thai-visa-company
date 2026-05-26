@@ -116,7 +116,7 @@ export const textLinkClass = cn(
 
 /** Primary CTA — warm charcoal, sharp modern */
 export const ctaButtonPrimaryClass = cn(
-  "h-11 min-h-11 w-full rounded-[var(--radius)] border border-transparent px-5",
+  "h-11 min-h-11 w-full rounded-[var(--radius-button)] border border-transparent px-5",
   "text-[length:var(--text-body)] font-medium tracking-normal",
   "bg-primary text-primary-foreground",
   "transition-[background-color,border-color,opacity] duration-200 ease-out",
@@ -127,7 +127,7 @@ export const ctaButtonPrimaryClass = cn(
 
 /** Secondary CTA — architectural outline */
 export const ctaButtonSecondaryClass = cn(
-  "h-11 min-h-11 w-full rounded-[var(--radius)] px-5",
+  "h-11 min-h-11 w-full rounded-[var(--radius-button)] px-5",
   "text-[length:var(--text-body)] font-medium tracking-normal",
   "border border-[var(--border-default)] bg-[var(--surface-elevated)] text-foreground",
   "transition-[border-color,background-color] duration-200 ease-out",
@@ -138,7 +138,7 @@ export const ctaButtonSecondaryClass = cn(
 
 /** Tertiary action */
 export const ctaTertiaryLinkClass = cn(
-  "group inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-[var(--radius)]",
+  "group inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-[var(--radius-button)]",
   "text-[length:var(--text-body)] font-medium text-muted-foreground",
   "transition-[color,background-color] duration-200 ease-out",
   "hover:bg-muted/60 hover:text-foreground",
@@ -200,25 +200,14 @@ export const heroExploreLinkClass = cn(
 /** Hero contact strip (desktop) — stronger focal points, neutral surfaces */
 export const heroContactStripActionClass = cn(
   "messaging-platform-action",
-  "inline-flex h-10 min-h-10 flex-1 items-center justify-center gap-2.5 rounded-[var(--radius)] px-4",
-  "border border-border bg-[var(--surface-elevated)]",
-  "text-[length:var(--text-small)] font-medium tracking-normal text-foreground",
-  "transition-[border-color,background-color,box-shadow] duration-200 ease-out",
-  "hover:border-foreground/15 hover:bg-[var(--surface-muted)]",
-  "active:bg-[var(--surface-muted)]",
-  "min-w-[8rem] sm:flex-none",
+  "flex-1 sm:flex-none",
   "motion-reduce:transition-none",
 )
 
 /** Sticky mobile messaging bar — 50/50 thumb targets */
 export const mobileMessagingBarActionClass = cn(
   "messaging-platform-action",
-  "inline-flex h-12 min-h-12 min-w-0 flex-1 items-center justify-center gap-2.5 rounded-[var(--radius)] px-3",
-  "border border-border bg-[var(--surface-elevated)]",
-  "text-[length:var(--text-body)] font-medium tracking-normal text-foreground",
-  "transition-[border-color,background-color] duration-200 ease-out",
-  "hover:border-foreground/12 hover:bg-[var(--surface-muted)]",
-  "active:bg-[var(--surface-muted)]",
+  "min-w-0 flex-1",
   "motion-reduce:transition-none",
 )
 
@@ -239,14 +228,14 @@ export const cardPaddingClass =
 /** Card — border-first surface, no decorative shadow */
 export const cardSurfaceClass = cn(
   cardPaddingClass,
-  "rounded-[var(--radius)] border border-border bg-card",
+  "rounded-[var(--radius-card)] border border-border/60 bg-card",
   "transition-[border-color,background-color] duration-200 ease-out motion-reduce:transition-none",
   "hover:border-[var(--border-subtle)]",
 )
 
 /** Dashed placeholder panels (resources, articles) */
 export const cardPlaceholderClass = cn(
-  "rounded-[var(--radius)] border border-dashed border-border/60 bg-muted/5",
+  "rounded-[var(--radius-card)] border border-dashed border-border/50 bg-muted/5",
   "px-[var(--space-card-padding)] py-[var(--space-card-padding)]",
   "text-[length:var(--text-body)] leading-[var(--leading-body)] text-muted-foreground",
   "sm:py-[var(--space-card-padding-md)]",
@@ -254,7 +243,7 @@ export const cardPlaceholderClass = cn(
 
 /** Bordered content shell (FAQ, process) */
 export const cardShellClass = cn(
-  "overflow-hidden rounded-[var(--radius)] border border-border/50 bg-card",
+  "overflow-hidden rounded-[var(--radius-card)] border border-border/45 bg-card",
 )
 
 /** Global rating stars — hero, Google summary, review cards */

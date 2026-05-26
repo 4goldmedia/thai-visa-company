@@ -1,0 +1,96 @@
+/* LINE / WhatsApp — typography-only concierge actions (hero + mobile bar) */
+
+@layer components {
+  .messaging-platform-action {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: min(var(--radius-button), 4px);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: 500;
+    letter-spacing: 0.035em;
+    box-shadow: none;
+    transition:
+      background-color 0.2s ease-out,
+      border-color 0.2s ease-out,
+      color 0.2s ease-out;
+  }
+
+  .messaging-platform-action:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  .messaging-platform-action__label {
+    line-height: 1;
+  }
+
+  /* Primary — WhatsApp */
+  .messaging-platform-action[data-contact-channel="whatsapp"] {
+    background-color: var(--concierge-btn-bg);
+    border-color: transparent;
+    color: var(--concierge-btn-fg);
+  }
+
+  .messaging-platform-action[data-contact-channel="whatsapp"]:hover {
+    background-color: var(--concierge-btn-bg-hover);
+  }
+
+  .messaging-platform-action[data-contact-channel="whatsapp"]:active {
+    background-color: var(--concierge-btn-bg-hover);
+  }
+
+  .messaging-platform-action[data-contact-channel="whatsapp"]
+    .messaging-platform-action__label {
+    color: var(--concierge-btn-fg);
+  }
+
+  /* Secondary — LINE */
+  .messaging-platform-action[data-contact-channel="line"] {
+    background-color: var(--concierge-btn-secondary-bg);
+    border-color: var(--concierge-btn-secondary-border);
+    color: var(--concierge-btn-secondary-fg);
+  }
+
+  .messaging-platform-action[data-contact-channel="line"]:hover {
+    background-color: var(--concierge-btn-secondary-bg-hover);
+    border-color: color-mix(
+      in srgb,
+      var(--concierge-btn-secondary-border) 85%,
+      var(--foreground)
+    );
+  }
+
+  .messaging-platform-action[data-contact-channel="line"]:active {
+    background-color: var(--concierge-btn-secondary-bg-hover);
+  }
+
+  .messaging-platform-action[data-contact-channel="line"]
+    .messaging-platform-action__label {
+    color: var(--concierge-btn-secondary-fg);
+  }
+
+  /* Desktop hero strip */
+  @media (min-width: 1024px) {
+    .hero-contact-strip .messaging-platform-action {
+      height: 2.8125rem;
+      min-height: 2.8125rem;
+      min-width: 8rem;
+      padding-inline: 1.25rem;
+      font-size: 0.8125rem;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  /* Mobile sticky bar */
+  .mobile-messaging-bar .messaging-platform-action {
+    height: 2.8125rem;
+    min-height: 2.8125rem;
+    padding-inline: 1.125rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.038em;
+  }
+}

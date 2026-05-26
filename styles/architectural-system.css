@@ -1,0 +1,21 @@
+/* Global architectural refinements — radius, borders, shadows */
+
+@layer components {
+  /* Hero + content photography — square crop */
+  .hero-media-frame:not(.hero-media-frame--immersive),
+  .moving-simple__media,
+  .visa-gallery__media,
+  .why-thailand__cell {
+    border-radius: 0;
+  }
+
+  .hero-media-frame--immersive {
+    border-radius: 0;
+  }
+
+  /* Primary actions — square */
+  .messaging-platform-action,
+  [data-slot="button"]:not([data-slot="accordion-trigger"]) {
+    border-radius: var(--radius-button);
+  }
+}

@@ -6,8 +6,8 @@
   .hero-media-frame {
     position: relative;
     overflow: hidden;
-    border-radius: var(--radius);
-    border: 1px solid oklch(0.87 0.014 85 / 0.85);
+    border-radius: 0;
+    border: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
     background-color: var(--ivory-muted);
     aspect-ratio: 4 / 5;
   }

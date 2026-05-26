@@ -3,9 +3,7 @@
 @layer components {
   .hero-premium {
     --hero-header-offset: 3.5rem;
-    --hero-panel-shadow:
-      0 1px 2px oklch(0.2 0.02 55 / 0.04),
-      0 20px 56px -24px oklch(0.2 0.02 55 / 0.16);
+    --hero-panel-shadow: 0 1px 2px oklch(0.2 0.02 55 / 0.04);
     position: relative;
     overflow: hidden;
     margin-top: calc(-1 * var(--hero-header-offset));
@@ -148,31 +146,26 @@
 
   .hero-premium__title {
     margin-top: var(--space-hero-eyebrow-to-title);
-    max-width: var(--width-hero-title);
+    max-width: 100%;
     font-family: var(--font-display);
     font-weight: 500;
     font-size: var(--text-hero-title);
     line-height: var(--leading-hero-title);
-    letter-spacing: -0.026em;
-    text-wrap: pretty;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
     color: var(--foreground);
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     .hero-premium__title {
       font-size: var(--text-hero-title-md);
-      line-height: 1.08;
-      letter-spacing: -0.028em;
+      line-height: var(--leading-hero-title-lg);
     }
   }
 
   @media (min-width: 1024px) {
     .hero-premium__title {
       margin-top: var(--space-hero-eyebrow-to-title-lg);
-      max-width: var(--width-hero-title-lg);
-      font-size: var(--text-hero-title-lg);
-      line-height: var(--leading-hero-title-lg);
-      letter-spacing: -0.03em;
     }
   }
 
@@ -315,8 +308,8 @@
     margin-top: 2rem;
     width: 100%;
     max-width: var(--hero-ref-panel-width);
-    border: 1px solid oklch(0.87 0.014 85 / 0.75);
-    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--border) 65%, transparent);
+    border-radius: var(--radius-card);
     background-color: var(--card);
     padding: var(--hero-ref-panel-padding);
     box-shadow: var(--hero-panel-shadow);
@@ -364,8 +357,8 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: var(--radius-input);
     color: var(--text-tertiary);
   }
 

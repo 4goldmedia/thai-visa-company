@@ -118,7 +118,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid color-mix(in srgb, var(--palette-text) 6%, var(--border-subtle));
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-input);
     color: var(--text-secondary);
     background-color: color-mix(in srgb, var(--background) 65%, transparent);
   }

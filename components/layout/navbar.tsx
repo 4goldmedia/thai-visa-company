@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils"
 const SCROLL_THRESHOLD = 8
 
 const mobileNavLinkClass = cn(
-  "flex min-h-11 items-center rounded-[var(--radius)] px-3.5",
+  "flex min-h-11 items-center rounded-[var(--radius-button)] px-3.5",
   "text-[15px] font-medium leading-snug tracking-normal text-foreground",
   "transition-[color,background-color] duration-200 ease-out hover:bg-muted active:bg-muted/80 motion-reduce:transition-none",
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
@@ -171,7 +171,7 @@ function Navbar({ className }: NavbarProps) {
             <button
               type="button"
               className={cn(
-                "inline-flex size-11 shrink-0 items-center justify-center rounded-[var(--radius)] border border-border bg-background text-foreground transition-colors",
+                "inline-flex size-11 shrink-0 items-center justify-center rounded-[var(--radius-button)] border border-border/60 bg-background text-foreground transition-colors",
                 "hover:bg-muted active:bg-muted/80",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
                 menuOpen && "border-border bg-muted",

@@ -94,7 +94,7 @@
     position: relative;
     aspect-ratio: var(--visa-gallery-image-ratio);
     overflow: hidden;
-    border-radius: var(--radius-sm);
+    border-radius: 0;
     background-color: var(--ivory-muted);
   }
 

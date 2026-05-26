@@ -140,11 +140,10 @@
     display: flex;
     height: 100%;
     flex-direction: column;
-    border: 1px solid var(--reviews-card-border);
-    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--reviews-card-border) 75%, transparent);
+    border-radius: var(--radius-card);
     background-color: var(--reviews-card-bg);
     padding: 1.375rem 1.5rem 1.5rem;
-    box-shadow: 0 1px 0 color-mix(in srgb, var(--reviews-fg) 4%, transparent) inset;
   }
 
   @media (min-width: 640px) {
