@@ -15,18 +15,23 @@ export const ctaLabels = {
   line: messagingChannelLabels.line,
   lineShort: messagingChannelLabels.lineShort,
   whatsapp: messagingChannelLabels.whatsapp,
-  bookConsultation: "Book a consultation",
+  requestConsultation: "Request a Consultation",
+  /** @deprecated Use requestConsultation */
+  bookConsultation: "Request a Consultation",
   exploreVisas: "Explore visas",
   learnMore: "Learn more",
   readGuide: "Read guide",
-  contactForm: "Contact form",
+  /** @deprecated Use requestConsultation */
+  contactForm: "Request a consultation",
 } as const
 
-import { homeSectionAnchors } from "@/lib/navigation"
+import { consultationPath, homeSectionAnchors } from "@/lib/navigation"
 
 export const ctaHref = {
   exploreVisas: homeSectionAnchors.visaServices,
-  contactForm: "/contact",
+  requestConsultation: consultationPath,
+  /** @deprecated Use requestConsultation */
+  contactForm: consultationPath,
 } as const
 
 export { CONTACT_URLS, contactLinks } from "@/lib/contact"

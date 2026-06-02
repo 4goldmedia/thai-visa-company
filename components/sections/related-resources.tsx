@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 import { ResourceCard } from "@/components/cards/resource-card"
 import { Container } from "@/components/layout/container"
@@ -159,7 +158,6 @@ function RelatedResourcesSection({
             >
               <Link href={indexHref} className={textLinkClass}>
                 {indexLabel}
-                <ArrowRight className="size-3.5 shrink-0" aria-hidden />
               </Link>
             </div>
           ) : null}

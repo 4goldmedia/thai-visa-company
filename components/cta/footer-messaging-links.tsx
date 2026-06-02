@@ -1,14 +1,6 @@
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { getMessagingChannels } from "@/lib/contact"
-import { cn } from "@/lib/utils"
-
-const footerLinkClass = cn(
-  "inline-flex min-h-8 max-w-full items-center rounded-md text-[13px] leading-snug text-muted-foreground",
-  "transition-colors hover:text-foreground",
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-  "sm:text-sm",
-)
 
 /**
  * Footer list of LINE and WhatsApp links — `getMessagingChannels()` registry.
@@ -28,7 +20,7 @@ function FooterMessagingLinks() {
         <li key={channel.id}>
           <a
             href={channel.url}
-            className={footerLinkClass}
+            className="site-footer__link"
             target="_blank"
             rel="noopener noreferrer"
             data-contact-channel={channel.id}

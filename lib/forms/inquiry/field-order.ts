@@ -3,6 +3,7 @@ import { inquiryFieldNames, type InquiryFieldName } from "@/lib/forms/inquiry/ty
 /** Stable tab/focus order for validation feedback */
 export const inquiryFieldOrder: readonly InquiryFieldName[] = [
   inquiryFieldNames.name,
+  inquiryFieldNames.email,
   inquiryFieldNames.nationality,
   inquiryFieldNames.visaInterest,
   inquiryFieldNames.currentLocation,
@@ -12,6 +13,7 @@ export const inquiryFieldOrder: readonly InquiryFieldName[] = [
 /** DOM id suffixes — must match `InquiryForm` field `id` props */
 export const inquiryFieldElementId: Record<InquiryFieldName, string> = {
   [inquiryFieldNames.name]: "name",
+  [inquiryFieldNames.email]: "email",
   [inquiryFieldNames.nationality]: "nationality",
   [inquiryFieldNames.visaInterest]: "visa-interest",
   [inquiryFieldNames.currentLocation]: "location",

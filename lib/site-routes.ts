@@ -125,6 +125,13 @@ export const siteRoutes = [
     published: false,
   },
   {
+    path: "/consultation",
+    group: "marketing",
+    changeFrequency: "monthly",
+    priority: 0.85,
+    published: true,
+  },
+  {
     path: "/contact",
     group: "marketing",
     changeFrequency: "monthly",

@@ -4,9 +4,9 @@ import type { VisaProcessStep } from "@/lib/visas/types"
 export const defaultVisaProcessSteps: ReadonlyArray<VisaProcessStep> = [
   {
     step: 1,
-    title: "Contact us",
+    title: "Request a consultation",
     description:
-      "Message us on LINE or WhatsApp with your plans. We reply with what to check first.",
+      "Share your plans with a visa specialist. We reply with guidance tailored to your situation.",
   },
   {
     step: 2,
@@ -29,4 +29,4 @@ export const defaultVisaProcessSteps: ReadonlyArray<VisaProcessStep> = [
 ]
 
 export const defaultFinalCtaFootnote =
-  "Same-day replies on LINE and WhatsApp. Free to ask, with no obligation to proceed."
+  "We typically reply within one business day. No obligation to proceed."

@@ -10,6 +10,7 @@ export const analyticsCtaIds = {
   articleCtaContact: "article_cta_contact",
   inquirySidebarContact: "inquiry_sidebar_contact",
   navbarContact: "navbar_contact",
+  bookConsultation: "book_consultation",
   navbarMenuContact: "navbar_menu_contact",
   mobileBarContact: "mobile_bar_contact",
   footerContact: "footer_contact",

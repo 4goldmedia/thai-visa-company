@@ -868,7 +868,7 @@ export async function resolveRelatedArticlesForVisa(
 // -----------------------------------------------------------------------------
 
 const CTA_PATHS = {
-  contact: "/contact",
+  contact: "/consultation",
   resources: "/resources",
 } as const
 
@@ -885,7 +885,7 @@ export function resolveCtaLinkOpportunities(input: {
       intent: "contact",
       score: SCORE.CTA_CONTACT,
       category: "Support",
-      title: "Contact us",
+      title: "Request a consultation",
       description:
         "Questions about your visa file? Message us on LINE or WhatsApp.",
       href: CTA_PATHS.contact,

@@ -13,6 +13,7 @@ type MessagingPlatformActionProps = {
   channel: MessagingChannelId
   density?: MessagingPlatformActionDensity
   className?: string
+  onNavigate?: () => void
 }
 
 /**
@@ -22,6 +23,7 @@ function MessagingPlatformAction({
   channel,
   density = "hero",
   className,
+  onNavigate,
 }: MessagingPlatformActionProps) {
   const config = getMessagingChannel(channel)
 
@@ -30,6 +32,7 @@ function MessagingPlatformAction({
       channel={channel}
       unstyled
       labelMode="short"
+      onClick={onNavigate}
       className={cn(
         density === "hero"
           ? heroContactStripActionClass

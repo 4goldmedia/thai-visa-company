@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react"
-
 import { ReviewCard } from "@/components/cards/review-card"
 import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import { Container } from "@/components/layout/container"
@@ -11,6 +9,7 @@ import {
 } from "@/lib/content/client-reviews"
 import { googleReviewsUrl } from "@/lib/schema/business-profile"
 import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
+import { editorialLinkInverseClass } from "@/lib/section-styles"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { cn } from "@/lib/utils"
 
@@ -71,13 +70,9 @@ function Reviews() {
           href={googleReviewsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="reviews-section__footer-link group"
+          className={editorialLinkInverseClass}
         >
           {footerLink}
-          <ArrowRight
-            className="size-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-            aria-hidden
-          />
         </a>
       </p>
     </SectionReveal>

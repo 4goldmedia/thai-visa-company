@@ -1,4 +1,3 @@
-import { FinalCTASection } from "@/components/sections/final-cta"
 import { FaqSection } from "@/components/sections/faq"
 import { HeroSection } from "@/components/sections/hero"
 import { TrustBar } from "@/components/sections/trust-bar"
@@ -33,7 +32,6 @@ export default function Home() {
         <ProcessSection />
         <ReviewsSection />
         <WhyThailandSection />
-        <FinalCTASection showExploreCta={false} />
         <FaqSection />
         <ResourcesPreviewSection />
       </main>

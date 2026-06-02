@@ -28,6 +28,14 @@ export function getResourceArticleBreadcrumbs(input: {
   ]
 }
 
+export function getConsultationPageBreadcrumbs(): BreadcrumbLink[] {
+  return [
+    homeBreadcrumb,
+    { label: "Request a consultation", href: "/consultation" },
+  ]
+}
+
+/** @deprecated Contact redirects to `/consultation` */
 export function getContactPageBreadcrumbs(): BreadcrumbLink[] {
-  return [homeBreadcrumb, { label: "Contact", href: "/contact" }]
+  return getConsultationPageBreadcrumbs()
 }

@@ -83,45 +83,6 @@
     }
   }
 
-  .why-thailand__cta {
-    display: inline-flex;
-    width: fit-content;
-    align-items: center;
-    gap: 0.375rem;
-    margin-top: 1.75rem;
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: underline;
-    text-underline-offset: 0.22em;
-    text-decoration-color: color-mix(in srgb, var(--palette-text) 18%, transparent);
-    transition:
-      color 0.2s ease-out,
-      text-decoration-color 0.2s ease-out;
-  }
-
-  .why-thailand__cta:hover {
-    color: var(--foreground);
-    text-decoration-color: color-mix(in srgb, var(--palette-text) 35%, transparent);
-  }
-
-  .why-thailand__cta:focus-visible {
-    outline: 2px solid var(--ring);
-    outline-offset: 3px;
-  }
-
-  .why-thailand__cta-icon {
-    width: 0.875rem;
-    height: 0.875rem;
-    stroke-width: 1.75;
-    transition: transform 0.2s ease-out;
-  }
-
-  .why-thailand__cta:hover .why-thailand__cta-icon {
-    transform: translateX(2px);
-  }
-
   /* Editorial collage — feature + 2×2 tiles */
   .why-thailand__collage {
     display: grid;

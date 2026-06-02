@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils"
 const defaultProcessSteps: ReadonlyArray<VisaProcessStep> = [
   {
     step: 1,
-    title: "Contact us",
+    title: "Request a consultation",
     description:
-      "Message us on LINE or WhatsApp and tell us what you're planning.",
+      "Tell us what you are planning. A specialist will follow up with clear next steps.",
   },
   {
     step: 2,

@@ -106,23 +106,45 @@ export const sectionBandClass = cn(
 export const ctaStackClass =
   "flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-2.5"
 
+/** Aman-inspired secondary text link — always-visible underline */
+export const editorialLinkClass = "editorial-link"
+
+/** Editorial link after section body copy */
+export const editorialLinkSectionClass = cn(
+  editorialLinkClass,
+  "editorial-link--section",
+)
+
+/** Editorial link on dark surfaces (reviews band) */
+export const editorialLinkInverseClass = cn(
+  editorialLinkClass,
+  "editorial-link--inverse",
+)
+
+/** Compact editorial link for in-card CTAs */
+export const editorialLinkCompactClass = cn(
+  editorialLinkClass,
+  "editorial-link--compact",
+)
+
 /** Shared text link for section footers */
-export const textLinkClass = cn(
-  "inline-flex min-h-11 items-center gap-1.5 text-[length:var(--text-small)] font-medium text-foreground/75",
-  "underline-offset-4 transition-colors hover:text-foreground hover:underline",
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-  "sm:min-h-10 sm:text-[length:var(--text-body)]",
+export const textLinkClass = editorialLinkClass
+
+/** Signature primary CTA — matches WhatsApp / hero contact buttons */
+export const signatureCtaPrimaryClass = cn(
+  "signature-cta-primary",
+  "border-transparent bg-[var(--cta-primary-bg)] text-[var(--cta-primary-fg)]",
+  "hover:border-[var(--cta-primary-hover-border)] hover:bg-[var(--cta-primary-hover-bg)] hover:text-[var(--cta-primary-hover-fg)]",
+  "active:border-[var(--cta-primary-hover-border)] active:bg-[var(--cta-primary-hover-bg)] active:text-[var(--cta-primary-hover-fg)]",
+  "shadow-none",
+  "w-full",
+  "motion-reduce:transition-none motion-reduce:active:translate-y-0",
 )
 
 /** Primary CTA — warm charcoal, sharp modern */
 export const ctaButtonPrimaryClass = cn(
-  "h-11 min-h-11 w-full rounded-[var(--radius-button)] border border-transparent px-5",
-  "text-[length:var(--text-body)] font-medium tracking-normal",
-  "bg-primary text-primary-foreground",
-  "transition-[background-color,border-color,opacity] duration-200 ease-out",
-  "hover:bg-[var(--primary-hover)] active:opacity-[0.97]",
-  "sm:h-10 sm:min-h-10 sm:w-auto sm:text-[length:var(--text-body-md)]",
-  "motion-reduce:transition-none",
+  signatureCtaPrimaryClass,
+  "sm:w-auto",
 )
 
 /** Secondary CTA — architectural outline */
@@ -136,16 +158,8 @@ export const ctaButtonSecondaryClass = cn(
   "motion-reduce:transition-none",
 )
 
-/** Tertiary action */
-export const ctaTertiaryLinkClass = cn(
-  "group inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-[var(--radius-button)]",
-  "text-[length:var(--text-body)] font-medium text-muted-foreground",
-  "transition-[color,background-color] duration-200 ease-out",
-  "hover:bg-muted/60 hover:text-foreground",
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-  "sm:min-h-10 sm:w-fit sm:justify-start sm:px-0 sm:text-[length:var(--text-body-md)] sm:hover:bg-transparent",
-  "motion-reduce:transition-none",
-)
+/** Tertiary text navigation — editorial underline link */
+export const ctaTertiaryLinkClass = editorialLinkClass
 
 /** @deprecated Use ctaTertiaryLinkClass */
 export const ctaTextLinkClass = ctaTertiaryLinkClass
@@ -161,10 +175,7 @@ export const heroCtaButtonSecondaryClass = cn(
   "border-border/70 bg-background px-5 sm:min-w-[11.25rem]",
 )
 
-export const heroCtaTertiaryLinkClass = cn(
-  ctaTertiaryLinkClass,
-  "text-[length:var(--text-small)] text-[var(--text-secondary)] sm:text-[length:var(--text-body)]",
-)
+export const heroCtaTertiaryLinkClass = editorialLinkClass
 
 /** Immersive homepage hero — vertical calm, restrained width */
 export const heroPremiumCtaGroupClass = "flex flex-col gap-3"
@@ -187,15 +198,10 @@ export const heroPremiumCtaButtonSecondaryClass = cn(
 )
 
 /** Homepage hero — single editorial explore link */
-export const heroExploreLinkClass = cn(
-  "group inline-flex w-fit items-center gap-1.5",
-  "text-[length:var(--text-small)] font-medium tracking-normal text-[var(--text-secondary)]",
-  "transition-[color] duration-200 ease-out",
-  "hover:text-foreground",
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-  "sm:text-[length:var(--text-body)]",
-  "motion-reduce:transition-none",
-)
+export const heroExploreLinkClass = editorialLinkClass
+
+/** Signature LINE + WhatsApp pair — 16–20px gap, hero-matched button scale */
+export const signatureCtaGroupClass = "signature-cta-group"
 
 /** Hero contact strip (desktop) — stronger focal points, neutral surfaces */
 export const heroContactStripActionClass = cn(
@@ -211,15 +217,7 @@ export const mobileMessagingBarActionClass = cn(
   "motion-reduce:transition-none",
 )
 
-export const heroPremiumExploreLinkClass = cn(
-  "group inline-flex w-fit items-center gap-1.5",
-  "text-[length:var(--text-small)] font-medium text-[var(--text-secondary)]",
-  "underline decoration-border/80 underline-offset-[0.22em]",
-  "transition-[color,text-decoration-color] duration-200 ease-out",
-  "hover:text-foreground hover:decoration-foreground/25",
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-  "motion-reduce:transition-none",
-)
+export const heroPremiumExploreLinkClass = editorialLinkClass
 
 /** Card padding */
 export const cardPaddingClass =

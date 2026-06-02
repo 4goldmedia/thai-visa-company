@@ -17,11 +17,13 @@ import {
   type InquiryLeadSource,
 } from "@/lib/forms/inquiry/types"
 import {
+  consultationVisaOptions,
   inquiryVisaOptions,
   type InquiryVisaInterest,
 } from "@/lib/forms/inquiry/visa-options"
 import {
   toInquiryPayload,
+  validateConsultationInquiryForm,
   validateInquiryForm,
 } from "@/lib/forms/inquiry/validation"
 import { focusFirstInquiryError } from "@/lib/forms/inquiry/focus-first-error"
@@ -36,14 +38,21 @@ import {
   formControlClass,
   formSelectClass,
 } from "@/lib/form-styles"
-import { ctaButtonPrimaryClass } from "@/lib/section-styles"
+import {
+  ctaButtonPrimaryClass,
+  signatureCtaPrimaryClass,
+} from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 // -----------------------------------------------------------------------------
 // Types
 // -----------------------------------------------------------------------------
 
+export type InquiryFormVariant = "standard" | "consultation"
+
 export type InquiryFormProps = {
+  /** Standard multi-field vs homepage consultation */
+  variant?: InquiryFormVariant
   /** CRM + analytics source — required for routing and reporting */
   leadSource: InquiryLeadSource
   /** Pre-select visa interest on visa pages */
@@ -55,7 +64,7 @@ export type InquiryFormProps = {
   /** Short line under description — e.g. time to complete */
   timeEstimate?: string
   submitLabel?: string
-  trustNote?: string
+  trustNote?: string | null
   /** Override default `/api/inquiry` submit */
   onSubmit?: (payload: InquiryFormPayload) => void | Promise<InquiryFormResult>
   /** Skip API submit when using custom `onSubmit` only */
@@ -64,6 +73,12 @@ export type InquiryFormProps = {
   trackView?: boolean
   className?: string
   id?: string
+  /** Override input/select classes (e.g. editorial consultation section) */
+  controlClassName?: string
+  selectClassName?: string
+  textareaClassName?: string
+  /** When the form has no visible title, point to an external heading id */
+  ariaLabelledBy?: string
 }
 
 const NETWORK_ERROR_MESSAGE =
@@ -74,6 +89,7 @@ const NETWORK_ERROR_MESSAGE =
 // -----------------------------------------------------------------------------
 
 function InquiryForm({
+  variant = "standard",
   leadSource,
   defaultVisaInterest,
   pagePath,
@@ -87,13 +103,24 @@ function InquiryForm({
   trackView = true,
   className,
   id = "inquiry-form",
+  controlClassName,
+  selectClassName,
+  textareaClassName,
+  ariaLabelledBy,
 }: InquiryFormProps) {
+  const isConsultation = variant === "consultation"
+  const visaOptions = isConsultation ? consultationVisaOptions : inquiryVisaOptions
+  const resolvedControlClass = controlClassName ?? formControlClass
+  const resolvedSelectClass = selectClassName ?? formSelectClass
+  const resolvedTextareaClass = textareaClassName ?? formTextareaClass
+  const resolvedTrustNote = isConsultation ? null : trustNote
   const titleId = `${id}-title`
   const statusId = `${id}-status`
 
   const [values, setValues] = React.useState<InquiryFormValues>(() =>
     createInquiryFormDefaults({
-      visaInterest: defaultVisaInterest,
+      visaInterest:
+        defaultVisaInterest ?? (isConsultation ? "" : undefined),
     }),
   )
   const [errors, setErrors] = React.useState<InquiryFormErrors | null>(null)
@@ -149,7 +176,9 @@ function InquiryForm({
     event.preventDefault()
     setFormError(null)
 
-    const validationErrors = validateInquiryForm(values)
+    const validationErrors = isConsultation
+      ? validateConsultationInquiryForm(values)
+      : validateInquiryForm(values)
     if (validationErrors) {
       applyFieldErrors(validationErrors)
       return
@@ -159,7 +188,11 @@ function InquiryForm({
     setStatus("submitting")
     inquiryAnalytics.trackSubmit()
 
-    const payload = toInquiryPayload(values, { leadSource, pagePath })
+    const payload = toInquiryPayload(values, {
+      leadSource,
+      pagePath,
+      mode: isConsultation ? "consultation" : "standard",
+    })
 
     try {
       let result: InquiryFormResult
@@ -212,32 +245,39 @@ function InquiryForm({
 
   return (
     <div
-      className={cn(formCardClass, className)}
+      className={cn(isConsultation ? null : formCardClass, className)}
       data-slot="inquiry-form"
       data-lead-source={leadSource}
       data-page-path={pagePath}
       data-state={isSubmitting ? "submitting" : status === "error" ? "error" : "idle"}
     >
-      <header>
-        <h2 id={titleId} className={formTitleClass}>
-          {title}
-        </h2>
-        {description ? (
-          <p className={formDescriptionClass}>{description}</p>
-        ) : null}
-        {timeEstimate ? (
-          <p className="mt-2 text-[13px] leading-snug text-muted-foreground sm:text-sm">
-            {timeEstimate}
-          </p>
-        ) : null}
-      </header>
+      {title || description || timeEstimate ? (
+        <header>
+          {title ? (
+            <h2 id={titleId} className={formTitleClass}>
+              {title}
+            </h2>
+          ) : null}
+          {description ? (
+            <p className={formDescriptionClass}>{description}</p>
+          ) : null}
+          {timeEstimate ? (
+            <p className="mt-2 text-[13px] leading-snug text-muted-foreground sm:text-sm">
+              {timeEstimate}
+            </p>
+          ) : null}
+        </header>
+      ) : null}
 
       <form
         id={id}
-        className={cn(formStackClass, "mt-6 sm:mt-7")}
+        className={cn(
+          formStackClass,
+          title || description || timeEstimate ? "mt-6 sm:mt-7" : null,
+        )}
         onSubmit={handleSubmit}
         noValidate
-        aria-labelledby={titleId}
+        aria-labelledby={title ? titleId : ariaLabelledBy}
         aria-describedby={formDescribedBy || undefined}
         aria-busy={isSubmitting}
       >
@@ -269,7 +309,7 @@ function InquiryForm({
         >
           <FormField
             id={`${id}-name`}
-            label="Your name"
+            label="Name"
             error={errors?.[inquiryFieldNames.name]}
           >
             <input
@@ -278,39 +318,68 @@ function InquiryForm({
               autoComplete="name"
               required
               disabled={fieldDisabled}
-              placeholder="e.g. Alex Morgan"
+              placeholder={isConsultation ? "Your name" : "e.g. Alex Morgan"}
               value={values.name}
               onChange={(e) =>
                 handleFieldChange(inquiryFieldNames.name, e.target.value)
               }
-              className={formControlClass}
+              className={resolvedControlClass}
             />
           </FormField>
 
-          <FormField
-            id={`${id}-nationality`}
-            label="Nationality"
-            hint="Helps us point you to the right embassy requirements."
-            error={errors?.[inquiryFieldNames.nationality]}
-          >
-            <input
-              type="text"
-              name={inquiryFieldNames.nationality}
-              autoComplete="country-name"
-              required
-              disabled={fieldDisabled}
-              placeholder="e.g. United Kingdom"
-              value={values.nationality}
-              onChange={(e) =>
-                handleFieldChange(inquiryFieldNames.nationality, e.target.value)
-              }
-              className={formControlClass}
-            />
-          </FormField>
+          {isConsultation ? (
+            <FormField
+              id={`${id}-email`}
+              label="Email"
+              error={errors?.[inquiryFieldNames.email]}
+            >
+              <input
+                type="email"
+                name={inquiryFieldNames.email}
+                autoComplete="email"
+                required
+                disabled={fieldDisabled}
+                placeholder="you@example.com"
+                value={values.email}
+                onChange={(e) =>
+                  handleFieldChange(inquiryFieldNames.email, e.target.value)
+                }
+                className={resolvedControlClass}
+              />
+            </FormField>
+          ) : (
+            <FormField
+              id={`${id}-nationality`}
+              label="Nationality"
+              hint="Helps us point you to the right embassy requirements."
+              error={errors?.[inquiryFieldNames.nationality]}
+            >
+              <input
+                type="text"
+                name={inquiryFieldNames.nationality}
+                autoComplete="country-name"
+                required
+                disabled={fieldDisabled}
+                placeholder="e.g. United Kingdom"
+                value={values.nationality}
+                onChange={(e) =>
+                  handleFieldChange(
+                    inquiryFieldNames.nationality,
+                    e.target.value,
+                  )
+                }
+                className={resolvedControlClass}
+              />
+            </FormField>
+          )}
 
           <FormField
             id={`${id}-visa-interest`}
-            label="Visa you're interested in"
+            label={
+              isConsultation
+                ? "What do you need help with?"
+                : "Visa you're interested in"
+            }
             error={errors?.[inquiryFieldNames.visaInterest]}
           >
             <select
@@ -324,9 +393,14 @@ function InquiryForm({
                   e.target.value as InquiryFormValues["visaInterest"],
                 )
               }
-              className={formSelectClass}
+              className={resolvedSelectClass}
             >
-              {inquiryVisaOptions.map((option) => (
+              {isConsultation ? (
+                <option value="" disabled>
+                  Select an option
+                </option>
+              ) : null}
+              {visaOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
@@ -334,47 +408,57 @@ function InquiryForm({
             </select>
           </FormField>
 
-          <FormField
-            id={`${id}-location`}
-            label="Where are you now?"
-            hint="Country or city is enough."
-            error={errors?.[inquiryFieldNames.currentLocation]}
-          >
-            <input
-              type="text"
-              name={inquiryFieldNames.currentLocation}
-              autoComplete="country-name"
-              required
-              disabled={fieldDisabled}
-              placeholder="e.g. Bangkok or United States"
-              value={values.currentLocation}
-              onChange={(e) =>
-                handleFieldChange(
-                  inquiryFieldNames.currentLocation,
-                  e.target.value,
-                )
-              }
-              className={formControlClass}
-            />
-          </FormField>
+          {!isConsultation ? (
+            <FormField
+              id={`${id}-location`}
+              label="Where are you now?"
+              hint="Country or city is enough."
+              error={errors?.[inquiryFieldNames.currentLocation]}
+            >
+              <input
+                type="text"
+                name={inquiryFieldNames.currentLocation}
+                autoComplete="country-name"
+                required
+                disabled={fieldDisabled}
+                placeholder="e.g. Bangkok or United States"
+                value={values.currentLocation}
+                onChange={(e) =>
+                  handleFieldChange(
+                    inquiryFieldNames.currentLocation,
+                    e.target.value,
+                  )
+                }
+                className={resolvedControlClass}
+              />
+            </FormField>
+          ) : null}
 
           <FormField
             id={`${id}-message`}
-            label="Your question"
-            hint="A sentence or two is enough—we will ask for details if needed."
+            label="Message"
+            hint={
+              isConsultation
+                ? undefined
+                : "A sentence or two is enough—we will ask for details if needed."
+            }
             error={errors?.[inquiryFieldNames.message]}
           >
             <textarea
               name={inquiryFieldNames.message}
               required
               disabled={fieldDisabled}
-              rows={4}
-              placeholder="e.g. I am 58, UK passport, and want to apply from London."
+              rows={isConsultation ? 5 : 4}
+              placeholder={
+                isConsultation
+                  ? "Share your timeline, situation, or questions."
+                  : "e.g. I am 58, UK passport, and want to apply from London."
+              }
               value={values.message}
               onChange={(e) =>
                 handleFieldChange(inquiryFieldNames.message, e.target.value)
               }
-              className={formTextareaClass}
+              className={resolvedTextareaClass}
             />
           </FormField>
         </fieldset>
@@ -382,12 +466,14 @@ function InquiryForm({
         <div className="flex flex-col gap-3 pt-1 sm:pt-2">
           <Button
             type="submit"
-            size="lg"
+            variant="default"
             disabled={isSubmitting}
             aria-busy={isSubmitting}
             className={cn(
-              ctaButtonPrimaryClass,
-              "h-11 min-h-11 w-full gap-2 sm:min-w-[11rem] sm:w-auto",
+              isConsultation
+                ? cn(signatureCtaPrimaryClass, "consultation-experience__submit")
+                : ctaButtonPrimaryClass,
+              "gap-2 sm:min-w-[12rem]",
             )}
             data-inquiry-submit
           >
@@ -403,8 +489,8 @@ function InquiryForm({
               submitLabel
             )}
           </Button>
-          {trustNote ? (
-            <p className={formTrustNoteClass}>{trustNote}</p>
+          {resolvedTrustNote ? (
+            <p className={formTrustNoteClass}>{resolvedTrustNote}</p>
           ) : null}
         </div>
       </form>

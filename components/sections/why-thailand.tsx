@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 import { WhyThailandCollage } from "@/components/collage/why-thailand-collage"
 import { Container } from "@/components/layout/container"
@@ -9,6 +8,7 @@ import {
   whyThailandCollageImages,
   whyThailandSectionCopy,
 } from "@/lib/content/why-thailand"
+import { editorialLinkSectionClass } from "@/lib/section-styles"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { cn } from "@/lib/utils"
 
@@ -33,12 +33,8 @@ function WhyThailand() {
 
           <p className="why-thailand__body">{body}</p>
 
-          <Link href={ctaHref} className="why-thailand__cta group">
+          <Link href={ctaHref} className={editorialLinkSectionClass}>
             {ctaLabel}
-            <ArrowRight
-              className="why-thailand__cta-icon motion-reduce:transform-none motion-reduce:transition-none"
-              aria-hidden
-            />
           </Link>
         </div>
 

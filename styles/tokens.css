@@ -46,7 +46,7 @@
   --palette-text-secondary: #6e6962;
   --palette-text-tertiary: #8a847c;
   --palette-primary: #2b211b;
-  --palette-primary-hover: #3d322b;
+  --palette-primary-hover: #635f5f;
   --palette-border: #e5e0d8;
   --palette-border-subtle: #ebe6df;
   --palette-accent: #9fb7d3;
@@ -81,6 +81,8 @@
   --primary: var(--palette-primary);
   --primary-foreground: var(--palette-bg);
   --primary-hover: var(--palette-primary-hover);
+  --primary-hover-foreground: #ffffff;
+  --primary-hover-border: #635f5f;
   --secondary: var(--palette-muted);
   --secondary-foreground: var(--palette-text);
   --muted: var(--palette-muted);
@@ -161,19 +163,28 @@
   --radius: var(--radius-button);
   --radius-md: var(--radius-card);
 
-  /* Concierge messaging CTAs */
-  --concierge-btn-bg: #2b2b2b;
-  --concierge-btn-bg-hover: #242424;
-  --concierge-btn-fg: #f7f3ee;
+  /* Signature primary CTA — site-wide (WhatsApp, form submit, consultation links) */
+  --cta-primary-bg: #2e2c2c;
+  --cta-primary-fg: #ffffff;
+  --cta-primary-hover-bg: #635f5f;
+  --cta-primary-hover-fg: #ffffff;
+  --cta-primary-hover-border: #635f5f;
+
+  /* Concierge messaging CTAs — primary maps to signature */
+  --concierge-btn-bg: var(--cta-primary-bg);
+  --concierge-btn-bg-hover: var(--cta-primary-hover-bg);
+  --concierge-btn-border-hover: var(--cta-primary-hover-border);
+  --concierge-btn-fg: var(--cta-primary-fg);
+  --concierge-btn-fg-hover: var(--cta-primary-hover-fg);
   --concierge-btn-secondary-bg: color-mix(
     in srgb,
-    var(--palette-bg) 55%,
-    transparent
+    var(--palette-elevated) 88%,
+    var(--palette-bg)
   );
   --concierge-btn-secondary-bg-hover: color-mix(
     in srgb,
-    var(--palette-muted) 32%,
-    var(--palette-bg)
+    var(--palette-muted) 42%,
+    var(--palette-elevated)
   );
   --concierge-btn-secondary-border: color-mix(
     in srgb,
@@ -226,7 +237,9 @@
   --text-tertiary: #8a847c;
   --primary: #f6f3ee;
   --primary-foreground: #2b211b;
-  --primary-hover: #ffffff;
+  --primary-hover: #635f5f;
+  --primary-hover-foreground: #ffffff;
+  --primary-hover-border: #635f5f;
   --secondary: var(--surface-muted);
   --secondary-foreground: #f6f3ee;
   --muted: var(--surface-muted);

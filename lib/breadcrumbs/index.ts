@@ -1,4 +1,5 @@
 export {
+  getConsultationPageBreadcrumbs,
   getContactPageBreadcrumbs,
   getResourceArticleBreadcrumbs,
   getVisaPageBreadcrumbs,

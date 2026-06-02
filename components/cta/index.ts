@@ -5,6 +5,7 @@ export type {
 } from "@/components/cta/messaging-platform-action"
 export { ContactCtaGroup } from "@/components/cta/contact-cta-group"
 export type { ContactCtaGroupProps } from "@/components/cta/contact-cta-group"
+export { SignatureMessagingCtaGroup } from "@/components/cta/signature-messaging-cta-group"
 export { MessagingCta } from "@/components/cta/messaging-cta"
 export type {
   MessagingCtaLabelMode,

@@ -26,6 +26,7 @@ const EMPTY_PLACEHOLDER = "—"
 
 const leadSourceLabels: Record<InquiryFormPayload["leadSource"], string> = {
   homepage: "Homepage",
+  "consultation-page": "Consultation Page",
   "visa-page": "Visa Pages",
   "resource-article": "Blog Articles",
   "contact-page": "Contact Page",
@@ -82,6 +83,7 @@ export function mapInquiryToLeadInput(
     inquiryMessage: payload.message,
     status: "New Inquiry",
     dateCreated: payload.submittedAt,
+    email: payload.email,
     notes,
   }
 }

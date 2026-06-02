@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 import { ResourceCard } from "@/components/cards/resource-card"
 import { Container } from "@/components/layout/container"
@@ -83,7 +82,6 @@ function ResourcesPreview({
       <div className="mt-6 border-t border-border/50 pt-6 sm:mt-7 sm:pt-7">
         <Link href={indexHref} className={textLinkClass}>
           {indexLabel}
-          <ArrowRight className="size-3.5 shrink-0" aria-hidden />
         </Link>
       </div>
     </SectionReveal>

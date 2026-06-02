@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
@@ -7,8 +6,8 @@ import { SectionReveal } from "@/components/motion"
 import { OptimizedImage } from "@/components/ui/optimized-image"
 import { movingSimpleSectionCopy } from "@/lib/content/moving-simple"
 import { editorialPhotography } from "@/lib/media/photography"
+import { editorialLinkSectionClass } from "@/lib/section-styles"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
-import { cn } from "@/lib/utils"
 
 const image = editorialPhotography.movingSimple
 
@@ -48,12 +47,8 @@ function MovingSimple() {
 
           <p className="moving-simple__body">{body}</p>
 
-          <Link href={ctaHref} className="moving-simple__cta group">
+          <Link href={ctaHref} className={editorialLinkSectionClass}>
             {ctaLabel}
-            <ArrowRight
-              className="moving-simple__cta-icon motion-reduce:transform-none motion-reduce:transition-none"
-              aria-hidden
-            />
           </Link>
         </div>
       </div>

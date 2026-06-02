@@ -8,7 +8,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { cardShellClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 type FAQItemProps = {
@@ -32,28 +31,17 @@ function FAQItem({
   contentClassName,
 }: FAQItemProps) {
   return (
-    <AccordionItem
-      value={value}
-      className={cn("border-border/50 not-last:border-b", className)}
-    >
+    <AccordionItem value={value} className={cn(className)}>
       <AccordionTrigger
-        className={cn(
-          "min-h-11 items-center gap-3 rounded-none border-0 py-3 text-left",
-          "text-[15px] font-medium leading-[1.4] text-foreground",
-          "hover:bg-transparent hover:text-foreground/90 hover:no-underline",
-          "focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-0",
-          "sm:min-h-12 sm:py-4",
-          triggerClassName
-        )}
+        indicator="plus-minus"
+        className={cn("faq-accordion__trigger", triggerClassName)}
       >
-        {question}
+        <span className="faq-accordion__question">{question}</span>
       </AccordionTrigger>
       <AccordionContent
-        className={cn("text-muted-foreground", contentClassName)}
+        className={cn("faq-accordion__content", contentClassName)}
       >
-        <p className="pb-3 text-[14px] leading-[1.75] sm:pb-3.5 sm:text-[15px] sm:leading-[1.65]">
-          {answer}
-        </p>
+        <p className="faq-accordion__answer">{answer}</p>
       </AccordionContent>
     </AccordionItem>
   )
@@ -80,11 +68,7 @@ function FAQAccordion({
       collapsible
       defaultValue={defaultValue}
       aria-labelledby={ariaLabelledBy}
-      className={cn(
-        cardShellClass,
-        "w-full",
-        className
-      )}
+      className={cn("faq-accordion", className)}
     >
       {children}
     </Accordion>

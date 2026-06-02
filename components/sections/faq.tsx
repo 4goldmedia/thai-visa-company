@@ -56,7 +56,7 @@ function Faq({
   headingId,
   title = "Practical answers before you apply",
   description = "Straightforward guidance on timelines, visa options, and how we support you through the process.",
-  eyebrow = "Common questions",
+  eyebrow = "Frequently Asked Questions",
   items,
   className,
 }: FaqProps) {
@@ -67,13 +67,14 @@ function Faq({
         eyebrow={eyebrow}
         title={title}
         description={description}
-        titleClassName="max-w-lg"
-        descriptionClassName="max-w-lg"
+        titleClassName="max-w-3xl"
+        descriptionClassName="max-w-2xl"
+        className="faq-section__heading"
       />
 
       <FAQAccordion
         aria-labelledby={headingId}
-        className={cn(sectionContentOffsetClass)}
+        className={cn(sectionContentOffsetClass, "lg:mt-[calc(var(--space-heading-offset-lg)+0.25rem)]")}
       >
         {items.map((item) => (
           <FAQItem
@@ -111,7 +112,7 @@ type FaqSectionProps = {
 
 function FaqSection({
   sectionId = sectionIds.faq,
-  sectionClassName = sectionDividerClass,
+  sectionClassName,
   headingId = sectionHeadingIds.faq,
   items = defaultFaqItems,
   jsonLd,
@@ -129,9 +130,9 @@ function FaqSection({
   return (
     <Section
       id={sectionId}
-      spacing="compact"
+      spacing="spacious"
       aria-labelledby={headingId}
-      className={sectionClassName}
+      className={cn(sectionDividerClass, "faq-section", sectionClassName)}
     >
       {schemaEnabled ? (
         <FaqJsonLd
@@ -142,7 +143,7 @@ function FaqSection({
           id="schema-faq-homepage"
         />
       ) : null}
-      <Container size="content">
+      <Container>
         <Faq
           headingId={headingId}
           items={items}

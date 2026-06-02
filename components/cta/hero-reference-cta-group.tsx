@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
@@ -32,10 +31,6 @@ function HeroReferenceCtaGroup({
         })}
       >
         {ctaLabels.exploreVisas}
-        <ArrowRight
-          className="size-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-          aria-hidden
-        />
       </Link>
     </div>
   )

@@ -128,8 +128,8 @@ function HomepageHero() {
             </div>
 
             <div className="hero-premium__cta">
-              <HeroReferenceCtaGroup />
               <HeroContactStrip />
+              <HeroReferenceCtaGroup />
             </div>
           </div>
 

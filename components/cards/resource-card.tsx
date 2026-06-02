@@ -1,9 +1,8 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 import { ctaLabels } from "@/lib/cta"
 import type { ResourceArticleStatus } from "@/lib/resources/types"
-import { cardSurfaceClass } from "@/lib/section-styles"
+import { cardSurfaceClass, editorialLinkCompactClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 type ResourceCardProps = {
@@ -68,11 +67,14 @@ function ResourceCard({
 
         {!isPlanned ? (
           <span
-            className="mt-3.5 inline-flex items-center gap-1 text-[13px] font-medium text-foreground/70 transition-colors group-hover:text-foreground sm:mt-4"
+            className={cn(
+              "mt-3.5 sm:mt-4",
+              editorialLinkCompactClass,
+              "transition-colors group-hover:text-foreground",
+            )}
             aria-hidden
           >
             {ctaLabel}
-            <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
           </span>
         ) : (
           <p className="mt-3.5 text-[13px] leading-snug text-muted-foreground sm:mt-4">

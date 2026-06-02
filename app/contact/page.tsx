@@ -1,16 +1,8 @@
-import type { Metadata } from "next"
+import { redirect } from "next/navigation"
 
-import { ContactPageTemplate } from "@/components/templates/contact-page"
-import { contactPageContent } from "@/lib/contact/page-content"
-import { createPageMetadata } from "@/lib/seo"
+import { consultationPath } from "@/lib/navigation"
 
-export const metadata: Metadata = createPageMetadata({
-  title: contactPageContent.seo.title,
-  description: contactPageContent.seo.description,
-  path: "/contact",
-  keywords: [...contactPageContent.seo.keywords],
-})
-
+/** Legacy contact URL — consultation lives on a dedicated page. */
 export default function ContactPage() {
-  return <ContactPageTemplate />
+  redirect(consultationPath)
 }

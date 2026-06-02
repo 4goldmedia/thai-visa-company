@@ -1,5 +1,8 @@
 /** Main navigation — shared by Navbar and Footer. Paths mirror `lib/site-routes.ts`. */
 
+/** Primary marketing routes */
+export const consultationPath = "/consultation" as const
+
 /** Homepage section anchors until `/visas` and `/reviews` routes ship */
 export const homeSectionAnchors = {
   visaServices: "/#visa-services",
@@ -10,7 +13,6 @@ export const mainNavLinks = [
   { label: "Visa Services", href: homeSectionAnchors.visaServices },
   { label: "Reviews", href: homeSectionAnchors.reviews },
   { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "/contact" },
 ] as const
 
 export type MainNavLink = (typeof mainNavLinks)[number]

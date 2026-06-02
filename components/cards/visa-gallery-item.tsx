@@ -1,8 +1,8 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 import { OptimizedImage } from "@/components/ui/optimized-image"
 import type { VisaGalleryImage } from "@/lib/media/photography"
+import { editorialLinkCompactClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 type VisaGalleryItemProps = {
@@ -49,9 +49,8 @@ function VisaGalleryItem({
         <div className="visa-gallery__copy">
           <h3 className="visa-gallery__title">{title}</h3>
           <p className="visa-gallery__description">{description}</p>
-          <span className="visa-gallery__cta">
+          <span className={cn("visa-gallery__cta", editorialLinkCompactClass)}>
             {linkLabel}
-            <ArrowRight className="visa-gallery__cta-icon" aria-hidden />
           </span>
         </div>
       </Link>

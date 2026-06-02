@@ -1,12 +1,8 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-
 import { VisaGalleryItem } from "@/components/cards/visa-gallery-item"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { StaggerGrid, StaggerGridItem } from "@/components/motion"
 import { visaGalleryPhotography } from "@/lib/media/photography"
-import { homeSectionAnchors } from "@/lib/navigation"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { cn } from "@/lib/utils"
 
@@ -47,25 +43,10 @@ function VisaTypes() {
   return (
     <div className="flex flex-col">
       <header className="visa-section-header">
-        <div>
-          <p className="visa-section-header__eyebrow">Visa options</p>
-          <h2
-            id={sectionHeadingIds.visaTypes}
-            className="sr-only"
-          >
-            Find the right visa for your plans
-          </h2>
-        </div>
-        <Link
-          href={homeSectionAnchors.visaServices}
-          className="visa-section-header__link group"
-        >
-          View all visas
-          <ArrowRight
-            className="size-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-            aria-hidden
-          />
-        </Link>
+        <p className="visa-section-header__eyebrow">Visa options</p>
+        <h2 id={sectionHeadingIds.visaTypes} className="sr-only">
+          Find the right visa for your plans
+        </h2>
       </header>
 
       <StaggerGrid

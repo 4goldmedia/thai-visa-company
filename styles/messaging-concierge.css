@@ -1,4 +1,4 @@
-/* LINE / WhatsApp — typography-only concierge actions (hero + mobile bar) */
+/* Signature CTA system — typography-only LINE / WhatsApp (hero = canonical) */
 
 @layer components {
   .messaging-platform-action {
@@ -6,17 +6,22 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    height: 2.8125rem;
+    min-height: 2.8125rem;
+    min-width: 8rem;
+    padding-inline: 1.25rem;
     border: 1px solid transparent;
-    border-radius: min(var(--radius-button), 4px);
+    border-radius: 0;
     font-family: var(--font-sans);
-    font-size: var(--text-small);
+    font-size: 0.8125rem;
     font-weight: 500;
-    letter-spacing: 0.035em;
+    letter-spacing: 0.04em;
     box-shadow: none;
     transition:
-      background-color 0.2s ease-out,
-      border-color 0.2s ease-out,
-      color 0.2s ease-out;
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
   }
 
   .messaging-platform-action:focus-visible {
@@ -30,22 +35,96 @@
 
   /* Primary — WhatsApp */
   .messaging-platform-action[data-contact-channel="whatsapp"] {
-    background-color: var(--concierge-btn-bg);
+    background-color: var(--cta-primary-bg);
     border-color: transparent;
-    color: var(--concierge-btn-fg);
+    color: var(--cta-primary-fg);
   }
 
   .messaging-platform-action[data-contact-channel="whatsapp"]:hover {
-    background-color: var(--concierge-btn-bg-hover);
+    background-color: var(--cta-primary-hover-bg);
+    border-color: var(--cta-primary-hover-border);
+    color: var(--cta-primary-hover-fg);
   }
 
   .messaging-platform-action[data-contact-channel="whatsapp"]:active {
-    background-color: var(--concierge-btn-bg-hover);
+    background-color: var(--cta-primary-hover-bg);
+    border-color: var(--cta-primary-hover-border);
+    color: var(--cta-primary-hover-fg);
+    transform: translateY(1px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .messaging-platform-action[data-contact-channel="whatsapp"]:active {
+      transform: none;
+    }
   }
 
   .messaging-platform-action[data-contact-channel="whatsapp"]
     .messaging-platform-action__label {
-    color: var(--concierge-btn-fg);
+    color: var(--cta-primary-fg);
+    transition: color 0.2s ease;
+  }
+
+  .messaging-platform-action[data-contact-channel="whatsapp"]:hover
+    .messaging-platform-action__label,
+  .messaging-platform-action[data-contact-channel="whatsapp"]:active
+    .messaging-platform-action__label {
+    color: var(--cta-primary-hover-fg);
+  }
+
+  /* Primary CTA — links, form submit, Book a consultation */
+  .signature-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.8125rem;
+    min-height: 2.8125rem;
+    min-width: 8rem;
+    padding-inline: 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0;
+    background-color: var(--cta-primary-bg);
+    color: var(--cta-primary-fg);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    box-shadow: none;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .signature-cta-primary:hover {
+    background-color: var(--cta-primary-hover-bg);
+    border-color: var(--cta-primary-hover-border);
+    color: var(--cta-primary-hover-fg);
+  }
+
+  .signature-cta-primary:active {
+    background-color: var(--cta-primary-hover-bg);
+    border-color: var(--cta-primary-hover-border);
+    color: var(--cta-primary-hover-fg);
+    transform: translateY(1px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .signature-cta-primary:active {
+      transform: none;
+    }
+  }
+
+  .signature-cta-primary:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  .signature-cta-primary:disabled {
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   /* Secondary — LINE */
@@ -73,24 +152,46 @@
     color: var(--concierge-btn-secondary-fg);
   }
 
-  /* Desktop hero strip */
-  @media (min-width: 1024px) {
-    .hero-contact-strip .messaging-platform-action {
-      height: 2.8125rem;
-      min-height: 2.8125rem;
-      min-width: 8rem;
-      padding-inline: 1.25rem;
-      font-size: 0.8125rem;
-      letter-spacing: 0.04em;
+  /** Shared layout for signature CTA pairs (consultation, contact groups, etc.) */
+  .signature-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .signature-cta-group {
+      gap: 1.25rem;
     }
   }
 
-  /* Mobile sticky bar */
+  /* Hero contact strip — tighter pair inside the card */
+  .hero-contact-strip__actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .hero-contact-strip .messaging-platform-action {
+    flex: 1;
+    min-width: 7.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero-contact-strip .messaging-platform-action {
+      flex: none;
+      min-width: 8rem;
+    }
+  }
+
+  /* Mobile sticky bar — full-width split */
   .mobile-messaging-bar .messaging-platform-action {
-    height: 2.8125rem;
-    min-height: 2.8125rem;
+    min-width: 0;
+    flex: 1;
     padding-inline: 1.125rem;
-    font-size: 0.8125rem;
     letter-spacing: 0.038em;
   }
 }

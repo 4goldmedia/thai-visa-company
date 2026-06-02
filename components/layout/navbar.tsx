@@ -5,7 +5,8 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
-import { MessagingCtaPair } from "@/components/cta/messaging-cta-pair"
+import { MessagingPlatformAction } from "@/components/cta/messaging-platform-action"
+import { ctaHref, ctaLabels, navbarMenuCtaPrimaryClass } from "@/lib/cta"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { Container } from "@/components/layout/container"
@@ -203,15 +204,15 @@ function Navbar({ className }: NavbarProps) {
 function NavbarConsultCta() {
   return (
     <Link
-      href="/contact"
+      href={ctaHref.requestConsultation}
       className="navbar-ref__consult"
       {...analyticsDataAttributes({
-        ctaId: analyticsCtaIds.navbarContact,
+        ctaId: analyticsCtaIds.bookConsultation,
         surface: "global",
-        ctaLabel: "Book a consultation",
+        ctaLabel: ctaLabels.requestConsultation,
       })}
     >
-      Book a consultation
+      {ctaLabels.requestConsultation}
     </Link>
   )
 }
@@ -276,10 +277,19 @@ function MobileNavMenu({ open, panelId, onClose }: MobileNavMenuProps) {
         </nav>
 
         <div className="mt-4 border-t border-border/80 pt-4">
-          <h3 className="mb-3 px-3.5 text-xs font-medium tracking-wide text-muted-foreground uppercase">
-            Contact
-          </h3>
-          <NavbarCTAs onNavigate={onClose} />
+          <Link
+            href={ctaHref.requestConsultation}
+            className={cn(navbarMenuCtaPrimaryClass, "w-full")}
+            onClick={onClose}
+            {...analyticsDataAttributes({
+              ctaId: analyticsCtaIds.bookConsultation,
+              surface: "global",
+              ctaLabel: ctaLabels.requestConsultation,
+            })}
+          >
+            {ctaLabels.requestConsultation}
+          </Link>
+          <NavbarMessagingSecondary onNavigate={onClose} />
         </div>
       </Container>
     </div>
@@ -307,16 +317,33 @@ type NavbarCTAsProps = {
   onNavigate?: () => void
 }
 
-/** LINE + WhatsApp — mobile menu only (bar stays hamburger-only below lg). */
-function NavbarCTAs({ onNavigate }: NavbarCTAsProps) {
+/** WhatsApp + LINE — secondary options in the mobile menu. */
+function NavbarMessagingSecondary({ onNavigate }: NavbarCTAsProps) {
   return (
     <div
+      className="mt-4 flex flex-col gap-2"
       {...analyticsDataAttributes({
         ctaId: analyticsCtaIds.navbarMenuContact,
         surface: "global",
       })}
     >
-      <MessagingCtaPair layout="navbar-menu" onNavigate={onNavigate} />
+      <p className="px-3.5 text-[11px] font-medium tracking-wide text-muted-foreground uppercase">
+        Or message us
+      </p>
+      <div className="grid grid-cols-2 gap-2 px-0.5">
+        <MessagingPlatformAction
+          channel="line"
+          density="bar"
+          className="w-full"
+          onNavigate={onNavigate}
+        />
+        <MessagingPlatformAction
+          channel="whatsapp"
+          density="bar"
+          className="w-full"
+          onNavigate={onNavigate}
+        />
+      </div>
     </div>
   )
 }

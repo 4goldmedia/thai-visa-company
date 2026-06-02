@@ -3,6 +3,7 @@ import type { InquiryVisaInterest } from "@/lib/forms/inquiry/visa-options"
 /** Where the inquiry originated — maps to Airtable `Lead Source` */
 export type InquiryLeadSource =
   | "homepage"
+  | "consultation-page"
   | "visa-page"
   | "resource-article"
   | "contact-page"
@@ -12,6 +13,7 @@ export type InquiryLeadSource =
 /** Canonical field names — stable for Airtable, analytics, and automation */
 export const inquiryFieldNames = {
   name: "name",
+  email: "email",
   nationality: "nationality",
   visaInterest: "visaInterest",
   currentLocation: "currentLocation",
@@ -23,13 +25,18 @@ export type InquiryFieldName =
 
 export type InquiryFormValues = {
   name: string
+  email: string
   nationality: string
   visaInterest: InquiryVisaInterest | ""
   currentLocation: string
   message: string
 }
 
-export type InquiryFormPayload = InquiryFormValues & {
+export type InquiryFormPayload = Omit<
+  InquiryFormValues,
+  "visaInterest" | "email"
+> & {
+  email?: string
   visaInterest: InquiryVisaInterest
   leadSource: InquiryLeadSource
   /** ISO 8601 */

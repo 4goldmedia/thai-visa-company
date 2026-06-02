@@ -63,6 +63,7 @@
 
 @import "../styles/base.css";
 @import "../styles/editorial.css";
+@import "../styles/editorial-link.css";
 @import "../styles/hero-premium.css";
 @import "../styles/navbar-ref.css";
 @import "../styles/visa-grid.css";
@@ -78,3 +79,6 @@
 @import "../styles/why-thailand.css";
 @import "../styles/messaging-concierge.css";
 @import "../styles/architectural-system.css";
+@import "../styles/footer.css";
+@import "../styles/consultation-section.css";
+@import "../styles/faq-section.css";

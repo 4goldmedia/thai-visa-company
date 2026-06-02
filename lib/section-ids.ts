@@ -13,6 +13,7 @@ export const sectionHeadingIds = {
   faq: "faq-heading",
   resources: "resources-preview-heading",
   finalCta: "final-cta-heading",
+  requestConsultation: "request-consultation-heading",
 } as const
 
 /** Optional `id` on `<section>` for skip links and deep linking */
@@ -27,6 +28,7 @@ export const sectionIds = {
   faq: "faq",
   resources: "resources",
   finalCta: "contact",
+  requestConsultation: "request-consultation",
 } as const
 
 export type SectionHeadingId =

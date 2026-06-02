@@ -42,6 +42,7 @@ export function parseInquiryApiBody(body: unknown): ParseInquiryApiBodyResult {
   }
 
   const name = readString(body, inquiryFieldNames.name)
+  const email = readString(body, inquiryFieldNames.email)
   const nationality = readString(body, inquiryFieldNames.nationality)
   const visaInterest = readString(body, inquiryFieldNames.visaInterest)
   const currentLocation = readString(body, inquiryFieldNames.currentLocation)
@@ -73,6 +74,7 @@ export function parseInquiryApiBody(body: unknown): ParseInquiryApiBodyResult {
 
   const values: InquiryFormValues = {
     name,
+    email: email ?? "",
     nationality,
     visaInterest: visaInterest as InquiryFormValues["visaInterest"],
     currentLocation,

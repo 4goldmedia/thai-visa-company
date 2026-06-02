@@ -1,25 +1,23 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
-import { MessagingCtaPair } from "@/components/cta/messaging-cta-pair"
+import { SignatureMessagingCtaGroup } from "@/components/cta/signature-messaging-cta-group"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import type { AnalyticsSurface } from "@/lib/analytics"
-import { ctaHref, ctaLabels, ctaReassuranceLine } from "@/lib/cta"
+import { ctaHref, ctaLabels } from "@/lib/cta"
 import {
-  ctaTertiaryLinkClass,
+  editorialLinkClass,
+  signatureCtaPrimaryClass,
   heroCtaGroupClass,
   heroCtaReassuranceClass,
-  heroCtaTertiaryLinkClass,
   heroPremiumCtaGroupClass,
-  heroPremiumExploreLinkClass,
 } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
 type ContactCtaGroupProps = {
   /** Visual density for hero vs inner pages */
   layout?: "default" | "hero" | "hero-premium"
-  /** Optional line above buttons — defaults to site-wide reassurance */
+  /** Optional line above buttons — set null to hide */
   reassurance?: string | null
   /** Show tertiary link to visa services */
   showExplore?: boolean
@@ -32,9 +30,12 @@ type ContactCtaGroupProps = {
   className?: string
 }
 
+/**
+ * Primary consultation action with signature LINE + WhatsApp secondary pair.
+ */
 function ContactCtaGroup({
   layout = "default",
-  reassurance = ctaReassuranceLine,
+  reassurance = null,
   showExplore = true,
   analyticsSurface = "homepage",
   analyticsCtaId = analyticsCtaIds.contactGroup,
@@ -61,6 +62,14 @@ function ContactCtaGroup({
       })
     : undefined
 
+  const consultationAnalytics = analyticsDataAttributes({
+    ctaId: analyticsCtaIds.bookConsultation,
+    surface: analyticsSurface,
+    visaSlug,
+    articleSlug,
+    ctaLabel: ctaLabels.requestConsultation,
+  })
+
   return (
     <div
       className={cn(
@@ -68,7 +77,7 @@ function ContactCtaGroup({
           ? heroPremiumCtaGroupClass
           : isHero
             ? heroCtaGroupClass
-            : "flex flex-col gap-3",
+            : "flex flex-col gap-4",
         className,
       )}
       {...groupAnalytics}
@@ -85,29 +94,31 @@ function ContactCtaGroup({
         </p>
       ) : null}
 
-      <MessagingCtaPair
-        layout={
-          isHeroPremium ? "hero-premium" : isHero ? "hero" : "stack"
-        }
-      />
+      <Link
+        href={ctaHref.requestConsultation}
+        className={cn(
+          signatureCtaPrimaryClass,
+          isHeroPremium ? "w-full" : "sm:w-auto",
+        )}
+        {...consultationAnalytics}
+      >
+        {ctaLabels.requestConsultation}
+      </Link>
+
+      <div className="flex flex-col gap-3">
+        <p className="text-[11px] font-medium tracking-wide text-muted-foreground uppercase">
+          Or message us
+        </p>
+        <SignatureMessagingCtaGroup />
+      </div>
 
       {showExplore ? (
         <Link
           href={ctaHref.exploreVisas}
-          className={
-            isHeroPremium
-              ? heroPremiumExploreLinkClass
-              : isHero
-                ? heroCtaTertiaryLinkClass
-                : ctaTertiaryLinkClass
-          }
+          className={editorialLinkClass}
           {...exploreAnalytics}
         >
           {ctaLabels.exploreVisas}
-          <ArrowRight
-            className="size-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-            aria-hidden
-          />
         </Link>
       ) : null}
     </div>

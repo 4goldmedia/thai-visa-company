@@ -35,24 +35,43 @@ function AccordionItem({
 function AccordionTrigger({
   className,
   children,
+  indicator = "chevron",
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
+}: React.ComponentProps<typeof AccordionPrimitive.Trigger> & {
+  indicator?: "chevron" | "plus-minus" | "none"
+}) {
   return (
     <AccordionPrimitive.Header asChild>
       <h3 className="m-0 flex w-full font-normal">
         <AccordionPrimitive.Trigger
           data-slot="accordion-trigger"
           className={cn(
-            "group/accordion-trigger relative flex w-full flex-1 items-start justify-between rounded-lg border border-transparent py-2.5 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:after:border-ring disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
+            "group/accordion-trigger relative flex w-full flex-1 items-start justify-between text-left font-medium transition-all outline-none disabled:pointer-events-none disabled:opacity-50",
+            indicator === "chevron" &&
+              "rounded-lg border border-transparent py-2.5 text-sm hover:underline focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:after:border-ring **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
+            (indicator === "plus-minus" || indicator === "none") &&
+              "rounded-none border-0 hover:no-underline focus-visible:ring-0",
             className
           )}
           {...props}
         >
           {children}
-          <ChevronDownIcon
-            data-slot="accordion-trigger-icon"
-            className="pointer-events-none size-4 shrink-0 text-muted-foreground/70 transition-transform duration-200 ease-out group-data-[state=open]/accordion-trigger:rotate-180 motion-reduce:transition-none motion-reduce:rotate-0"
-          />
+          {indicator === "chevron" ? (
+            <ChevronDownIcon
+              data-slot="accordion-trigger-icon"
+              className="pointer-events-none size-4 shrink-0 text-muted-foreground/70 transition-transform duration-200 ease-out group-data-[state=open]/accordion-trigger:rotate-180 motion-reduce:transition-none motion-reduce:rotate-0"
+            />
+          ) : null}
+          {indicator === "plus-minus" ? (
+            <span className="faq-accordion__indicator" aria-hidden>
+              <span className="faq-accordion__symbol faq-accordion__symbol--plus">
+                +
+              </span>
+              <span className="faq-accordion__symbol faq-accordion__symbol--minus">
+                −
+              </span>
+            </span>
+          ) : null}
         </AccordionPrimitive.Trigger>
       </h3>
     </AccordionPrimitive.Header>
