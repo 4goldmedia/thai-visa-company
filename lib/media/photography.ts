@@ -37,9 +37,9 @@ export type VisaCardImage = VisaGalleryImage
 /** Editorial section imagery — calm Thailand lifestyle (homepage transition band) */
 export const editorialPhotography = {
   movingSimple: {
-    src: "/images/editorial/krabi-beach.webp",
+    src: "/images/editorial/krabi-thailand-beach.webp",
     alt: "Calm turquoise water and limestone cliffs in Krabi, suggesting a peaceful relocation to Thailand",
-    objectPosition: "32% 52%",
+    objectPosition: "30% 54%",
   },
 } as const
 
