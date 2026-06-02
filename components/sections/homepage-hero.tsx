@@ -2,7 +2,6 @@ import { BadgeCheck, ClipboardList, MessageCircle } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 import { HeroContactStrip } from "@/components/cta/hero-contact-strip"
-import { HeroReferenceCtaGroup } from "@/components/cta/hero-reference-cta-group"
 import { Container } from "@/components/layout/container"
 import { HeroResponsiveMediaFrame } from "@/components/media/hero-responsive-media-frame"
 import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
@@ -127,10 +126,7 @@ function HomepageHero() {
               />
             </div>
 
-            <div className="hero-premium__cta">
-              <HeroContactStrip />
-              <HeroReferenceCtaGroup />
-            </div>
+            <HeroContactStrip className="hero-premium__contact" />
           </div>
 
           <div className="hero-premium__panel-slot">
