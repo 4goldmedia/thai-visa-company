@@ -5,7 +5,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
-import { MessagingPlatformAction } from "@/components/cta/messaging-platform-action"
 import { ctaHref, ctaLabels, navbarMenuCtaPrimaryClass } from "@/lib/cta"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
@@ -289,7 +288,6 @@ function MobileNavMenu({ open, panelId, onClose }: MobileNavMenuProps) {
           >
             {ctaLabels.requestConsultation}
           </Link>
-          <NavbarMessagingSecondary onNavigate={onClose} />
         </div>
       </Container>
     </div>
@@ -310,41 +308,6 @@ function NavbarLogo() {
         {siteBrand.name}
       </span>
     </Link>
-  )
-}
-
-type NavbarCTAsProps = {
-  onNavigate?: () => void
-}
-
-/** WhatsApp + LINE — secondary options in the mobile menu. */
-function NavbarMessagingSecondary({ onNavigate }: NavbarCTAsProps) {
-  return (
-    <div
-      className="mt-4 flex flex-col gap-2"
-      {...analyticsDataAttributes({
-        ctaId: analyticsCtaIds.navbarMenuContact,
-        surface: "global",
-      })}
-    >
-      <p className="px-3.5 text-[11px] font-medium tracking-wide text-muted-foreground uppercase">
-        Or message us
-      </p>
-      <div className="grid grid-cols-2 gap-2 px-0.5">
-        <MessagingPlatformAction
-          channel="line"
-          density="bar"
-          className="w-full"
-          onNavigate={onNavigate}
-        />
-        <MessagingPlatformAction
-          channel="whatsapp"
-          density="bar"
-          className="w-full"
-          onNavigate={onNavigate}
-        />
-      </div>
-    </div>
   )
 }
 
