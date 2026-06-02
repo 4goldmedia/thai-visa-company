@@ -23,7 +23,8 @@ function MovingSimple() {
             src={image.src}
             alt={image.alt}
             fill
-            sizes="(max-width: 1023px) 100vw, 58vw"
+            quality={95}
+            sizes="(max-width: 1023px) 100vw, 60vw"
             className="moving-simple__image object-cover"
             style={
               image.objectPosition
