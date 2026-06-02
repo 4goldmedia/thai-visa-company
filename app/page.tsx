@@ -1,9 +1,9 @@
 import { FaqSection } from "@/components/sections/faq"
+import { HomeFinalCtaSection } from "@/components/sections/final-cta"
 import { HeroSection } from "@/components/sections/hero"
 import { TrustBar } from "@/components/sections/trust-bar"
 import { MovingSimpleSection } from "@/components/sections/moving-simple"
 import { ProcessSection } from "@/components/sections/process"
-import { ResourcesPreviewSection } from "@/components/sections/resources-preview"
 import { ReviewsSection } from "@/components/sections/reviews"
 import { WhyThailandSection } from "@/components/sections/why-thailand"
 import { VisaTypesSection } from "@/components/sections/visa-types"
@@ -33,7 +33,7 @@ export default function Home() {
         <ReviewsSection />
         <WhyThailandSection />
         <FaqSection />
-        <ResourcesPreviewSection />
+        <HomeFinalCtaSection />
       </main>
     </>
   )

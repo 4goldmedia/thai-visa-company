@@ -1,13 +1,22 @@
+import Link from "next/link"
+
+import { ContactCtaGroup } from "@/components/cta"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionHeading } from "@/components/layout/section-heading"
-import { ContactCtaGroup } from "@/components/cta"
-import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import { SectionReveal } from "@/components/motion"
-import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
-import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
-import { mobileReadableWidthClass, sectionBandClass } from "@/lib/section-styles"
+import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import type { AnalyticsSurface } from "@/lib/analytics"
+import { ctaHref } from "@/lib/cta"
+import { CONTACT_URLS, messagingChannelLabels } from "@/lib/contact"
+import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
+import {
+  mobileReadableWidthClass,
+  sectionBandClass,
+  sectionDividerClass,
+  signatureCtaPrimaryClass,
+} from "@/lib/section-styles"
+import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
 import { cn } from "@/lib/utils"
 
 type FinalCTAProps = {
@@ -115,3 +124,59 @@ function FinalCTASection({
 }
 
 export { FinalCTA, FinalCTASection }
+
+type HomeFinalCtaSectionProps = {
+  sectionId?: string
+  className?: string
+}
+
+function HomeFinalCtaSection({
+  sectionId = "final-cta",
+  className,
+}: HomeFinalCtaSectionProps) {
+  return (
+    <Section
+      id={sectionId}
+      spacing="spacious"
+      className={cn(sectionDividerClass, "final-home-cta", className)}
+      aria-label="Final call to action"
+    >
+      <Container>
+        <SectionReveal>
+          <div className="final-home-cta__block">
+            <div className="final-home-cta__copy">
+              <h2 className="final-home-cta__title">
+                Ready to start your life in Thailand?
+              </h2>
+              <p className="final-home-cta__description">
+                Get clear guidance on visa options, documentation, and next
+                steps from licensed Thai immigration specialists.
+              </p>
+            </div>
+
+            <div className="final-home-cta__primary">
+              <Link
+                href={ctaHref.requestConsultation}
+                className={cn(signatureCtaPrimaryClass, "final-home-cta__button")}
+              >
+                Book a consultation
+              </Link>
+            </div>
+
+            <div className="final-home-cta__links" aria-label="Messaging links">
+              <a href={CONTACT_URLS.line} className="final-home-cta__link">
+                Chat on {messagingChannelLabels.lineShort}
+              </a>
+              <a href={CONTACT_URLS.whatsapp} className="final-home-cta__link">
+                {messagingChannelLabels.whatsapp}
+              </a>
+            </div>
+          </div>
+        </SectionReveal>
+      </Container>
+    </Section>
+  )
+}
+
+export { HomeFinalCtaSection }
+export type { HomeFinalCtaSectionProps }
