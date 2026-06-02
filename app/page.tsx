@@ -25,7 +25,7 @@ export default function Home() {
         className="flex flex-1 flex-col overflow-x-clip bg-background"
       >
         <HeroSection />
-        <TrustBar {...homepageAiCopy.trustBar} />
+        <TrustBar {...homepageAiCopy.trustBar} className="hidden lg:block" />
         <VisaTypesSection />
         <WhyChooseUsSection />
         <MovingSimpleSection />

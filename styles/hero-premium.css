@@ -256,32 +256,113 @@
     }
   }
 
-  /* Mobile inline scene */
-  .hero-premium__scene {
-    margin-top: 2.5rem;
+  /* ── Mobile / tablet editorial hero (below lg) ── */
+  @media (max-width: 1023px) {
+    .hero-premium {
+      padding-top: calc(var(--hero-header-offset) + 1.25rem);
+      padding-bottom: 2.25rem;
+    }
+
+    .hero-premium__copy {
+      max-width: none;
+    }
+
+    .hero-premium__title {
+      margin-top: 0.75rem;
+    }
+
+    .hero-premium__lead {
+      margin-top: 1rem;
+      max-width: 22rem;
+    }
+
+    .hero-premium__review {
+      margin-top: 1.125rem;
+    }
+
+    .hero-premium__contact {
+      display: none;
+      margin: 0;
+    }
+
+    /* Copy → image → panel */
+    .hero-premium__stage {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Edge-to-edge Bangkok skyline — same asset as desktop (LS) */
+    .hero-premium__scene {
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      margin-top: 1.5rem;
+      margin-bottom: 0;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: none;
+      border-radius: 0;
+      background-color: var(--ivory-muted);
+    }
+
+    .hero-premium__scene-frame.hero-media-frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      aspect-ratio: auto;
+      background-color: transparent;
+    }
+
+    .hero-premium__scene-frame .hero-media-frame__layer--desktop {
+      display: block;
+    }
+
+    .hero-premium__scene-frame .hero-media-frame__layer--mobile {
+      display: none;
+    }
+
+    .hero-premium__scene-frame .hero-media-frame__layer img {
+      object-fit: cover;
+      object-position: center 42%;
+      filter: none;
+    }
+
+    .hero-premium__scene-frame .hero-media-frame__wash,
+    .hero-premium__scene-frame .hero-media-frame__overlay,
+    .hero-premium__scene-frame .hero-media-frame__depth,
+    .hero-premium__scene-frame .hero-media-caption {
+      display: none;
+    }
+
+    .hero-premium__panel-slot {
+      margin-top: 1.75rem;
+      width: 100%;
+      max-width: none;
+    }
   }
 
-  .hero-premium__scene .hero-media-frame {
-    aspect-ratio: 21 / 9;
-    max-height: 26rem;
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .hero-premium__scene {
+      margin-top: 1.75rem;
+    }
+
+    .hero-premium__panel-slot {
+      margin-top: 2rem;
+    }
   }
 
-  .hero-premium__scene .hero-media-frame__layer img {
-    object-fit: cover;
-    object-position: center center;
-    filter: contrast(1.04);
-  }
-
-  .hero-premium__scene .hero-media-frame__wash {
-    opacity: 0.22;
-  }
-
-  .hero-premium__scene .hero-media-frame__overlay {
-    background: linear-gradient(
-      180deg,
-      oklch(0.22 0.02 55 / 0%) 65%,
-      oklch(0.22 0.02 55 / 3%) 100%
-    );
+  /* Legacy mobile scene rules — desktop only via lg:hidden on markup */
+  @media (min-width: 1024px) {
+    .hero-premium__scene {
+      display: none;
+    }
   }
 
   /* Panel column — flex-centers card within image composition zone */
@@ -317,6 +398,44 @@
       margin-top: 0;
       width: var(--hero-ref-panel-width);
       max-width: 100%;
+    }
+  }
+
+  /* Mobile / tablet — full content-width panel (overrides narrow default above) */
+  @media (max-width: 1023px) {
+    .hero-premium__panel-slot {
+      width: 100%;
+      max-width: none;
+    }
+
+    .hero-premium__panel {
+      width: 100%;
+      max-width: none;
+      margin-top: 0;
+      margin-inline: 0;
+      border: none;
+      border-radius: 0;
+      border-top: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+      background-color: var(--background);
+      padding: 1.25rem 0;
+      box-shadow: none;
+    }
+
+    .hero-premium__panel-item {
+      padding: 0.875rem 0;
+    }
+
+    .hero-premium__panel-icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0;
+      border-color: color-mix(in srgb, var(--border) 70%, transparent);
+    }
+
+    .hero-premium__panel-icon svg {
+      width: 1rem;
+      height: 1rem;
     }
   }
 

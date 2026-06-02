@@ -61,6 +61,28 @@ function HomepageHeroTrustPanel() {
   )
 }
 
+function HomepageHeroMobileScene({
+  assets,
+}: {
+  assets: (typeof heroPhotography)["homepage"]
+}) {
+  return (
+    <div
+      className={cn(
+        "hero-premium__scene lg:hidden",
+        motionClass.fadeUpMount,
+        motionClass.delay60,
+      )}
+    >
+      <HeroResponsiveMediaFrame
+        assets={assets}
+        priority
+        className="hero-premium__scene-frame"
+      />
+    </div>
+  )
+}
+
 /**
  * Homepage hero — high-fidelity reference composition.
  * Other routes continue to use PageHero.
@@ -129,20 +151,11 @@ function HomepageHero() {
             <HeroContactStrip className="hero-premium__contact" />
           </div>
 
+          <HomepageHeroMobileScene assets={heroMedia} />
+
           <div className="hero-premium__panel-slot">
             <HomepageHeroTrustPanel />
           </div>
-        </div>
-
-        {/* Mobile/tablet inline scene — hidden on lg where environment takes over */}
-        <div
-          className={cn(
-            "hero-premium__scene lg:hidden",
-            motionClass.fadeUpMount,
-            motionClass.delay60,
-          )}
-        >
-          <HeroResponsiveMediaFrame assets={heroMedia} priority />
         </div>
       </Container>
     </section>
