@@ -1,24 +1,29 @@
-import { Container } from "@/components/layout/container"
-import { Section } from "@/components/layout/section"
-import { SectionHeading } from "@/components/layout/section-heading"
+import { Fragment } from "react"
+
 import { SectionReveal } from "@/components/motion"
-import { sectionContentOffsetClass } from "@/lib/section-styles"
+import { EditorialCallout } from "@/components/visa-editorial/editorial-callout"
+import {
+  VisaEditorialContent,
+  VisaEditorialHeading,
+} from "@/components/visa-editorial/visa-editorial-heading"
+import { VisaEditorialSection } from "@/components/visa-editorial/visa-editorial-section"
 import { cn } from "@/lib/utils"
 
+function hasOverviewContent(content: string | ReadonlyArray<string>): boolean {
+  if (typeof content === "string") return content.trim().length > 0
+  return content.length > 0
+}
+
 type VisaOverviewContent = {
-  /** Block heading — sensible defaults provided per block */
   title?: string
-  /** One short paragraph or a scannable bullet list */
   content: string | ReadonlyArray<string>
 }
 
 type VisaOverviewProps = {
-  /** Stable id for `aria-labelledby` on the parent `<section>` */
   headingId: string
-  /** Section h2 — default "Visa overview" */
   title?: string
-  /** Intro line below the section title */
   description?: string
+  intro?: string | ReadonlyArray<string>
   eyebrow?: string
   audience: VisaOverviewContent
   eligibility: VisaOverviewContent
@@ -32,52 +37,46 @@ const defaultBlockTitles = {
   practicalOverview: "Practical overview",
 } as const
 
-const panelTitleClass =
-  "text-[15px] font-medium leading-snug tracking-tight text-foreground sm:text-base"
-
-const panelBodyClass =
-  "text-[15px] leading-[1.7] text-pretty text-muted-foreground sm:text-base sm:leading-relaxed"
-
-const panelListClass = "flex list-none flex-col gap-2.5 p-0 sm:gap-3"
-
 function VisaOverviewPanel({
   panelHeadingId,
   title,
   content,
+  variant = "default",
 }: {
   panelHeadingId: string
   title: string
   content: string | ReadonlyArray<string>
+  variant?: "default" | "takeaway"
 }) {
+  const isList = Array.isArray(content)
+  const firstParagraph = isList ? null : content
+
   return (
     <article
       aria-labelledby={panelHeadingId}
-      className="min-w-0 py-6 first:pt-0 last:pb-0 sm:py-7"
+      className="visa-overview-panel"
     >
-      <h3 id={panelHeadingId} className={panelTitleClass}>
+      <h3 id={panelHeadingId} className="visa-overview-panel__title">
         {title}
       </h3>
 
-      {typeof content === "string" ? (
-        <p className={cn(panelBodyClass, "mt-3 max-w-prose sm:mt-3.5")}>
-          {content}
-        </p>
-      ) : (
-        <ul className={cn(panelListClass, "mt-3 sm:mt-3.5")}>
-          {content.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-2.5 text-[15px] leading-[1.65] text-muted-foreground sm:leading-relaxed"
-            >
-              <span
-                className="mt-[0.55rem] size-1 shrink-0 rounded-full bg-foreground/25"
-                aria-hidden
-              />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="visa-overview-panel__body">
+        {variant === "takeaway" && firstParagraph ? (
+          <EditorialCallout variant="good-to-know">
+            <p>{firstParagraph}</p>
+          </EditorialCallout>
+        ) : isList ? (
+          <ul className="visa-overview-panel__list">
+            {content.map((item) => (
+              <li key={item} className="visa-overview-panel__list-item">
+                {item}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="visa-overview-panel__lead">{firstParagraph}</p>
+        )}
+      </div>
     </article>
   )
 }
@@ -85,7 +84,8 @@ function VisaOverviewPanel({
 function VisaOverview({
   headingId,
   title = "Visa overview",
-  description = "A clear snapshot of who qualifies, what matters most, and how the process usually works.",
+  description,
+  intro,
   eyebrow = "At a glance",
   audience,
   eligibility,
@@ -97,73 +97,84 @@ function VisaOverview({
       panelHeadingId: `${headingId}-audience`,
       title: audience.title ?? defaultBlockTitles.audience,
       content: audience.content,
+      variant: "default" as const,
     },
     {
       panelHeadingId: `${headingId}-eligibility`,
       title: eligibility.title ?? defaultBlockTitles.eligibility,
       content: eligibility.content,
+      variant: "default" as const,
     },
     {
       panelHeadingId: `${headingId}-practical`,
       title: practicalOverview.title ?? defaultBlockTitles.practicalOverview,
       content: practicalOverview.content,
+      variant: "takeaway" as const,
     },
-  ] as const
+  ].filter((panel) => hasOverviewContent(panel.content))
 
   return (
     <div className={cn("flex flex-col", className)}>
-      <SectionReveal>
-        <SectionHeading
-          id={headingId}
-          eyebrow={eyebrow}
-          title={title}
-          description={description}
-          titleClassName="max-w-xl"
-          descriptionClassName="max-w-2xl"
-        />
-      </SectionReveal>
-
-      <div
-        className={cn(
-          sectionContentOffsetClass,
-          "divide-y divide-border/50"
-        )}
-      >
-        {panels.map((panel) => (
-          <VisaOverviewPanel
-            key={panel.panelHeadingId}
-            panelHeadingId={panel.panelHeadingId}
-            title={panel.title}
-            content={panel.content}
-          />
-        ))}
-      </div>
+      <VisaEditorialHeading
+        id={headingId}
+        eyebrow={eyebrow}
+        title={title}
+        description={description}
+      />
+      <VisaEditorialContent>
+        {intro ? (
+          <div className="visa-overview-intro-block">
+            {(Array.isArray(intro) ? intro : [intro]).map((paragraph) => (
+              <p key={paragraph} className="visa-overview-intro">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        ) : null}
+        {panels.length > 0 ? (
+          <div className="visa-overview-stack">
+            {panels.map((panel, index) => (
+              <Fragment key={panel.panelHeadingId}>
+                {(index > 0 || intro) && (
+                  <hr className="visa-overview-divider" aria-hidden="true" />
+                )}
+                <VisaOverviewPanel
+                  panelHeadingId={panel.panelHeadingId}
+                  title={panel.title}
+                  content={panel.content}
+                  variant={panel.variant}
+                />
+              </Fragment>
+            ))}
+          </div>
+        ) : null}
+      </VisaEditorialContent>
     </div>
   )
 }
 
 type VisaOverviewSectionProps = VisaOverviewProps & {
   sectionId?: string
-  sectionClassName?: string
+  className?: string
 }
 
 function VisaOverviewSection({
   sectionId = "visa-overview",
-  sectionClassName,
   headingId,
+  className,
   ...overviewProps
 }: VisaOverviewSectionProps) {
   return (
-    <Section
+    <VisaEditorialSection
       id={sectionId}
-      spacing="default"
-      aria-labelledby={headingId}
-      className={sectionClassName}
+      labelledBy={headingId}
+      width="wide"
+      className={cn("visa-overview-section", className)}
     >
-      <Container size="content">
+      <SectionReveal>
         <VisaOverview headingId={headingId} {...overviewProps} />
-      </Container>
-    </Section>
+      </SectionReveal>
+    </VisaEditorialSection>
   )
 }
 

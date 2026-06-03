@@ -10,6 +10,8 @@ type HeroMediaFrameProps = {
   priority?: boolean
   /** Framed column asset vs full-bleed environment */
   variant?: HeroMediaFrameVariant
+  objectPosition?: string
+  sizes?: string
   className?: string
 }
 
@@ -20,6 +22,8 @@ function HeroMediaFrame({
   asset,
   priority = false,
   variant = "framed",
+  objectPosition = "center",
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw",
   className,
 }: HeroMediaFrameProps) {
   const isImmersive = variant === "immersive"
@@ -39,8 +43,9 @@ function HeroMediaFrame({
         fill
         priority={priority}
         quality={100}
-        sizes="100vw"
-        className="hero-media-frame__image object-cover object-center"
+        sizes={sizes}
+        className="hero-media-frame__image object-cover"
+        style={{ objectPosition }}
       />
       {isImmersive ? (
         <span className="hero-media-frame__depth" aria-hidden />

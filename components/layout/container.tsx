@@ -11,8 +11,10 @@ const containerVariants = cva(
       size: {
         /** Primary page width — sections, nav inner, grids */
         default: "max-w-[1280px]",
+        /** Visa editorial wide grids — comparison, cards, timelines */
+        wide: "max-w-[1200px]",
         /** Narrow prose / forms / focused copy */
-        content: "max-w-[720px]",
+        content: "max-w-[760px]",
       },
     },
     defaultVariants: {

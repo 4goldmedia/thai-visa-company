@@ -30,3 +30,10 @@ export const defaultVisaProcessSteps: ReadonlyArray<VisaProcessStep> = [
 
 export const defaultFinalCtaFootnote =
   "We typically reply within one business day. No obligation to proceed."
+
+/** Shared publish metadata for live visa pages — update per editorial review */
+export const defaultVisaPublishMeta = {
+  published: true as const,
+  publishedAt: "2026-01-15",
+  updatedAt: "2026-06-01",
+}

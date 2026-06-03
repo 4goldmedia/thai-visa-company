@@ -5,7 +5,12 @@ import {
   resolveRelatedArticlesForVisa,
   resolveRelatedVisas,
 } from "@/lib/content/related"
-import { getVisaFromRegistry, isVisaSlug, getRegisteredVisaSlugs } from "@/lib/visas/registry"
+import {
+  getVisaFromRegistry,
+  isVisaSlug,
+  isVisaPublished,
+} from "@/lib/visas/registry"
+import { getPublishedVisaSlugs } from "@/lib/visas/publish"
 import {
   buildVisaPageMetadata,
   getVisaPageRouteBreadcrumbs,
@@ -27,6 +32,10 @@ export const resolveVisaPageContext = cache(
     }
 
     const visa = getVisaFromRegistry(slug)
+    if (!isVisaPublished(visa)) {
+      return null
+    }
+
     const relatedArticles = await resolveRelatedArticlesForVisa(visa)
 
     return {
@@ -46,13 +55,13 @@ export const resolveVisaPageContext = cache(
 
 /** `generateStaticParams` for `app/visas/[slug]` */
 export function getVisaPageStaticParams(): VisaPageStaticParam[] {
-  return getRegisteredVisaSlugs()
+  return getPublishedVisaSlugs()
     .filter((slug) => slug !== "retirement")
     .map((slug) => ({ slug }))
 }
 
 export function getVisaPagePaths(): ReadonlyArray<`/visas/${VisaSlug}`> {
-  return getRegisteredVisaSlugs().map(
+  return getPublishedVisaSlugs().map(
     (slug) => `/visas/${slug}` as `/visas/${VisaSlug}`,
   )
 }

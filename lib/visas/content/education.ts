@@ -1,9 +1,10 @@
 import type { VisaPageContent } from "@/lib/visas/types"
-import { defaultFinalCtaFootnote, defaultVisaProcessSteps } from "@/lib/visas/shared"
+import { defaultVisaProcessSteps, defaultVisaPublishMeta } from "@/lib/visas/shared"
 
 export const educationVisaPage: VisaPageContent = {
   slug: "education",
   path: "/visas/education",
+  ...defaultVisaPublishMeta,
   seo: {
     title: "Thailand Education Visa",
     description:
@@ -113,6 +114,5 @@ export const educationVisaPage: VisaPageContent = {
     title: "Planning to study in Thailand?",
     description:
       "Share your school and start date. We help you prepare enrollment documents and your visa application.",
-    footnote: defaultFinalCtaFootnote,
   },
 }

@@ -21,7 +21,12 @@ import type {
   ContentRelatedLink,
   ContentSlug,
 } from "@/lib/content/types"
-import { getVisaFromRegistry, isVisaSlug, getRegisteredVisaSlugs } from "@/lib/visas/registry"
+import {
+  getVisaFromRegistry,
+  isVisaSlug,
+  isVisaPublished,
+} from "@/lib/visas/registry"
+import { getPublishedVisaSlugs } from "@/lib/visas/publish"
 import type { VisaPageContent, VisaSlug } from "@/lib/visas/types"
 
 // -----------------------------------------------------------------------------
@@ -56,6 +61,9 @@ export const contentTopicIds = [
   "elite",
   "business",
   "education",
+  "marriage",
+  "tourist",
+  "ltr",
   "process",
   "general",
 ] as const
@@ -113,6 +121,30 @@ export const contentTopicTaxonomy: Record<ContentTopicId, ContentTopicDefinition
       resourceCategoryIds: ["visa-guides"],
       visaSlugs: ["education"],
     },
+    marriage: {
+      id: "marriage",
+      label: "Marriage & family",
+      tags: ["marriage", "spouse", "family", "dependent"],
+      categories: ["visa guide", "marriage"],
+      resourceCategoryIds: ["visa-guides"],
+      visaSlugs: ["marriage"],
+    },
+    tourist: {
+      id: "tourist",
+      label: "Tourist",
+      tags: ["tourist", "tourism", "short stay", "holiday"],
+      categories: ["visa guide", "tourist"],
+      resourceCategoryIds: ["visa-guides"],
+      visaSlugs: ["tourist"],
+    },
+    ltr: {
+      id: "ltr",
+      label: "Long-Term Resident",
+      tags: ["ltr", "long-term resident", "10-year"],
+      categories: ["visa guide", "ltr"],
+      resourceCategoryIds: ["visa-guides"],
+      visaSlugs: ["ltr"],
+    },
     process: {
       id: "process",
       label: "Process & timelines",
@@ -136,10 +168,13 @@ export const defaultRelatedVisaSlugs: Partial<
   Record<VisaSlug, ReadonlyArray<VisaSlug>>
 > = {
   retirement: ["dtv", "elite"],
-  dtv: ["retirement", "business"],
+  dtv: ["retirement", "tourist", "business"],
   elite: ["retirement", "dtv"],
   business: ["dtv", "education"],
   education: ["business", "retirement"],
+  marriage: ["tourist", "retirement"],
+  tourist: ["dtv", "marriage"],
+  ltr: ["elite", "retirement"],
 }
 
 // -----------------------------------------------------------------------------
@@ -747,14 +782,16 @@ export function rankRelatedVisas(
 
   for (const [index, relatedSlug] of slugHints.entries()) {
     if (relatedSlug === source.slug || !isVisaSlug(relatedSlug)) continue
+    const relatedVisa = getVisaFromRegistry(relatedSlug)
+    if (!isVisaPublished(relatedVisa)) continue
     scored.push({
-      link: visaToRelatedLink(getVisaFromRegistry(relatedSlug)),
+      link: visaToRelatedLink(relatedVisa),
       score: SCORE.EXPLICIT_SLUG - index,
       reasons: ["explicit-slug"],
     })
   }
 
-  for (const visaSlug of getRegisteredVisaSlugs()) {
+  for (const visaSlug of getPublishedVisaSlugs()) {
     if (visaSlug === source.slug) continue
     const visa = getVisaFromRegistry(visaSlug)
     const item = scoreArticleToVisa(
@@ -824,13 +861,15 @@ export async function resolveRelatedVisasForArticle(
   const topics = getTopicsForTags(source.tags)
   const visaSlugs = getVisaSlugsForTopics(topics)
 
-  const scored: ScoredRelatedLink[] = visaSlugs.map((visaSlug, index) => ({
-    link: visaToRelatedLink(getVisaFromRegistry(visaSlug)),
-    score: SCORE.VISA_TOPIC - index,
-    reasons: ["visa-topic"],
-  }))
+  const scored: ScoredRelatedLink[] = visaSlugs
+    .filter((visaSlug) => isVisaSlug(visaSlug) && isVisaPublished(getVisaFromRegistry(visaSlug)))
+    .map((visaSlug, index) => ({
+      link: visaToRelatedLink(getVisaFromRegistry(visaSlug)),
+      score: SCORE.VISA_TOPIC - index,
+      reasons: ["visa-topic"] as const,
+    }))
 
-  for (const visaSlug of getRegisteredVisaSlugs()) {
+  for (const visaSlug of getPublishedVisaSlugs()) {
     const visa = getVisaFromRegistry(visaSlug)
     const item = scoreArticleToVisa(source, visa)
     if (item.score > 0) scored.push(item)
@@ -908,6 +947,7 @@ export function resolveCtaLinkOpportunities(input: {
   for (const [index, slug] of visaSlugs.entries()) {
     if (!isVisaSlug(slug)) continue
     const visa = getVisaFromRegistry(slug)
+    if (!isVisaPublished(visa)) continue
     opportunities.push({
       intent: "visa",
       score: SCORE.CTA_VISA - index,

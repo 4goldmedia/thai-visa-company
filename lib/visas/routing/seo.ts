@@ -32,6 +32,7 @@ export function buildVisaPageMetadata(visa: VisaPageContent): Metadata {
   return createVisaPageMetadata({
     path: visa.path,
     seo: visa.seo,
+    updatedAt: visa.updatedAt,
     image: getDefaultOgImagePath(),
   })
 }

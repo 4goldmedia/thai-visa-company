@@ -22,6 +22,7 @@ export type VisaPageMetadataInput = {
     description: string
     keywords?: ReadonlyArray<string>
   }
+  updatedAt?: string
   image?: string
   noIndex?: boolean
 }

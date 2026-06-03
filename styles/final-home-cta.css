@@ -4,27 +4,29 @@
   .final-home-cta__block {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 2rem;
+    align-items: center;
+    gap: 1.75rem;
     border-radius: 0.875rem;
     background-color: #212121;
-    padding: 1.75rem;
+    padding: 2.25rem 1.75rem;
   }
 
   @media (min-width: 640px) {
     .final-home-cta__block {
-      gap: 2.25rem;
+      gap: 2rem;
       border-radius: 0.9375rem;
-      padding: 2rem 2.5rem;
+      padding: 2.5rem 2.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .final-home-cta__block {
-      grid-template-columns: minmax(0, 1.45fr) auto auto;
+      grid-template-columns: minmax(0, 1.45fr) auto;
       align-items: center;
-      column-gap: clamp(2.5rem, 4.5vw, 4rem);
+      gap: 0;
+      column-gap: clamp(2.75rem, 4.5vw, 4.25rem);
       border-radius: 1rem;
-      padding: 2.5rem clamp(3rem, 4.5vw, 4rem);
+      padding: 2.75rem clamp(3rem, 4.5vw, 4rem);
     }
   }
 
@@ -43,7 +45,7 @@
   }
 
   .final-home-cta__description {
-    margin-top: 1rem;
+    margin-top: 0.875rem;
     max-width: 30rem;
     font-family: var(--font-sans);
     font-size: var(--text-body);
@@ -53,9 +55,27 @@
 
   @media (min-width: 640px) {
     .final-home-cta__description {
-      margin-top: 1.125rem;
+      margin-top: 1rem;
       font-size: var(--text-body-md);
       line-height: 1.64;
+    }
+  }
+
+  .final-home-cta__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .final-home-cta__actions {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(2rem, 3vw, 2.75rem);
+      width: auto;
     }
   }
 
@@ -85,12 +105,6 @@
       min-width: 14.25rem;
       padding-inline: 1.5rem;
       font-size: 0.875rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .final-home-cta__primary {
-      padding-inline-start: 0.5rem;
     }
   }
 
@@ -147,7 +161,6 @@
       align-items: center;
       justify-content: flex-end;
       gap: 1.75rem;
-      padding-inline-end: 0.75rem;
     }
   }
 }

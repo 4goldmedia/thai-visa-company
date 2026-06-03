@@ -154,22 +154,24 @@ function HomeFinalCtaSection({
               </p>
             </div>
 
-            <div className="final-home-cta__primary">
-              <Link
-                href={ctaHref.requestConsultation}
-                className={cn(signatureCtaPrimaryClass, "final-home-cta__button")}
-              >
-                Book a consultation
-              </Link>
-            </div>
+            <div className="final-home-cta__actions">
+              <div className="final-home-cta__primary">
+                <Link
+                  href={ctaHref.requestConsultation}
+                  className={cn(signatureCtaPrimaryClass, "final-home-cta__button")}
+                >
+                  Book a consultation
+                </Link>
+              </div>
 
-            <div className="final-home-cta__links" aria-label="Messaging links">
-              <a href={CONTACT_URLS.line} className="final-home-cta__link">
-                Chat on {messagingChannelLabels.lineShort}
-              </a>
-              <a href={CONTACT_URLS.whatsapp} className="final-home-cta__link">
-                {messagingChannelLabels.whatsapp}
-              </a>
+              <div className="final-home-cta__links" aria-label="Messaging links">
+                <a href={CONTACT_URLS.line} className="final-home-cta__link">
+                  Chat on {messagingChannelLabels.lineShort}
+                </a>
+                <a href={CONTACT_URLS.whatsapp} className="final-home-cta__link">
+                  {messagingChannelLabels.whatsapp}
+                </a>
+              </div>
             </div>
           </div>
         </SectionReveal>

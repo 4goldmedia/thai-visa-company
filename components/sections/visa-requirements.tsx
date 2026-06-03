@@ -1,23 +1,25 @@
-import { Container } from "@/components/layout/container"
-import { Section } from "@/components/layout/section"
-import { SectionHeading } from "@/components/layout/section-heading"
 import { SectionReveal } from "@/components/motion"
-import { sectionContentOffsetClass } from "@/lib/section-styles"
+import { EditorialCallout } from "@/components/visa-editorial/editorial-callout"
+import {
+  VisaEditorialContent,
+  VisaEditorialHeading,
+} from "@/components/visa-editorial/visa-editorial-heading"
+import { VisaEditorialSection } from "@/components/visa-editorial/visa-editorial-section"
+import {
+  formatVisaRequirementItem,
+  getVisaRequirementItemTone,
+} from "@/lib/visa-requirement-item"
+import { visaGroupCardClass } from "@/lib/visa-editorial-styles"
 import { cn } from "@/lib/utils"
 
 type VisaRequirementsBlock = {
-  /** Block heading — defaults provided per group */
   title?: string
-  /** Optional one-line context before the list */
   intro?: string
-  /** Scannable requirement points */
   items: ReadonlyArray<string>
 }
 
 type VisaRequirementsProps = {
-  /** Stable id for `aria-labelledby` on the parent `<section>` */
   headingId: string
-  /** Section h2 — default "Requirements" */
   title?: string
   description?: string
   eyebrow?: string
@@ -33,40 +35,7 @@ const defaultBlockTitles = {
   documents: "Required documents",
 } as const
 
-const panelTitleClass =
-  "text-[15px] font-medium leading-snug tracking-tight text-foreground sm:text-base"
-
-const panelIntroClass =
-  "mt-3 max-w-prose text-[15px] leading-[1.7] text-pretty text-muted-foreground sm:mt-3.5 sm:text-base sm:leading-relaxed"
-
-const requirementListClass = "flex list-none flex-col gap-2.5 p-0 sm:gap-3"
-
-function VisaRequirementsList({
-  items,
-  ariaLabel,
-}: {
-  items: ReadonlyArray<string>
-  ariaLabel: string
-}) {
-  return (
-    <ul aria-label={ariaLabel} className={requirementListClass}>
-      {items.map((item) => (
-        <li
-          key={item}
-          className="flex items-start gap-2.5 text-[15px] leading-[1.65] text-muted-foreground sm:leading-relaxed"
-        >
-          <span
-            className="mt-[0.55rem] size-1 shrink-0 rounded-full bg-foreground/25"
-            aria-hidden
-          />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-function VisaRequirementsPanel({
+function VisaRequirementsGroupCard({
   panelHeadingId,
   title,
   intro,
@@ -80,20 +49,45 @@ function VisaRequirementsPanel({
   return (
     <article
       aria-labelledby={panelHeadingId}
-      className={cn(
-        "min-w-0 py-6 first:pt-0 last:pb-0 sm:py-7",
-        "lg:rounded-[var(--radius)] lg:border lg:border-border/50 lg:bg-card/30 lg:px-5 lg:py-5 lg:first:pt-5 lg:last:pb-5"
-      )}
+      className={visaGroupCardClass}
     >
-      <h3 id={panelHeadingId} className={panelTitleClass}>
+      <h3 id={panelHeadingId} className="visa-group-card__title">
         {title}
       </h3>
+      {intro ? <p className="visa-group-card__intro">{intro}</p> : null}
+      <ul className="visa-group-card__list" aria-label={title}>
+        {items.map((item) => {
+          const tone = getVisaRequirementItemTone(item)
+          const label =
+            tone === "mandatory"
+              ? "Mandatory"
+              : tone === "supporting"
+                ? "Supporting"
+                : tone === "note"
+                  ? "Note"
+                  : null
 
-      {intro ? <p className={panelIntroClass}>{intro}</p> : null}
-
-      <div className="mt-3 sm:mt-3.5">
-        <VisaRequirementsList items={items} ariaLabel={title} />
-      </div>
+          return (
+            <li
+              key={item}
+              className={cn(
+                "visa-group-card__item",
+                tone === "mandatory" && "visa-group-card__item--mandatory",
+                tone === "supporting" && "visa-group-card__item--supporting",
+              )}
+            >
+              {label ? (
+                <>
+                  <strong>{label}: </strong>
+                  {formatVisaRequirementItem(item)}
+                </>
+              ) : (
+                item
+              )}
+            </li>
+          )
+        })}
+      </ul>
     </article>
   )
 }
@@ -131,68 +125,65 @@ function VisaRequirements({
 
   return (
     <div className={cn("flex flex-col", className)}>
-      <SectionReveal>
-        <SectionHeading
-          id={headingId}
-          eyebrow={eyebrow}
-          title={title}
-          description={description}
-          titleClassName="max-w-xl"
-          descriptionClassName="max-w-2xl"
-        />
-      </SectionReveal>
-
-      <div
-        className={cn(
-          sectionContentOffsetClass,
-          "divide-y divide-border/50",
-          "lg:grid lg:grid-cols-3 lg:gap-5 lg:divide-y-0"
-        )}
-      >
-        {panels.map((panel) => (
-          <VisaRequirementsPanel
-            key={panel.panelHeadingId}
-            panelHeadingId={panel.panelHeadingId}
-            title={panel.title}
-            intro={panel.intro}
-            items={panel.items}
-          />
-        ))}
-      </div>
+      <VisaEditorialHeading
+        id={headingId}
+        eyebrow={eyebrow}
+        title={title}
+        description={description}
+      />
+      <VisaEditorialContent>
+        <EditorialCallout variant="requirements-change" className="mb-6 sm:mb-8">
+          <p>
+            Visa rules and document lists change. We keep your file aligned with what
+            officers expect before you submit—so you are not guessing from outdated
+            checklists.
+          </p>
+        </EditorialCallout>
+        <div className="visa-group-grid visa-group-grid--requirements">
+          {panels.map((panel) => (
+            <VisaRequirementsGroupCard
+              key={panel.panelHeadingId}
+              panelHeadingId={panel.panelHeadingId}
+              title={panel.title}
+              intro={panel.intro}
+              items={panel.items}
+            />
+          ))}
+        </div>
+      </VisaEditorialContent>
     </div>
   )
 }
 
 type VisaRequirementsSectionProps = VisaRequirementsProps & {
   sectionId?: string
-  sectionClassName?: string
+  className?: string
 }
 
 function VisaRequirementsSection({
   sectionId = "visa-requirements",
-  sectionClassName,
   headingId,
+  className,
   ...requirementsProps
 }: VisaRequirementsSectionProps) {
   return (
-    <Section
+    <VisaEditorialSection
       id={sectionId}
-      spacing="default"
-      aria-labelledby={headingId}
-      className={sectionClassName}
+      labelledBy={headingId}
+      width="wide"
+      className={className}
     >
-      <Container>
+      <SectionReveal>
         <VisaRequirements headingId={headingId} {...requirementsProps} />
-      </Container>
-    </Section>
+      </SectionReveal>
+    </VisaEditorialSection>
   )
 }
 
 export {
   VisaRequirements,
   VisaRequirementsSection,
-  VisaRequirementsPanel,
-  VisaRequirementsList,
+  VisaRequirementsGroupCard,
   defaultBlockTitles,
 }
 export type {

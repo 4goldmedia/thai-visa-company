@@ -21,3 +21,9 @@ export function getVisaFromRegistry(slug: VisaSlug): VisaPageContent {
 export function getRegisteredVisaSlugs(): VisaSlug[] {
   return [...registeredVisaSlugs]
 }
+
+export {
+  getPublishedVisaSlugs,
+  getPublishedVisaPages,
+  isVisaPublished,
+} from "@/lib/visas/publish"

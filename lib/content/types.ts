@@ -195,8 +195,87 @@ export type ContentVisaProcessStep = {
   description: string
 }
 
-/** Visa page final CTA — aligns with `FinalCTASection` */
-export type ContentVisaFinalCta = ContentCta
+export type ContentVisaKeyFact = {
+  label: string
+  value: string
+  detail?: string
+}
+
+export type ContentVisaKeyFactsSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  items: ReadonlyArray<ContentVisaKeyFact>
+}
+
+export type ContentVisaFitList = {
+  title?: string
+  items: ReadonlyArray<string>
+}
+
+export type ContentVisaBestForSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  goodFit: ContentVisaFitList
+  notIdeal: ContentVisaFitList
+}
+
+export type ContentVisaComparisonColumn = {
+  id: string
+  label: string
+  href?: string
+}
+
+export type ContentVisaComparisonRow = {
+  label: string
+  cells: ReadonlyArray<string>
+}
+
+export type ContentVisaComparisonSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  columns: ReadonlyArray<ContentVisaComparisonColumn>
+  rows: ReadonlyArray<ContentVisaComparisonRow>
+  footnote?: string
+}
+
+export type ContentVisaChecklistItem = {
+  text: string
+  note?: string
+}
+
+export type ContentVisaChecklistGroup = {
+  title: string
+  intro?: string
+  items: ReadonlyArray<ContentVisaChecklistItem>
+}
+
+export type ContentVisaDocumentChecklistSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  groups: ReadonlyArray<ContentVisaChecklistGroup>
+}
+
+export type ContentVisaLastReviewed = {
+  reviewedBy?: string
+}
+
+/** Conversion-focused block — replaces off-site application directions on visa pages */
+export type ContentVisaGettingStarted = {
+  eyebrow?: string
+  title: string
+  description: string
+  buttonLabel?: string
+}
+
+/** Visa page final CTA — dark premium block on visa pages */
+export type ContentVisaFinalCta = ContentCta & {
+  headline?: string
+  buttonLabel?: string
+}
 
 export type ContentVisaPath = `/visas/${string}`
 

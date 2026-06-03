@@ -1,16 +1,24 @@
-import type { VisaHeroProps } from "@/components/sections/visa-hero"
+import type { VisaPageHeroContent } from "@/lib/visas/hero"
 import type { VisaOverviewContent } from "@/components/sections/visa-overview"
 import type { VisaRequirementsBlock } from "@/components/sections/visa-requirements"
 import type {
   ContentFaqItem,
   ContentFaqSection,
+  ContentIsoDate,
   ContentRelatedLink,
   ContentRelatedSection,
+  ContentVisaBestForSection,
+  ContentVisaDocumentChecklistSection,
   ContentVisaFinalCta,
+  ContentVisaKeyFactsSection,
+  ContentVisaComparisonSection,
+  ContentVisaGettingStarted,
+  ContentVisaLastReviewed,
   ContentVisaPageSeo,
   ContentVisaProcessStep,
   ContentVisaPath,
 } from "@/lib/content/types"
+import type { VisaSectionId } from "@/lib/visas/layout"
 
 export const visaSlugs = [
   "retirement",
@@ -18,6 +26,9 @@ export const visaSlugs = [
   "elite",
   "business",
   "education",
+  "marriage",
+  "tourist",
+  "ltr",
 ] as const
 
 export type VisaSlug = (typeof visaSlugs)[number]
@@ -37,14 +48,23 @@ export type VisaPageSeo = ContentVisaPageSeo
 export type VisaPageContent = {
   slug: VisaSlug
   path: `/visas/${VisaSlug}`
+  published: boolean
+  publishedAt: ContentIsoDate
+  updatedAt?: ContentIsoDate
+  lastReviewed?: ContentVisaLastReviewed
+  layout?: ReadonlyArray<VisaSectionId>
   seo: VisaPageSeo
-  hero: Pick<
-    VisaHeroProps,
-    "title" | "overview" | "eyebrow" | "trustItems" | "reviewProof"
-  >
+  hero: VisaPageHeroContent
+  keyFacts?: ContentVisaKeyFactsSection
+  gettingStarted?: ContentVisaGettingStarted
+  bestFor?: ContentVisaBestForSection
+  comparison?: ContentVisaComparisonSection
+  checklist?: ContentVisaDocumentChecklistSection
   overview: {
     title?: string
     description?: string
+    /** Lead paragraph shown directly under the section heading */
+    intro?: string | ReadonlyArray<string>
     eyebrow?: string
     audience: VisaOverviewContent
     eligibility: VisaOverviewContent

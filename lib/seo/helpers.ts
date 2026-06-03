@@ -265,7 +265,7 @@ export function createHomeMetadata(): Metadata {
 
 /** Visa landing pages from `lib/visas/content/*` */
 export function createVisaPageMetadata(input: VisaPageMetadataInput): Metadata {
-  return createPageMetadata({
+  const base = createPageMetadata({
     title: input.seo.title,
     description: input.seo.description,
     path: input.path,
@@ -273,6 +273,15 @@ export function createVisaPageMetadata(input: VisaPageMetadataInput): Metadata {
     image: input.image,
     noIndex: input.noIndex,
   })
+
+  if (!input.updatedAt) return base
+
+  return {
+    ...base,
+    other: {
+      "article:modified_time": input.updatedAt,
+    },
+  }
 }
 
 /** Resource / MDX articles — article Open Graph + published times */

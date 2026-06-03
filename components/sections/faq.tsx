@@ -74,7 +74,11 @@ function Faq({
 
       <FAQAccordion
         aria-labelledby={headingId}
-        className={cn(sectionContentOffsetClass, "lg:mt-[calc(var(--space-heading-offset-lg)+0.25rem)]")}
+        className={cn(
+          sectionContentOffsetClass,
+          "faq-section__accordion",
+          "lg:mt-[calc(var(--space-heading-offset-lg)+0.25rem)]",
+        )}
       >
         {items.map((item) => (
           <FAQItem

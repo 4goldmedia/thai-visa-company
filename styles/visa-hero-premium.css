@@ -1,0 +1,237 @@
+/* Visa page hero — wide grid, homepage-quality hierarchy, outcome imagery */
+
+@layer components {
+  .visa-hero-premium__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .visa-hero-premium__inner {
+      gap: 3rem;
+    }
+  }
+
+  .visa-hero-premium__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .visa-hero-premium__grid {
+      grid-template-columns: minmax(0, 0.55fr) minmax(0, 0.45fr);
+      gap: clamp(2.5rem, 4vw, 4rem);
+    }
+  }
+
+  .visa-hero-premium__copy {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: 36rem;
+  }
+
+  .visa-hero-premium__eyebrow {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .visa-hero-premium__title {
+    margin: 1.5rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.2vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--foreground);
+    text-wrap: balance;
+  }
+
+  .visa-hero-premium__subtitle {
+    display: block;
+    margin-top: 0.375rem;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: color-mix(in srgb, var(--foreground) 72%, var(--text-secondary));
+  }
+
+  .visa-hero-premium__lead {
+    margin: 1.25rem 0 0;
+    max-width: 34rem;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--text-secondary) 92%, var(--text-tertiary));
+    text-wrap: pretty;
+  }
+
+  @media (min-width: 768px) {
+    .visa-hero-premium__lead {
+      margin-top: 1.5rem;
+      font-size: 1.1875rem;
+      line-height: 1.58;
+    }
+  }
+
+  .visa-hero-premium__cta {
+    margin-top: 1.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .visa-hero-premium__cta {
+      margin-top: 2rem;
+    }
+  }
+
+  .visa-hero-premium__trust {
+    margin-top: 1.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .visa-hero-premium__trust {
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
+  }
+
+  .visa-hero-premium__trust-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 640px) {
+    .visa-hero-premium__trust-list {
+      gap: 1rem;
+    }
+  }
+
+  .visa-hero-premium__trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  @media (min-width: 768px) {
+    .visa-hero-premium__trust-item {
+      font-size: 0.9375rem;
+    }
+  }
+
+  .visa-hero-premium__trust-icon {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.2em;
+    color: color-mix(in srgb, var(--text-tertiary) 85%, transparent);
+  }
+
+  .visa-hero-premium__media {
+    position: relative;
+    width: 100%;
+    max-width: 28rem;
+    margin-inline: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  @media (min-width: 1024px) {
+    .visa-hero-premium__media {
+      max-width: none;
+      margin-inline: 0;
+      aspect-ratio: 5 / 6;
+    }
+  }
+
+  .visa-hero-premium__media .hero-media-frame {
+    position: absolute;
+    inset: 0;
+    border-radius: 0;
+  }
+
+  .visa-hero-premium__meta {
+    margin: 1.5rem 0 0;
+    max-width: 34rem;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--text-tertiary);
+  }
+
+  @media (min-width: 768px) {
+    .visa-hero-premium__meta {
+      margin-top: 1.75rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .visa-hero-premium__meta-by {
+    color: color-mix(in srgb, var(--text-secondary) 85%, var(--text-tertiary));
+  }
+
+  .visa-hero-premium__meta-sep {
+    color: color-mix(in srgb, var(--text-tertiary) 70%, transparent);
+  }
+
+  /* ── Optional testimonial below hero grid ── */
+  .visa-hero-testimonial {
+    margin: 0;
+    max-width: 28rem;
+    padding: 1.375rem 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    border-radius: 0.75rem;
+    background-color: color-mix(in srgb, var(--surface-muted) 35%, var(--background));
+  }
+
+  @media (min-width: 768px) {
+    .visa-hero-testimonial {
+      padding: 1.5rem 1.625rem;
+    }
+  }
+
+  .visa-hero-testimonial__stars {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: color-mix(in srgb, var(--foreground) 55%, var(--text-tertiary));
+  }
+
+  .visa-hero-testimonial__quote {
+    margin: 0.875rem 0 0;
+  }
+
+  .visa-hero-testimonial__quote p {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+    color: var(--foreground);
+    text-wrap: pretty;
+  }
+
+  .visa-hero-testimonial__attribution {
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-tertiary);
+  }
+}

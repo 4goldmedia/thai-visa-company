@@ -1,123 +1,149 @@
-import { BadgeCheck, MessageCircle } from "lucide-react"
-import type { LucideIcon } from "lucide-react"
-
-import { ContactCtaGroup } from "@/components/cta"
-import { PageHero, PageHeroReviewBadge } from "@/components/layout/page-hero"
+import { SignatureMessagingCtaGroup } from "@/components/cta/signature-messaging-cta-group"
+import { HeroMediaFrame } from "@/components/media/hero-media-frame"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
-import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
+import { SectionReveal } from "@/components/motion"
+import { VisaHeroTestimonialCard } from "@/components/visa-editorial/visa-hero-testimonial"
+import { VisaPageMeta } from "@/components/visa-editorial/visa-page-meta"
+import { analyticsDataAttributes } from "@/lib/analytics/attributes"
+import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
+import type { ContentIsoDate, ContentVisaLastReviewed } from "@/lib/content/types"
+import {
+  resolveVisaHeroMedia,
+  resolveVisaHeroTrustBullets,
+  type VisaPageHeroContent,
+} from "@/lib/visas/hero"
+import type { VisaSlug } from "@/lib/visas/types"
+import { visaPageClass } from "@/lib/visa-editorial-styles"
 import { cn } from "@/lib/utils"
 
-type VisaHeroTrustItem = {
-  icon: LucideIcon
-  label: string
-}
-
-type VisaHeroReviewProof = {
-  rating: number
-  reviewCount: string | number
-  source?: string
-}
-
-type VisaHeroProps = {
-  title: string
-  overview: string
-  eyebrow?: string
+type VisaHeroProps = VisaPageHeroContent & {
   headingId: string
-  trustItems?: ReadonlyArray<VisaHeroTrustItem>
-  reviewProof?: VisaHeroReviewProof
-  showExploreCta?: boolean
-  visaSlug?: string
+  visaSlug: VisaSlug
+  updatedAt?: ContentIsoDate
+  lastReviewed?: ContentVisaLastReviewed
   className?: string
 }
 
-const defaultTrustItems: ReadonlyArray<VisaHeroTrustItem> = [
-  {
-    icon: MessageCircle,
-    label: "Same-day replies on LINE and WhatsApp",
-  },
-  {
-    icon: BadgeCheck,
-    label: "Clear requirements and next steps for your situation",
-  },
-]
-
-const defaultReviewProof: VisaHeroReviewProof = {
-  rating: defaultGoogleReviewSummary.rating,
-  reviewCount: defaultGoogleReviewSummary.reviewCount,
-  source: defaultGoogleReviewSummary.sourceLabel,
-}
-
 function VisaHero({
-  title,
-  overview,
   eyebrow = "Thailand visa support",
+  title,
+  subtitle,
+  overview,
+  trustBullets,
+  testimonial,
   headingId,
-  trustItems = defaultTrustItems,
-  reviewProof = defaultReviewProof,
-  showExploreCta = false,
   visaSlug,
+  updatedAt,
+  lastReviewed,
+  heroImage,
+  heroImageAlt,
+  objectPosition,
   className,
 }: VisaHeroProps) {
+  const media = resolveVisaHeroMedia(visaSlug, {
+    heroImage,
+    heroImageAlt,
+    objectPosition,
+  })
+  const trustItems = resolveVisaHeroTrustBullets(trustBullets)
+  const messagingAnalytics = analyticsDataAttributes({
+    ctaId: analyticsCtaIds.heroContact,
+    surface: "visa_page",
+    visaSlug,
+  })
+
   return (
-    <PageHero
-      eyebrow={eyebrow}
-      title={title}
-      lead={overview}
-      headingId={headingId}
-      pageSummary={overview}
-      showEyebrowMarker
-      ctaSlot={
-        <ContactCtaGroup
-          showExplore={showExploreCta}
-          analyticsSurface="visa_page"
-          analyticsCtaId="hero_contact"
-          visaSlug={visaSlug}
-        />
-      }
-      reviewProof={reviewProof}
-      trustItems={trustItems}
-      className={className}
-    />
+    <div className={cn("visa-hero-premium__inner", className)}>
+      <div className="visa-hero-premium__grid">
+        <div className="visa-hero-premium__copy">
+          <p className="visa-hero-premium__eyebrow">{eyebrow}</p>
+
+          <h1 id={headingId} className="visa-hero-premium__title">
+            <span className="block">{title}</span>
+            {subtitle ? (
+              <span className="visa-hero-premium__subtitle">{subtitle}</span>
+            ) : null}
+          </h1>
+
+          <p className="visa-hero-premium__lead" data-page-summary={overview}>
+            {overview}
+          </p>
+
+          <div
+            className="visa-hero-premium__cta"
+            aria-label="Contact via messaging"
+            {...messagingAnalytics}
+          >
+            <SignatureMessagingCtaGroup />
+          </div>
+
+          <div className="visa-hero-premium__trust">
+            <ul className="visa-hero-premium__trust-list" aria-label="Why clients trust us">
+              {trustItems.map((item) => (
+                <li key={item.label} className="visa-hero-premium__trust-item">
+                  <item.icon
+                    className="visa-hero-premium__trust-icon"
+                    strokeWidth={1.5}
+                    aria-hidden
+                  />
+                  <span>{item.label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {updatedAt ? (
+            <VisaPageMeta updatedAt={updatedAt} lastReviewed={lastReviewed} />
+          ) : null}
+        </div>
+
+        <div className="visa-hero-premium__media">
+          <HeroMediaFrame
+            asset={{
+              src: media.src,
+              alt: media.alt,
+            }}
+            objectPosition={media.objectPosition ?? "center"}
+            priority
+          />
+        </div>
+      </div>
+
+      {testimonial ? <VisaHeroTestimonialCard {...testimonial} /> : null}
+    </div>
   )
 }
 
 type VisaHeroSectionProps = VisaHeroProps & {
   sectionId?: string
-  className?: string
   sectionClassName?: string
 }
 
 function VisaHeroSection({
   sectionId = "visa-hero",
   sectionClassName,
-  headingId,
   ...heroProps
 }: VisaHeroSectionProps) {
   return (
     <Section
       id={sectionId}
       spacing="default"
-      aria-labelledby={headingId}
-      className={cn("border-b border-border/50", sectionClassName)}
+      aria-labelledby={heroProps.headingId}
+      className={cn(
+        visaPageClass,
+        "visa-hero-section visa-hero-premium border-b border-border/50",
+        sectionClassName,
+      )}
     >
-      <Container size="content">
-        <VisaHero headingId={headingId} {...heroProps} />
+      <Container size="wide">
+        <SectionReveal>
+          <VisaHero {...heroProps} />
+        </SectionReveal>
       </Container>
     </Section>
   )
 }
 
-export {
-  VisaHero,
-  VisaHeroSection,
-  PageHeroReviewBadge as VisaHeroReviewBadge,
-  defaultTrustItems,
-  defaultReviewProof,
-}
-export type {
-  VisaHeroProps,
-  VisaHeroSectionProps,
-  VisaHeroTrustItem,
-  VisaHeroReviewProof,
-}
+export { VisaHero, VisaHeroSection }
+export type { VisaHeroProps, VisaHeroSectionProps }

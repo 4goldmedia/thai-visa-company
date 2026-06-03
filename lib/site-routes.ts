@@ -92,6 +92,27 @@ export const siteRoutes = [
     priority: 0.8,
     published: true,
   },
+  {
+    path: "/visas/marriage",
+    group: "visa",
+    changeFrequency: "monthly",
+    priority: 0.7,
+    published: false,
+  },
+  {
+    path: "/visas/tourist",
+    group: "visa",
+    changeFrequency: "monthly",
+    priority: 0.7,
+    published: false,
+  },
+  {
+    path: "/visas/ltr",
+    group: "visa",
+    changeFrequency: "monthly",
+    priority: 0.7,
+    published: false,
+  },
 
   // Resources / guides
   {
@@ -177,6 +198,7 @@ export function getRouteByPath(path: string): SiteRoute | undefined {
 /** Build sitemap entries for published static routes plus published MDX articles */
 export async function buildSitemap(): Promise<MetadataRoute.Sitemap> {
   const { getPublishedResourceArticlePaths } = await import("@/lib/content")
+  const { getPublishedVisaPages } = await import("@/lib/visas/publish")
   const builtAt = new Date()
   const entries = new Map<string, MetadataRoute.Sitemap[number]>()
 
@@ -186,6 +208,15 @@ export async function buildSitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: route.lastModified ?? builtAt,
       changeFrequency: route.changeFrequency,
       priority: route.priority,
+    })
+  }
+
+  for (const visa of getPublishedVisaPages()) {
+    entries.set(visa.path, {
+      url: resolveCanonicalUrl(visa.path).toString(),
+      lastModified: visa.updatedAt ? new Date(visa.updatedAt) : builtAt,
+      changeFrequency: "monthly",
+      priority: 0.8,
     })
   }
 

@@ -1,9 +1,10 @@
 import type { VisaPageContent } from "@/lib/visas/types"
-import { defaultFinalCtaFootnote, defaultVisaProcessSteps } from "@/lib/visas/shared"
+import { defaultVisaProcessSteps, defaultVisaPublishMeta } from "@/lib/visas/shared"
 
 export const businessVisaPage: VisaPageContent = {
   slug: "business",
   path: "/visas/business",
+  ...defaultVisaPublishMeta,
   seo: {
     title: "Thailand Business Visa",
     description:
@@ -14,7 +15,7 @@ export const businessVisaPage: VisaPageContent = {
     eyebrow: "Work & business stays",
     title: "Thailand Business Visa",
     overview:
-      "Practical guidance for business, work, and company-related visas — aligned to your role, employer, or investment setup in Thailand.",
+      "Clear guidance for business, work, and company-related visas—matched to your role, employer, or investment setup in Thailand.",
   },
   overview: {
     audience: {
@@ -113,6 +114,5 @@ export const businessVisaPage: VisaPageContent = {
     title: "Need help with a Thailand business visa?",
     description:
       "Share your role, company details, and timeline. We outline documents and steps before you apply.",
-    footnote: defaultFinalCtaFootnote,
   },
 }

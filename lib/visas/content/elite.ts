@@ -1,9 +1,10 @@
 import type { VisaPageContent } from "@/lib/visas/types"
-import { defaultFinalCtaFootnote, defaultVisaProcessSteps } from "@/lib/visas/shared"
+import { defaultVisaProcessSteps, defaultVisaPublishMeta } from "@/lib/visas/shared"
 
 export const eliteVisaPage: VisaPageContent = {
   slug: "elite",
   path: "/visas/elite",
+  ...defaultVisaPublishMeta,
   seo: {
     title: "Thailand Elite Visa",
     description:
@@ -113,6 +114,5 @@ export const eliteVisaPage: VisaPageContent = {
     title: "Considering Thailand Elite membership?",
     description:
       "Tell us your stay goals and budget range. We help you compare packages and prepare a complete application.",
-    footnote: defaultFinalCtaFootnote,
   },
 }

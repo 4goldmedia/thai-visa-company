@@ -93,6 +93,21 @@ export const visaGalleryPhotography = {
     alt: "Group of friends in a warm social setting, suggesting family relocation and study life in Thailand",
     objectPosition: "center 38%",
   },
+  marriage: {
+    src: "/images/visas/education.jpg",
+    alt: "Couple spending time together in Thailand, suggesting marriage and family visa life",
+    objectPosition: "center 38%",
+  },
+  tourist: {
+    src: "/images/editorial/krabi-thailand-beachside.webp",
+    alt: "Traveler enjoying Thailand's coastline, suggesting a tourism experience",
+    objectPosition: "28% 52%",
+  },
+  ltr: {
+    src: "/images/visas/elite.jpg",
+    alt: "Professional in a refined setting, suggesting long-term residence in Thailand",
+    objectPosition: "center 40%",
+  },
 } as const satisfies Record<string, VisaGalleryImage>
 
 /** @deprecated Use visaGalleryPhotography */

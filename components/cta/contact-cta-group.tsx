@@ -27,6 +27,8 @@ type ContactCtaGroupProps = {
   analyticsCtaId?: string
   visaSlug?: string
   articleSlug?: string
+  /** Primary consultation button label */
+  consultationLabel?: string
   className?: string
 }
 
@@ -41,6 +43,7 @@ function ContactCtaGroup({
   analyticsCtaId = analyticsCtaIds.contactGroup,
   visaSlug,
   articleSlug,
+  consultationLabel = ctaLabels.requestConsultation,
   className,
 }: ContactCtaGroupProps) {
   const isHero = layout === "hero"
@@ -102,7 +105,7 @@ function ContactCtaGroup({
         )}
         {...consultationAnalytics}
       >
-        {ctaLabels.requestConsultation}
+        {consultationLabel}
       </Link>
 
       <div className="flex flex-col gap-3">

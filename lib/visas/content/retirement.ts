@@ -1,11 +1,10 @@
-import { BadgeCheck, ClipboardList, MessageCircle } from "lucide-react"
-
 import type { VisaPageContent } from "@/lib/visas/types"
-import { defaultFinalCtaFootnote, defaultVisaProcessSteps } from "@/lib/visas/shared"
+import { defaultVisaProcessSteps, defaultVisaPublishMeta } from "@/lib/visas/shared"
 
 export const retirementVisaPage: VisaPageContent = {
   slug: "retirement",
   path: "/visas/retirement",
+  ...defaultVisaPublishMeta,
   seo: {
     title: "Thailand Retirement Visa — Requirements & Support",
     description:
@@ -20,21 +19,7 @@ export const retirementVisaPage: VisaPageContent = {
     eyebrow: "Long-stay visa",
     title: "Thailand Retirement Visa",
     overview:
-      "Planning to retire in Thailand? We help you understand typical age and financial requirements, what documents are usually asked for, and how to move through the process with clear support.",
-    trustItems: [
-      {
-        icon: MessageCircle,
-        label: "Questions answered on LINE and WhatsApp — often the same day",
-      },
-      {
-        icon: ClipboardList,
-        label: "Checklists tailored to your nationality and embassy",
-      },
-      {
-        icon: BadgeCheck,
-        label: "Support for first applications and renewals",
-      },
-    ],
+      "Planning to retire in Thailand? We explain typical age and financial requirements, the documents embassies usually ask for, and your next steps—with clear support throughout.",
   },
   overview: {
     eyebrow: "At a glance",
@@ -167,6 +152,5 @@ export const retirementVisaPage: VisaPageContent = {
     title: "Ready to check your retirement visa options?",
     description:
       "Send your age, nationality, and whether you are applying from abroad or already in Thailand. We reply on LINE or WhatsApp with clear next steps.",
-    footnote: defaultFinalCtaFootnote,
   },
 }
