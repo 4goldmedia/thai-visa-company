@@ -114,12 +114,7 @@ export function renderVisaPageSection(
         <VisaRequirementsSection
           sectionId={ids.requirements}
           headingId={ids.requirementsHeading}
-          title={visa.requirements.title}
-          description={visa.requirements.description}
-          eyebrow={visa.requirements.eyebrow}
-          requirements={visa.requirements.requirements}
-          eligibility={visa.requirements.eligibility}
-          documents={visa.requirements.documents}
+          {...visa.requirements}
         />
       )
 

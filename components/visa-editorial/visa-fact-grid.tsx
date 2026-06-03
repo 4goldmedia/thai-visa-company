@@ -14,9 +14,7 @@ function VisaFactGrid({ items, className }: VisaFactGridProps) {
         <div key={fact.label} className={visaMetricCardClass}>
           <dt className="visa-metric-card__label">{fact.label}</dt>
           <dd className="visa-metric-card__value">{fact.value}</dd>
-          {fact.detail ? (
-            <p className="visa-metric-card__note">{fact.detail}</p>
-          ) : null}
+          <dd className="visa-metric-card__note">{fact.detail ?? ""}</dd>
         </div>
       ))}
     </dl>

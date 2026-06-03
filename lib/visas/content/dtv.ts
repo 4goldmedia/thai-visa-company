@@ -215,152 +215,66 @@ export const dtvVisaPage: VisaPageContent = {
   },
   requirements: {
     eyebrow: "Eligibility",
-    title: "DTV visa requirements",
+    title: "Do you qualify for a DTV visa?",
     description:
-      "What you typically need to qualify. We help you match your situation to the right category and documents.",
-    requirements: {
-      title: "Remote work & freelancing",
-      intro: "For digital nomads, remote employees, and freelancers earning from outside Thailand.",
-      items: [
-        "Mandatory: Valid passport (usually valid at least six months beyond your travel date).",
-        "Mandatory: Proof of savings—commonly at least 500,000 THB (or equivalent) in your name.",
-        "Mandatory: Proof of remote work—employment letter, contract, or portfolio showing how you earn from abroad.",
-        "Supporting: Recent payslips or payment records from foreign clients.",
-        "Supporting: Business registration if you own a company overseas.",
-        "Supporting: Professional profiles or client contracts that back up your story.",
-        "Not allowed: Working for a Thai company or taking paid work that needs a Thai work permit.",
-      ],
-    },
-    eligibility: {
-      title: "Activities & programmes",
-      intro: "For Muay Thai, cooking classes, sports training, medical treatment, and similar approved programmes.",
-      items: [
-        "Mandatory: Passport, photo, and the same savings proof (500,000 THB is the usual benchmark).",
-        "Mandatory: Confirmation you are joining the programme—letter from the school, camp, hospital, or organiser.",
-        "Supporting: Course schedule, booking, or payment receipts.",
-        "Supporting: Proof of where you will stay for your first days in Thailand, if requested.",
-        "Note: This route is for joining the programme—not for taking a job in Thailand.",
-      ],
-    },
-    documents: {
-      title: "Spouse & children (under 20)",
-      intro: "For family members linked to an approved primary DTV applicant.",
-      items: [
-        "Mandatory: Marriage or birth certificates showing your relationship.",
-        "Mandatory: Copy of the main applicant's passport and approved DTV.",
-        "Mandatory: Dependent's passport, photo, and financial proof (often the same 500,000 THB rule or a family account with proof of link).",
-        "Supporting: Consent letters for minors, if needed.",
-        "Supporting: School letter if a child will study in Thailand.",
-        "The main applicant must qualify first—dependents cannot replace that.",
-      ],
-    },
-  },
-  checklist: {
-    eyebrow: "Preparation",
-    title: "DTV document checklist",
-    description:
-      "Use this as a preparation list. We review your file before submission so nothing important is missing.",
-    groups: [
+      "The DTV visa is available through three main pathways. Choose the option that best matches your situation.",
+    showRequirementsChangeCallout: false,
+    pathways: [
       {
-        title: "Identity & forms",
-        intro: "Required for almost every applicant.",
-        items: [
-          {
-            text: "Passport biodata page",
-            note: "Valid at least six months from when you plan to travel.",
-          },
-          {
-            text: "Recent passport photo",
-            note: "Usually taken within the last six months.",
-          },
-          {
-            text: "Visa application forms",
-            note: "Completed accurately—we help you get this right.",
-          },
-          {
-            text: "Proof of where you live (if required)",
-            note: "Such as a utility bill or residence permit for your country.",
-          },
-        ],
+        id: "remote-work",
+        title: "I work remotely",
+        description:
+          "For digital nomads, freelancers, business owners, and remote employees earning income from outside Thailand.",
+        badge: "Most common DTV route",
       },
       {
-        title: "Financial documents",
-        items: [
-          {
-            text: "Bank statements showing at least 500,000 THB (or equivalent)",
-            note: "In your name; some cases ask for several months of history.",
-          },
-          {
-            text: "Payslips or income proof",
-            note: "Helpful for remote workers and freelancers.",
-          },
-          {
-            text: "Sponsor documents",
-            note: "Only if a sponsor is part of your application.",
-          },
-        ],
+        id: "approved-activity",
+        title: "I'm joining an approved activity",
+        description:
+          "Examples include Muay Thai training, cooking courses, medical treatment, wellness programmes, and other approved activities.",
+        badge: "Alternative DTV route",
       },
       {
-        title: "Remote work proof",
-        items: [
-          {
-            text: "Employment contract or employer letter",
-            note: "Shows you are paid from outside Thailand while you are away.",
-          },
-          {
-            text: "Freelance contracts, invoices, or portfolio",
-            note: "When you do not have a traditional employer.",
-          },
-          {
-            text: "Company documents",
-            note: "If you own a business registered overseas.",
-          },
-        ],
-      },
-      {
-        title: "Programme proof (activities)",
-        items: [
-          {
-            text: "Enrolment or acceptance letter",
-            note: "From the Thai school, camp, hospital, or event organiser.",
-          },
-          {
-            text: "Medical appointment letter",
-            note: "If your visit is for treatment in Thailand.",
-          },
-          {
-            text: "Accommodation booking",
-            note: "Sometimes required for your first days in the country.",
-          },
-        ],
-      },
-      {
-        title: "Family documents",
-        items: [
-          {
-            text: "Marriage or birth certificates",
-            note: "Translated or legalised if issued outside Thailand.",
-          },
-          {
-            text: "Main applicant's DTV approval and passport",
-            note: "Dependents apply in connection with the primary holder.",
-          },
-        ],
-      },
-      {
-        title: "After you arrive",
-        items: [
-          {
-            text: "Travel or health insurance",
-            note: "Often requested—we tell you what fits your case.",
-          },
-          {
-            text: "Address reporting (TM.30)",
-            note: "Your accommodation must report your stay; needed for extensions.",
-          },
-        ],
+        id: "family-member",
+        title: "I'm applying as a family member",
+        description:
+          "For spouses and children under 20 of an approved DTV visa holder.",
+        badge: "Dependent DTV route",
       },
     ],
+    documentsOverview: {
+      title: "Typical documents required",
+      description:
+        "Requirements vary slightly by embassy and situation, but most applicants prepare the following.",
+      items: [
+        {
+          title: "Passport",
+          description:
+            "Valid passport with sufficient remaining validity.",
+        },
+        {
+          title: "Financial evidence",
+          description:
+            "Usually at least 500,000 THB in savings or qualifying financial evidence.",
+        },
+        {
+          title: "Proof of activity",
+          description:
+            "Evidence of remote work, approved programme participation, or dependent eligibility.",
+        },
+        {
+          title: "Supporting documents",
+          description:
+            "Photographs, application forms, and additional supporting evidence requested by the embassy.",
+        },
+      ],
+    },
+    clarification: {
+      title: "Not sure which DTV category fits you?",
+      description:
+        "We can review your situation and help identify the most suitable DTV pathway before you prepare documents or submit an application.",
+      linkLabel: "Request a consultation",
+    },
   },
   process: {
     eyebrow: "How it works",

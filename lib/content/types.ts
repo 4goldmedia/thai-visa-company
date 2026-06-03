@@ -259,6 +259,32 @@ export type ContentVisaDocumentChecklistSection = {
   groups: ReadonlyArray<ContentVisaChecklistGroup>
 }
 
+/** Pathway-first qualification card — "Which category am I?" */
+export type ContentVisaQualificationPathway = {
+  id: string
+  title: string
+  description: string
+  badge?: string
+}
+
+export type ContentVisaDocumentOverviewItem = {
+  title: string
+  description: string
+}
+
+export type ContentVisaRequirementsDocumentsOverview = {
+  title: string
+  description: string
+  items: ReadonlyArray<ContentVisaDocumentOverviewItem>
+}
+
+export type ContentVisaRequirementsClarification = {
+  title: string
+  description: string
+  linkLabel: string
+  linkHref?: string
+}
+
 export type ContentVisaLastReviewed = {
   reviewedBy?: string
 }

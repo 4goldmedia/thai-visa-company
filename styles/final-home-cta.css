@@ -21,12 +21,35 @@
 
   @media (min-width: 1024px) {
     .final-home-cta__block {
-      grid-template-columns: minmax(0, 1.45fr) auto;
+      grid-template-columns: minmax(0, 1.45fr) auto auto;
       align-items: center;
       gap: 0;
-      column-gap: clamp(2.75rem, 4.5vw, 4.25rem);
+      column-gap: clamp(3rem, 4.5vw, 4rem);
       border-radius: 1rem;
       padding: 2.75rem clamp(3rem, 4.5vw, 4rem);
+    }
+
+    /* Flatten actions wrapper — button and links become separate grid columns */
+    .final-home-cta__actions {
+      display: contents;
+    }
+
+    .final-home-cta__primary {
+      width: auto;
+      justify-self: end;
+    }
+
+    .final-home-cta__links {
+      flex-shrink: 0;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(1.5rem, 2vw, 2rem);
+    }
+
+    .final-home-cta__link {
+      white-space: nowrap;
+      max-width: none;
     }
   }
 
@@ -67,16 +90,6 @@
     align-items: stretch;
     gap: 1.25rem;
     width: 100%;
-  }
-
-  @media (min-width: 1024px) {
-    .final-home-cta__actions {
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-end;
-      gap: clamp(2rem, 3vw, 2.75rem);
-      width: auto;
-    }
   }
 
   .final-home-cta__primary {
@@ -153,14 +166,5 @@
   .final-home-cta__link:focus-visible {
     outline: 2px solid color-mix(in srgb, #f6f3ee 45%, transparent);
     outline-offset: 3px;
-  }
-
-  @media (min-width: 1024px) {
-    .final-home-cta__links {
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 1.75rem;
-    }
   }
 }

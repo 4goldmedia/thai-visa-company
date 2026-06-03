@@ -17,6 +17,9 @@ import type {
   ContentVisaPageSeo,
   ContentVisaProcessStep,
   ContentVisaPath,
+  ContentVisaQualificationPathway,
+  ContentVisaRequirementsClarification,
+  ContentVisaRequirementsDocumentsOverview,
 } from "@/lib/content/types"
 import type { VisaSectionId } from "@/lib/visas/layout"
 
@@ -74,9 +77,15 @@ export type VisaPageContent = {
     title?: string
     description?: string
     eyebrow?: string
-    requirements: VisaRequirementsBlock
-    eligibility: VisaRequirementsBlock
-    documents: VisaRequirementsBlock
+    /** Pathway-first layout — when present, replaces legacy requirement cards */
+    pathways?: ReadonlyArray<ContentVisaQualificationPathway>
+    documentsOverview?: ContentVisaRequirementsDocumentsOverview
+    clarification?: ContentVisaRequirementsClarification
+    /** Legacy three-column layout */
+    requirements?: VisaRequirementsBlock
+    eligibility?: VisaRequirementsBlock
+    documents?: VisaRequirementsBlock
+    showRequirementsChangeCallout?: boolean
   }
   process: {
     title?: string

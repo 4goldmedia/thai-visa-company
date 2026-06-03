@@ -117,6 +117,8 @@
 
   /* ── Metric cards (key facts) ── */
   .visa-metric-grid {
+    --visa-metric-label-to-value: 0.625rem;
+    --visa-metric-value-to-note: 0.75rem;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
@@ -142,7 +144,9 @@
   .visa-metric-card {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     min-height: 7.5rem;
+    margin: 0;
     padding: 1.25rem 1.375rem;
     border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
     border-radius: var(--visa-card-radius);
@@ -151,6 +155,16 @@
       border-color 0.2s ease,
       box-shadow 0.2s ease,
       transform 0.2s ease;
+  }
+
+  @supports (grid-template-rows: subgrid) {
+    .visa-metric-card {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 3;
+      align-items: start;
+      align-content: start;
+    }
   }
 
   @media (min-width: 768px) {
@@ -169,6 +183,7 @@
   }
 
   .visa-metric-card__label {
+    margin: 0;
     font-size: var(--text-meta);
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -177,21 +192,37 @@
   }
 
   .visa-metric-card__value {
-    margin-top: 0.625rem;
+    margin: var(--visa-metric-label-to-value) 0 0;
+    margin-inline: 0;
     font-family: var(--font-display);
     font-size: clamp(1.125rem, 2vw, 1.375rem);
     font-weight: 500;
     line-height: 1.25;
     letter-spacing: -0.02em;
     color: var(--foreground);
+    text-wrap: balance;
+  }
+
+  @supports not (grid-template-rows: subgrid) {
+    .visa-metric-card__value {
+      /* Reserve two lines so descriptions align when values wrap unevenly */
+      min-height: 2.875rem;
+    }
   }
 
   .visa-metric-card__note {
-    margin-top: auto;
-    padding-top: 0.75rem;
+    margin: var(--visa-metric-value-to-note) 0 0;
+    margin-inline: 0;
+    padding: 0;
     font-size: var(--text-small);
     line-height: 1.55;
     color: var(--text-tertiary);
+    text-wrap: pretty;
+  }
+
+  .visa-metric-card__note:empty {
+    display: block;
+    min-height: 0;
   }
 
   /* ── Group / requirement / checklist cards ── */
@@ -319,6 +350,187 @@
     .visa-recommendation-card:hover {
       border-color: color-mix(in srgb, var(--border) 100%, transparent);
     }
+  }
+
+  /* ── Qualification pathways (requirements section) ── */
+  .visa-pathway-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .visa-pathway-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.375rem;
+      align-items: stretch;
+    }
+  }
+
+  .visa-pathway-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 11.5rem;
+    padding: 1.625rem 1.75rem;
+    border: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+    border-radius: var(--visa-card-radius);
+    background-color: var(--surface-elevated);
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  @media (min-width: 768px) {
+    .visa-pathway-card {
+      padding: 1.75rem 1.875rem;
+      min-height: 12.5rem;
+    }
+  }
+
+  @media (hover: hover) {
+    .visa-pathway-card:hover {
+      border-color: color-mix(in srgb, var(--border) 100%, transparent);
+      box-shadow: 0 12px 32px -22px color-mix(in srgb, var(--palette-text) 14%, transparent);
+    }
+  }
+
+  .visa-pathway-card__badge {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .visa-pathway-card__title {
+    margin: 0.875rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.1875rem, 1.8vw, 1.375rem);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+    text-wrap: balance;
+  }
+
+  .visa-pathway-card__description {
+    margin: 1rem 0 0;
+    flex: 1;
+    font-family: var(--font-sans);
+    font-size: var(--visa-text-body);
+    line-height: var(--visa-text-body-leading);
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+
+  .visa-requirements-documents {
+    margin-top: clamp(3.5rem, 6vw, 5rem);
+    padding-top: clamp(3rem, 5vw, 4rem);
+    border-top: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  }
+
+  .visa-requirements-documents__header {
+    max-width: 42rem;
+  }
+
+  .visa-requirements-documents__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 2.2vw, 1.625rem);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+
+  .visa-requirements-documents__description {
+    margin: 1rem 0 0;
+    max-width: 65ch;
+    font-size: var(--visa-text-intro);
+    line-height: var(--visa-text-intro-leading);
+    color: color-mix(in srgb, var(--text-secondary) 90%, var(--text-tertiary));
+    text-wrap: pretty;
+  }
+
+  .visa-document-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.125rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .visa-document-overview-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+  }
+
+  .visa-document-overview-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.375rem 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    border-radius: calc(var(--visa-card-radius) - 2px);
+    background-color: color-mix(in srgb, var(--surface-muted) 30%, var(--surface-elevated));
+  }
+
+  @media (min-width: 768px) {
+    .visa-document-overview-card {
+      padding: 1.5rem 1.625rem;
+    }
+  }
+
+  .visa-document-overview-card__title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  .visa-document-overview-card__description {
+    margin: 0.75rem 0 0;
+    font-size: var(--visa-text-body);
+    line-height: var(--visa-text-body-leading);
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+
+  .visa-requirements-clarification {
+    margin-top: clamp(2.5rem, 4vw, 3.5rem);
+    max-width: 42rem;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid color-mix(in srgb, var(--border) 45%, transparent);
+  }
+
+  .visa-requirements-clarification__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--foreground);
+  }
+
+  .visa-requirements-clarification__description {
+    margin: 0.75rem 0 0;
+    font-size: var(--visa-text-body);
+    line-height: var(--visa-text-body-leading);
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+
+  .visa-requirements-clarification .editorial-link {
+    display: inline-block;
+    margin-top: 1rem;
   }
 
   .visa-best-for-group--not-ideal .visa-recommendation-card {
@@ -838,15 +1050,7 @@
     box-shadow: none;
   }
 
-  .visa-page
-    :where(
-      a,
-      button,
-      summary,
-      [role="button"],
-      .faq-accordion__trigger,
-      .messaging-platform-action
-    ):focus-visible {
+  .visa-page :where(a, button, summary, [role="button"], .faq-accordion__trigger, .messaging-platform-action):focus-visible {
     outline: 2px solid var(--visa-focus-outline) !important;
     outline-offset: 2px !important;
     box-shadow: none !important;
@@ -955,7 +1159,7 @@
 
   @media (min-width: 1024px) {
     .visa-page .visa-final-cta .final-home-cta__block {
-      grid-template-columns: minmax(0, 1.5fr) auto;
+      grid-template-columns: minmax(0, 1.5fr) auto auto;
     }
   }
 
