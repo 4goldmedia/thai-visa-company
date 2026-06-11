@@ -12,7 +12,7 @@
   html {
     @apply h-full font-sans text-foreground;
     scroll-behavior: smooth;
-    /* Sticky navbar (h-14 / lg:h-16) — anchor + skip-link offset */
+    /* Sticky navbar (h-14 / lg:h-[4.25rem]) — anchor + skip-link offset */
     scroll-padding-top: 3.5rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -79,12 +79,36 @@
 
   @media (min-width: 1024px) {
     html {
-      scroll-padding-top: 4rem;
+      scroll-padding-top: 4.25rem;
+    }
+  }
+
+  /* Hash nav targets — full layout so anchor scroll position is accurate */
+  #reviews,
+  #faq,
+  #contact,
+  #final-cta,
+  #visa-services {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+    scroll-margin-top: 3.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    #reviews,
+    #faq,
+    #contact,
+    #final-cta,
+    #visa-services {
+      scroll-margin-top: 4.25rem;
     }
   }
 
   /* Defer layout/paint for below-fold homepage sections (LCP-friendly) */
-  main#main-content > section:not(#hero) {
+  main#main-content
+    > section:not(#hero):not(#reviews):not(#faq):not(#contact):not(
+      #final-cta
+    ):not(#visa-services) {
     content-visibility: auto;
     contain-intrinsic-size: auto 36rem;
   }

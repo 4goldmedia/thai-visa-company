@@ -5,12 +5,20 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
+import { VisasNavFlyout } from "@/components/navigation/visas-nav-flyout"
 import { ctaHref, ctaLabels, navbarMenuCtaPrimaryClass } from "@/lib/cta"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { Container } from "@/components/layout/container"
 import { motionClass } from "@/lib/motion-classes"
-import { mainNavLinks } from "@/lib/navigation"
+import {
+  secondaryNavLinks,
+  visasHubPath,
+} from "@/lib/navigation"
+import {
+  isVisasSectionActive,
+  visaNavItems,
+} from "@/lib/visas/navigation"
 import { siteBrand } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -151,7 +159,8 @@ function Navbar({ className }: NavbarProps) {
             aria-label="Main navigation"
           >
             <ul className="navbar-ref__nav-list flex items-center">
-              {mainNavLinks.map((item) => (
+              <VisasNavFlyout />
+              {secondaryNavLinks.map((item) => (
                 <li key={item.href}>
                   <NavbarNavLink
                     href={item.href}
@@ -226,6 +235,7 @@ function MobileNavMenu({ open, panelId, onClose }: MobileNavMenuProps) {
   const pathname = usePathname()
   const panelRef = React.useRef<HTMLDivElement>(null)
   const firstLinkRef = React.useRef<HTMLAnchorElement>(null)
+  const visasActive = isVisasSectionActive(pathname)
 
   React.useEffect(() => {
     onClose()
@@ -261,10 +271,34 @@ function MobileNavMenu({ open, panelId, onClose }: MobileNavMenuProps) {
       <Container className="py-4 pb-5">
         <nav aria-label="Mobile navigation">
           <ul className="flex flex-col gap-0.5">
-            {mainNavLinks.map((item, index) => (
+            <li>
+              <Link
+                ref={firstLinkRef}
+                href={visasHubPath}
+                className={mobileNavLinkClass}
+                aria-current={visasActive ? "page" : undefined}
+                onClick={onClose}
+              >
+                Visas
+              </Link>
+              <ul className="navbar-mobile-visas-sub" aria-label="Visa types">
+                {visaNavItems.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="navbar-mobile-visas-sub__link"
+                      onClick={onClose}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+
+            {secondaryNavLinks.map((item) => (
               <li key={item.href}>
                 <NavbarNavLink
-                  ref={index === 0 ? firstLinkRef : undefined}
                   href={item.href}
                   label={item.label}
                   className={mobileNavLinkClass}

@@ -35,3 +35,11 @@ export type SectionHeadingId =
   (typeof sectionHeadingIds)[keyof typeof sectionHeadingIds]
 
 export type SectionId = (typeof sectionIds)[keyof typeof sectionIds]
+
+/** Section element ids used by global nav/footer hash links */
+export const homepageHashSectionIds = [
+  sectionIds.reviews,
+  sectionIds.faq,
+  sectionIds.visaTypes,
+  sectionIds.finalCta,
+] as const

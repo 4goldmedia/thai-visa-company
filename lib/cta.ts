@@ -25,10 +25,10 @@ export const ctaLabels = {
   contactForm: "Request a consultation",
 } as const
 
-import { consultationPath, homeSectionAnchors } from "@/lib/navigation"
+import { consultationPath, visasHubPath } from "@/lib/navigation"
 
 export const ctaHref = {
-  exploreVisas: homeSectionAnchors.visaServices,
+  exploreVisas: visasHubPath,
   requestConsultation: consultationPath,
   /** @deprecated Use requestConsultation */
   contactForm: consultationPath,

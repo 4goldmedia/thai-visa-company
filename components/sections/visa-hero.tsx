@@ -4,10 +4,8 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionReveal } from "@/components/motion"
 import { VisaHeroTestimonialCard } from "@/components/visa-editorial/visa-hero-testimonial"
-import { VisaPageMeta } from "@/components/visa-editorial/visa-page-meta"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
-import type { ContentIsoDate, ContentVisaLastReviewed } from "@/lib/content/types"
 import {
   resolveVisaHeroMedia,
   resolveVisaHeroTrustBullets,
@@ -20,8 +18,6 @@ import { cn } from "@/lib/utils"
 type VisaHeroProps = VisaPageHeroContent & {
   headingId: string
   visaSlug: VisaSlug
-  updatedAt?: ContentIsoDate
-  lastReviewed?: ContentVisaLastReviewed
   className?: string
 }
 
@@ -34,8 +30,6 @@ function VisaHero({
   testimonial,
   headingId,
   visaSlug,
-  updatedAt,
-  lastReviewed,
   heroImage,
   heroImageAlt,
   objectPosition,
@@ -92,10 +86,6 @@ function VisaHero({
               ))}
             </ul>
           </div>
-
-          {updatedAt ? (
-            <VisaPageMeta updatedAt={updatedAt} lastReviewed={lastReviewed} />
-          ) : null}
         </div>
 
         <div className="visa-hero-premium__media">

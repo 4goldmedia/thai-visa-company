@@ -1,9 +1,12 @@
+import { Mail } from "lucide-react"
+
+import { LineIcon, WhatsAppIcon } from "@/components/icons/platform-icons"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
-import { getMessagingChannels } from "@/lib/contact"
+import { CONTACT_URLS, getMessagingChannels } from "@/lib/contact"
 
 /**
- * Footer list of LINE and WhatsApp links — `getMessagingChannels()` registry.
+ * Footer contact list — LINE, WhatsApp, and email with outline-style icons.
  */
 function FooterMessagingLinks() {
   const channels = getMessagingChannels()
@@ -20,16 +23,39 @@ function FooterMessagingLinks() {
         <li key={channel.id}>
           <a
             href={channel.url}
-            className="site-footer__link"
+            className="site-footer__contact-link"
             target="_blank"
             rel="noopener noreferrer"
             data-contact-channel={channel.id}
           >
-            {channel.label}
+            {channel.id === "line" ? (
+              <LineIcon size="xs" tone="concierge" className="site-footer__contact-icon" />
+            ) : (
+              <WhatsAppIcon
+                size="xs"
+                tone="concierge"
+                className="site-footer__contact-icon"
+              />
+            )}
+            <span>{channel.label}</span>
             <span className="sr-only"> (opens in new tab)</span>
           </a>
         </li>
       ))}
+
+      <li>
+        <a
+          href={`mailto:${CONTACT_URLS.email}`}
+          className="site-footer__contact-link site-footer__contact-link--email"
+        >
+          <Mail
+            className="site-footer__contact-icon site-footer__contact-icon--lucide"
+            strokeWidth={1.5}
+            aria-hidden
+          />
+          <span>{CONTACT_URLS.email}</span>
+        </a>
+      </li>
     </div>
   )
 }

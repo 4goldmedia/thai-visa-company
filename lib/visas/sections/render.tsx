@@ -54,8 +54,6 @@ export function renderVisaPageSection(
           sectionId={ids.hero}
           headingId={ids.heroHeading}
           visaSlug={visa.slug}
-          updatedAt={visa.updatedAt}
-          lastReviewed={visa.lastReviewed}
           {...visa.hero}
         />
       )

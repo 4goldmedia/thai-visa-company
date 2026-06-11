@@ -55,7 +55,7 @@ export const siteRoutes = [
     group: "visa",
     changeFrequency: "weekly",
     priority: 0.9,
-    published: false,
+    published: true,
   },
   {
     path: "/visas/retirement",
@@ -123,6 +123,13 @@ export const siteRoutes = [
     published: true,
   },
   {
+    path: "/blog",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.75,
+    published: true,
+  },
+  {
     path: "/resources/what-is-thailand-dtv-visa",
     group: "resource",
     changeFrequency: "monthly",
@@ -166,14 +173,14 @@ export const siteRoutes = [
     group: "legal",
     changeFrequency: "yearly",
     priority: 0.3,
-    published: false,
+    published: true,
   },
   {
     path: "/terms",
     group: "legal",
     changeFrequency: "yearly",
     priority: 0.3,
-    published: false,
+    published: true,
   },
 ] as const satisfies readonly SiteRoute[]
 

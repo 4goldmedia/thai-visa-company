@@ -1,0 +1,183 @@
+/* Visas nav flyout — premium desktop panel */
+
+@layer components {
+  .navbar-visas-nav {
+    position: relative;
+  }
+
+  .navbar-visas-flyout {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 60;
+    width: max-content;
+    min-width: 18.5rem;
+    max-width: 22rem;
+    padding-top: 0.625rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(0.375rem);
+    transition:
+      opacity 140ms ease-out,
+      transform 140ms ease-out,
+      visibility 140ms ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .navbar-visas-flyout {
+      transition: none;
+    }
+  }
+
+  .navbar-visas-flyout--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .navbar-visas-flyout__panel {
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+    border-radius: 0.75rem;
+    background-color: color-mix(in srgb, var(--background) 96%, var(--surface-muted));
+    box-shadow:
+      0 1px 2px oklch(0.28 0.02 55 / 0.04),
+      0 8px 24px oklch(0.28 0.02 55 / 0.07),
+      0 24px 48px oklch(0.28 0.02 55 / 0.05);
+  }
+
+  .navbar-visas-flyout__list {
+    margin: 0;
+    padding: 0.5rem;
+    list-style: none;
+  }
+
+  .navbar-visas-flyout__item {
+    margin: 0;
+  }
+
+  .navbar-visas-flyout__link {
+    display: block;
+    border-radius: 0.5rem;
+    padding: 0.75rem 0.875rem;
+    text-decoration: none;
+    transition:
+      background-color 140ms ease-out,
+      color 140ms ease-out;
+  }
+
+  .navbar-visas-flyout__link:hover,
+  .navbar-visas-flyout__link:focus-visible {
+    background-color: color-mix(in srgb, var(--muted) 55%, transparent);
+    outline: none;
+  }
+
+  .navbar-visas-flyout__link:focus-visible {
+    box-shadow: inset 0 0 0 2px var(--ring);
+  }
+
+  .navbar-visas-flyout__title {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    color: var(--foreground);
+  }
+
+  .navbar-visas-flyout__description {
+    display: block;
+    margin-top: 0.1875rem;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.015em;
+    color: color-mix(in srgb, var(--text-secondary) 88%, transparent);
+  }
+
+  .navbar-visas-flyout__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border-top: 1px solid color-mix(in srgb, var(--border) 65%, transparent);
+    padding: 0.8125rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: color-mix(in srgb, var(--text-secondary) 92%, transparent);
+    text-decoration: none;
+    transition:
+      background-color 140ms ease-out,
+      color 140ms ease-out;
+  }
+
+  .navbar-visas-flyout__footer:hover,
+  .navbar-visas-flyout__footer:focus-visible {
+    background-color: color-mix(in srgb, var(--muted) 40%, transparent);
+    color: var(--foreground);
+    outline: none;
+  }
+
+  .navbar-visas-flyout__footer:focus-visible {
+    box-shadow: inset 0 0 0 2px var(--ring);
+  }
+
+  .navbar-visas-flyout__footer-arrow {
+    flex-shrink: 0;
+    font-size: 0.875rem;
+    line-height: 1;
+    opacity: 0.72;
+    transition: transform 140ms ease-out, opacity 140ms ease-out;
+  }
+
+  .navbar-visas-flyout__footer:hover .navbar-visas-flyout__footer-arrow,
+  .navbar-visas-flyout__footer:focus-visible .navbar-visas-flyout__footer-arrow {
+    transform: translateX(0.125rem);
+    opacity: 1;
+  }
+
+  /* Mobile visa sub-links */
+  .navbar-mobile-visas-sub {
+    margin: 0;
+    padding: 0 0 0.25rem 0.75rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .navbar-mobile-visas-sub__link {
+    display: flex;
+    min-height: 2.5rem;
+    align-items: center;
+    border-radius: var(--radius-button);
+    padding-inline: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    color: color-mix(in srgb, var(--text-secondary) 90%, transparent);
+    transition:
+      color 200ms ease-out,
+      background-color 200ms ease-out;
+  }
+
+  .navbar-mobile-visas-sub__link:hover,
+  .navbar-mobile-visas-sub__link:focus-visible {
+    background-color: var(--muted);
+    color: var(--foreground);
+    outline: none;
+  }
+
+  .navbar-mobile-visas-sub__link:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}

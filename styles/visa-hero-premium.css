@@ -83,23 +83,32 @@
     }
   }
 
+  /* Hero messaging CTAs — desktop only; sticky bar covers mobile/tablet contact */
   .visa-hero-premium__cta {
-    margin-top: 1.75rem;
+    display: none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .visa-hero-premium__cta {
+      display: block;
       margin-top: 2rem;
     }
   }
 
   .visa-hero-premium__trust {
-    margin-top: 1.75rem;
-    padding-top: 1.75rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
     border-top: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
   }
 
   @media (min-width: 768px) {
+    .visa-hero-premium__trust {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
     .visa-hero-premium__trust {
       margin-top: 2rem;
       padding-top: 2rem;
@@ -165,30 +174,6 @@
     position: absolute;
     inset: 0;
     border-radius: 0;
-  }
-
-  .visa-hero-premium__meta {
-    margin: 1.5rem 0 0;
-    max-width: 34rem;
-    font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    line-height: 1.55;
-    color: var(--text-tertiary);
-  }
-
-  @media (min-width: 768px) {
-    .visa-hero-premium__meta {
-      margin-top: 1.75rem;
-      font-size: 0.875rem;
-    }
-  }
-
-  .visa-hero-premium__meta-by {
-    color: color-mix(in srgb, var(--text-secondary) 85%, var(--text-tertiary));
-  }
-
-  .visa-hero-premium__meta-sep {
-    color: color-mix(in srgb, var(--text-tertiary) 70%, transparent);
   }
 
   /* ── Optional testimonial below hero grid ── */
