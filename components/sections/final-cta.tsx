@@ -110,7 +110,7 @@ function FinalCTASection({
       aria-labelledby={headingId}
       className={sectionClassName}
     >
-      <Container size="content">
+      <Container>
         <FinalCTA
           headingId={headingId}
           title={title}
@@ -138,7 +138,7 @@ function HomeFinalCtaSection({
     <Section
       id={sectionId}
       spacing="spacious"
-      className={cn(sectionDividerClass, "final-home-cta", className)}
+      className={cn(sectionDividerClass, "final-home-cta final-home-cta--brand", className)}
       aria-label="Final call to action"
     >
       <Container>
@@ -164,14 +164,15 @@ function HomeFinalCtaSection({
                 </Link>
               </div>
 
-              <div className="final-home-cta__links" aria-label="Messaging links">
-                <a href={CONTACT_URLS.line} className="final-home-cta__link">
-                  Chat on {messagingChannelLabels.lineShort}
+              <p className="final-home-cta__contact" aria-label="Messaging links">
+                <span className="final-home-cta__contact-label">Chat on:</span>{" "}
+                <a href={CONTACT_URLS.line} className="final-home-cta__contact-link">
+                  {messagingChannelLabels.lineShort}
                 </a>
-                <a href={CONTACT_URLS.whatsapp} className="final-home-cta__link">
+                <a href={CONTACT_URLS.whatsapp} className="final-home-cta__contact-link">
                   {messagingChannelLabels.whatsapp}
                 </a>
-              </div>
+              </p>
             </div>
           </div>
         </SectionReveal>

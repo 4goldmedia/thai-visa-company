@@ -1,62 +1,36 @@
 import type { Metadata } from "next"
-import Link from "next/link"
+import { Suspense } from "react"
 
-import { PageHero } from "@/components/layout/page-hero"
-import { Container } from "@/components/layout/container"
-import { Section } from "@/components/layout/section"
-import { PageBreadcrumbs } from "@/components/navigation/page-breadcrumbs"
-import { homeBreadcrumb } from "@/lib/breadcrumbs/presets"
-import { blogPath, resourcesPath } from "@/lib/navigation"
+import { BlogIndexTemplate } from "@/components/templates/blog-index"
+import { blogIndexContent } from "@/lib/blog/content/index"
+import type { BlogPostSort } from "@/lib/blog/types"
+import { blogPath } from "@/lib/navigation"
 import { createPageMetadata } from "@/lib/seo"
 
-const blogHeadingId = "blog-page-heading"
+const { seo } = blogIndexContent
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Thailand Visa Blog",
-  description:
-    "Updates, insights, and practical guidance on Thailand visas from Thai Visa Company.",
+  title: seo.title,
+  description: seo.description,
   path: blogPath,
-  keywords: [
-    "Thailand visa blog",
-    "Thailand immigration news",
-    "Thailand visa updates",
-  ],
+  keywords: [...seo.keywords],
 })
 
-export default function BlogPage() {
+type PageProps = {
+  searchParams: Promise<{ sort?: string }>
+}
+
+function resolveSort(value?: string): BlogPostSort {
+  return value === "recent" ? "recent" : "updated"
+}
+
+export default async function BlogPage({ searchParams }: PageProps) {
+  const { sort: sortParam } = await searchParams
+  const sort = resolveSort(sortParam)
+
   return (
-    <main
-      id="main-content"
-      tabIndex={-1}
-      aria-label="Blog"
-      className="flex flex-1 flex-col overflow-x-clip bg-background"
-    >
-      <PageBreadcrumbs
-        items={[homeBreadcrumb, { label: "Blog", href: blogPath }]}
-        containerSize="content"
-      />
-
-      <Section spacing="spacious" aria-labelledby={blogHeadingId}>
-        <Container size="content">
-          <PageHero
-            eyebrow="Insights"
-            title="Blog"
-            lead="Visa updates, practical guidance, and client-focused insights from our team. New articles will appear here as we publish."
-            headingId={blogHeadingId}
-          />
-
-          <p className="mt-10 max-w-xl text-[length:var(--text-body)] leading-[var(--leading-body)] text-muted-foreground">
-            In the meantime, browse our{" "}
-            <Link
-              href={resourcesPath}
-              className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
-            >
-              visa guides
-            </Link>{" "}
-            for step-by-step help on common routes.
-          </p>
-        </Container>
-      </Section>
-    </main>
+    <Suspense fallback={<BlogIndexTemplate sort={sort} />}>
+      <BlogIndexTemplate sort={sort} />
+    </Suspense>
   )
 }

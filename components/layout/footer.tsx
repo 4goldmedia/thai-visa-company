@@ -3,7 +3,7 @@ import Link from "next/link"
 import { FooterMessagingLinks } from "@/components/cta/footer-messaging-links"
 import { Container } from "@/components/layout/container"
 import {
-  footerResourcesLinks,
+  footerBlogLinks,
   footerCompanyLinks,
   footerLegalLinks,
   footerVisaLinks,
@@ -118,7 +118,7 @@ function Footer({ className }: FooterProps) {
 
             <div className="site-footer__nav-grid">
               <FooterNavGroup title="Visas" links={footerVisaLinks} />
-              <FooterNavGroup title="Resources" links={footerResourcesLinks} />
+              <FooterNavGroup title="Blog" links={footerBlogLinks} />
               <FooterNavGroup title="Company" links={footerCompanyLinks} />
             </div>
           </div>

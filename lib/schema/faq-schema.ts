@@ -1,5 +1,5 @@
 import { buildFaqPage } from "@/lib/schema/faq"
-import { buildJsonLdGraph } from "@/lib/schema/utils"
+import { buildJsonLdGraph, toAbsoluteUrl } from "@/lib/schema/utils"
 import type { FaqItemInput, JsonLdGraphDocument } from "@/lib/schema/types"
 import type { VisaFaqItem } from "@/lib/visas/types"
 
@@ -21,6 +21,8 @@ export type FaqSchemaGraphInput = {
   name: string
   path: string
   description?: string
+  /** Link FAQPage to the main Article on the same page */
+  aboutArticle?: boolean
 }
 
 /** Standalone FAQPage graph for a single page section */
@@ -32,6 +34,9 @@ export function buildFaqSchemaGraph(
     name: input.name,
     description: input.description,
     path: input.path,
+    ...(input.aboutArticle
+      ? { about: { "@id": `${toAbsoluteUrl(input.path)}#article` } }
+      : {}),
   })
 
   if (!node) return null

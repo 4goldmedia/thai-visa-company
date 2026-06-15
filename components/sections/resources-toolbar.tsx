@@ -30,7 +30,7 @@ function ResourcesToolbar({
       aria-label="Find articles"
       className="border-b border-border/50 bg-muted/5"
     >
-      <Container size="content">
+      <Container>
         <div className="flex flex-col gap-5 sm:gap-6">
           <div className="max-w-xl">
             <label

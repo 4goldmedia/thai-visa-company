@@ -4,7 +4,11 @@
  * Register new MDX articles in `lib/content/registry.ts` only.
  */
 
-import { resourceMetaToIndexCard } from "@/lib/content/adapters"
+import { blogMetaToIndexCard, resourceMetaToIndexCard } from "@/lib/content/adapters"
+import { getSyncPublishedGuideIndexArticles } from "@/lib/guides"
+import type { BlogArticleMeta } from "@/lib/content/collections/blog"
+import { plannedBlogArticles } from "@/lib/content/planned/blog"
+import type { BlogPostCard } from "@/lib/blog/types"
 import type { ResourceArticleMeta } from "@/lib/content/collections/resources"
 import {
   contentCollections,
@@ -265,8 +269,57 @@ function isResourceArticleMeta(
   return meta.collection === "resources"
 }
 
+function isBlogArticleMeta(meta: ContentArticleBase): meta is BlogArticleMeta {
+  return meta.collection === "blog"
+}
+
 // -----------------------------------------------------------------------------
-// Resources collection — index cards + routing helpers
+// Blog collection — index cards + routing helpers
+// -----------------------------------------------------------------------------
+
+export async function getPublishedBlogIndexArticles(): Promise<BlogPostCard[]> {
+  const keys = await getPublishedKeysForCollection("blog")
+  const metas = await Promise.all(keys.map((key) => loadArticleMeta(key)))
+
+  return metas
+    .filter((meta): meta is BlogArticleMeta => meta !== null && isBlogArticleMeta(meta))
+    .map((meta) => blogMetaToIndexCard(meta))
+}
+
+export async function getBlogIndexArticles(): Promise<BlogPostCard[]> {
+  const published = await getPublishedBlogIndexArticles()
+  return [...published, ...plannedBlogArticles]
+}
+
+export function getSyncPublishedBlogIndexArticles(): BlogPostCard[] {
+  const keys = getRegistryKeysForCollection("blog")
+  const cards: BlogPostCard[] = []
+
+  for (const key of keys) {
+    const entry = articleEntriesSync[key]
+    if (!entry?.published || entry.collection !== "blog") continue
+    cards.push(blogMetaToIndexCard(entry as BlogArticleMeta))
+  }
+
+  return cards
+}
+
+export function getBlogIndexArticlesSync(): BlogPostCard[] {
+  return [...getSyncPublishedBlogIndexArticles(), ...plannedBlogArticles]
+}
+
+export async function loadBlogArticleBySlug(slug: ContentSlug) {
+  return loadContentArticleBySlug("blog", slug)
+}
+
+export async function loadBlogArticleModule(slug: ContentSlug) {
+  const mod = await loadBlogArticleBySlug(slug)
+  if (!mod || mod.meta.collection !== "blog") return null
+  return mod as ContentArticleModule<BlogArticleMeta>
+}
+
+// -----------------------------------------------------------------------------
+// Resources collection — index cards + routing helpers (deprecated)
 // -----------------------------------------------------------------------------
 
 /** Published registry articles + planned stubs for the resources index */
@@ -293,25 +346,21 @@ export function getResourceIndexArticlesSync(): ResourceArticle[] {
 }
 
 function getSyncPublishedResourceIndexArticles(): ResourceArticle[] {
-  const keys = getRegistryKeysForCollection("resources")
-  const cards: ResourceArticle[] = []
-
-  for (const key of keys) {
-    const entry = articleEntriesSync[key]
-    if (!entry?.published) continue
-    cards.push(resourceMetaToIndexCard(entry))
-  }
-
-  return cards
+  return getSyncPublishedGuideIndexArticles().map((card) => ({
+    slug: card.slug,
+    categoryId: card.categoryId,
+    category: card.category,
+    title: card.title,
+    description: card.description,
+    path: card.path,
+    readingTime: card.readingTime,
+    status: card.status,
+  }))
 }
 
-import { meta as retirementVisaGuideMeta } from "@/content/articles/resources/how-to-get-thailand-retirement-visa/meta"
+import { generatedArticleMetaSync } from "@/lib/content/articles.sync.generated"
 
-const articleEntriesSync: Partial<
-  Record<RegisteredContentArticleKey, ResourceArticleMeta>
-> = {
-  "resources/how-to-get-thailand-retirement-visa": retirementVisaGuideMeta,
-}
+const articleEntriesSync = generatedArticleMetaSync
 
 export async function loadResourceArticleBySlug(slug: ContentSlug) {
   return loadContentArticleBySlug("resources", slug)

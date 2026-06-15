@@ -1,10 +1,10 @@
 /* =============================================================================
-   Article reading — editorial measure, rhythm, calm chrome
+   Article reading — site shell + prose measure + wide MDX slots
    ============================================================================= */
 
 [data-slot="article-layout"] {
-  --article-measure: 36rem;
-  --article-measure-wide: 40rem;
+  --article-measure: var(--width-prose, 42rem);
+  --article-measure-wide: var(--width-prose-wide, 52rem);
   --article-leading: 1.75;
   --article-leading-tight: 1.65;
   --article-section-gap: 2.75rem;
@@ -17,7 +17,7 @@
 }
 
 [data-slot="article-layout"] [id="article-content"] {
-  max-width: var(--article-measure);
+  max-width: none;
 }
 
 [data-slot="article-layout"] [id="article-content"] ::selection {
@@ -25,7 +25,6 @@
   color: var(--selection-foreground);
 }
 
-/* Smooth in-page anchor jumps */
 [data-slot="article-layout"] :is(h2, h3) {
   scroll-margin-top: 5.5rem;
 }

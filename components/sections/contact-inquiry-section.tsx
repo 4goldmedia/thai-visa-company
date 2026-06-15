@@ -16,7 +16,7 @@ function ContactInquirySection() {
       spacing="default"
       aria-labelledby={contactSectionIds.inquiryHeading}
     >
-      <Container size="content">
+      <Container size="prose">
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-12 xl:gap-14">
           <div className="flex flex-col gap-5 lg:sticky lg:top-24 lg:gap-6">
             <div>

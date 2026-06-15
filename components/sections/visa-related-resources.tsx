@@ -11,7 +11,7 @@ import type { ContentRelatedLink } from "@/lib/content/types"
 import { editorialLinkClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
-const defaultIndexHref = "/resources"
+const defaultIndexHref = "/blog"
 const defaultIndexLabel = "Browse all guides"
 
 type VisaRelatedResourcesSectionProps = {

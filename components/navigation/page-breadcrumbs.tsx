@@ -9,7 +9,7 @@ type PageBreadcrumbsProps = {
   /** Wrap in site container (default true) */
   contained?: boolean
   /** Match surrounding section width */
-  containerSize?: "default" | "content"
+  containerSize?: "default" | "prose" | "content"
   className?: string
 }
 

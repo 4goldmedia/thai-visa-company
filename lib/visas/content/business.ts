@@ -98,14 +98,14 @@ export const businessVisaPage: VisaPageContent = {
         title: "How Long Does a Thai Visa Take",
         description:
           "Processing times and what can delay business visa files.",
-        href: "/resources/how-long-does-thai-visa-take",
+        href: "/guides/how-long-does-thai-visa-take",
       },
       {
         category: "DTV",
         title: "What Is the Thailand DTV Visa",
         description:
           "Compare remote-work routes if your activity is not employer-based in Thailand.",
-        href: "/resources/what-is-thailand-dtv-visa",
+        href: "/guides/what-is-thailand-dtv-visa",
       },
     ],
   },

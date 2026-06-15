@@ -16,11 +16,14 @@
     font-size: 0.8125rem;
     font-weight: 500;
     letter-spacing: 0.01em;
-    color: oklch(0.38 0.02 55 / 0.88);
+    color: var(--text-secondary);
     transition: color 0.2s ease-out;
   }
 
-  [data-slot="navbar"] .navbar-ref__nav-link:hover,
+  [data-slot="navbar"] .navbar-ref__nav-link:hover {
+    color: var(--palette-text-hover);
+  }
+
   [data-slot="navbar"] .navbar-ref__nav-link[aria-current="page"] {
     color: var(--foreground);
   }
@@ -31,8 +34,8 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-button);
-    border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-    background-color: oklch(0.995 0.006 95 / 0.92);
+    border: 1px solid color-mix(in srgb, var(--palette-text) 18%, transparent);
+    background-color: color-mix(in srgb, var(--palette-bg-primary) 92%, transparent);
     padding-inline: 1.125rem;
     font-family: var(--font-sans);
     font-size: 0.8125rem;
@@ -40,17 +43,19 @@
     color: var(--foreground);
     transition:
       border-color 0.2s ease-out,
-      background-color 0.2s ease-out;
+      background-color 0.2s ease-out,
+      color 0.2s ease-out;
   }
 
   [data-slot="navbar"][data-hero-immersive] .navbar-ref__consult {
-    border-color: oklch(0.32 0.02 55 / 0.18);
-    background-color: oklch(0.995 0.006 95 / 0.88);
+    border-color: color-mix(in srgb, var(--palette-text) 18%, transparent);
+    background-color: color-mix(in srgb, var(--palette-bg-primary) 88%, transparent);
   }
 
   [data-slot="navbar"] .navbar-ref__consult:hover {
-    border-color: oklch(0.32 0.02 55 / 0.32);
+    border-color: color-mix(in srgb, var(--palette-text) 32%, transparent);
     background-color: var(--surface-elevated);
+    color: var(--palette-text-hover);
   }
 
   @media (min-width: 1024px) {

@@ -16,6 +16,18 @@ export const contentCollections = {
     pathPrefix: "/resources",
     appRoute: "resources",
   },
+  guides: {
+    id: "guides",
+    label: "Guides",
+    pathPrefix: "/guides",
+    appRoute: "guides",
+  },
+  blog: {
+    id: "blog",
+    label: "Blog",
+    pathPrefix: "/blog",
+    appRoute: "blog",
+  },
   "visa-guides": {
     id: "visa-guides",
     label: "Visa guides",

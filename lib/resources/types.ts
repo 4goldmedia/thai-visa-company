@@ -18,12 +18,12 @@ export type ResourceArticleStatus = "published" | "planned"
 
 export type ResourceArticle = {
   slug: string
-  categoryId: ResourceCategoryId
+  categoryId: ResourceCategoryId | string
   /** Display label on cards, e.g. Retirement */
   category: string
   title: string
   description: string
-  path: `/resources/${string}`
+  path: `/guides/${string}` | `/blog/${string}` | `/resources/${string}`
   readingTime?: string
   /** Planned stubs are visible on the index but not linked until MDX ships */
   status?: ResourceArticleStatus

@@ -1,4 +1,5 @@
 import { getArticlePath } from "@/lib/content/collections"
+import { resolveReadingTimeForArticle } from "@/lib/content/series"
 import { toArticleLayoutMetadata } from "@/lib/content/schema"
 import type {
   ContentArticleBase,
@@ -43,8 +44,15 @@ export function defineResourceArticle(
 }
 
 export function toResourceArticlePageProps(meta: ResourceArticleMeta) {
+  const readingTime = resolveReadingTimeForArticle({
+    collection: "resources",
+    slug: meta.slug,
+    readingTime: meta.readingTime,
+  })
+
   return {
     slug: meta.slug,
+    collection: "resources" as const,
     path: meta.path,
     published: meta.published,
     seo: meta.seo,
@@ -52,11 +60,21 @@ export function toResourceArticlePageProps(meta: ResourceArticleMeta) {
     eyebrow: meta.eyebrow,
     title: meta.title,
     lead: meta.lead,
+    answer: meta.answer,
+    author: meta.author,
+    reviewedBy: meta.reviewedBy,
+    heroImage: meta.heroImage ?? meta.schema?.featuredImage,
+    topicId: meta.topicId,
+    pillarSlug: meta.pillarSlug,
+    sources: meta.sources,
+    series: meta.series,
     metadata: toArticleLayoutMetadata({
       category: meta.category,
       publishedAt: meta.publishedAt,
       updatedAt: meta.updatedAt,
-      readingTime: meta.readingTime,
+      readingTime,
+      author: meta.author,
+      reviewedBy: meta.reviewedBy,
     }),
     tableOfContents: meta.tableOfContents,
     faq: meta.faq,

@@ -135,6 +135,7 @@ export type ArticleInput = {
   /** Defaults to Article */
   type?: "Article" | "HowTo" | "TechArticle" | "NewsArticle"
   author?: JsonLdNode | ArticleAuthorInput
+  reviewedBy?: JsonLdNode | ArticleAuthorInput
   publisher?: JsonLdNode
 }
 

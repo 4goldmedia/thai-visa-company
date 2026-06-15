@@ -26,7 +26,7 @@ function ResourcesIndexHero({
       aria-labelledby={headingId}
       className="border-b border-border/50"
     >
-      <Container size="content">
+      <Container>
         <PageHero
           eyebrow={eyebrow}
           title={title}

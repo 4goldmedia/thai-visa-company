@@ -553,14 +553,14 @@ export const dtvVisaPage: VisaPageContent = {
         title: "What Is the Thailand DTV Visa",
         description:
           "A shorter introduction to the DTV and who it is designed for.",
-        href: "/resources/what-is-thailand-dtv-visa",
+        href: "/guides/what-is-thailand-dtv-visa",
       },
       {
         category: "Timelines",
         title: "How Long Does a Thai Visa Take",
         description:
           "How long different visa types usually take and what causes delays.",
-        href: "/resources/how-long-does-thai-visa-take",
+        href: "/guides/how-long-does-thai-visa-take",
       },
     ],
   },

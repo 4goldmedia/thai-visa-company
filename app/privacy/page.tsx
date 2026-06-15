@@ -27,11 +27,11 @@ export default function PrivacyPage() {
     >
       <PageBreadcrumbs
         items={[homeBreadcrumb, { label: "Privacy Policy", href: "/privacy" }]}
-        containerSize="content"
+        containerSize="prose"
       />
 
       <Section spacing="spacious" aria-labelledby={privacyHeadingId}>
-        <Container size="content">
+        <Container size="prose">
           <PageHero
             eyebrow="Legal"
             title="Privacy Policy"

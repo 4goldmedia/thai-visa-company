@@ -30,6 +30,9 @@ export function buildArticle(input: ArticleInput): JsonLdNode {
   const pageUrl = toAbsoluteUrl(input.path)
   const publisher = input.publisher ?? buildOrganizationReference()
   const author = resolveArticleAuthor(input.author, publisher)
+  const reviewedBy = input.reviewedBy
+    ? resolveArticleAuthor(input.reviewedBy, publisher)
+    : undefined
   const ids = getSchemaEntityIds()
   const slug = input.slug ?? input.path.split("/").filter(Boolean).pop() ?? "article"
 
@@ -52,6 +55,7 @@ export function buildArticle(input: ArticleInput): JsonLdNode {
     ...(input.articleSection ? { articleSection: input.articleSection } : {}),
     ...(input.tags?.length ? { keywords: input.tags.join(", ") } : {}),
     author,
+    ...(reviewedBy ? { reviewedBy } : {}),
     publisher,
     isPartOf: {
       "@type": "WebSite",

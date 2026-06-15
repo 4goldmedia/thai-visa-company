@@ -2,7 +2,7 @@
 
 @layer components {
   .why-thailand {
-    --why-thailand-bg: #f2ece6;
+    --why-thailand-bg: var(--surface-secondary);
 
     background-color: var(--why-thailand-bg);
   }

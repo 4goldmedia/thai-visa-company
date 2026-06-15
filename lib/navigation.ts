@@ -4,6 +4,7 @@ import { visasHubPath } from "@/lib/visas/navigation"
 
 /** Primary marketing routes */
 export const consultationPath = "/consultation" as const
+export const guidesPath = "/guides" as const
 export const blogPath = "/blog" as const
 export const resourcesPath = "/resources" as const
 
@@ -38,13 +39,21 @@ export const footerVisaLinks = [
   { label: "All Visa Services", href: visasHubPath },
 ] as const
 
-export const footerResourcesLinks = [
-  { label: "Blog", href: blogPath },
-  { label: "Guides", href: resourcesPath },
+export const footerBlogLinks = [
+  { label: "All articles", href: blogPath },
+  { label: "DTV Visa", href: "/blog/cluster/dtv" },
+  { label: "Retirement Visa", href: "/blog/cluster/retirement" },
+  { label: "Business Visa", href: "/blog/cluster/business" },
+  { label: "Education Visa", href: "/blog/cluster/education" },
+  { label: "Immigration procedures", href: "/blog/cluster/immigration-procedures" },
+  { label: "Living in Thailand", href: "/blog/cluster/living-in-thailand" },
 ] as const
 
-/** @deprecated Use `footerResourcesLinks` */
-export const footerBlogLinks = footerResourcesLinks
+/** @deprecated Guides are supporting SEO assets — not in primary nav */
+export const footerGuidesLinks = [] as const
+
+/** @deprecated Use `footerBlogLinks` */
+export const footerResourcesLinks = footerBlogLinks
 
 export const footerCompanyLinks = [
   { label: "Reviews", href: homeSectionAnchors.reviews },

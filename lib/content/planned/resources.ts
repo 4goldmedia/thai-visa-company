@@ -12,7 +12,7 @@ export const plannedResourceArticles = [
     title: "What Is the Thailand DTV Visa",
     description:
       "Who qualifies, how it differs from tourist visas, and what to confirm first.",
-    path: "/resources/what-is-thailand-dtv-visa",
+    path: "/blog/what-is-thailand-dtv-visa",
     readingTime: "6 min read",
     status: "planned" as const,
   },
@@ -23,7 +23,7 @@ export const plannedResourceArticles = [
     title: "How Long Does a Thai Visa Take",
     description:
       "Typical processing windows by visa type and what can shorten or extend your timeline.",
-    path: "/resources/how-long-does-thai-visa-take",
+    path: "/blog/how-long-does-thai-visa-take",
     readingTime: "5 min read",
     status: "planned",
   },

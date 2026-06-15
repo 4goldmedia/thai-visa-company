@@ -114,34 +114,113 @@ export const siteRoutes = [
     published: false,
   },
 
-  // Resources / guides
+  // Guides — evergreen authority
   {
-    path: "/resources",
+    path: "/guides",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.9,
     published: true,
   },
   {
+    path: "/guides/topic/dtv",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.85,
+    published: true,
+  },
+  {
+    path: "/guides/topic/retirement",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.85,
+    published: true,
+  },
+  {
+    path: "/guides/topic/business",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.85,
+    published: true,
+  },
+  {
+    path: "/guides/topic/education",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.85,
+    published: true,
+  },
+  {
+    path: "/guides/topic/thailand-immigration",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.85,
+    published: true,
+  },
+  {
+    path: "/guides/category/visa-requirements",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    published: true,
+  },
+  {
+    path: "/guides/how-to-get-thailand-retirement-visa",
+    group: "resource",
+    changeFrequency: "monthly",
+    priority: 0.7,
+    published: true,
+  },
+
+  // Blog — freshness publication
+  {
     path: "/blog",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.85,
+    published: true,
+  },
+  {
+    path: "/blog/category/immigration-news",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.75,
     published: true,
   },
   {
-    path: "/resources/what-is-thailand-dtv-visa",
+    path: "/blog/category/visa-rule-changes",
     group: "resource",
-    changeFrequency: "monthly",
-    priority: 0.7,
-    published: false,
+    changeFrequency: "weekly",
+    priority: 0.75,
+    published: true,
   },
   {
-    path: "/resources/how-long-does-thai-visa-take",
+    path: "/blog/category/embassy-updates",
     group: "resource",
-    changeFrequency: "monthly",
-    priority: 0.7,
-    published: false,
+    changeFrequency: "weekly",
+    priority: 0.75,
+    published: true,
+  },
+  {
+    path: "/blog/category/policy-changes",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.75,
+    published: true,
+  },
+  {
+    path: "/blog/category/thailand-living",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.75,
+    published: true,
+  },
+  {
+    path: "/blog/category/comparisons",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.75,
+    published: true,
   },
 
   // Marketing
@@ -204,7 +283,8 @@ export function getRouteByPath(path: string): SiteRoute | undefined {
 
 /** Build sitemap entries for published static routes plus published MDX articles */
 export async function buildSitemap(): Promise<MetadataRoute.Sitemap> {
-  const { getPublishedResourceArticlePaths } = await import("@/lib/content")
+  const { getPublishedBlogArticlePaths, getPublishedGuideArticlePaths } =
+    await import("@/lib/content")
   const { getPublishedVisaPages } = await import("@/lib/visas/publish")
   const builtAt = new Date()
   const entries = new Map<string, MetadataRoute.Sitemap[number]>()
@@ -227,8 +307,11 @@ export async function buildSitemap(): Promise<MetadataRoute.Sitemap> {
     })
   }
 
-  const mdxPaths = await getPublishedResourceArticlePaths()
-  for (const path of mdxPaths) {
+  const [guidePaths, blogPaths] = await Promise.all([
+    getPublishedGuideArticlePaths(),
+    getPublishedBlogArticlePaths(),
+  ])
+  for (const path of [...guidePaths, ...blogPaths]) {
     if (entries.has(path)) continue
     entries.set(path, {
       url: resolveCanonicalUrl(path).toString(),

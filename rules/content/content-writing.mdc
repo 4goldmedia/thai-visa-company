@@ -1,0 +1,68 @@
+---
+description: Writing standard for Thai Visa Company articles — clarity, structure, AEO
+globs: content/**/*,lib/blog/**/*,lib/guides/**/*
+alwaysApply: false
+---
+
+# Thai Visa Company Content Writing Standard
+
+Every article should be written for:
+
+- Google
+- ChatGPT
+- Claude
+- Gemini
+- Perplexity
+
+Assume individual sections may be quoted independently.
+
+## Recommended structure
+
+Whenever appropriate include:
+
+1. Quick Answer
+2. In Short Summary
+3. Requirements
+4. Eligibility
+5. Costs
+6. Timeline
+7. Common Mistakes
+8. FAQ
+9. Related Resources
+10. Next Steps
+
+Answer questions early.
+
+Do not hide answers behind long introductions.
+
+## Voice and style
+
+Use:
+
+- plain English
+- short sentences
+- examples
+- practical explanations
+
+Avoid:
+
+- legal jargon
+- government language
+- immigration bureaucracy language
+- marketing fluff
+
+Write like an experienced visa specialist helping someone understand their options.
+
+The reader should feel:
+
+**"Finally somebody explained this clearly."**
+
+## AEO requirements
+
+- direct definitions
+- concise answers
+- comparison tables
+- checklists
+- FAQ sections
+
+Every article should remain useful even if Thai Visa Company did not exist.

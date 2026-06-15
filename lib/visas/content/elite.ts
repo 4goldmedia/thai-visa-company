@@ -98,14 +98,14 @@ export const eliteVisaPage: VisaPageContent = {
         title: "How Long Does a Thai Visa Take",
         description:
           "Typical processing windows and factors that affect timing.",
-        href: "/resources/how-long-does-thai-visa-take",
+        href: "/guides/how-long-does-thai-visa-take",
       },
       {
         category: "Retirement",
         title: "How to Get a Thailand Retirement Visa",
         description:
           "Compare long-stay options if you are also considering retirement routes.",
-        href: "/resources/how-to-get-thailand-retirement-visa",
+        href: "/guides/how-to-get-thailand-retirement-visa",
       },
     ],
   },

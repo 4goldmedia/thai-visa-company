@@ -13,6 +13,9 @@ export type ArticleFaqJsonLdConfig = {
   name?: string
   path: string
   description?: string
+  aboutArticle?: boolean
+  /** @deprecated Use `aboutArticle` */
+  aboutArticleId?: string
 }
 
 type ArticleInlineFaqProps = {
@@ -48,6 +51,7 @@ function ArticleInlineFaq({
           name={schemaName}
           path={jsonLd.path}
           description={jsonLd.description ?? description}
+          aboutArticle={jsonLd.aboutArticle ?? Boolean(jsonLd.aboutArticleId)}
           id="schema-faq-article"
         />
       ) : null}

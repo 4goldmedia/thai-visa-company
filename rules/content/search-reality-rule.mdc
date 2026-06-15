@@ -1,0 +1,30 @@
+---
+description: Search reality gate — only create articles for real applicant queries
+globs: content/**/*,lib/blog/**/*,lib/guides/**/*
+alwaysApply: false
+---
+
+# Search Reality Rule
+
+Before creating any article ask:
+
+**Would a real visa applicant type this into Google?**
+
+## Good examples
+
+- How much money do I need for a DTV visa?
+- Can I work remotely on a DTV visa?
+- DTV visa vs Retirement visa
+- How long does a DTV visa take?
+- What documents do I need for a retirement visa?
+
+## Bad examples
+
+- Understanding Thailand Immigration Excellence
+- The Future of Thai Immigration
+- Why Thai Visa Company Is Different
+- Thailand Immigration Trends 2026
+
+The article must answer a real question.
+
+Not a marketing idea.

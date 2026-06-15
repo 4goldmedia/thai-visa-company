@@ -5,7 +5,13 @@
  * Strategies: manual curation (highest priority) → explicit slugs → tag/category/topic scoring.
  */
 
-import { resourceMetaToIndexCard } from "@/lib/content/adapters"
+import {
+  blogMetaToIndexCard,
+  guideMetaToIndexCard,
+  resourceMetaToIndexCard,
+} from "@/lib/content/adapters"
+import type { BlogArticleMeta } from "@/lib/content/collections/blog"
+import type { GuideArticleMeta } from "@/lib/content/collections/guides"
 import type { ResourceArticleMeta } from "@/lib/content/collections/resources"
 import { toContentArticleKey } from "@/lib/content/collections"
 import {
@@ -26,8 +32,11 @@ import {
   isVisaSlug,
   isVisaPublished,
 } from "@/lib/visas/registry"
+import { contentTopicIds, type ContentTopicId } from "@/lib/content/topics"
 import { getPublishedVisaSlugs } from "@/lib/visas/publish"
 import type { VisaPageContent, VisaSlug } from "@/lib/visas/types"
+
+export { contentTopicIds, type ContentTopicId } from "@/lib/content/topics"
 
 // -----------------------------------------------------------------------------
 // Scoring weights — explicit curation always wins over algorithmic matches
@@ -54,21 +63,6 @@ const DEFAULT_MAX_CROSS_LINKS = 3
 // -----------------------------------------------------------------------------
 // Semantic topic taxonomy — topical clusters for AI-search + crawl depth
 // -----------------------------------------------------------------------------
-
-export const contentTopicIds = [
-  "retirement",
-  "dtv",
-  "elite",
-  "business",
-  "education",
-  "marriage",
-  "tourist",
-  "ltr",
-  "process",
-  "general",
-] as const
-
-export type ContentTopicId = (typeof contentTopicIds)[number]
 
 export type ContentTopicDefinition = {
   id: ContentTopicId
@@ -369,11 +363,19 @@ export function visaToRelatedLink(visa: VisaPageContent): ContentRelatedLink {
 
 export function metaToArticleLinkSource(
   meta: ContentArticleBase & {
-    index?: { categoryId?: string }
+    index?: { categoryId?: string; clusterId?: string }
   },
   collection: ContentCollectionId,
   slug: ContentSlug,
 ): ArticleLinkSource {
+  const index = "index" in meta ? meta.index : undefined
+  const resourceCategoryId =
+    index && "clusterId" in index && index.clusterId
+      ? String(index.clusterId)
+      : index?.categoryId
+        ? String(index.categoryId)
+        : undefined
+
   return {
     collection,
     slug,
@@ -382,10 +384,7 @@ export function metaToArticleLinkSource(
     description: meta.description,
     category: meta.category,
     tags: meta.tags,
-    resourceCategoryId:
-      "index" in meta && meta.index?.categoryId
-        ? String(meta.index.categoryId)
-        : undefined,
+    resourceCategoryId,
   }
 }
 
@@ -440,14 +439,10 @@ export function scoreArticleToArticle(
 
   if (
     source.resourceCategoryId &&
-    target.key.startsWith("resources/") &&
-    source.resourceCategoryId
+    (target.key.startsWith("blog/") || target.key.startsWith("guides/"))
   ) {
-    const parsed = parseContentArticleKey(target.key)
-    if (parsed?.collection === "resources") {
-      score += SCORE.RESOURCE_CATEGORY
-      reasons.push("resource-category")
-    }
+    score += SCORE.RESOURCE_CATEGORY
+    reasons.push("resource-category")
   }
 
   const sharedTopics = getSharedTopics(
@@ -501,7 +496,7 @@ export function scoreVisaToArticle(
   article: ContentArticleSummary,
 ): ScoredRelatedLink {
   const pseudoSource: ArticleLinkSource = {
-    collection: "resources",
+    collection: "blog",
     slug: visa.slug,
     path: visa.path,
     title: visa.title,
@@ -516,19 +511,52 @@ export function scoreVisaToArticle(
 // Merge & rank
 // -----------------------------------------------------------------------------
 
-/** True when a `/resources/*` href has a published MDX article in the registry */
-export function isPublishedResourceHref(href: string): boolean {
-  const match = href.match(/^\/resources\/([^/?#]+)\/?$/)
+async function isPublishedArticleHrefForCollection(
+  href: string,
+  collection: "blog" | "guides",
+): Promise<boolean> {
+  const prefix = collection === "blog" ? "/blog" : "/guides"
+  const match = href.match(new RegExp(`^${prefix}/([^/?#]+)/?$`))
   if (!match) return true
-  const key = toContentArticleKey("resources", match[1] as ContentSlug)
-  return isRegisteredContentArticleKey(key)
+
+  const key = toContentArticleKey(collection, match[1] as ContentSlug)
+  if (!isRegisteredContentArticleKey(key)) return false
+
+  const meta = await loadArticleMeta(key)
+  return meta?.published === true
 }
 
+/** True when a `/blog/*` href resolves to a published MDX article */
+export async function isPublishedBlogHref(href: string): Promise<boolean> {
+  return isPublishedArticleHrefForCollection(href, "blog")
+}
+
+/** True when a `/guides/*` href resolves to a published MDX article */
+export async function isPublishedGuideHref(href: string): Promise<boolean> {
+  return isPublishedArticleHrefForCollection(href, "guides")
+}
+
+export async function isPublishedArticleHref(href: string): Promise<boolean> {
+  if (href.startsWith("/blog/")) return isPublishedBlogHref(href)
+  if (href.startsWith("/guides/")) return isPublishedGuideHref(href)
+  return true
+}
+
+/** @deprecated Use `isPublishedArticleHref` */
+export const isPublishedResourceHref = isPublishedArticleHref
+
 /** Drop planned resource stubs so visa/article pages never link to 404s */
-export function filterPublishedRelatedLinks(
+export async function filterPublishedRelatedLinks(
   links: ReadonlyArray<ContentRelatedLink>,
-): ContentRelatedLink[] {
-  return links.filter((item) => isPublishedResourceHref(item.href))
+): Promise<ContentRelatedLink[]> {
+  const filtered = await Promise.all(
+    links.map(async (item) => ({
+      item,
+      published: await isPublishedArticleHref(item.href),
+    })),
+  )
+
+  return filtered.filter((entry) => entry.published).map((entry) => entry.item)
 }
 
 /** Merge link lists in order — manual entries first, deduped by href */
@@ -687,6 +715,8 @@ export async function resolveRelatedArticles(
   const excludeHrefs = new Set<string>()
 
   for (const [index, link] of input.related.entries()) {
+    if (!(await isPublishedArticleHref(link.href))) continue
+
     scored.push({
       link,
       score: SCORE.MANUAL - index,
@@ -706,9 +736,9 @@ export async function resolveRelatedArticles(
       if (excludeHrefs.has(href)) continue
 
       const relatedLink: ContentRelatedLink =
-        input.collection === "resources" && isResourceArticleMeta(meta)
+        input.collection === "blog" && isBlogArticleMeta(meta)
           ? (() => {
-              const card = resourceMetaToIndexCard(meta)
+              const card = blogMetaToIndexCard(meta)
               return {
                 category: card.category,
                 title: card.title,
@@ -716,7 +746,27 @@ export async function resolveRelatedArticles(
                 href: card.path,
               }
             })()
-          : {
+          : input.collection === "guides" && isGuideArticleMeta(meta)
+            ? (() => {
+                const card = guideMetaToIndexCard(meta)
+                return {
+                  category: card.category,
+                  title: card.title,
+                  description: card.description,
+                  href: card.path,
+                }
+              })()
+            : input.collection === "resources" && isResourceArticleMeta(meta)
+            ? (() => {
+                const card = resourceMetaToIndexCard(meta)
+                return {
+                  category: card.category,
+                  title: card.title,
+                  description: card.description,
+                  href: card.path,
+                }
+              })()
+            : {
               category: meta.category,
               title: meta.title,
               description: meta.description,
@@ -762,6 +812,14 @@ export async function resolveRelatedArticles(
   })
 }
 
+function isBlogArticleMeta(meta: ContentArticleBase): meta is BlogArticleMeta {
+  return meta.collection === "blog"
+}
+
+function isGuideArticleMeta(meta: ContentArticleBase): meta is GuideArticleMeta {
+  return meta.collection === "guides"
+}
+
 function isResourceArticleMeta(
   meta: ContentArticleBase,
 ): meta is ResourceArticleMeta {
@@ -796,7 +854,7 @@ export function rankRelatedVisas(
     const visa = getVisaFromRegistry(visaSlug)
     const item = scoreArticleToVisa(
       {
-        collection: "resources",
+        collection: "blog",
         slug: source.slug,
         path: source.path,
         title: source.title,
@@ -883,7 +941,7 @@ export async function resolveRelatedArticlesForVisa(
   options: { max?: number; collection?: ContentCollectionId } = {},
 ): Promise<ReadonlyArray<ContentRelatedLink>> {
   const max = options.max ?? DEFAULT_MAX_CROSS_LINKS
-  const collection = options.collection ?? "resources"
+  const collection = options.collection ?? "guides"
 
   const source: VisaLinkSource = {
     slug: visa.slug,
@@ -908,7 +966,8 @@ export async function resolveRelatedArticlesForVisa(
 
 const CTA_PATHS = {
   contact: "/consultation",
-  resources: "/resources",
+  guides: "/guides",
+  blog: "/blog",
 } as const
 
 export function resolveCtaLinkOpportunities(input: {
@@ -933,9 +992,9 @@ export function resolveCtaLinkOpportunities(input: {
       intent: "resources",
       score: SCORE.CTA_RESOURCES,
       category: "Guides",
-      title: "Visa resources",
-      description: "Practical guides on requirements, timelines, and preparation.",
-      href: CTA_PATHS.resources,
+      title: "Thailand visa guides",
+      description: "Evergreen answers on requirements, timelines, and preparation.",
+      href: CTA_PATHS.guides,
     },
   ]
 

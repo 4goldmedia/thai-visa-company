@@ -12,11 +12,6 @@ import { VisaHeroSection } from "@/components/sections/visa-hero"
 import { VisaKeyFactsSection } from "@/components/sections/visa-key-facts"
 import { VisaOverviewSection } from "@/components/sections/visa-overview"
 import { VisaRequirementsSection } from "@/components/sections/visa-requirements"
-import type { ContentRelatedLink } from "@/lib/content/types"
-import {
-  filterPublishedRelatedLinks,
-  mergeRelatedLinks,
-} from "@/lib/content/related"
 import type { VisaSectionId } from "@/lib/visas/layout"
 import { resolveVisaPageLayout } from "@/lib/visas/layout"
 import type { ResolvedVisaPageContext } from "@/lib/visas/routing"
@@ -27,15 +22,6 @@ export type VisaPageSectionRenderContext = {
   ids: VisaSectionIds
 }
 
-function getResourceGuideItems(
-  context: ResolvedVisaPageContext,
-): ReadonlyArray<ContentRelatedLink> {
-  const { visa, relatedArticles } = context
-  return filterPublishedRelatedLinks(
-    mergeRelatedLinks(visa.relatedResources.items, relatedArticles),
-  ).slice(0, 4)
-}
-
 /**
  * Renders one visa page section. Returns null when optional data is absent.
  * FAQ JSON-LD must match visible `visa.faq.items` (see FaqSection).
@@ -44,8 +30,7 @@ export function renderVisaPageSection(
   sectionId: VisaSectionId,
   { context, ids }: VisaPageSectionRenderContext,
 ): React.ReactNode | null {
-  const { visa, relatedVisas } = context
-  const resourceGuideItems = getResourceGuideItems(context)
+  const { visa, relatedVisas, resourceGuideItems } = context
 
   switch (sectionId) {
     case "hero":

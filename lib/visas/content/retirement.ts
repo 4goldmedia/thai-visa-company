@@ -136,14 +136,14 @@ export const retirementVisaPage: VisaPageContent = {
         title: "How to Get a Thailand Retirement Visa",
         description:
           "Step-by-step look at age, finances, documents, and how to prepare before you apply.",
-        href: "/resources/how-to-get-thailand-retirement-visa",
+        href: "/guides/how-to-get-thailand-retirement-visa",
       },
       {
         category: "Timelines",
         title: "How Long Does a Thai Visa Take",
         description:
           "What affects processing time and how to avoid common delays.",
-        href: "/resources/how-long-does-thai-visa-take",
+        href: "/guides/how-long-does-thai-visa-take",
       },
     ],
   },

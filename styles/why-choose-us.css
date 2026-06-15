@@ -2,13 +2,14 @@
 
 @layer components {
   .why-choose-us-section {
-    --why-section-bg: #f2ece6;
+    --why-section-bg: var(--surface-secondary);
+    --why-divider: color-mix(in srgb, var(--foreground) 14%, var(--surface-secondary));
 
     background-color: var(--why-section-bg);
   }
 
   .why-features {
-    --why-divider: #d9d2c7;
+    --why-divider: color-mix(in srgb, var(--foreground) 14%, var(--surface-secondary));
 
     display: grid;
     grid-template-columns: 1fr;
@@ -87,7 +88,7 @@
   }
 
   .why-choose-us-section .why-feature__icon-wrap {
-    background-color: color-mix(in srgb, #ffffff 42%, var(--why-section-bg));
+    background-color: color-mix(in srgb, var(--palette-bg-primary) 42%, var(--why-section-bg));
   }
 
   .why-feature__icon-wrap svg {

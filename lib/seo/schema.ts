@@ -267,7 +267,55 @@ export type ResourcesIndexSchemaInput = {
   breadcrumbs?: ReadonlyArray<BreadcrumbItem>
 }
 
-/** Resources index — CollectionPage + ItemList + breadcrumbs */
+/** Guides index — CollectionPage + ItemList + breadcrumbs */
+export function buildGuidesIndexSchemaGraph(
+  input: ResourcesIndexSchemaInput,
+): JsonLdGraphDocument {
+  const path = input.path ?? "/guides"
+
+  return buildPageSchemaGraph({
+    nodes: [
+      buildCollectionPage({
+        path,
+        name: input.name,
+        description: input.description,
+      }),
+      buildItemList({ items: [...input.articles] }),
+      buildBreadcrumbList(
+        input.breadcrumbs ?? [
+          { name: "Home", path: "/" },
+          { name: "Guides", path },
+        ],
+      ),
+    ],
+  })
+}
+
+/** Blog index — CollectionPage + ItemList + breadcrumbs */
+export function buildBlogIndexSchemaGraph(
+  input: ResourcesIndexSchemaInput,
+): JsonLdGraphDocument {
+  const path = input.path ?? "/blog"
+
+  return buildPageSchemaGraph({
+    nodes: [
+      buildCollectionPage({
+        path,
+        name: input.name,
+        description: input.description,
+      }),
+      buildItemList({ items: [...input.articles] }),
+      buildBreadcrumbList(
+        input.breadcrumbs ?? [
+          { name: "Home", path: "/" },
+          { name: "Blog", path },
+        ],
+      ),
+    ],
+  })
+}
+
+/** @deprecated Use `buildBlogIndexSchemaGraph` */
 export function buildResourcesIndexSchemaGraph(
   input: ResourcesIndexSchemaInput,
 ): JsonLdGraphDocument {

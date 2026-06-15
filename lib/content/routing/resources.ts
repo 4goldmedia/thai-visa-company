@@ -2,6 +2,7 @@ import { cache } from "react"
 
 import { getPublishedArticleSlugs } from "@/lib/content/articles"
 import { loadResourceArticleModule } from "@/lib/content/articles"
+import { resolveArticleSeriesNav } from "@/lib/content/series"
 import { resolveRelatedArticles } from "@/lib/content/related"
 import { toResourceArticlePageProps } from "@/lib/content/collections/resources"
 
@@ -78,13 +79,23 @@ export const resolveResourceArticlePageContext = cache(
       return null
     }
 
-    const related = await resolveResourceArticleRelated(route.page)
+    const [related, seriesNav] = await Promise.all([
+      resolveResourceArticleRelated(route.page),
+      resolveArticleSeriesNav({
+        collection: "resources",
+        slug: route.page.slug,
+        series: route.page.series,
+        topicId: route.page.topicId,
+        publishedAt: route.page.publishedAt,
+      }),
+    ])
 
     return {
       route,
       metadata: buildResourceArticleMetadata(route.module.meta),
       breadcrumbs: getResourceArticleRouteBreadcrumbs(route.page),
       related,
+      seriesNav,
     }
   },
 )

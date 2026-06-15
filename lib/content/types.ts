@@ -1,11 +1,18 @@
 import type { ContentJsonLdNode } from "@/lib/schema"
 import type { ArticleInput } from "@/lib/schema/types"
+import type { ContentTopicId } from "@/lib/content/topics"
+import type { VisaSlug } from "@/lib/visas/types"
 
 // -----------------------------------------------------------------------------
 // Collections — MDX article registry
 // -----------------------------------------------------------------------------
 
-export const contentCollectionIds = ["resources", "visa-guides"] as const
+export const contentCollectionIds = [
+  "resources",
+  "guides",
+  "blog",
+  "visa-guides",
+] as const
 
 export type ContentCollectionId = (typeof contentCollectionIds)[number]
 
@@ -103,6 +110,8 @@ export type ContentCta = {
   description: string
   eyebrow?: string
   footnote?: string
+  /** When true, MDX may render a mid-article consultation CTA */
+  midArticle?: boolean
 }
 
 // -----------------------------------------------------------------------------
@@ -145,6 +154,34 @@ export type ContentArticleTocItem = {
   label: string
 }
 
+/** Article byline — maps to Person or Organization in JSON-LD */
+export type ContentArticleAuthor = {
+  name: string
+  role?: string
+  url?: string
+  type?: "Person" | "Organization"
+}
+
+/** Optional editorial reviewer for trust signals and schema */
+export type ContentArticleReviewedBy = {
+  name: string
+  url?: string
+}
+
+/** External citation for E-E-A-T and sources section */
+export type ContentSourceRef = {
+  title: string
+  href: string
+  accessedAt?: string
+}
+
+/** Ordered cluster navigation within a named series */
+export type ContentArticleSeries = {
+  id: string
+  title: string
+  order: number
+}
+
 /**
  * Base metadata every MDX article exports from
  * `content/articles/<collection>/<slug>/meta.ts`.
@@ -181,6 +218,22 @@ export type ContentArticleLayoutMeta = {
   lead: string
   headingId: ContentHeadingId
   readingTime?: string
+  /** Short AEO answer — optional direct response above the lead */
+  answer?: string
+  /** Byline author — optional; defaults to organization in schema */
+  author?: ContentArticleAuthor
+  /** Editorial reviewer — optional; surfaced in byline and JSON-LD */
+  reviewedBy?: ContentArticleReviewedBy
+  /** Hero image path under `public/` — falls back to schema.featuredImage */
+  heroImage?: ContentFeaturedImage
+  /** Semantic cluster — drives related linking and series fallback */
+  topicId?: ContentTopicId
+  /** Explicit visa pillar for contextual linking */
+  pillarSlug?: VisaSlug
+  /** External sources rendered in a Sources section */
+  sources?: ReadonlyArray<ContentSourceRef>
+  /** Ordered navigation within a named content series */
+  series?: ContentArticleSeries
   tableOfContents: ReadonlyArray<ContentArticleTocItem>
   faq: ReadonlyArray<ContentFaqItem>
 }

@@ -17,7 +17,7 @@ function ContactTrustStrip() {
       aria-labelledby={contactSectionIds.trustHeading}
       className="border-t border-border/40 bg-muted/[0.03]"
     >
-      <Container size="content">
+      <Container>
         <div className={cardSurfaceClass}>
           <h2
             id={contactSectionIds.trustHeading}

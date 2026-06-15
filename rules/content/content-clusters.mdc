@@ -1,0 +1,86 @@
+---
+description: Content cluster map — every article must belong to a cluster
+globs: content/**/*,lib/blog/**/*,lib/guides/**/*
+alwaysApply: false
+---
+
+# Thai Visa Company Content Clusters
+
+Every article must belong to one content cluster.
+
+Do not publish isolated articles.
+
+Every article must strengthen a content cluster.
+
+## 1. DTV Visa
+
+**Pillar:** Destination Thailand Visa (DTV)
+
+Supporting topics:
+
+- DTV requirements
+- DTV costs
+- DTV processing times
+- DTV rejection reasons
+- DTV dependents
+- DTV extensions
+- DTV remote work rules
+
+## 2. Retirement Visa
+
+**Pillar:** Thailand Retirement Visa Guide
+
+Supporting topics:
+
+- retirement visa requirements
+- retirement visa income requirements
+- retirement visa vs DTV
+- retirement visa renewals
+- retirement visa mistakes
+
+## 3. Business & Work Visas
+
+**Pillar:** Thailand Business Visa Guide
+
+Supporting topics:
+
+- work permits
+- BOI
+- company sponsorship
+- business visa requirements
+- employment visas
+
+## 4. Education Visas
+
+**Pillar:** Thailand Education Visa Guide
+
+Supporting topics:
+
+- language school visas
+- university visas
+- education visa requirements
+- education visa renewals
+
+## 5. Immigration Procedures
+
+**Pillar:** Thailand Immigration Procedures
+
+Supporting topics:
+
+- 90-day reporting
+- TM30
+- re-entry permits
+- visa extensions
+- immigration appointments
+
+## 6. Living In Thailand
+
+**Pillar:** Moving To Thailand Guide
+
+Supporting topics:
+
+- healthcare
+- banking
+- housing
+- taxes
+- family relocation

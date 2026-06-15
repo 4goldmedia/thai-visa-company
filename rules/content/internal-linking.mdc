@@ -1,0 +1,31 @@
+---
+description: Internal linking standard — connected knowledge network, reader-first links
+globs: content/**/*,lib/blog/**/*,lib/guides/**/*
+alwaysApply: false
+---
+
+# Thai Visa Company Internal Linking Standard
+
+Every article should strengthen the overall knowledge base.
+
+Links must help readers.
+
+Never insert links solely for SEO.
+
+## Each article should
+
+- link to the relevant visa page
+- link to the cluster pillar page
+- link to supporting articles
+- receive links from related content
+
+Content should form a connected knowledge network.
+
+## Primary pillars
+
+- DTV Visa
+- Retirement Visa
+- Business Visa
+- Education Visa
+- Immigration Procedures
+- Living In Thailand

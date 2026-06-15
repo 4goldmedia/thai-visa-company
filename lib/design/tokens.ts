@@ -26,9 +26,21 @@ export const typeScaleTokens = {
 
 export const surfaceTokens = {
   base: "--surface-base",
+  secondary: "--surface-secondary",
   elevated: "--surface-elevated",
   muted: "--surface-muted",
   band: "--surface-band",
+} as const
+
+export const paletteTokens = {
+  bgPrimary: "--palette-bg-primary",
+  bgSecondary: "--palette-bg-secondary",
+  primaryDark: "--palette-primary-dark",
+  white: "--palette-white",
+  text: "--palette-text",
+  textHover: "--palette-text-hover",
+  textMuted: "--palette-text-muted",
+  borderAlpha: "--palette-border-alpha",
 } as const
 
 export const textTokens = {

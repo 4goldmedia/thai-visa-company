@@ -1,9 +1,9 @@
-import type { ResourceArticlePageProps } from "@/lib/content"
-import { buildResourceArticleRouteSchemaGraph } from "@/lib/content/routing"
+import type { ArticlePageProps } from "@/lib/content/article-page"
+import { buildArticleRouteSchemaGraph } from "@/lib/content/routing/seo"
 import { JsonLdScript } from "@/lib/seo/schema"
 
 export type ArticleJsonLdProps = {
-  article: ResourceArticlePageProps
+  article: ArticlePageProps
   id?: string
 }
 
@@ -12,7 +12,7 @@ export type ArticleJsonLdProps = {
  * FAQ schema is rendered separately via `FaqJsonLd` on `ArticleInlineFaq`.
  */
 function ArticleJsonLd({ article, id = "schema-article" }: ArticleJsonLdProps) {
-  const graph = buildResourceArticleRouteSchemaGraph({ article })
+  const graph = buildArticleRouteSchemaGraph({ article })
 
   return <JsonLdScript data={graph} id={id} />
 }

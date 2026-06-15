@@ -23,7 +23,7 @@ const defaultResourcesPreview: ReadonlyArray<RelatedResourceItem> =
     href: article.path,
   }))
 
-const defaultResourcesIndexHref = "/resources"
+const defaultResourcesIndexHref = "/guides"
 
 type ResourcesPreviewProps = {
   headingId: string
@@ -44,7 +44,7 @@ function ResourcesPreview({
   eyebrow = "Visa guides",
   items,
   indexHref = defaultResourcesIndexHref,
-  indexLabel = "Browse all guides",
+  indexLabel = "Browse the blog",
   listAriaLabel = "Related visa guides",
   className,
 }: ResourcesPreviewProps) {

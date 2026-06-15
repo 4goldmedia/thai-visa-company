@@ -4,24 +4,29 @@ import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
-const containerVariants = cva(
-  "mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-10",
-  {
-    variants: {
-      size: {
-        /** Primary page width — sections, nav inner, grids */
-        default: "max-w-[1280px]",
-        /** Visa editorial wide grids — comparison, cards, timelines */
-        wide: "max-w-[1200px]",
-        /** Narrow prose / forms / focused copy */
-        content: "max-w-[760px]",
-      },
+/**
+ * Site container sizes — align with `docs/design/layout-system.md`.
+ *
+ * - `site` / `default` — 1280px shell (homepage, visa, blog hub, article frame)
+ * - `prose` — 760px narrow column (legal, privacy, focused forms)
+ * - `wide` — alias of site (visa editorial sections)
+ * - `content` — @deprecated alias of `site`; use `prose` for narrow pages
+ */
+const containerVariants = cva("mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-10", {
+  variants: {
+    size: {
+      site: "max-w-[var(--width-site,80rem)]",
+      default: "max-w-[var(--width-site,80rem)]",
+      wide: "max-w-[var(--width-site,80rem)]",
+      /** @deprecated Use `site` — kept for gradual migration */
+      content: "max-w-[var(--width-site,80rem)]",
+      prose: "max-w-[var(--width-narrow,47.5rem)]",
     },
-    defaultVariants: {
-      size: "default",
-    },
-  }
-)
+  },
+  defaultVariants: {
+    size: "default",
+  },
+})
 
 type ContainerProps = React.ComponentProps<"div"> &
   VariantProps<typeof containerVariants> & {

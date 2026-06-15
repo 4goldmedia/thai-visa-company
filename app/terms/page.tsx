@@ -27,11 +27,11 @@ export default function TermsPage() {
     >
       <PageBreadcrumbs
         items={[homeBreadcrumb, { label: "Terms of Service", href: "/terms" }]}
-        containerSize="content"
+        containerSize="prose"
       />
 
       <Section spacing="spacious" aria-labelledby={termsHeadingId}>
-        <Container size="content">
+        <Container size="prose">
           <PageHero
             eyebrow="Legal"
             title="Terms of Service"

@@ -1,0 +1,34 @@
+---
+description: Content governance — read rules/content before creating or editing articles
+globs: content/**/*,lib/blog/**/*,lib/guides/**/*,lib/content/**/*,components/blog/**/*,components/editorial/**/*,components/templates/blog-*.tsx,docs/content-strategy.md
+alwaysApply: false
+---
+
+# Content governance
+
+When creating, editing, auditing, planning, or expanding **blog articles**, **guides**, or related content metadata, read and follow:
+
+1. [`docs/content-strategy.md`](../../docs/content-strategy.md) — strategy overview
+2. [`rules/content/`](../../rules/content/) — canonical rules (all `.mdc` files)
+
+## Before any new article
+
+1. **Search reality** — Would a real applicant type this into Google? (`search-reality-rule.mdc`)
+2. **Question gate** — What specific question does this answer? (`content-philosophy.mdc`)
+3. **Cluster** — Which pillar does it strengthen? (`content-clusters.mdc`)
+
+## While writing
+
+- Answer early; use Quick Answer, tables, checklists, FAQ (`content-writing.mdc`, `seo-aeo-standard.mdc`)
+- Link to visa page, pillar, and supporting articles (`internal-linking.mdc`)
+- Plain English; no filler, jargon, or disguised sales copy
+
+## Do not
+
+- Create marketing or brand articles disguised as immigration education
+- Publish isolated articles outside a content cluster
+- Add links solely for SEO
+
+## Validation
+
+Run `npm run validate:articles` after TOC or slug changes.

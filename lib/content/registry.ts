@@ -1,6 +1,12 @@
+import type { BlogArticleMeta } from "@/lib/content/collections/blog"
+import type { GuideArticleMeta } from "@/lib/content/collections/guides"
 import type { ResourceArticleMeta } from "@/lib/content/collections/resources"
 import type { VisaGuideArticleMeta } from "@/lib/content/collections/visa-guides"
 import { toContentArticleKey } from "@/lib/content/collections"
+import {
+  generatedArticleEntries,
+  type GeneratedArticleRegistryKey,
+} from "@/lib/content/registry.generated"
 import type {
   ContentArticleBase,
   ContentArticleKey,
@@ -9,32 +15,12 @@ import type {
 } from "@/lib/content/types"
 
 // -----------------------------------------------------------------------------
-// Registry — add one entry per `content/articles/<collection>/<slug>/`
+// Registry — generated from `content/articles/**` via `npm run sync:articles`
 // -----------------------------------------------------------------------------
 
-const articleEntries = {
-  "resources/how-to-get-thailand-retirement-visa": {
-    collection: "resources",
-    slug: "how-to-get-thailand-retirement-visa",
-    loadMeta: () =>
-      import(
-        "@/content/articles/resources/how-to-get-thailand-retirement-visa/meta"
-      ).then((m) => m.meta),
-    loadModule: async (): Promise<ContentArticleModule<ResourceArticleMeta>> => {
-      const [{ default: Content }, { meta }] = await Promise.all([
-        import(
-          "@/content/articles/resources/how-to-get-thailand-retirement-visa/content.mdx"
-        ),
-        import(
-          "@/content/articles/resources/how-to-get-thailand-retirement-visa/meta"
-        ),
-      ])
-      return { default: Content, meta }
-    },
-  },
-} as const
+const articleEntries = generatedArticleEntries
 
-export type RegisteredContentArticleKey = keyof typeof articleEntries
+export type RegisteredContentArticleKey = GeneratedArticleRegistryKey
 
 export const registeredContentArticleKeys = Object.keys(
   articleEntries,
@@ -76,7 +62,9 @@ export async function loadArticleMeta(
 export async function loadContentArticle(
   key: RegisteredContentArticleKey,
 ): Promise<
-  ContentArticleModule<ResourceArticleMeta | VisaGuideArticleMeta> | null
+  ContentArticleModule<
+    ResourceArticleMeta | GuideArticleMeta | BlogArticleMeta | VisaGuideArticleMeta
+  > | null
 > {
   const entry = articleEntries[key]
   if (!entry) return null
@@ -87,7 +75,9 @@ export async function loadContentArticleBySlug(
   collection: ContentCollectionId,
   slug: string,
 ): Promise<
-  ContentArticleModule<ResourceArticleMeta | VisaGuideArticleMeta> | null
+  ContentArticleModule<
+    ResourceArticleMeta | GuideArticleMeta | BlogArticleMeta | VisaGuideArticleMeta
+  > | null
 > {
   const key = toContentArticleKey(collection, slug)
   if (!isRegisteredContentArticleKey(key)) return null

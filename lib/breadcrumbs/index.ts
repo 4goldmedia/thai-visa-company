@@ -1,8 +1,12 @@
 export {
+  blogIndexBreadcrumb,
+  getBlogArticleBreadcrumbs,
   getConsultationPageBreadcrumbs,
   getContactPageBreadcrumbs,
+  getGuideArticleBreadcrumbs,
   getResourceArticleBreadcrumbs,
   getVisaPageBreadcrumbs,
+  guidesIndexBreadcrumb,
   homeBreadcrumb,
   resourcesIndexBreadcrumb,
 } from "@/lib/breadcrumbs/presets"

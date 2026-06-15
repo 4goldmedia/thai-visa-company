@@ -9,7 +9,7 @@ import {
 } from "@/lib/content/client-reviews"
 import { googleReviewsUrl } from "@/lib/schema/business-profile"
 import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
-import { editorialLinkInverseClass } from "@/lib/section-styles"
+import { editorialLinkClass } from "@/lib/section-styles"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { cn } from "@/lib/utils"
 
@@ -34,7 +34,6 @@ function Reviews() {
           href={defaultGoogleReviewSummary.href}
           layout="stacked"
           size="md"
-          variant="dark"
           stackedScoreStyle="editorial"
           showStackedStars={false}
           linkToReviews
@@ -70,7 +69,7 @@ function Reviews() {
           href={googleReviewsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={editorialLinkInverseClass}
+          className={editorialLinkClass}
         >
           {footerLink}
         </a>

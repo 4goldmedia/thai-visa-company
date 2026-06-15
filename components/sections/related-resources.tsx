@@ -24,7 +24,7 @@ type RelatedResourcesProps = {
   className?: string
 }
 
-const defaultIndexHref = "/resources"
+const defaultIndexHref = "/guides"
 
 const headingClass =
   "text-lg font-semibold tracking-tight text-balance text-foreground sm:text-xl"
@@ -140,7 +140,7 @@ function RelatedResourcesSection({
       aria-labelledby={headingId}
       className={cn("border-t border-border/50", sectionClassName)}
     >
-      <Container size="content">
+      <Container>
         <SectionReveal>
           <RelatedResources
             headingId={headingId}

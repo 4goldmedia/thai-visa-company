@@ -5,6 +5,7 @@ export type AnalyticsSurface =
   | "homepage"
   | "visa_page"
   | "article"
+  | "blog"
   | "resources"
   | "contact"
   | "global"

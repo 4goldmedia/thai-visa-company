@@ -29,7 +29,7 @@ function VisaLastUpdatedSection({
       aria-label="Page freshness"
       className={cn(visaPageClass, "visa-last-updated-strip", className)}
     >
-      <Container size="content">
+      <Container>
         <p className="visa-last-updated-strip__meta">
           <span className="text-[var(--text-tertiary)]">Last updated:</span>{" "}
           <time dateTime={updatedAt}>{formatContentIsoDate(updatedAt)}</time>

@@ -2,7 +2,7 @@
 
 @layer components {
   .process-flow {
-    --process-divider: #d8d2ca;
+    --process-divider: color-mix(in srgb, var(--foreground) 12%, var(--surface-secondary));
 
     display: grid;
     grid-template-columns: 1fr;

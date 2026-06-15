@@ -41,7 +41,7 @@ export const siteMetadata = {
    * Default OG image path (under `public/`) until a branded asset ships.
    * Override per deploy with `NEXT_PUBLIC_OG_IMAGE_PATH`.
    */
-  defaultOgImagePath: "/og/default.png",
+  defaultOgImagePath: "/og/default.svg",
   openGraphImageAlt: `${siteBrand.name} — Thailand visa support`,
 } as const
 

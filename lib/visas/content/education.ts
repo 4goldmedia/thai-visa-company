@@ -98,14 +98,14 @@ export const educationVisaPage: VisaPageContent = {
         title: "How Long Does a Thai Visa Take",
         description:
           "How long study visa applications usually take to process.",
-        href: "/resources/how-long-does-thai-visa-take",
+        href: "/guides/how-long-does-thai-visa-take",
       },
       {
         category: "Guides",
         title: "How to Get a Thailand Retirement Visa",
         description:
           "Exploring other long-stay options? Compare pathways that may fit later.",
-        href: "/resources/how-to-get-thailand-retirement-visa",
+        href: "/guides/how-to-get-thailand-retirement-visa",
       },
     ],
   },

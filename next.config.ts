@@ -2,6 +2,105 @@ import type { NextConfig } from "next"
 import createMDX from "@next/mdx"
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/resources",
+        destination: "/guides",
+        permanent: true,
+      },
+      {
+        source: "/resources/:slug",
+        destination: "/guides/:slug",
+        permanent: true,
+      },
+      {
+        source: "/blog/topic/:topic",
+        destination: "/guides/topic/:topic",
+        permanent: true,
+      },
+      {
+        source: "/blog/how-to-get-thailand-retirement-visa",
+        destination: "/guides/how-to-get-thailand-retirement-visa",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/practical-guides",
+        destination: "/guides",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/immigration-news",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/visa-rule-changes",
+        destination: "/blog/cluster/dtv",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/embassy-updates",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/policy-changes",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/thailand-living",
+        destination: "/blog/cluster/living-in-thailand",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/comparisons",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/immigration-updates",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/visa-updates",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/visa-comparisons",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/commentary",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/expert-insights",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/visa-process",
+        destination: "/blog/cluster/immigration-procedures",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/living-in-thailand",
+        destination: "/blog/cluster/living-in-thailand",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/:path",
+        destination: "/blog",
+        permanent: true,
+      },
+    ]
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     /** Must include every `quality` passed to next/image. */
@@ -21,6 +120,7 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   options: {
     // String tuples keep options serializable for Turbopack
+    remarkPlugins: [["remark-gfm", {}]],
     rehypePlugins: [["rehype-slug", {}]],
   },
 })

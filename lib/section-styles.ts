@@ -151,7 +151,7 @@ export const ctaButtonPrimaryClass = cn(
 export const ctaButtonSecondaryClass = cn(
   "h-11 min-h-11 w-full rounded-[var(--radius-button)] px-5",
   "text-[length:var(--text-body)] font-medium tracking-normal",
-  "border border-[var(--border-default)] bg-[var(--surface-elevated)] text-foreground",
+  "border border-[var(--border-default)] bg-transparent text-foreground",
   "transition-[border-color,background-color] duration-200 ease-out",
   "hover:border-foreground/15 hover:bg-[var(--surface-muted)]",
   "sm:h-10 sm:min-h-10 sm:w-auto sm:text-[length:var(--text-body-md)]",

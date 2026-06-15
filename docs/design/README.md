@@ -35,6 +35,12 @@ Extract **principles and tone** only. Implement within the existing site structu
 
 ---
 
+## Layout system
+
+Container widths, article grids, and page-type rules: [`layout-system.md`](./layout-system.md).
+
+---
+
 ## Intended visual direction
 
 The frontend should feel:

@@ -1,7 +1,7 @@
 /* =============================================================================
    Visa page — premium editorial system (visa routes only)
    Spacing: 80px mobile · 112px tablet · 140px desktop (major sections)
-   Width: 1200px shared content grid (wide)
+   Width: 1280px shared content grid (--width-site)
    ============================================================================= */
 
 @layer components {

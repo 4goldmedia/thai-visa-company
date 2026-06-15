@@ -4,6 +4,7 @@ import type {
   ResourceArticleModule,
   ResourceArticlePageProps,
 } from "@/lib/content/collections/resources"
+import type { ArticleSeriesNav } from "@/lib/content/series"
 import type { RelatedResourceItem } from "@/lib/content/types"
 import type { BreadcrumbLink } from "@/lib/breadcrumbs/types"
 
@@ -34,4 +35,5 @@ export type ResolvedResourceArticlePageContext = {
   metadata: Metadata
   breadcrumbs: ReadonlyArray<BreadcrumbLink>
   related: ReadonlyArray<RelatedResourceItem>
+  seriesNav: ArticleSeriesNav
 }

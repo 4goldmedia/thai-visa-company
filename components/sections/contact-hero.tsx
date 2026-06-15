@@ -15,7 +15,7 @@ function ContactHeroSection() {
       aria-labelledby={contactSectionIds.heroHeading}
       className="border-b border-border/50"
     >
-      <Container size="content">
+      <Container>
         <PageHero
           eyebrow={hero.eyebrow}
           title={hero.title}
