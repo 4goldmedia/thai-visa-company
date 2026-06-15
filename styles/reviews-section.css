@@ -1,15 +1,18 @@
-/* Client reviews — neutral section with bordered editorial cards */
+/* Client reviews — brand dark band with subtle editorial cards */
 
 @layer components {
   .reviews-section {
-    --reviews-bg: var(--surface-base);
-    --reviews-fg: var(--foreground);
-    --reviews-fg-muted: var(--text-secondary);
-    --reviews-fg-subtle: var(--text-tertiary);
-    --reviews-border: color-mix(in srgb, var(--border) 80%, transparent);
-    --reviews-card-bg: var(--card);
-    --reviews-card-border: color-mix(in srgb, var(--border) 75%, transparent);
-    border-top: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
+    --reviews-bg: #23211e;
+    --reviews-fg: #fcfaf8;
+    --reviews-fg-muted: rgba(252, 250, 248, 0.75);
+    --reviews-fg-subtle: rgba(252, 250, 248, 0.55);
+    --reviews-fg-eyebrow: rgba(252, 250, 248, 0.7);
+    --reviews-fg-country: rgba(252, 250, 248, 0.7);
+    --reviews-fg-supporting: rgba(252, 250, 248, 0.6);
+    --reviews-border: rgba(252, 250, 248, 0.1);
+    --reviews-card-bg: rgba(252, 250, 248, 0.04);
+    --reviews-card-border: rgba(252, 250, 248, 0.12);
+    border-top: 1px solid rgba(252, 250, 248, 0.12);
     border-bottom: none;
     background-color: var(--reviews-bg);
     color: var(--reviews-fg);
@@ -43,7 +46,7 @@
     font-weight: 500;
     letter-spacing: var(--tracking-eyebrow);
     text-transform: uppercase;
-    color: var(--reviews-fg-muted);
+    color: var(--reviews-fg-eyebrow);
   }
 
   @media (min-width: 640px) {
@@ -97,7 +100,18 @@
   }
 
   .reviews-section .google-review-summary--editorial .google-review-summary__score-value {
+    color: var(--reviews-fg);
     letter-spacing: -0.03em;
+  }
+
+  .reviews-section
+    .google-review-summary--editorial
+    .google-review-summary__score-denominator {
+    color: var(--reviews-fg-supporting);
+  }
+
+  .reviews-section .google-review-summary--editorial .google-review-summary__meta-line {
+    color: var(--reviews-fg-supporting);
   }
 
   .reviews-section .google-review-summary--editorial .google-review-summary__meta-row {
@@ -109,6 +123,23 @@
       align-items: flex-end;
       text-align: right;
     }
+  }
+
+  .reviews-section .google-review-summary--editorial [aria-hidden].inline-flex {
+    border-color: var(--reviews-card-border);
+    background-color: rgba(252, 250, 248, 0.08);
+    color: var(--reviews-fg);
+  }
+
+  .reviews-section .editorial-link--inverse {
+    color: var(--reviews-fg);
+    --editorial-link-underline: rgba(252, 250, 248, 0.5);
+    --editorial-link-underline-hover: rgba(252, 250, 248, 0.5);
+  }
+
+  .reviews-section .editorial-link--inverse:hover {
+    color: var(--reviews-fg);
+    opacity: 0.8;
   }
 
   .reviews-card {
@@ -138,7 +169,7 @@
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: 1.65;
-    color: color-mix(in srgb, var(--reviews-fg) 92%, transparent);
+    color: var(--reviews-fg);
   }
 
   .reviews-card__quote p::before {
@@ -166,7 +197,7 @@
     overflow: hidden;
     border-radius: 9999px;
     border: 1px solid var(--reviews-card-border);
-    background-color: var(--surface-muted);
+    background-color: rgba(252, 250, 248, 0.06);
   }
 
   .reviews-card__meta {
@@ -188,7 +219,7 @@
     font-family: var(--font-sans);
     font-size: var(--text-small);
     line-height: 1.35;
-    color: var(--reviews-fg-muted);
+    color: var(--reviews-fg-country);
   }
 
   .reviews-card__visa {
