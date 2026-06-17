@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-/** Page title — strings use the root template; `absolute` bypasses it */
+/** Page title  -  strings use the root template; `absolute` bypasses it */
 export type PageTitle = string | { absolute: string }
 
 /** Shared input for marketing and dynamic pages */

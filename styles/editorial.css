@@ -1,5 +1,5 @@
 /* =============================================================================
-   Media surfaces — hero photography, architectural frames
+   Media surfaces  -  hero photography, architectural frames
    ============================================================================= */
 
 @layer components {
@@ -45,7 +45,7 @@
     transform: none;
   }
 
-  /* Responsive hero layers — CSS enforces md swap (backup to Tailwind utilities) */
+  /* Responsive hero layers  -  CSS enforces md swap (backup to Tailwind utilities) */
   .hero-media-frame__layer--desktop {
     display: none;
   }
@@ -86,7 +86,7 @@
     opacity: 0.85;
   }
 
-  /* Homepage hero — avoid multiply haze; keep skyline crisp */
+  /* Homepage hero  -  avoid multiply haze; keep skyline crisp */
   .hero-premium .hero-media-frame__wash {
     mix-blend-mode: normal;
     background: color-mix(in srgb, var(--palette-muted) 12%, transparent);

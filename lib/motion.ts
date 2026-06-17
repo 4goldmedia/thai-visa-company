@@ -1,5 +1,5 @@
 /**
- * Motion timing tokens — homepage animations use CSS (`styles/motion.css`).
+ * Motion timing tokens  -  homepage animations use CSS (`styles/motion.css`).
  * Keep easing/duration aligned with `.motion-fade-up-mount` and related utilities.
  */
 export const MOTION_EASE = [0.22, 0.03, 0.26, 1] as const

@@ -12,7 +12,7 @@ export type VisaPageRouteParams = {
 export type VisaPageStaticParam = VisaPageRouteParams
 
 /**
- * Full page context for visa routes — content, SEO metadata, breadcrumbs, related visas.
+ * Full page context for visa routes  -  content, SEO metadata, breadcrumbs, related visas.
  * Cached per request via `resolveVisaPageContext`.
  */
 export type ResolvedVisaPageContext = {

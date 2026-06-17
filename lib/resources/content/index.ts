@@ -18,6 +18,6 @@ export const resourcesIndexContent: ResourcesIndexContent = {
     eyebrow: "Resources",
     title: "Thailand visa guides",
     overview:
-      "Clear articles on eligibility, documents, and timelines — written for real questions, not search algorithms. New guides are added as rules and client needs evolve.",
+      "Clear articles on eligibility, documents, and timelines  -  written for real questions, not search algorithms. New guides are added as rules and client needs evolve.",
   },
 }

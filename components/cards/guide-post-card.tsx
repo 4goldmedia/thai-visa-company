@@ -97,7 +97,7 @@ function GuidePostCard({
           className="absolute inset-0 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
         >
           <span className="sr-only">
-            {ctaLabels.readGuide} — {title}
+            {ctaLabels.readGuide}: {title}
           </span>
         </Link>
       ) : null}

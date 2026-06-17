@@ -1,5 +1,5 @@
 /**
- * Section-driven visa page layout — order is data-defined per visa.
+ * Section-driven visa page layout  -  order is data-defined per visa.
  * Optional modules render only when content is present (see section renderer).
  */
 export const visaSectionIds = [

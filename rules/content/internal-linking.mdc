@@ -1,5 +1,5 @@
 ---
-description: Internal linking standard — connected knowledge network, reader-first links
+description: Internal linking standard  -  connected knowledge network, reader-first links
 globs: content/**/*,lib/blog/**/*,lib/guides/**/*
 alwaysApply: false
 ---

@@ -16,7 +16,7 @@ const EMAIL_MAX = 254
 const MESSAGE_MAX = 2000
 const LOCATION_MAX = 120
 const NATIONALITY_MAX = 80
-const CONSULTATION_PLACEHOLDER = "—"
+const CONSULTATION_PLACEHOLDER = "-"
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 

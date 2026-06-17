@@ -22,7 +22,7 @@ import {
 // Field mapping
 // -----------------------------------------------------------------------------
 
-const EMPTY_PLACEHOLDER = "—"
+const EMPTY_PLACEHOLDER = "-"
 
 const leadSourceLabels: Record<InquiryFormPayload["leadSource"], string> = {
   homepage: "Homepage",
@@ -88,7 +88,7 @@ export function mapInquiryToLeadInput(
   }
 }
 
-/** @deprecated Use `mapInquiryToLeadInput` — kept for backward compatibility */
+/** @deprecated Use `mapInquiryToLeadInput`  -  kept for backward compatibility */
 export function toAirtableLeadRecord(payload: InquiryFormPayload) {
   const input = mapInquiryToLeadInput(payload)
   return toAirtableFields(input)
@@ -110,7 +110,7 @@ export async function createLead(
   if (!isAirtableConfigured()) {
     if (options.allowUnconfigured) {
       if (process.env.NODE_ENV === "development") {
-        console.info("[airtable] createLead skipped — not configured", input)
+        console.info("[airtable] createLead skipped, not configured", input)
       }
       return { ok: true, data: { recordId: "dev-stub" }, skipped: true }
     }

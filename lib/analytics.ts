@@ -1,5 +1,5 @@
 /**
- * Analytics public API — import from `@/lib/analytics`.
+ * Analytics public API  -  import from `@/lib/analytics`.
  *
  * GA4 loads via `<AnalyticsRoot />` when `NEXT_PUBLIC_GA_ID` is set.
  * Implementation modules live in `lib/analytics/*`.

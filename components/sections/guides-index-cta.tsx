@@ -21,7 +21,7 @@ function GuidesIndexCta() {
           Need help applying what you read?
         </h2>
         <p className="mt-2 max-w-xl text-[15px] leading-[1.7] text-muted-foreground">
-          Share your nationality and timeline — we reply with clear next steps.
+          Share your nationality and timeline, and we reply with clear next steps.
         </p>
         <Link
           href={ctaHref.requestConsultation}

@@ -1,6 +1,6 @@
 # INTERNAL LINKING STRATEGY
 
-Implementation: **`lib/content/related.ts`** — scoring, topic taxonomy, and cross-type resolvers.
+Implementation: **`lib/content/related.ts`**  -  scoring, topic taxonomy, and cross-type resolvers.
 
 | Resolver | Direction |
 |----------|-----------|

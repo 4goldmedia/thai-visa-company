@@ -84,7 +84,7 @@ function HomepageHeroMobileScene({
 }
 
 /**
- * Homepage hero — high-fidelity reference composition.
+ * Homepage hero  -  high-fidelity reference composition.
  * Other routes continue to use PageHero.
  */
 function HomepageHero() {
@@ -98,7 +98,7 @@ function HomepageHero() {
     >
       <div className="hero-premium__atmosphere" aria-hidden />
 
-      {/* Desktop full-bleed — not mounted in layout below lg (avoids loading LS on mobile) */}
+      {/* Desktop full-bleed  -  not mounted in layout below lg (avoids loading LS on mobile) */}
       <div className="hero-premium__environment hidden lg:block" aria-hidden>
         <HeroResponsiveMediaFrame
           assets={heroMedia}

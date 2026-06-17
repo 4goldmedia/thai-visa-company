@@ -26,7 +26,7 @@ export type VisaPageHeroContent = {
   title: string
   /** Optional second line under the title */
   subtitle?: string
-  /** Plain-English lead — keep to 2–3 short lines in content */
+  /** Plain-English lead  -  keep to 2–3 short lines in content */
   overview: string
   heroImage?: string
   heroImageAlt?: string

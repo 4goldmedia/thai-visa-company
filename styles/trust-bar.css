@@ -1,4 +1,4 @@
-/* Trust bar — editorial credibility layer beneath hero */
+/* Trust bar  -  editorial credibility layer beneath hero */
 
 @layer components {
   .trust-bar {
@@ -41,7 +41,7 @@
     padding-bottom: 0;
   }
 
-  /* Tablet — 2×2 with vertical + horizontal dividers */
+  /* Tablet  -  2×2 with vertical + horizontal dividers */
   @media (min-width: 640px) {
     .trust-bar__list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -78,7 +78,7 @@
     }
   }
 
-  /* Desktop — single horizontal row */
+  /* Desktop  -  single horizontal row */
   @media (min-width: 1024px) {
     .trust-bar {
       padding-block: var(--space-trust-bar-y-lg);

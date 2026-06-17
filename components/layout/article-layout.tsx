@@ -60,7 +60,7 @@ export type ArticleLayoutProps = {
   /** Stable id for `aria-labelledby` and in-page anchors */
   headingId?: string
   eyebrow?: string
-  /** Short AEO answer — direct response snippet */
+  /** Short AEO answer  -  direct response snippet */
   answer?: string
   /** Short intro / dek below the title */
   lead?: string
@@ -71,11 +71,11 @@ export type ArticleLayoutProps = {
   shareRow?: React.ReactNode
   /** Main article body (MDX, prose sections, etc.) */
   children: React.ReactNode
-  /** Table of contents — omit to render the default placeholder */
+  /** Table of contents  -  omit to render the default placeholder */
   tableOfContents?: React.ReactNode | null
-  /** Related guides — omit to render the default placeholder */
+  /** Related guides  -  omit to render the default placeholder */
   relatedResources?: React.ReactNode | null
-  /** Closing CTA — omit to render the default placeholder */
+  /** Closing CTA  -  omit to render the default placeholder */
   cta?: React.ReactNode | null
   /** When false, omitted slots render nothing instead of placeholders */
   showPlaceholders?: boolean

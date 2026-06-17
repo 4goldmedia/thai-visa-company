@@ -1,6 +1,6 @@
 import { visaSlugs } from "@/lib/visas/types"
 
-/** Visa interest values — extends live visa slugs with routing-friendly options */
+/** Visa interest values  -  extends live visa slugs with routing-friendly options */
 export const inquiryVisaInterestValues = [
   ...visaSlugs,
   "marriage",
@@ -26,7 +26,7 @@ export const inquiryVisaOptions: readonly InquiryVisaOption[] = [
   { value: "unsure", label: "Not sure yet" },
 ] as const
 
-/** Homepage consultation section — focused visa choices */
+/** Homepage consultation section  -  focused visa choices */
 export const consultationVisaOptions: readonly InquiryVisaOption[] = [
   { value: "retirement", label: "Retirement Visa" },
   { value: "dtv", label: "DTV Visa" },

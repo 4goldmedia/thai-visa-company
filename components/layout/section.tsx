@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 const sectionVariants = cva("", {
   variants: {
     spacing: {
-      /** Standard sections — premium vertical rhythm */
+      /** Standard sections  -  premium vertical rhythm */
       default:
         "py-[var(--space-section-y)] sm:py-[calc(var(--space-section-y)+0.5rem)] md:py-[var(--space-section-y-lg)]",
       compact:

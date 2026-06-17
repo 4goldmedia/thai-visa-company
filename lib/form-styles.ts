@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-/** Shared form shell — calm fintech rhythm */
+/** Shared form shell  -  calm fintech rhythm */
 export const formStackClass = "flex flex-col gap-5 sm:gap-6"
 
 export const formLabelClass =
@@ -14,7 +14,7 @@ export const formHintClass =
 export const formErrorClass =
   "text-[13px] leading-snug text-destructive sm:text-sm"
 
-/** Text inputs and selects — 44px touch target on mobile */
+/** Text inputs and selects  -  44px touch target on mobile */
 export const formControlClass = cn(
   "h-11 w-full min-w-0 rounded-[var(--radius-input)] border border-border/70 bg-background px-3.5",
   "text-[15px] text-foreground placeholder:text-muted-foreground/65",
@@ -52,7 +52,7 @@ export const formTrustNoteClass = cn(
   "text-[13px] leading-snug text-muted-foreground sm:text-sm"
 )
 
-/** Inquiry success — calm confirmation shell */
+/** Inquiry success  -  calm confirmation shell */
 export const formSuccessIconWrapClass = cn(
   "flex size-10 shrink-0 items-center justify-center rounded-full",
   "border border-primary/15 bg-primary/5 sm:size-11"

@@ -1,5 +1,5 @@
 /**
- * Semantic topic taxonomy — shared by articles, related linking, and series navigation.
+ * Semantic topic taxonomy  -  shared by articles, related linking, and series navigation.
  */
 
 export const contentTopicIds = [

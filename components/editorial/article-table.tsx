@@ -16,7 +16,7 @@ function ArticleTable({ caption, columns, rows, className }: ArticleTableProps) 
   return (
     <figure className={cn("editorial-table-wrap", className)}>
       <table className="editorial-table">
-        {caption ? <caption>{caption}</caption> : null}
+        {caption ? <caption className="sr-only">{caption}</caption> : null}
         <thead>
           <tr>
             {columns.map((column) => (

@@ -61,7 +61,7 @@ function FooterBrand() {
   return (
     <div className="site-footer__brand">
       <Link href="/" className="site-footer__brand-name">
-        <span className="sr-only">{siteConfig.name} — Home</span>
+        <span className="sr-only">{siteConfig.name}, Home</span>
         <span aria-hidden>{siteConfig.name}</span>
       </Link>
 

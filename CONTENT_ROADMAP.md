@@ -1,10 +1,10 @@
-# SEO content roadmap — Thailand visa platform
+# SEO content roadmap  -  Thailand visa platform
 
 Long-term topical authority plan aligned with live routes (`/visas/*`, `/resources/*`), `contentTopicTaxonomy` (`lib/content/related.ts`), and `EDITORIAL_WORKFLOW.md`.
 
 **Operations:** launch sequencing, reviews, analytics cadence → [LAUNCH_AND_GROWTH_SYSTEM.md](./LAUNCH_AND_GROWTH_SYSTEM.md)
 
-**Status key:** **LIVE** · **P1** (next ship) · **P2** (queue) · **P3** (later) · **STUB** (index only—publish or unlink before linking)
+**Status key:** **LIVE** · **P1** (next ship) · **P2** (queue) · **P3** (later) · **STUB** (index only - publish or unlink before linking)
 
 ---
 
@@ -27,11 +27,11 @@ Long-term topical authority plan aligned with live routes (`/visas/*`, `/resourc
 flowchart TB
   subgraph hub [Site hubs]
     HOME["/"]
-    VISAS["/visas hub — P2"]
+    VISAS["/visas hub  -  P2"]
     RES["/resources"]
   end
 
-  subgraph visas [Visa landings — LIVE]
+  subgraph visas [Visa landings  -  LIVE]
     R["/visas/retirement"]
     D["/visas/dtv"]
     E["/visas/elite"]
@@ -46,7 +46,7 @@ flowchart TB
     PROC[Process & timelines]
     REN[Renewal & extensions]
     MIST[Common mistakes]
-    COMP[Comparisons — sparse, intentional]
+    COMP[Comparisons  -  sparse, intentional]
   end
 
   HOME --> VISAS
@@ -80,13 +80,13 @@ flowchart TB
 
 > Finish **Phase A** (core + process + one eligibility) for a cluster before opening the next cluster’s Phase A.
 
-Exception: **process** articles (`how-long-does-thai-visa-take`) serve all clusters—ship once in Foundation phase.
+Exception: **process** articles (`how-long-does-thai-visa-take`) serve all clusters - ship once in Foundation phase.
 
 ### Cannibalization check
 
 | If the query is… | Publish on… |
 |------------------|-------------|
-| “Thailand retirement visa requirements” | Visa page + optional deep guide—not two competing H1s |
+| “Thailand retirement visa requirements” | Visa page + optional deep guide - not two competing H1s |
 | “How to get retirement visa step by step” | Resource guide (`how-to-…`) |
 | “Retirement vs Elite Thailand” | Single comparison article linked from both visa pages |
 
@@ -96,11 +96,11 @@ Exception: **process** articles (`how-long-does-thai-visa-take`) serve all clust
 
 | Phase | Timeline | Outcome |
 |-------|----------|---------|
-| **0 — Baseline** | Now | 5 visa landings LIVE · 1 resource LIVE · 2 STUBs |
-| **1 — Foundation** | Months 1–2 | Process hub article LIVE · DTV + retirement cores · fix STUB links |
-| **2 — Cluster depth** | Months 3–5 | Retirement + DTV complete Phase B (eligibility, renewal, mistakes) |
-| **3 — Secondary clusters** | Months 6–8 | Business + education Phase A–B · Elite Phase A |
-| **4 — Hub & comparisons** | Months 9–12 | `/visas` hub LIVE · 3–4 high-intent comparisons · quarterly refresh cycle |
+| **0  -  Baseline** | Now | 5 visa landings LIVE · 1 resource LIVE · 2 STUBs |
+| **1  -  Foundation** | Months 1–2 | Process hub article LIVE · DTV + retirement cores · fix STUB links |
+| **2  -  Cluster depth** | Months 3–5 | Retirement + DTV complete Phase B (eligibility, renewal, mistakes) |
+| **3  -  Secondary clusters** | Months 6–8 | Business + education Phase A–B · Elite Phase A |
+| **4  -  Hub & comparisons** | Months 9–12 | `/visas` hub LIVE · 3–4 high-intent comparisons · quarterly refresh cycle |
 
 ### Publishing cadence (team of 1–2 writers + reviewer)
 
@@ -116,15 +116,15 @@ Aligns with `EDITORIAL_WORKFLOW.md`.
 
 ## Cross-cluster content (shared)
 
-These support **all** visa clusters and belong in the **process** / **comparisons** taxonomy—not inside one visa silo only.
+These support **all** visa clusters and belong in the **process** / **comparisons** taxonomy - not inside one visa silo only.
 
 | Slug (proposed) | Type | Priority | Notes |
 |-----------------|------|----------|-------|
 | `how-long-does-thai-visa-take` | Process | **P1 STUB** | Ship first; link from every visa `relatedResources` |
-| `thailand-visa-extension-guide` | Process / renewal | P2 | 90-day reporting, extensions—nationality-specific caveats |
+| `thailand-visa-extension-guide` | Process / renewal | P2 | 90-day reporting, extensions - nationality-specific caveats |
 | `thailand-visa-document-checklist` | Process | P2 | Generic checklist; link out to visa-specific financial guides |
 | `common-thailand-visa-mistakes` | Mistake-prevention | P2 | Cross-visa; link to cluster mistake articles when they exist |
-| `tourist-visa-vs-long-stay-thailand` | Comparison | P3 | Funnel to DTV / retirement / Elite—not generic travel |
+| `tourist-visa-vs-long-stay-thailand` | Comparison | P3 | Funnel to DTV / retirement / Elite - not generic travel |
 | `dtv-vs-tourist-visa-thailand` | Comparison | P2 | High intent for DTV cluster |
 | `retirement-visa-vs-thailand-elite` | Comparison | P3 | After both clusters Phase A complete |
 
@@ -142,14 +142,14 @@ These support **all** visa clusters and belong in the **process** / **comparison
 
 | Asset | Path | Status |
 |-------|------|--------|
-| Retirement visa service page | `/visas/retirement` | **LIVE** — quarterly review |
+| Retirement visa service page | `/visas/retirement` | **LIVE**  -  quarterly review |
 
 ## Supporting articles
 
 | Slug | Type | Priority | Search intent (summary) |
 |------|------|----------|-------------------------|
 | `how-to-get-thailand-retirement-visa` | Core how-to | **LIVE** | Step-by-step application prep |
-| `thailand-retirement-visa-requirements` | Eligibility | P2 | Age, financial proof, insurance—embassy variance |
+| `thailand-retirement-visa-requirements` | Eligibility | P2 | Age, financial proof, insurance - embassy variance |
 | `retirement-visa-financial-requirements-thailand` | Eligibility / cost | P2 | Bank balance vs pension routes |
 | `thailand-retirement-visa-renewal` | Renewal | P2 | Extensions, annual reporting, in-country steps |
 | `retirement-visa-processing-time` | Process | P3 | Cluster-specific timeline (links to global process guide) |
@@ -178,13 +178,13 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 | Slug | Priority |
 |------|----------|
 | `how-long-does-thai-visa-take` | **P1** (shared; retirement section in body) |
-| `thailand-retirement-visa-application-process` | P3 — only if not duplicated by LIVE how-to |
+| `thailand-retirement-visa-application-process` | P3  -  only if not duplicated by LIVE how-to |
 
 ## Cost articles
 
 | Slug | Priority | Framing |
 |------|----------|---------|
-| `thailand-retirement-visa-cost` | P2 | Embassy fees + insurance + proof costs—no fixed “package price” unless you publish offers |
+| `thailand-retirement-visa-cost` | P2 | Embassy fees + insurance + proof costs - no fixed “package price” unless you publish offers |
 | `retirement-visa-bank-balance-requirements` | P2 | Eligibility-first; typical figures as examples |
 
 ## Eligibility articles
@@ -210,10 +210,10 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 
 ### Retirement cluster sequence
 
-1. **P1** — Publish STUB `how-long-does-thai-visa-take` (unblocks visa related links)  
-2. **P2** — `thailand-retirement-visa-requirements` + `thailand-retirement-visa-renewal`  
-3. **P2** — `retirement-visa-mistakes-to-avoid` + cost/eligibility split articles  
-4. **P3** — Comparisons and couple-specific guides  
+1. **P1**  -  Publish STUB `how-long-does-thai-visa-take` (unblocks visa related links)  
+2. **P2**  -  `thailand-retirement-visa-requirements` + `thailand-retirement-visa-renewal`  
+3. **P2**  -  `retirement-visa-mistakes-to-avoid` + cost/eligibility split articles  
+4. **P3**  -  Comparisons and couple-specific guides  
 
 **Cluster complete when:** 1 LIVE how-to + 4–6 supporting articles + visa page FAQ refreshed + all `related` targets LIVE.
 
@@ -249,7 +249,7 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 - Can freelancers use the DTV?
 - Do I need a Thai bank account?
 - Can I work for a foreign employer while on DTV?
-- Where do I apply—embassy vs in-country?
+- Where do I apply - embassy vs in-country?
 
 ## Comparison articles
 
@@ -264,13 +264,13 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 | Slug | Priority |
 |------|----------|
 | `how-long-does-thai-visa-take` | **P1** (DTV subsection) |
-| `thailand-dtv-visa-application-timeline` | P3 — if not merged into how-to |
+| `thailand-dtv-visa-application-timeline` | P3  -  if not merged into how-to |
 
 ## Cost articles
 
 | Slug | Priority |
 |------|----------|
-| `thailand-dtv-visa-cost` | P2 — fees + proof costs |
+| `thailand-dtv-visa-cost` | P2  -  fees + proof costs |
 | `dtv-visa-financial-proof-explained` | P2 |
 
 ## Eligibility articles
@@ -292,14 +292,14 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 | Slug | Priority |
 |------|----------|
 | `dtv-visa-mistakes-to-avoid` | P2 |
-| `using-tourist-visa-instead-of-dtv` | P3 — comparison/mistake hybrid |
+| `using-tourist-visa-instead-of-dtv` | P3  -  comparison/mistake hybrid |
 
 ### DTV cluster sequence
 
-1. **P1** — `what-is-thailand-dtv-visa` (STUB → LIVE)  
-2. **P2** — `how-to-apply-thailand-dtv-visa` + `dtv-vs-tourist-visa-thailand`  
-3. **P2** — requirements, cost, mistakes, extension  
-4. **P3** — remote-work angle and business comparisons  
+1. **P1**  -  `what-is-thailand-dtv-visa` (STUB → LIVE)  
+2. **P2**  -  `how-to-apply-thailand-dtv-visa` + `dtv-vs-tourist-visa-thailand`  
+3. **P2**  -  requirements, cost, mistakes, extension  
+4. **P3**  -  remote-work angle and business comparisons  
 
 **Cluster complete when:** what-is + how-to + 4 supports LIVE; visa page links only to published URLs.
 
@@ -322,7 +322,7 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 | Slug | Type | Priority | Search intent |
 |------|------|----------|---------------|
 | `what-is-thailand-elite-visa` | Core what-is | P2 | Membership model, benefits overview |
-| `thailand-elite-visa-cost` | Cost | **P2** | Package tiers—clear “prices change” disclaimer |
+| `thailand-elite-visa-cost` | Cost | **P2** | Package tiers - clear “prices change” disclaimer |
 | `thailand-elite-visa-requirements` | Eligibility | P2 | Who typically considers Elite |
 | `how-to-apply-thailand-elite-visa` | Core how-to | P3 | After what-is + cost |
 | `elite-visa-vs-long-stay-options` | Comparison | P3 | Elite vs retirement path |
@@ -348,14 +348,14 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 
 | Slug | Priority |
 |------|----------|
-| `how-long-does-thai-visa-take` | P1 (Elite subsection—often agent-led) |
+| `how-long-does-thai-visa-take` | P1 (Elite subsection - often agent-led) |
 | `thailand-elite-application-process` | P3 |
 
 ## Cost articles
 
 | Slug | Priority |
 |------|----------|
-| `thailand-elite-visa-cost` | **P2** — primary commercial intent |
+| `thailand-elite-visa-cost` | **P2**  -  primary commercial intent |
 | `elite-visa-payment-options` | P3 |
 
 ## Eligibility articles
@@ -377,14 +377,14 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 | Slug | Priority |
 |------|----------|
 | `elite-visa-mistakes-to-avoid` | P3 |
-| `unauthorized-elite-visa-agents` | P3 — trust angle |
+| `unauthorized-elite-visa-agents` | P3  -  trust angle |
 
 ### Elite cluster sequence
 
-1. **P2** — `what-is-thailand-elite-visa` + `thailand-elite-visa-cost` (high-intent pair)  
-2. **P2** — requirements + mistakes  
-3. **P3** — how-to, comparisons, renewal  
-*Note: Smaller search volume than retirement/DTV—fewer articles, higher quality.*
+1. **P2**  -  `what-is-thailand-elite-visa` + `thailand-elite-visa-cost` (high-intent pair)  
+2. **P2**  -  requirements + mistakes  
+3. **P3**  -  how-to, comparisons, renewal  
+*Note: Smaller search volume than retirement/DTV - fewer articles, higher quality.*
 
 **Cluster complete when:** 4–5 LIVE articles + cost guide authoritative + comparisons to retirement only after both clusters ready.
 
@@ -420,7 +420,7 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 - Can I work remotely for a foreign company on a business visa?
 - What documents does my employer provide?
 - Can I change employers on the same visa?
-- Business visa vs Non-Immigrant B—what clients actually ask
+- Business visa vs Non-Immigrant B - what clients actually ask
 
 ## Comparison articles
 
@@ -435,13 +435,13 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 | Slug | Priority |
 |------|----------|
 | `how-long-does-thai-visa-take` | P1 |
-| `thailand-business-visa-application-steps` | P3 — merge into how-to if possible |
+| `thailand-business-visa-application-steps` | P3  -  merge into how-to if possible |
 
 ## Cost articles
 
 | Slug | Priority |
 |------|----------|
-| `thailand-business-visa-cost` | P3 — embassy fees; avoid implying WP fees |
+| `thailand-business-visa-cost` | P3  -  embassy fees; avoid implying WP fees |
 | `employer-sponsored-visa-costs` | P3 |
 
 ## Eligibility articles
@@ -463,13 +463,13 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 | Slug | Priority |
 |------|----------|
 | `business-visa-mistakes-to-avoid` | P2 |
-| `working-without-work-permit-risks` | P3 — careful, factual tone |
+| `working-without-work-permit-risks` | P3  -  careful, factual tone |
 
 ### Business cluster sequence
 
-1. **P2** — `thailand-business-visa-requirements` + `how-to-get-thailand-business-visa`  
-2. **P2** — `thailand-work-permit-vs-business-visa` + mistakes  
-3. **P3** — renewal, founder angle, DTV comparison  
+1. **P2**  -  `thailand-business-visa-requirements` + `how-to-get-thailand-business-visa`  
+2. **P2**  -  `thailand-work-permit-vs-business-visa` + mistakes  
+3. **P3**  -  renewal, founder angle, DTV comparison  
 
 **Cluster complete when:** work-permit comparison LIVE + core how-to/requirements + visa page sync.
 
@@ -551,9 +551,9 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 
 ### Education cluster sequence
 
-1. **P2** — requirements + how-to + student documents  
-2. **P2** — renewal + mistakes + financial proof  
-3. **P3** — language-school angle, comparisons  
+1. **P2**  -  requirements + how-to + student documents  
+2. **P2**  -  renewal + mistakes + financial proof  
+3. **P3**  -  language-school angle, comparisons  
 
 **Cluster complete when:** 5–6 articles LIVE; school-document guide linked from visa page.
 
@@ -594,9 +594,9 @@ Adjust ±1 month for capacity; **do not** publish ahead of cluster sequence with
 
 ### Content types (post–year 1)
 
-- **Case-style timelines** (“typical retirement file from UK”)—anonymous, factual  
+- **Case-style timelines** (“typical retirement file from UK”) - anonymous, factual  
 - **Checklist downloads** (PDF) with same FAQ schema as page  
-- **Seasonal updates** (high season embassy delays)—short `updatedAt` notes, not new URLs  
+- **Seasonal updates** (high season embassy delays) - short `updatedAt` notes, not new URLs  
 
 ### Metrics to steer year 2
 
@@ -614,13 +614,13 @@ When shipping any roadmap item:
 1. `content/articles/resources/<slug>/meta.ts` + `content.mdx`  
 2. `lib/content/registry.ts` + `articleEntriesSync`  
 3. Remove from `lib/content/planned/resources.ts` if listed  
-4. Update `lib/visas/content/*.ts` `relatedResources` — **published URLs only**  
+4. Update `lib/visas/content/*.ts` `relatedResources`  -  **published URLs only**  
 5. `tags` + `relatedSlugs` aligned with `contentTopicTaxonomy`  
 6. `EDITORIAL_WORKFLOW.md` checklists + `npm run build`  
 
 ---
 
-## Long-term topical authority — verification
+## Long-term topical authority  -  verification
 
 This roadmap supports sustained authority growth because it:
 
@@ -644,16 +644,16 @@ This roadmap supports sustained authority growth because it:
 | Elite | 4–6 |
 | Cross-cluster process/comparison | 5–7 |
 
-**Total:** ~35–45 focused URLs—not hundreds of thin posts.
+**Total:** ~35–45 focused URLs - not hundreds of thin posts.
 
 ---
 
 ## Related documents
 
-- `EDITORIAL_WORKFLOW.md` — how to ship each item  
-- `AI_SEARCH_OPTIMIZATION.md` — extractability standards  
-- `lib/schema/INTERNAL_LINKING_STRATEGY.md` — linking rules  
-- `lib/CONTENT_ARCHITECTURE.md` — technical registration  
+- `EDITORIAL_WORKFLOW.md`  -  how to ship each item  
+- `AI_SEARCH_OPTIMIZATION.md`  -  extractability standards  
+- `lib/schema/INTERNAL_LINKING_STRATEGY.md`  -  linking rules  
+- `lib/CONTENT_ARCHITECTURE.md`  -  technical registration  
 
 ---
 

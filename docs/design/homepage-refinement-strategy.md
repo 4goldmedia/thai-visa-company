@@ -1,7 +1,7 @@
 # Homepage premium refinement strategy
 
 **Date:** 2026-05-21  
-**Calibration:** [`premium-direction-reference-v1.png`](./premium-direction-reference-v1.png) — atmosphere only, **not** a layout blueprint  
+**Calibration:** [`premium-direction-reference-v1.png`](./premium-direction-reference-v1.png)  -  atmosphere only, **not** a layout blueprint  
 **Scope:** Refinement audit + implementation roadmap. **No redesign.** Architecture, SEO, section order, and component boundaries stay intact.
 
 **Constraints (fixed):**
@@ -53,10 +53,10 @@ Extract **feeling**, not structure:
 |-----------|---------------|----------------|--------------|
 | Visual hierarchy | Clear H1 → sections; cards compete with section titles | Reference: display dominates; cards are subordinate | Medium |
 | Typography | Heroes/sections tokenized; cards still 15/14px Geist | Reference: bolder display scale, quieter cards | Medium |
-| Images | Single hero only; cards are text-only | Reference: photography throughout — **do not add collage**; hero quality matters more | Medium (hero) · Low (cards) |
+| Images | Single hero only; cards are text-only | Reference: photography throughout  -  **do not add collage**; hero quality matters more | Medium (hero) · Low (cards) |
 | Surfaces | Border-first cards; 2× `sectionBandClass` + at-a-glance band | Slight band fatigue; still calm | Low–Medium |
 | Layout rhythm | Mixed `default` / `spacious` / `compact` / `content` widths | Good skeleton; cadence uneven between full vs content | Medium |
-| Conversion | Hero + final CTA strong; FAQ after CTA | Order is intentional (conversion audit); reference places CTA at footer only — **keep current order** | Low |
+| Conversion | Hero + final CTA strong; FAQ after CTA | Order is intentional (conversion audit); reference places CTA at footer only  -  **keep current order** | Low |
 | Mobile | Readable; dense hero trust stack; process list cramped | Hero long scroll before visas; CTAs OK at h-11 | Medium |
 
 ---
@@ -69,44 +69,44 @@ Extract **feeling**, not structure:
 
 | Aspect | Current | Opportunity |
 |--------|---------|-------------|
-| Headline rhythm | H1 + secondary tagline line — two-line stack is good for SEO | Secondary line could be slightly more muted (tertiary tier) so primary H1 reads as single architectural statement |
-| CTA prominence | `ContactCtaGroup` below lead — correct | Reassurance line uses `text-sm` — align to `--text-small`; ensure primary button is visually first (LINE) |
-| Section pacing | `spacing="spacious"` — appropriate | — |
-| Content density | Trust divider + Google summary + 3 icon bullets — **dense** below CTAs | Reference: lighter trust — consider collapsing to summary **or** bullets, not both at full weight |
+| Headline rhythm | H1 + secondary tagline line  -  two-line stack is good for SEO | Secondary line could be slightly more muted (tertiary tier) so primary H1 reads as single architectural statement |
+| CTA prominence | `ContactCtaGroup` below lead  -  correct | Reassurance line uses `text-sm`  -  align to `--text-small`; ensure primary button is visually first (LINE) |
+| Section pacing | `spacing="spacious"`  -  appropriate |  -  |
+| Content density | Trust divider + Google summary + 3 icon bullets  -  **dense** below CTAs | Reference: lighter trust  -  consider collapsing to summary **or** bullets, not both at full weight |
 | Whitespace | Split grid `gap-10` → `gap-16` xl | Slightly increase lead-to-CTA token gap on desktop for calibration “breathing room” |
 
 #### Typography
 
-- Display scale tops at 34px (`--text-display-lg`) — reference feels **larger on desktop**. Phase C: optional single step to 36–38px at `lg` without breaking mobile.
-- `pageTitleSecondaryClass` — good sans subline; ensure it does not rival H1 weight.
+- Display scale tops at 34px (`--text-display-lg`)  -  reference feels **larger on desktop**. Phase C: optional single step to 36–38px at `lg` without breaking mobile.
+- `pageTitleSecondaryClass`  -  good sans subline; ensure it does not rival H1 weight.
 
 #### Image treatment
 
-- Portrait 4:5 frame — architectural, bordered — **aligned** with restraint (not full-bleed reference hero).
-- Wash + gradient overlay — acceptable; avoid adding third overlay layer.
-- Unsplash residence — warm, not tourist cliché — **good**.
-- Caption uppercase on image — subtle luxury; ensure contrast stays legible.
-- **Sizing:** `max-w-md` on mobile centers image — premium; on lg column feels slightly narrow vs copy column — tune `lg` column balance only (not full-bleed).
+- Portrait 4:5 frame  -  architectural, bordered  -  **aligned** with restraint (not full-bleed reference hero).
+- Wash + gradient overlay  -  acceptable; avoid adding third overlay layer.
+- Unsplash residence  -  warm, not tourist cliché  -  **good**.
+- Caption uppercase on image  -  subtle luxury; ensure contrast stays legible.
+- **Sizing:** `max-w-md` on mobile centers image  -  premium; on lg column feels slightly narrow vs copy column  -  tune `lg` column balance only (not full-bleed).
 
 #### Surfaces
 
-- No floating trust card on image (reference has one) — **correct per guardrail**; do not add overlay card.
-- Trust block uses border-top only — good.
+- No floating trust card on image (reference has one)  -  **correct per guardrail**; do not add overlay card.
+- Trust block uses border-top only  -  good.
 
 #### Layout rhythm
 
-- First impression is **copy-left / image-right** — keep.
-- Motion: `fadeUpMount` on copy and image — keep subtle.
+- First impression is **copy-left / image-right**  -  keep.
+- Motion: `fadeUpMount` on copy and image  -  keep subtle.
 
 #### Conversion
 
 - Strong: dual messaging CTAs + review proof.
-- Risk: trust list feels like a **checklist ad** — shorten copy or reduce to 2 bullets for premium calm.
+- Risk: trust list feels like a **checklist ad**  -  shorten copy or reduce to 2 bullets for premium calm.
 
 #### Mobile
 
-- Stack: copy → image → long trust — **long hero**.
-- Mitigation (refinement): tighten trust block spacing; consider `GoogleReviewSummary` only on mobile, bullets on desktop (or vice versa) — **content-preserving** display rules only.
+- Stack: copy → image → long trust  -  **long hero**.
+- Mitigation (refinement): tighten trust block spacing; consider `GoogleReviewSummary` only on mobile, bullets on desktop (or vice versa)  -  **content-preserving** display rules only.
 
 **Section grade:** B+ → target A- via density + display scale + trust simplification.
 
@@ -118,9 +118,9 @@ Extract **feeling**, not structure:
 
 #### Assessment
 
-- SEO/AI extractable block — **keep** (architecture constraint).
-- Visually: second band immediately after hero — `surface-band` + olive bullets + `foreground/90` body reads **louder** than muted section descriptions.
-- Reference has no equivalent — feels like an **inserted utility strip**, not premium editorial flow.
+- SEO/AI extractable block  -  **keep** (architecture constraint).
+- Visually: second band immediately after hero  -  `surface-band` + olive bullets + `foreground/90` body reads **louder** than muted section descriptions.
+- Reference has no equivalent  -  feels like an **inserted utility strip**, not premium editorial flow.
 
 #### Opportunities (refinement only)
 
@@ -139,38 +139,38 @@ Extract **feeling**, not structure:
 
 #### Visual hierarchy
 
-- `SectionHeading` — good display hierarchy.
-- Five cards in 2-col → 6-col grid with offset row — **clever** but desktop layout is **dense** vs reference’s airy image-top row (do **not** switch to 5-column; refine spacing only).
-- Card titles 15px medium — **below** section title authority — correct relationship but cards feel utilitarian.
+- `SectionHeading`  -  good display hierarchy.
+- Five cards in 2-col → 6-col grid with offset row  -  **clever** but desktop layout is **dense** vs reference’s airy image-top row (do **not** switch to 5-column; refine spacing only).
+- Card titles 15px medium  -  **below** section title authority  -  correct relationship but cards feel utilitarian.
 
 #### Typography
 
-- Benefit line with `CircleCheck` + `foreground/90` — third text tier inside card.
-- “Learn more” pseudo-link + overlay link — fine for a11y; visually quiet — good.
+- Benefit line with `CircleCheck` + `foreground/90`  -  third text tier inside card.
+- “Learn more” pseudo-link + overlay link  -  fine for a11y; visually quiet  -  good.
 
 #### Image treatment
 
-- **No card images** — biggest visual gap vs reference mood. **Not a Phase A requirement** (would be content/design asset work). Phase C: optional thumbnail slot in `VisaCard` if brand photography exists — behind feature flag / prop.
+- **No card images**  -  biggest visual gap vs reference mood. **Not a Phase A requirement** (would be content/design asset work). Phase C: optional thumbnail slot in `VisaCard` if brand photography exists  -  behind feature flag / prop.
 
 #### Surfaces
 
-- `cardSurfaceClass` — aligned.
-- Hover border only — good.
+- `cardSurfaceClass`  -  aligned.
+- Hover border only  -  good.
 
 #### Layout rhythm
 
-- `gap-3.5` / `gap-5` / `lg:gap-6` — normalize to grid tokens (Batch B).
-- `lg:col-start-2` offset — slightly asymmetric; premium if gaps are generous — verify optical centering in Phase C.
+- `gap-3.5` / `gap-5` / `lg:gap-6`  -  normalize to grid tokens (Batch B).
+- `lg:col-start-2` offset  -  slightly asymmetric; premium if gaps are generous  -  verify optical centering in Phase C.
 
 #### Conversion
 
-- Cards link to visa pages — clear intent.
-- No section-level CTA — acceptable; hero covers contact.
+- Cards link to visa pages  -  clear intent.
+- No section-level CTA  -  acceptable; hero covers contact.
 
 #### Mobile
 
-- Single column stack — good.
-- Card padding and benefit block add height — acceptable.
+- Single column stack  -  good.
+- Card padding and benefit block add height  -  acceptable.
 
 **Section grade:** B → A- via grid tokens + card typography utilities + optional imagery (C).
 
@@ -182,31 +182,31 @@ Extract **feeling**, not structure:
 
 #### Visual hierarchy
 
-- Band section (`sectionBandClass`) — second tinted band on page (after at-a-glance) — **band fatigue** risk.
-- Four equal trust cards — reference uses fewer, larger ideas; four is OK for conversion but reads **grid-heavy**.
+- Band section (`sectionBandClass`)  -  second tinted band on page (after at-a-glance)  -  **band fatigue** risk.
+- Four equal trust cards  -  reference uses fewer, larger ideas; four is OK for conversion but reads **grid-heavy**.
 
 #### Typography
 
-- Trust card titles 15px — consistent with visa cards — good sibling relationship.
-- Icons `foreground/35` vs hero olive icons — **inconsistent trust color language** (see visual-inconsistency audit).
+- Trust card titles 15px  -  consistent with visa cards  -  good sibling relationship.
+- Icons `foreground/35` vs hero olive icons  -  **inconsistent trust color language** (see visual-inconsistency audit).
 
 #### Surfaces
 
-- Cards identical to visa — good system consistency.
+- Cards identical to visa  -  good system consistency.
 
 #### Layout rhythm
 
-- 2×2 grid `gap-3.5` — normalize tokens.
+- 2×2 grid `gap-3.5`  -  normalize tokens.
 
 #### Conversion
 
-- Strong rational trust — aligns with consultation intent.
+- Strong rational trust  -  aligns with consultation intent.
 
 #### Mobile
 
-- 1-col stack — fine.
+- 1-col stack  -  fine.
 
-**Section grade:** B → A- via icon color unification + band alternation review (consider plain `sectionDividerClass` if at-a-glance stays band — only one “strong” band per scroll depth).
+**Section grade:** B → A- via icon color unification + band alternation review (consider plain `sectionDividerClass` if at-a-glance stays band  -  only one “strong” band per scroll depth).
 
 ---
 
@@ -216,29 +216,29 @@ Extract **feeling**, not structure:
 
 #### Visual hierarchy
 
-- `Container size="content"` — narrows section — **good** calm cadence vs full-width grids.
-- Mobile: single `cardShellClass` with dividers — **dense** (`px-3.5 py-3.5`).
-- Desktop: 2×2 bordered cells — closer to reference’s numbered steps, but reference uses **large light step numbers** — refinement target.
+- `Container size="content"`  -  narrows section  -  **good** calm cadence vs full-width grids.
+- Mobile: single `cardShellClass` with dividers  -  **dense** (`px-3.5 py-3.5`).
+- Desktop: 2×2 bordered cells  -  closer to reference’s numbered steps, but reference uses **large light step numbers**  -  refinement target.
 
 #### Typography
 
-- Step badge: small muted box `11px` — reference: oversized numeral as **graphic** element. Phase B/C: introduce `processStepNumberClass` (display, light weight, large size) without changing copy structure.
+- Step badge: small muted box `11px`  -  reference: oversized numeral as **graphic** element. Phase B/C: introduce `processStepNumberClass` (display, light weight, large size) without changing copy structure.
 
 #### Image treatment
 
-- N/A — appropriate.
+- N/A  -  appropriate.
 
 #### Surfaces
 
-- Shell + inner cards — dual surface on sm+ — slightly busy; Phase B: simplify mobile to card padding tokens only.
+- Shell + inner cards  -  dual surface on sm+  -  slightly busy; Phase B: simplify mobile to card padding tokens only.
 
 #### Conversion
 
-- Clear 4-step narrative — supports confidence.
+- Clear 4-step narrative  -  supports confidence.
 
 #### Mobile
 
-- **Weakest rhythm section** on homepage — cramped padding.
+- **Weakest rhythm section** on homepage  -  cramped padding.
 
 **Section grade:** B- → A- via mobile padding + display numerals (typography only).
 
@@ -250,13 +250,13 @@ Extract **feeling**, not structure:
 
 #### Visual hierarchy
 
-- Header row: `SectionHeading` + `GoogleReviewSummary` `size="md"` — summary can **compete** with section title (large rating type).
+- Header row: `SectionHeading` + `GoogleReviewSummary` `size="md"`  -  summary can **compete** with section title (large rating type).
 - Phase A: use `size="sm"` in section header; reserve `md` for hero/footer only.
 
 #### Typography
 
-- Review quotes `foreground/85` — OK.
-- Names 14px — migrate to card body token.
+- Review quotes `foreground/85`  -  OK.
+- Names 14px  -  migrate to card body token.
 
 #### Image treatment
 
@@ -264,18 +264,18 @@ Extract **feeling**, not structure:
 
 #### Surfaces
 
-- `sectionDividerClass` only — calm transition — good.
-- **Amber star fill** — reads “Google default”, not Bilt/Ramp. Phase C: muted charcoal/olive star treatment or single accent star — **micro-refinement**, high perceptual impact.
+- `sectionDividerClass` only  -  calm transition  -  good.
+- **Amber star fill**  -  reads “Google default”, not Bilt/Ramp. Phase C: muted charcoal/olive star treatment or single accent star  -  **micro-refinement**, high perceptual impact.
 
 #### Conversion
 
-- Link to Google reviews — trust.
-- Placed before final CTA — supports conversion arc.
+- Link to Google reviews  -  trust.
+- Placed before final CTA  -  supports conversion arc.
 
 #### Mobile
 
-- 1-col cards — good.
-- Stacked header (title then summary) — ensure summary doesn’t dominate.
+- 1-col cards  -  good.
+- Stacked header (title then summary)  -  ensure summary doesn’t dominate.
 
 **Section grade:** B → A- via summary scale + star chroma restraint.
 
@@ -287,21 +287,21 @@ Extract **feeling**, not structure:
 
 #### Visual hierarchy
 
-- `spacing="compact"` + `sectionBandClass` + `content` container — **strong** closing band.
-- Third band on page — with at-a-glance + why-us, consider whether this band needs full tint or divider-only (Phase B visual study).
+- `spacing="compact"` + `sectionBandClass` + `content` container  -  **strong** closing band.
+- Third band on page  -  with at-a-glance + why-us, consider whether this band needs full tint or divider-only (Phase B visual study).
 
 #### Typography
 
-- Footnote `text-[13px]` — tokenize to `--text-small`.
+- Footnote `text-[13px]`  -  tokenize to `--text-small`.
 
 #### Conversion
 
-- `showExploreCta={false}` on homepage — **correct** single intent (contact).
-- Review summary + CTAs + footnote — slightly dense; mirror hero trust simplification patterns.
+- `showExploreCta={false}` on homepage  -  **correct** single intent (contact).
+- Review summary + CTAs + footnote  -  slightly dense; mirror hero trust simplification patterns.
 
 #### Mobile
 
-- Narrow content width — premium focused column — good.
+- Narrow content width  -  premium focused column  -  good.
 
 **Section grade:** A- → A via footnote tokens + optional band softening.
 
@@ -313,24 +313,24 @@ Extract **feeling**, not structure:
 
 #### Visual hierarchy
 
-- Content-width — good pause after CTA.
-- Accordion in `cardShellClass` — consistent.
+- Content-width  -  good pause after CTA.
+- Accordion in `cardShellClass`  -  consistent.
 
 #### Typography
 
-- FAQ question 15px — OK; answer 14/15px stepped — unify to body/small tokens.
+- FAQ question 15px  -  OK; answer 14/15px stepped  -  unify to body/small tokens.
 
 #### Surfaces
 
-- Flat accordion triggers — aligned with restraint.
+- Flat accordion triggers  -  aligned with restraint.
 
 #### Conversion
 
-- Post-CTA FAQ — answers objections without stealing primary CTA — **keep order**.
+- Post-CTA FAQ  -  answers objections without stealing primary CTA  -  **keep order**.
 
 #### Mobile
 
-- `min-h-11` triggers — accessible; adequate premium feel.
+- `min-h-11` triggers  -  accessible; adequate premium feel.
 
 **Section grade:** B+ → A- via type tokens only.
 
@@ -342,16 +342,16 @@ Extract **feeling**, not structure:
 
 #### Visual hierarchy
 
-- Full-width after FAQ — correct “secondary” placement.
-- Resource cards match visa card language — good.
+- Full-width after FAQ  -  correct “secondary” placement.
+- Resource cards match visa card language  -  good.
 
 #### Layout rhythm
 
-- Footer link with `border-t` — mirrors final CTA pattern — consistent.
+- Footer link with `border-t`  -  mirrors final CTA pattern  -  consistent.
 
 #### Conversion
 
-- Low-pressure explore path — appropriate after FAQ.
+- Low-pressure explore path  -  appropriate after FAQ.
 
 **Section grade:** B+ → A- via card typography utilities (shared with Phase B).
 
@@ -376,7 +376,7 @@ Extract **feeling**, not structure:
 
 ## Phased implementation roadmap
 
-### PHASE A — Quick high-impact refinements
+### PHASE A  -  Quick high-impact refinements
 
 **Goal:** Perceptible premium lift in &lt;1 day of focused UI work. No new components. No layout restructure.
 
@@ -394,7 +394,7 @@ Extract **feeling**, not structure:
 
 ---
 
-### PHASE B — System-level consistency improvements
+### PHASE B  -  System-level consistency improvements
 
 **Goal:** One rhythm language across all homepage sections. Still no section reorder or new layouts.
 
@@ -405,18 +405,18 @@ Extract **feeling**, not structure:
 | B3 | Add `cardTitleClass`, `cardBodyClass`, `metaTextClass`; migrate all homepage cards | `typography.ts`, `cards/*` | Typography-first hierarchy |
 | B4 | Process mobile padding → card padding tokens | `process.tsx` | Mobile premium |
 | B5 | Process step number → display numeral style (large, light) | `process-step.tsx`, `tokens.css` optional | Architectural step section |
-| B6 | Band policy: max 2 strong bands — soften at-a-glance **or** why-us (divider vs tint) | `page-at-a-glance.tsx`, `why-choose-us.tsx` | Less band fatigue |
+| B6 | Band policy: max 2 strong bands  -  soften at-a-glance **or** why-us (divider vs tint) | `page-at-a-glance.tsx`, `why-choose-us.tsx` | Less band fatigue |
 | B7 | Tokenize `PageHero` vertical spacing (`--space-hero-*`) | `tokens.css`, `page-hero.tsx` | Predictable hero rhythm |
-| B8 | `sectionContentOffsetClass` already tokenized — verify all sections use it (no ad-hoc `mt-6`) | `final-cta.tsx`, `resources-preview.tsx` | Heading-to-content consistency |
+| B8 | `sectionContentOffsetClass` already tokenized  -  verify all sections use it (no ad-hoc `mt-6`) | `final-cta.tsx`, `resources-preview.tsx` | Heading-to-content consistency |
 | B9 | FAQ + accordion copy → body/small tokens | `faq-item.tsx` | Quiet utility |
 
 **Acceptance:** All homepage grids use gap tokens; all cards use shared type classes; process readable on 375px; section bands feel intentional not repetitive.
 
 ---
 
-### PHASE C — Premium polish and final calibration
+### PHASE C  -  Premium polish and final calibration
 
-**Goal:** Bilt/Ramp-level finish — micro-tuning against reference v1. Optional asset work.
+**Goal:** Bilt/Ramp-level finish  -  micro-tuning against reference v1. Optional asset work.
 
 | # | Task | Target files | Expected effect |
 |---|------|--------------|-----------------|
@@ -429,7 +429,7 @@ Extract **feeling**, not structure:
 | C7 | Reduce motion distance 10–15% if feels heavy (optional) | `motion.css` | Subtle polish |
 | C8 | Final cross-page visual QA vs reference v1 (checklist) | `docs/design/` | Sign-off |
 
-**Acceptance:** Side-by-side with reference — same *calm premium* tier; homepage structure unchanged; stakeholders confirm “operational luxury” not “travel agency.”
+**Acceptance:** Side-by-side with reference  -  same *calm premium* tier; homepage structure unchanged; stakeholders confirm “operational luxury” not “travel agency.”
 
 ---
 
@@ -452,7 +452,7 @@ Extract **feeling**, not structure:
 - [ ] No `text-[14px]` / `text-[15px]` literals on homepage cards
 - [ ] Hero + reviews + navbar CTA heights coherent
 - [ ] No decorative shadows on cards
-- [ ] `premium-direction-reference-v1.png` mood match — structure intentionally different
+- [ ] `premium-direction-reference-v1.png` mood match  -  structure intentionally different
 - [ ] Mobile hero scroll length acceptable (&lt;2 screens to visa section ideal)
 - [ ] JSON-LD and `homepageAiCopy` unchanged unless copy team approves
 
@@ -460,8 +460,8 @@ Extract **feeling**, not structure:
 
 ## Related documents
 
-- [README.md](./README.md) — calibration guardrails
-- [brand-system.md](./brand-system.md) — token target state
-- [ui-principles.md](./ui-principles.md) — operational rules
-- [visual-inconsistency-audit.md](./visual-inconsistency-audit.md) — cross-site normalization (feeds Phase B)
-- [CONVERSION_AUDIT.md](../../CONVERSION_AUDIT.md) — CTA/section order rationale
+- [README.md](./README.md)  -  calibration guardrails
+- [brand-system.md](./brand-system.md)  -  token target state
+- [ui-principles.md](./ui-principles.md)  -  operational rules
+- [visual-inconsistency-audit.md](./visual-inconsistency-audit.md)  -  cross-site normalization (feeds Phase B)
+- [CONVERSION_AUDIT.md](../../CONVERSION_AUDIT.md)  -  CTA/section order rationale

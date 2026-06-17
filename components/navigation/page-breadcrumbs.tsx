@@ -14,7 +14,7 @@ type PageBreadcrumbsProps = {
 }
 
 /**
- * Page-level breadcrumb bar — visa pages, articles, and other inner pages.
+ * Page-level breadcrumb bar  -  visa pages, articles, and other inner pages.
  */
 function PageBreadcrumbs({
   items,

@@ -7,7 +7,7 @@ Resource articles are part of the shared **content collections** system. See `li
 | Path | Role |
 |------|------|
 | `content/articles/resources/<slug>/content.mdx` | Prose body |
-| `content/articles/resources/<slug>/meta.ts` | `export const meta` — title, description, dates, tags, SEO, FAQ, CTA |
+| `content/articles/resources/<slug>/meta.ts` | `export const meta`  -  title, description, dates, tags, SEO, FAQ, CTA |
 
 Routing: `app/resources/[slug]/page.tsx` → `@/lib/resources/routing` (resolve, metadata, related) → `@/lib/content` registry.
 

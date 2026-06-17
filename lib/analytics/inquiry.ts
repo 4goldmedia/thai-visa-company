@@ -27,7 +27,7 @@ const inquiryEventMap: Record<
   inquiry_form_error: analyticsEvents.inquiryFormError,
 }
 
-/** Primary conversion — successful inquiry form submit */
+/** Primary conversion  -  successful inquiry form submit */
 export function trackInquirySubmit(params: InquirySubmitParams): void {
   trackEvent(analyticsEvents.inquirySubmission, {
     event_category: analyticsCategories.conversion,

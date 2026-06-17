@@ -8,13 +8,13 @@ Verify at: **375**, **390**, **768**, **1024**, **1280** px widths.
 
 | Area | Assessment |
 |------|------------|
-| Mobile (&lt;640) | **Strong** — single column, full-width CTAs, contact bar |
-| Tablet (640–1023) | **Good** — 2-col grids; mobile nav until `lg` |
-| Desktop (1024+) | **Strong** — bento visa grid, article TOC sidebar |
-| Spacing rhythm | **Consistent** — shared section/container tokens |
-| Typography | **Mobile-first scale** — 15px body, stepped headings |
-| CTA visibility | **Strong** — sticky bar + full-width mobile buttons |
-| Sticky chrome | **Coordinated** — nav, bar offset, scroll padding |
+| Mobile (&lt;640) | **Strong**  -  single column, full-width CTAs, contact bar |
+| Tablet (640–1023) | **Good**  -  2-col grids; mobile nav until `lg` |
+| Desktop (1024+) | **Strong**  -  bento visa grid, article TOC sidebar |
+| Spacing rhythm | **Consistent**  -  shared section/container tokens |
+| Typography | **Mobile-first scale**  -  15px body, stepped headings |
+| CTA visibility | **Strong**  -  sticky bar + full-width mobile buttons |
+| Sticky chrome | **Coordinated**  -  nav, bar offset, scroll padding |
 
 ---
 
@@ -28,7 +28,7 @@ Verify at: **375**, **390**, **768**, **1024**, **1280** px widths.
 | Section `spacious` (hero) | `py-12` | up to `py-28` xl |
 | Content width | `max-w-[720px]` prose | `max-w-[1280px]` sections |
 
-Calm rhythm — not oversized on mobile (heroes use `py-12`, not `py-20+`).
+Calm rhythm  -  not oversized on mobile (heroes use `py-12`, not `py-20+`).
 
 ---
 
@@ -56,7 +56,7 @@ Calm rhythm — not oversized on mobile (heroes use `py-12`, not `py-20+`).
 | Hero | Single column, same as homepage hero | `max-w-2xl` copy |
 | Overview | Stacked panels, dividers | `content` container 720px |
 | Requirements | Stacked 3 panels | **3-column grid** + card chrome |
-| Process / FAQ / Resources | Standard section grids | — |
+| Process / FAQ / Resources | Standard section grids |  -  |
 | Final CTA | `content` width, full-width CTAs | Inline CTAs `sm+` |
 
 ### Resources index
@@ -84,7 +84,7 @@ Calm rhythm — not oversized on mobile (heroes use `py-12`, not `py-20+`).
 
 - Menu panel: full-width dropdown, 44px link targets.
 - Bar hidden when `data-mobile-nav-open` (no duplicate CTAs).
-- **Note:** WhatsApp in header hidden &lt;480px; bottom bar always shows both — acceptable.
+- **Note:** WhatsApp in header hidden &lt;480px; bottom bar always shows both  -  acceptable.
 
 ---
 
@@ -95,7 +95,7 @@ Calm rhythm — not oversized on mobile (heroes use `py-12`, not `py-20+`).
 | `ContactCtaGroup` | Stacked full width `h-11` | Row, auto width |
 | Tertiary “Explore visas” | Full width centered | Inline link |
 | Mobile contact bar | 50/50 LINE + WhatsApp | `lg:hidden` |
-| Navbar mobile | Compact “LINE” label | — |
+| Navbar mobile | Compact “LINE” label |  -  |
 
 CTAs remain visible without scrolling on every view via bottom bar (mobile).
 
@@ -123,7 +123,7 @@ Scroll padding: top (nav), bottom (contact bar on mobile).
 | Body | `15px` / `leading-[1.7]` | `text-base` sm+ |
 | Article h1 | `1.5rem` | `1.75rem` md |
 
-`text-balance` / `text-pretty` on headlines and leads — no overflow on narrow screens.
+`text-balance` / `text-pretty` on headlines and leads  -  no overflow on narrow screens.
 
 ---
 
@@ -131,12 +131,12 @@ Scroll padding: top (nav), bottom (contact bar on mobile).
 
 Shared tokens in `lib/section-styles.ts`:
 
-- `sectionContentOffsetClass` — `mt-6 sm:mt-8 md:mt-10`
-- `sectionHeadingGapClass` — eyebrow → title gaps
-- `cardPaddingClass` — `p-4 sm:p-5`
-- `ctaStackClass` — vertical mobile, horizontal `sm+`
+- `sectionContentOffsetClass`  -  `mt-6 sm:mt-8 md:mt-10`
+- `sectionHeadingGapClass`  -  eyebrow → title gaps
+- `cardPaddingClass`  -  `p-4 sm:p-5`
+- `ctaStackClass`  -  vertical mobile, horizontal `sm+`
 
-**Bands:** `sectionBandClass` on final CTA — max two per page.
+**Bands:** `sectionBandClass` on final CTA  -  max two per page.
 
 ---
 
@@ -145,9 +145,9 @@ Shared tokens in `lib/section-styles.ts`:
 | Priority | Issue | Status |
 |----------|-------|--------|
 | P1 | Article TOC below body on mobile | **Fixed** |
-| P2 | Nav WhatsApp only ≥480px in header — rely on bottom bar &lt;480 | Documented |
+| P2 | Nav WhatsApp only ≥480px in header  -  rely on bottom bar &lt;480 | Documented |
 | P2 | Tablet 640–1023 uses hamburger (no center nav until `lg`) | Intentional |
-| P2 | Visa overview single column on tablet (720px content) | OK — readability |
+| P2 | Visa overview single column on tablet (720px content) | OK  -  readability |
 | P3 | 5th visa card alone on row at `sm` 2-col | Acceptable |
 | P0 | Broken footer/nav links (layout unrelated) | Open |
 
@@ -161,14 +161,14 @@ Shared tokens in `lib/section-styles.ts`:
 [ ] 1024px: desktop nav appears; bottom bar hidden
 [ ] 1280px: container centered; visa bento aligned
 [ ] Article: TOC above article on phone; sticky TOC on desktop
-[ ] Rotate portrait ↔ landscape on iOS — safe areas respected
+[ ] Rotate portrait ↔ landscape on iOS  -  safe areas respected
 ```
 
 ---
 
 ## Related docs
 
-- `DESIGN_SYSTEM.md` — spacing and container intent
-- `ACCESSIBILITY_AUDIT.md` — touch targets overlap
-- `LIGHTHOUSE_OPTIMIZATION.md` — CLS / content-visibility
-- `LAUNCH_CHECKLIST.md` — pre-launch verification
+- `DESIGN_SYSTEM.md`  -  spacing and container intent
+- `ACCESSIBILITY_AUDIT.md`  -  touch targets overlap
+- `LIGHTHOUSE_OPTIMIZATION.md`  -  CLS / content-visibility
+- `LAUNCH_CHECKLIST.md`  -  pre-launch verification

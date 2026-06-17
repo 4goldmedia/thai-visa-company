@@ -6,7 +6,7 @@ type ResourceArticlePageViewProps = {
 }
 
 /**
- * Server view for `/resources/[slug]` — MDX body inside the shared article layout.
+ * Server view for `/resources/[slug]`  -  MDX body inside the shared article layout.
  */
 function ResourceArticlePageView({ context }: ResourceArticlePageViewProps) {
   const { route, related, breadcrumbs, seriesNav } = context

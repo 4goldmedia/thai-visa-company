@@ -3,9 +3,9 @@
 Final cross-cutting review of the Thailand visa marketing platform before launch.  
 **Build status:** `npm run build` passes (SSG for home, 5 visa routes, resources index, 1 article).
 
-**Verdict:** **Conditional go** — core experience is production-grade in architecture, UX, and code quality; **launch blockers** are incomplete routes, broken internal links, and unfinished conversion/analytics wiring—not visual polish.
+**Verdict:** **Conditional go**  -  core experience is production-grade in architecture, UX, and code quality; **launch blockers** are incomplete routes, broken internal links, and unfinished conversion/analytics wiring - not visual polish.
 
-> **Updated audit (May 2026):** [FINAL_ARCHITECTURE_AUDIT.md](./FINAL_ARCHITECTURE_AUDIT.md) — nav/404 fixes, planned resource cards, JSON-LD filter; **85% conditional go**.
+> **Updated audit (May 2026):** [FINAL_ARCHITECTURE_AUDIT.md](./FINAL_ARCHITECTURE_AUDIT.md)  -  nav/404 fixes, planned resource cards, JSON-LD filter; **85% conditional go**.
 
 ---
 
@@ -19,7 +19,7 @@ Final cross-cutting review of the Thailand visa marketing platform before launch
 | Semantic quality | **A-** | Yes |
 | Responsive UX | **A-** | Yes (see `RESPONSIVE_QA.md`) |
 | Accessibility | **B+** | Mostly (FAQ headings fixed) |
-| SEO structure | **B** | Partial — metadata strong, links/schema gaps |
+| SEO structure | **B** | Partial  -  metadata strong, links/schema gaps |
 | Metadata quality | **B+** | Needs prod env + OG image |
 | Performance readiness | **A-** | Yes (see `LIGHTHOUSE_OPTIMIZATION.md`) |
 | Conversion UX | **B-** | LINE/WA strong; form/contact gaps |
@@ -46,12 +46,12 @@ Final cross-cutting review of the Thailand visa marketing platform before launch
 
 ### Strengths
 
-- **Next.js 16 App Router** — SSG, thin `app/**/page.tsx`, logic in `lib/` + `components/templates/`.
-- **Content system** — `content/articles/<collection>/<slug>/{meta.ts,content.mdx}` + explicit `lib/content/registry.ts`.
-- **Visa pages** — `lib/visas/content/*` + `VisaPageTemplate` + section IDs.
-- **Schema** — typed builders in `lib/schema/*`, co-located JSON-LD with UI (`FaqJsonLd`, `GoogleReviewSummary`, breadcrumbs).
-- **Site shell** — `SiteShell`: skip link, navbar, main+footer, mobile contact bar.
-- **Minimal client JS** — navbar, accordion/FAQ, inquiry form (unused on pages).
+- **Next.js 16 App Router**  -  SSG, thin `app/**/page.tsx`, logic in `lib/` + `components/templates/`.
+- **Content system**  -  `content/articles/<collection>/<slug>/{meta.ts,content.mdx}` + explicit `lib/content/registry.ts`.
+- **Visa pages**  -  `lib/visas/content/*` + `VisaPageTemplate` + section IDs.
+- **Schema**  -  typed builders in `lib/schema/*`, co-located JSON-LD with UI (`FaqJsonLd`, `GoogleReviewSummary`, breadcrumbs).
+- **Site shell**  -  `SiteShell`: skip link, navbar, main+footer, mobile contact bar.
+- **Minimal client JS**  -  navbar, accordion/FAQ, inquiry form (unused on pages).
 
 ### Docs (architecture)
 
@@ -66,7 +66,7 @@ Final cross-cutting review of the Thailand visa marketing platform before launch
 | Analytics docs exist; **not mounted in `app/layout.tsx`** | P1 (`ANALYTICS_SETUP.md`) |
 | README still create-next-app boilerplate | P3 |
 
-**Assessment:** Scalable and intentional—ready to grow content via registry + MDX without refactors.
+**Assessment:** Scalable and intentional - ready to grow content via registry + MDX without refactors.
 
 ---
 
@@ -92,11 +92,11 @@ See **`ACCESSIBILITY_AUDIT.md`**.
 
 ### Strengths
 
-- Per-route `createPageMetadata` — canonical, robots, OG, Twitter.
-- Article metadata — `publishedTime`, `modifiedTime`, tags.
+- Per-route `createPageMetadata`  -  canonical, robots, OG, Twitter.
+- Article metadata  -  `publishedTime`, `modifiedTime`, tags.
 - **JSON-LD:** Organization, LocalBusiness, WebSite, WebPage, Service, Article, FAQPage, BreadcrumbList, CollectionPage.
 - **Sitemap** merges `siteRoutes` (published) + MDX paths from registry.
-- **`robots.ts`** — disallow non-prod indexing pattern; production allow.
+- **`robots.ts`**  -  disallow non-prod indexing pattern; production allow.
 - MDX `rehype-slug`, breadcrumbs, internal linking strategy documented.
 
 ### Blockers & gaps
@@ -146,7 +146,7 @@ See **`CONVERSION_INFRASTRUCTURE.md`**.
 
 ### Working
 
-- **LINE first, WhatsApp second** — navbar, hero, final CTA, footer, **mobile contact bar**.
+- **LINE first, WhatsApp second**  -  navbar, hero, final CTA, footer, **mobile contact bar**.
 - `ContactCtaGroup` reused across homepage, visa, resources, articles.
 - `GoogleReviewSummary` on hero, reviews, final CTA, visa hero.
 - Low-friction inquiry architecture (`lib/forms/inquiry/*`, Airtable mapping stub).
@@ -158,10 +158,10 @@ See **`CONVERSION_INFRASTRUCTURE.md`**.
 | No **contact page** with `InquiryForm` | P0 |
 | Airtable/env not wired for real lead capture | P1 |
 | `exploreVisas` → `/visas` (404) | P0 |
-| Disabled resources search (OK if hint clear) | — |
+| Disabled resources search (OK if hint clear) |  -  |
 | Analytics events not firing | P1 |
 
-**Trust + CTA rhythm** feel calm and premium—not aggressive funnel UI.
+**Trust + CTA rhythm** feel calm and premium - not aggressive funnel UI.
 
 ---
 
@@ -169,17 +169,17 @@ See **`CONVERSION_INFRASTRUCTURE.md`**.
 
 ### System
 
-- **Tokens** — `styles/tokens.css` warm neutrals; shadcn radix-nova.
-- **Shared classes** — `lib/section-styles.ts`, `lib/form-styles.ts`, `lib/article-styles.ts`.
-- **Cards** — `cardSurfaceClass`, consistent radius, subtle borders (no heavy shadows).
-- **Motion** — CSS-only; compositor-friendly; reduced-motion respected.
+- **Tokens**  -  `styles/tokens.css` warm neutrals; shadcn radix-nova.
+- **Shared classes**  -  `lib/section-styles.ts`, `lib/form-styles.ts`, `lib/article-styles.ts`.
+- **Cards**  -  `cardSurfaceClass`, consistent radius, subtle borders (no heavy shadows).
+- **Motion**  -  CSS-only; compositor-friendly; reduced-motion respected.
 
 ### Avoids AI noise
 
 - No gradient overload, glassmorphism stacks, or pill buttons.
 - Editorial measure (~36rem articles), restrained eyebrows, calm muted bands.
 
-**Minor:** Geist Mono loaded but unused—optional font trim (`LIGHTHOUSE_OPTIMIZATION.md`).
+**Minor:** Geist Mono loaded but unused - optional font trim (`LIGHTHOUSE_OPTIMIZATION.md`).
 
 ---
 
@@ -196,7 +196,7 @@ See **`CONVERSION_INFRASTRUCTURE.md`**.
 | SEO | `components/seo/*` + `lib/schema/*` |
 | Motion | `SectionReveal` (server-safe CSS) |
 
-**Low duplication** — visa hero delegates to `GoogleReviewSummary`; reviews section uses shared summary.
+**Low duplication**  -  visa hero delegates to `GoogleReviewSummary`; reviews section uses shared summary.
 
 ---
 
@@ -239,18 +239,18 @@ See **`LIGHTHOUSE_OPTIMIZATION.md`**.
 
 Must resolve **one of** remove-link or ship-page for each:
 
-1. **`/visas`** — nav, footer, `ctaHref.exploreVisas`, homepage tertiary CTA  
-2. **`/contact`** — nav, footer (mount `InquiryForm` here)  
-3. **`/reviews`** — nav, footer  
-4. **Planned articles** — remove from index, footer, visa `relatedResources`, JSON-LD `ItemList` until MDX exists  
-5. **`/privacy`, `/terms`** — footer legal links  
+1. **`/visas`**  -  nav, footer, `ctaHref.exploreVisas`, homepage tertiary CTA  
+2. **`/contact`**  -  nav, footer (mount `InquiryForm` here)  
+3. **`/reviews`**  -  nav, footer  
+4. **Planned articles**  -  remove from index, footer, visa `relatedResources`, JSON-LD `ItemList` until MDX exists  
+5. **`/privacy`, `/terms`**  -  footer legal links  
 6. **Production `NEXT_PUBLIC_SITE_URL`**
 
 ---
 
 ## Recommended launch path
 
-### Phase A — Minimum viable launch (1–2 days)
+### Phase A  -  Minimum viable launch (1–2 days)
 
 1. Ship thin pages: `/visas` (visa grid), `/contact` (form + CTAs), `/privacy`, `/terms` (prose).  
 2. Remove unpublished article **links** everywhere; fix `ResourcesIndexJsonLd` to published-only.  
@@ -258,7 +258,7 @@ Must resolve **one of** remove-link or ship-page for each:
 4. Set env vars; deploy; verify sitemap in Search Console (`SEARCH_CONSOLE_SETUP.md`).  
 5. Wire GA if ready (`ANALYTICS_SETUP.md`).
 
-### Phase B — Post-launch (week 1–2)
+### Phase B  -  Post-launch (week 1–2)
 
 1. Publish 2+ resource articles; register in `registry.ts`.  
 2. Airtable + inquiry server action.  
@@ -286,4 +286,4 @@ npm run build && npm run start
 
 ## Summary
 
-The platform **feels calm, modern, and trustworthy** in code—premium spacing, reusable sections, strong visa/article templates, and disciplined schema. It is **architecturally production-grade** but **operationally not fully launch-complete** until broken links and missing hub/contact/legal routes are resolved. Fixing P0 items moves the site from a polished demo to a **trustworthy production marketing system**.
+The platform **feels calm, modern, and trustworthy** in code - premium spacing, reusable sections, strong visa/article templates, and disciplined schema. It is **architecturally production-grade** but **operationally not fully launch-complete** until broken links and missing hub/contact/legal routes are resolved. Fixing P0 items moves the site from a polished demo to a **trustworthy production marketing system**.

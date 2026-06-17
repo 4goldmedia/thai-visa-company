@@ -6,8 +6,8 @@ Production homepage hero images live here as static files referenced from `lib/m
 
 | File | Used by | Dimensions (export) |
 |------|---------|---------------------|
-| `Bangkok-skyline-LS.webp` | Homepage hero — **md+** (landscape) | 2560×1630 WebP |
-| `Bangkok-skyline-MV.webp` | Homepage hero — **below md** (portrait) | 1536×2048 WebP |
+| `Bangkok-skyline-LS.webp` | Homepage hero  -  **md+** (landscape) | 2560×1630 WebP |
+| `Bangkok-skyline-MV.webp` | Homepage hero  -  **below md** (portrait) | 1536×2048 WebP |
 
 ## Replacing images
 

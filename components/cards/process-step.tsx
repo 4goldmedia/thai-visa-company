@@ -13,7 +13,7 @@ function formatStepNumber(step: number): string {
 }
 
 /**
- * Open editorial process step — large numeral, title, supporting copy (no card chrome).
+ * Open editorial process step  -  large numeral, title, supporting copy (no card chrome).
  */
 function ProcessStep({ step, title, description, className }: ProcessStepProps) {
   return (

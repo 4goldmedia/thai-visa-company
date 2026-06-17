@@ -1,7 +1,7 @@
 import { CONTACT_CONFIG } from "./config"
 import { getContactUrl } from "./constants"
 
-/** WhatsApp URL with optional pre-filled message — uses `CONTACT_CONFIG` / `CONTACT_URLS` */
+/** WhatsApp URL with optional pre-filled message  -  uses `CONTACT_CONFIG` / `CONTACT_URLS` */
 export function buildWhatsAppUrl(message?: string): string {
   const base = CONTACT_CONFIG.whatsappUrl
 

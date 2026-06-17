@@ -17,7 +17,7 @@ export const meta = defineGuideArticle({
   seo: {
     title: "How to Get a Thailand Retirement Visa",
     description:
-      "Who qualifies for a Thailand retirement visa, what documents you usually need, and how the application process works — explained in plain language.",
+      "Who qualifies for a Thailand retirement visa, what documents you usually need, and how the application process works, explained in plain language.",
     keywords: [
       "how to get Thailand retirement visa",
       "Thailand retirement visa requirements",
@@ -44,19 +44,19 @@ export const meta = defineGuideArticle({
       value: "guide-age",
       question: "Can I apply before I turn 50?",
       answer:
-        "Most retirement routes require the main applicant to be at least 50 at the time of application. If you are younger, another visa category may fit better — we can help you compare options.",
+        "Most retirement routes require the main applicant to be at least 50 at the time of application. If you are younger, another visa category may fit better. We can help you compare options.",
     },
     {
       value: "guide-money",
       question: "Do I need a minimum balance in a Thai bank?",
       answer:
-        "Some pathways require funds deposited in a Thai bank for a set period. Others accept overseas proof. The rule depends on your nationality and embassy — we outline what your file needs.",
+        "Some pathways require funds deposited in a Thai bank for a set period. Others accept overseas proof. The rule depends on your nationality and embassy, and we outline what your file needs.",
     },
     {
       value: "guide-spouse",
       question: "Can my spouse apply with me?",
       answer:
-        "A qualifying spouse may be included on some routes, with extra documents such as a marriage certificate. Dependent rules vary — confirm your embassy’s list before you apply.",
+        "A qualifying spouse may be included on some routes, with extra documents such as a marriage certificate. Dependent rules vary, so confirm your embassy’s list before you apply.",
     },
     {
       value: "guide-inside-thailand",

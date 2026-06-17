@@ -16,7 +16,7 @@ export type ResourceArticleRouteParams = {
 export type ResourceArticleStaticParam = ResourceArticleRouteParams
 
 /**
- * Resolved article ready for the App Router page — MDX component + layout props.
+ * Resolved article ready for the App Router page  -  MDX component + layout props.
  * Cached per request via `resolveResourceArticleRoute`.
  */
 export type ResolvedResourceArticleRoute = {
@@ -27,7 +27,7 @@ export type ResolvedResourceArticleRoute = {
 }
 
 /**
- * Full page context for `/resources/[slug]` — route, SEO metadata, UI breadcrumbs, related.
+ * Full page context for `/resources/[slug]`  -  route, SEO metadata, UI breadcrumbs, related.
  * Produced once per request via `resolveResourceArticlePageContext`.
  */
 export type ResolvedResourceArticlePageContext = {

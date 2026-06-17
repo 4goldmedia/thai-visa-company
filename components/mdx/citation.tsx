@@ -27,9 +27,7 @@ function Citation({ source, href, children, className }: CitationProps) {
       >
         {source}
       </a>
-      {children ? (
-        <span className="text-muted-foreground/80"> — {children}</span>
-      ) : null}
+      {children ? <span className="text-muted-foreground/80"> ({children})</span> : null}
     </cite>
   )
 }

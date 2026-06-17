@@ -5,7 +5,7 @@ import { visaPath, type VisaSlug } from "@/lib/visas/types"
 import { cn } from "@/lib/utils"
 
 type VisaLinkProps = {
-  /** Known visa slug — preferred */
+  /** Known visa slug  -  preferred */
   slug?: VisaSlug
   /** Full visa path, e.g. `/visas/retirement` */
   href?: `/visas/${string}`

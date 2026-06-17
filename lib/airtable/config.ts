@@ -39,7 +39,7 @@ export function isAirtableConfigured(): boolean {
   return getAirtableEnvConfig() !== null
 }
 
-/** Throws when credentials are missing — use in server actions that require CRM writes */
+/** Throws when credentials are missing  -  use in server actions that require CRM writes */
 export function requireAirtableEnvConfig(): AirtableEnvConfig {
   const config = getAirtableEnvConfig()
   if (!config) {

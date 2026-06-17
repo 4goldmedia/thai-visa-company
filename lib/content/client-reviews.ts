@@ -1,5 +1,5 @@
 /**
- * Homepage client reviews — UI copy and enriched review cards (avatars, visa types).
+ * Homepage client reviews  -  UI copy and enriched review cards (avatars, visa types).
  * Schema excerpts stay aligned in `platformBusinessProfile.reviews`.
  */
 
@@ -8,7 +8,6 @@ export const clientReviewsSectionCopy = {
   title: "People we've helped move to Thailand",
   description:
     "From first questions to final approval, we help make the process easier.",
-  footerLink: "View all reviews on Google",
 } as const
 
 export type ClientReview = {

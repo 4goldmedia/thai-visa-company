@@ -12,7 +12,7 @@ type ConsultationExperienceProps = {
 }
 
 /**
- * Two-column consultation layout — reusable on the dedicated consultation page.
+ * Two-column consultation layout  -  reusable on the dedicated consultation page.
  * Additional blocks (testimonials, FAQ) can be composed above/below in the page template.
  */
 function ConsultationExperience({

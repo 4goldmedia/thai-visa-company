@@ -1,4 +1,4 @@
-# Editorial workflow — Thailand visa platform
+# Editorial workflow  -  Thailand visa platform
 
 Production-grade publishing process for resource articles, visa content updates, and long-term topical authority. This workflow maps directly to the codebase (`content/articles/`, `lib/content/registry.ts`, `lib/content/related.ts`, `lib/seo/`, `lib/content/routing/`).
 
@@ -16,11 +16,11 @@ Production-grade publishing process for resource articles, visa content updates,
 
 ## Principles
 
-1. **Answer real questions** — Every piece targets a specific reader situation (nationality, visa type, timeline), not generic “SEO content.”
-2. **Human accountability** — AI assists drafting; a human owns accuracy, tone, and publish approval.
-3. **Semantic consistency** — Tags, categories, and links align with `contentTopicTaxonomy` in `lib/content/related.ts`.
-4. **No publish without QA** — SEO, schema, and internal links are verified in code and in preview, not assumed.
-5. **Ship complete pages** — FAQ, related links, CTA, TOC, and metadata are part of the article, not afterthoughts.
+1. **Answer real questions**  -  Every piece targets a specific reader situation (nationality, visa type, timeline), not generic “SEO content.”
+2. **Human accountability**  -  AI assists drafting; a human owns accuracy, tone, and publish approval.
+3. **Semantic consistency**  -  Tags, categories, and links align with `contentTopicTaxonomy` in `lib/content/related.ts`.
+4. **No publish without QA**  -  SEO, schema, and internal links are verified in code and in preview, not assumed.
+5. **Ship complete pages**  -  FAQ, related links, CTA, TOC, and metadata are part of the article, not afterthoughts.
 
 ---
 
@@ -58,7 +58,7 @@ Ideation → Topic validation → Brief → AI draft → Human edit → SEO QA
 
 ## 1. Article ideation
 
-**Goal:** Build a backlog aligned with visa products and reader questions—not isolated blog posts.
+**Goal:** Build a backlog aligned with visa products and reader questions - not isolated blog posts.
 
 ### Sources
 
@@ -104,15 +104,15 @@ Ideation → Topic validation → Brief → AI draft → Human edit → SEO QA
 
 ### Validation steps
 
-1. **Intent check** — Is the user trying to learn, compare, or apply? Match format to intent.
-2. **Cannibalization** — Will this compete with a visa page H1? If yes, narrow the article angle or strengthen the visa page instead.
-3. **Slug design** — Kebab-case, descriptive, stable: `how-to-get-thailand-retirement-visa` not `retirement-visa-2026-seo`.
-4. **Tag plan** — 3–6 semantic tags from `contentTopicTaxonomy` (e.g. `retirement`, `long-stay`, `thailand visa`)—not synonym spam.
-5. **Reality check** — Requirements cited must be framed as “typical” or “embassy-dependent” unless legally reviewed.
+1. **Intent check**  -  Is the user trying to learn, compare, or apply? Match format to intent.
+2. **Cannibalization**  -  Will this compete with a visa page H1? If yes, narrow the article angle or strengthen the visa page instead.
+3. **Slug design**  -  Kebab-case, descriptive, stable: `how-to-get-thailand-retirement-visa` not `retirement-visa-2026-seo`.
+4. **Tag plan**  -  3–6 semantic tags from `contentTopicTaxonomy` (e.g. `retirement`, `long-stay`, `thailand visa`) - not synonym spam.
+5. **Reality check**  -  Requirements cited must be framed as “typical” or “embassy-dependent” unless legally reviewed.
 
 ### Reject or defer if
 
-- Topic is purely navigational (“Thai Visa Company contact”)—use existing pages
+- Topic is purely navigational (“Thai Visa Company contact”) - use existing pages
 - No credible expertise angle (generic travel blogging)
 - Requires legal advice disclaimer beyond editorial comfort
 - Would need a **404 URL** linked from live related sections
@@ -147,7 +147,7 @@ Ideation → Topic validation → Brief → AI draft → Human edit → SEO QA
 ### Prompt guardrails (include in every AI session)
 
 ```
-Context: Thai Visa Company — practical Thailand visa support for foreigners.
+Context: Thai Visa Company  -  practical Thailand visa support for foreigners.
 Tone: Calm, clear, trustworthy. No hype. No legal guarantees.
 Audience: Applicants and holders, often non-native English speakers.
 Rules:
@@ -161,7 +161,7 @@ Rules:
 ### Technical draft setup
 
 1. Create folder: `content/articles/resources/<slug>/`
-2. Add `meta.ts` using `defineResourceArticle()` — set **`published: false`**
+2. Add `meta.ts` using `defineResourceArticle()`  -  set **`published: false`**
 3. Add `content.mdx` with TOC-aligned `##` headings
 4. Register in `lib/content/registry.ts` (required for preview/build)
 5. Add key to `articleEntriesSync` in `lib/content/articles.ts` for index/static builds
@@ -246,7 +246,7 @@ Content is **guidance**, not legal advice. Prefer:
 
 **In MDX body (where natural):**
 
-- [ ] Descriptive anchor text (“Thailand retirement visa support”)—not “click here”
+- [ ] Descriptive anchor text (“Thailand retirement visa support”) - not “click here”
 - [ ] At least one contextual link to contact or visa service when relevant
 
 ### Visa pages (when article ships)
@@ -312,8 +312,8 @@ Complete **Article checklist**, **SEO QA**, **AI-search readability**, and **Sch
 2. Confirm registry entry in `lib/content/registry.ts`
 3. Confirm `articleEntriesSync` in `lib/content/articles.ts`
 4. Remove entry from `lib/content/planned/resources.ts` if it was a stub
-5. Run `npm run build` — fix TypeScript or route errors
-6. Preview `/resources/<slug>` — metadata, FAQ, related, CTA, mobile
+5. Run `npm run build`  -  fix TypeScript or route errors
+6. Preview `/resources/<slug>`  -  metadata, FAQ, related, CTA, mobile
 7. Verify sitemap includes path (`getPublishedResourceArticlePaths`)
 8. Merge PR; deploy
 
@@ -325,7 +325,7 @@ Complete **Article checklist**, **SEO QA**, **AI-search readability**, and **Sch
 
 ### Rollback
 
-- Set `published: false` and redeploy — route 404s (`dynamicParams = false` for unknown slugs only at build time; unpublished = not in static params)
+- Set `published: false` and redeploy  -  route 404s (`dynamicParams = false` for unknown slugs only at build time; unpublished = not in static params)
 
 ---
 
@@ -344,9 +344,9 @@ Complete **Article checklist**, **SEO QA**, **AI-search readability**, and **Sch
 
 | Type | Action |
 |------|--------|
-| **Minor** | Typos, clarity, one FAQ answer — bump `updatedAt` |
-| **Material** | Sections rewritten, new requirements — `updatedAt` + optional note in PR |
-| **Structural** | New H2/TOC — revalidate TOC ids and internal links |
+| **Minor** | Typos, clarity, one FAQ answer  -  bump `updatedAt` |
+| **Material** | Sections rewritten, new requirements  -  `updatedAt` + optional note in PR |
+| **Structural** | New H2/TOC  -  revalidate TOC ids and internal links |
 | **Retire** | `published: false` + redirect plan if URL had traffic (301 policy TBD) |
 
 ### Do not
@@ -459,11 +459,11 @@ Sustainable growth for a small expert team (adjust to capacity).
 
 ### Cluster publish order (recommended)
 
-1. **Retirement** — extend `how-to-get-thailand-retirement-visa`; add timeline/extension companion
-2. **DTV** — publish `what-is-thailand-dtv-visa` (planned)
-3. **Process** — publish `how-long-does-thai-visa-take` (planned)
-4. **Business / education** — one guide each after core cluster stable
-5. **Comparisons** — only when they support decisions (e.g. DTV vs tourist)
+1. **Retirement**  -  extend `how-to-get-thailand-retirement-visa`; add timeline/extension companion
+2. **DTV**  -  publish `what-is-thailand-dtv-visa` (planned)
+3. **Process**  -  publish `how-long-does-thai-visa-take` (planned)
+4. **Business / education**  -  one guide each after core cluster stable
+5. **Comparisons**  -  only when they support decisions (e.g. DTV vs tourist)
 
 ### Visa page cadence
 
@@ -479,7 +479,7 @@ Sustainable growth for a small expert team (adjust to capacity).
 | **Resource articles** | Quarterly | Rule changes, Search Console, support themes |
 | **Visa landing pages** | Quarterly | Same + conversion copy tests |
 | **Homepage FAQ** | Semi-annual | Only if answers drift |
-| **Planned stubs** | Monthly audit | Remove or publish—never linger > 2 quarters |
+| **Planned stubs** | Monthly audit | Remove or publish - never linger > 2 quarters |
 | **Internal links** | Each publish | New article → update visa `relatedResources` |
 | **Schema / site config** | Annual | Brand, contact, OG assets |
 
@@ -520,16 +520,16 @@ Supports quality control and avoids “low-quality AI publishing” drift.
 
 ---
 
-## Scalable authority growth — verification
+## Scalable authority growth  -  verification
 
 This workflow supports long-term growth because it:
 
-1. **Clusters topics** around visa products and `contentTopicTaxonomy`—not random posts.
-2. **Integrates with code** (registry, related resolver, routing)—reducing operational drift.
-3. **Separates AI draft from human and SEO gates**—maintains trust.
-4. **Enforces link and schema discipline**—protects AI-search and rich-result parity.
-5. **Defines cadence and updates**—compound authority without URL churn or spam.
-6. **Blocks linking to unpublished URLs**—prevents trust and crawl errors.
+1. **Clusters topics** around visa products and `contentTopicTaxonomy` - not random posts.
+2. **Integrates with code** (registry, related resolver, routing) - reducing operational drift.
+3. **Separates AI draft from human and SEO gates** - maintains trust.
+4. **Enforces link and schema discipline** - protects AI-search and rich-result parity.
+5. **Defines cadence and updates** - compound authority without URL churn or spam.
+6. **Blocks linking to unpublished URLs** - prevents trust and crawl errors.
 
 ### Success metrics (track quarterly)
 
@@ -537,11 +537,11 @@ This workflow supports long-term growth because it:
 - Indexed pages vs published count (Search Console)
 - Internal links per article (visa + resources)
 - Support questions deflected (qualitative)
-- Snippet/impression growth on target queries—not raw keyword count
+- Snippet/impression growth on target queries - not raw keyword count
 
 ---
 
-## Quick reference — ship a new article
+## Quick reference  -  ship a new article
 
 ```bash
 # 1. Create content

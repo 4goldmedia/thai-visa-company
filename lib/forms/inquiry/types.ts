@@ -1,6 +1,6 @@
 import type { InquiryVisaInterest } from "@/lib/forms/inquiry/visa-options"
 
-/** Where the inquiry originated — maps to Airtable `Lead Source` */
+/** Where the inquiry originated  -  maps to Airtable `Lead Source` */
 export type InquiryLeadSource =
   | "homepage"
   | "consultation-page"
@@ -10,7 +10,7 @@ export type InquiryLeadSource =
   | "footer"
   | "other"
 
-/** Canonical field names — stable for Airtable, analytics, and automation */
+/** Canonical field names  -  stable for Airtable, analytics, and automation */
 export const inquiryFieldNames = {
   name: "name",
   email: "email",

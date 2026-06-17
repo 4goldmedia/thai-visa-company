@@ -15,7 +15,7 @@ type FAQItemProps = {
   value: string
   /** FAQ question */
   question: string
-  /** FAQ answer — concise, readable copy */
+  /** FAQ answer  -  concise, readable copy */
   answer: string
   className?: string
   triggerClassName?: string
@@ -50,7 +50,7 @@ function FAQItem({
 type FAQAccordionProps = {
   children: React.ReactNode
   className?: string
-  /** Initially open item value — omit for a fully collapsed list */
+  /** Initially open item value  -  omit for a fully collapsed list */
   defaultValue?: string
   /** Associates the accordion with the section heading */
   "aria-labelledby"?: string

@@ -1,12 +1,12 @@
 /* =============================================================================
-   Global styles entry — Tailwind, tokens, theme, base
+   Global styles entry  -  Tailwind, tokens, theme, base
    ============================================================================= */
 
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* Design docs may contain example class strings — never scan for utilities */
+/* Design docs may contain example class strings  -  never scan for utilities */
 @source not "../docs/**";
 @source not inline("py-[var(--space-section-y*)]");
 

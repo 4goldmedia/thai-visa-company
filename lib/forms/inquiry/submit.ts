@@ -27,7 +27,7 @@ const DEFAULT_ERROR_MESSAGE =
   "Something went wrong. Please try again or message us on LINE or WhatsApp."
 
 /**
- * Client-safe submission — POSTs to `/api/inquiry`.
+ * Client-safe submission  -  POSTs to `/api/inquiry`.
  */
 export async function submitInquiry(
   payload: InquiryFormPayload,

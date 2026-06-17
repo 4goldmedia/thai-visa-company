@@ -15,7 +15,7 @@ const defaultFaqItems: ReadonlyArray<VisaFaqItem> = [
     value: "processing-time",
     question: "How long does a Thai visa take?",
     answer:
-      "Most Thailand visa applications take a few days to several weeks, depending on visa type, nationality, and embassy workload. We review your file first and give a realistic range before you apply—not a generic estimate.",
+      "Most Thailand visa applications take a few days to several weeks, depending on visa type, nationality, and embassy workload. We review your file first and give a realistic range before you apply, not a generic estimate.",
   },
   {
     value: "right-visa",
@@ -110,7 +110,7 @@ type FaqSectionProps = {
   eyebrow?: string
   items?: ReadonlyArray<VisaFaqItem>
   className?: string
-  /** FAQPage JSON-LD — defaults to homepage preset */
+  /** FAQPage JSON-LD  -  defaults to homepage preset */
   jsonLd?: FaqJsonLdConfig
 }
 

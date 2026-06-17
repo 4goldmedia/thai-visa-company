@@ -1,4 +1,4 @@
-# Thai Visa Company — Content Strategy
+# Thai Visa Company  -  Content Strategy
 
 Permanent governance for creating, editing, auditing, planning, and expanding immigration content.
 
@@ -12,7 +12,7 @@ Thai Visa Company is not building a visa blog. We are building the most trusted 
 
 ### Who we write for
 
-Readers who are confused, comparing options, worried about mistakes, and trying to understand requirements before they act. They care about qualification, cost, documents, timelines, risks, and next steps — not visa taxonomy for its own sake.
+Readers who are confused, comparing options, worried about mistakes, and trying to understand requirements before they act. They care about qualification, cost, documents, timelines, risks, and next steps  -  not visa taxonomy for its own sake.
 
 ### Article gate
 
@@ -61,7 +61,7 @@ Full rule: [`rules/content/content-clusters.mdc`](../rules/content/content-clust
 ### Voice
 
 - Plain English, short sentences, practical examples
-- Experienced specialist tone — *"Finally somebody explained this clearly."*
+- Experienced specialist tone  -  *"Finally somebody explained this clearly."*
 - Avoid legal jargon, bureaucracy-speak, and marketing fluff
 
 ### Structure (use when appropriate)
@@ -92,7 +92,7 @@ Full rules:
 
 ## 4. Internal linking strategy
 
-Links exist to help readers navigate the knowledge base — not for SEO manipulation.
+Links exist to help readers navigate the knowledge base  -  not for SEO manipulation.
 
 ### Every article should
 
@@ -118,7 +118,7 @@ Full rule: [`rules/content/internal-linking.mdc`](../rules/content/internal-link
 
 ## 5. SEO approach
 
-SEO follows usefulness — not the reverse.
+SEO follows usefulness  -  not the reverse.
 
 - One clear search intent per article
 - Title and description match the question being answered
@@ -148,7 +148,7 @@ Structure content so engines can extract atomic answers.
 ### Writing for quotation
 
 - Lead sections with a direct sentence that answers the heading
-- Use `ArticleComparison`, `ArticleTable`, `ArticleChecklist` — not walls of prose
+- Use `ArticleComparison`, `ArticleTable`, `ArticleChecklist`  -  not walls of prose
 - FAQ answers should be 2–4 sentences, self-contained
 - Include `answer` in article meta for hero Quick Answer block
 
@@ -158,7 +158,7 @@ Full rule: [`rules/content/seo-aeo-standard.mdc`](../rules/content/seo-aeo-stand
 
 ## 7. Blog clusters (filters & taxonomy)
 
-Blog articles are grouped by **content cluster** — user-intent subject areas — not newsroom categories.
+Blog articles are grouped by **content cluster**  -  user-intent subject areas  -  not newsroom categories.
 
 | Cluster ID | Filter label |
 | --- | --- |

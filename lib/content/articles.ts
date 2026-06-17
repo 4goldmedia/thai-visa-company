@@ -1,5 +1,5 @@
 /**
- * Article collection API — registry lookups, grouping, sorting, and related articles.
+ * Article collection API  -  registry lookups, grouping, sorting, and related articles.
  *
  * Register new MDX articles in `lib/content/registry.ts` only.
  */
@@ -274,7 +274,7 @@ function isBlogArticleMeta(meta: ContentArticleBase): meta is BlogArticleMeta {
 }
 
 // -----------------------------------------------------------------------------
-// Blog collection — index cards + routing helpers
+// Blog collection  -  index cards + routing helpers
 // -----------------------------------------------------------------------------
 
 export async function getPublishedBlogIndexArticles(): Promise<BlogPostCard[]> {
@@ -319,7 +319,7 @@ export async function loadBlogArticleModule(slug: ContentSlug) {
 }
 
 // -----------------------------------------------------------------------------
-// Resources collection — index cards + routing helpers (deprecated)
+// Resources collection  -  index cards + routing helpers (deprecated)
 // -----------------------------------------------------------------------------
 
 /** Published registry articles + planned stubs for the resources index */

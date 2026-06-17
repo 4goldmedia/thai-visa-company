@@ -1,13 +1,13 @@
 import { cn } from "@/lib/utils"
 
-/** Comfortable max width for mobile body copy — ~65ch at base size */
+/** Comfortable max width for mobile body copy  -  ~65ch at base size */
 export const mobileReadableWidthClass = "max-w-[32rem]"
 
-/** Eyebrow — muted graphite label, modern uppercase tracking */
+/** Eyebrow  -  muted graphite label, modern uppercase tracking */
 export const sectionEyebrowClass =
   "font-sans text-[length:var(--text-meta)] font-medium uppercase tracking-[var(--tracking-eyebrow)] text-[var(--text-secondary)] sm:text-[length:var(--text-small)]"
 
-/** Page hero H1 — Inter Tight display */
+/** Page hero H1  -  Inter Tight display */
 export const pageTitleClass = cn(
   "font-display font-medium",
   "text-[length:var(--text-display)] leading-[var(--leading-display)] tracking-[var(--tracking-display)]",
@@ -16,7 +16,7 @@ export const pageTitleClass = cn(
   "lg:text-[length:var(--text-display-xl)]",
 )
 
-/** Secondary line under homepage H1 — tertiary, subordinate to primary headline */
+/** Secondary line under homepage H1  -  tertiary, subordinate to primary headline */
 export const pageTitleSecondaryClass = cn(
   "mt-[var(--space-hero-title-internal)] block max-w-[28rem] font-sans",
   "text-[length:var(--text-small)] font-normal leading-relaxed tracking-normal",
@@ -30,7 +30,7 @@ export const pageLeadClass = cn(
   "sm:text-[length:var(--text-body-md)]",
 )
 
-/** Hero layout — split grid rhythm */
+/** Hero layout  -  split grid rhythm */
 export const heroGridClass = cn(
   "grid gap-8 sm:gap-10",
   "lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center lg:gap-12 xl:gap-14",
@@ -45,7 +45,7 @@ export const heroEyebrowToTitleClass = "mt-[var(--space-hero-eyebrow-to-title)]"
 
 export const heroLeadToCtaClass = "mt-[var(--space-hero-lead-to-cta)] sm:mt-[calc(var(--space-hero-lead-to-cta)+0.25rem)]"
 
-/** Hero CTAs — calm vertical rhythm */
+/** Hero CTAs  -  calm vertical rhythm */
 export const heroCtaGroupClass = "flex flex-col gap-4"
 
 export const heroCtaReassuranceClass =
@@ -60,7 +60,7 @@ export const heroCtaStackClass = cn(
 export const trustDividerClass =
   "mt-9 border-t border-border/50 pt-7 sm:mt-10 sm:pt-8"
 
-/** Hero trust — quieter than default section trust */
+/** Hero trust  -  quieter than default section trust */
 export const heroTrustDividerClass = cn(
   "mt-[var(--space-hero-cta-to-trust)] border-t border-border/40 pt-6 sm:pt-7",
 )
@@ -96,7 +96,7 @@ export const sectionContentOffsetClass = cn(
 /** Light section separator */
 export const sectionDividerClass = "border-t border-border/50"
 
-/** Alternating muted band — max two per page */
+/** Alternating muted band  -  max two per page */
 export const sectionBandClass = cn(
   sectionDividerClass,
   "bg-[var(--surface-band)]",
@@ -106,7 +106,7 @@ export const sectionBandClass = cn(
 export const ctaStackClass =
   "flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-2.5"
 
-/** Aman-inspired secondary text link — always-visible underline */
+/** Aman-inspired secondary text link  -  always-visible underline */
 export const editorialLinkClass = "editorial-link"
 
 /** Editorial link after section body copy */
@@ -130,7 +130,7 @@ export const editorialLinkCompactClass = cn(
 /** Shared text link for section footers */
 export const textLinkClass = editorialLinkClass
 
-/** Signature primary CTA — matches WhatsApp / hero contact buttons */
+/** Signature primary CTA  -  matches WhatsApp / hero contact buttons */
 export const signatureCtaPrimaryClass = cn(
   "signature-cta-primary",
   "border-transparent bg-[var(--cta-primary-bg)] text-[var(--cta-primary-fg)]",
@@ -141,13 +141,13 @@ export const signatureCtaPrimaryClass = cn(
   "motion-reduce:transition-none motion-reduce:active:translate-y-0",
 )
 
-/** Primary CTA — warm charcoal, sharp modern */
+/** Primary CTA  -  warm charcoal, sharp modern */
 export const ctaButtonPrimaryClass = cn(
   signatureCtaPrimaryClass,
   "sm:w-auto",
 )
 
-/** Secondary CTA — architectural outline */
+/** Secondary CTA  -  architectural outline */
 export const ctaButtonSecondaryClass = cn(
   "h-11 min-h-11 w-full rounded-[var(--radius-button)] px-5",
   "text-[length:var(--text-body)] font-medium tracking-normal",
@@ -158,13 +158,13 @@ export const ctaButtonSecondaryClass = cn(
   "motion-reduce:transition-none",
 )
 
-/** Tertiary text navigation — editorial underline link */
+/** Tertiary text navigation  -  editorial underline link */
 export const ctaTertiaryLinkClass = editorialLinkClass
 
 /** @deprecated Use ctaTertiaryLinkClass */
 export const ctaTextLinkClass = ctaTertiaryLinkClass
 
-/** Hero primary/secondary — slightly more presence than default section CTAs */
+/** Hero primary/secondary  -  slightly more presence than default section CTAs */
 export const heroCtaButtonPrimaryClass = cn(
   ctaButtonPrimaryClass,
   "px-5 sm:min-w-[11.25rem]",
@@ -177,7 +177,7 @@ export const heroCtaButtonSecondaryClass = cn(
 
 export const heroCtaTertiaryLinkClass = editorialLinkClass
 
-/** Immersive homepage hero — vertical calm, restrained width */
+/** Immersive homepage hero  -  vertical calm, restrained width */
 export const heroPremiumCtaGroupClass = "flex flex-col gap-3"
 
 export const heroPremiumCtaStackClass = cn(
@@ -197,20 +197,20 @@ export const heroPremiumCtaButtonSecondaryClass = cn(
   "hover:bg-muted/35 sm:h-11 sm:min-h-11 sm:w-full",
 )
 
-/** Homepage hero — single editorial explore link */
+/** Homepage hero  -  single editorial explore link */
 export const heroExploreLinkClass = editorialLinkClass
 
-/** Signature LINE + WhatsApp pair — 16–20px gap, hero-matched button scale */
+/** Signature LINE + WhatsApp pair  -  16–20px gap, hero-matched button scale */
 export const signatureCtaGroupClass = "signature-cta-group"
 
-/** Hero contact strip (desktop) — stronger focal points, neutral surfaces */
+/** Hero contact strip (desktop)  -  stronger focal points, neutral surfaces */
 export const heroContactStripActionClass = cn(
   "messaging-platform-action",
   "flex-1 sm:flex-none",
   "motion-reduce:transition-none",
 )
 
-/** Sticky mobile messaging bar — 50/50 thumb targets */
+/** Sticky mobile messaging bar  -  50/50 thumb targets */
 export const mobileMessagingBarActionClass = cn(
   "messaging-platform-action",
   "min-w-0 flex-1",
@@ -223,7 +223,7 @@ export const heroPremiumExploreLinkClass = editorialLinkClass
 export const cardPaddingClass =
   "p-[var(--space-card-padding)] sm:p-[var(--space-card-padding-md)]"
 
-/** Card — border-first surface, no decorative shadow */
+/** Card  -  border-first surface, no decorative shadow */
 export const cardSurfaceClass = cn(
   cardPaddingClass,
   "rounded-[var(--radius-card)] border border-border/60 bg-card",
@@ -244,7 +244,7 @@ export const cardShellClass = cn(
   "overflow-hidden rounded-[var(--radius-card)] border border-border/45 bg-card",
 )
 
-/** Global rating stars — hero, Google summary, review cards */
+/** Global rating stars  -  hero, Google summary, review cards */
 export const ratingStarRowClass = "flex gap-px"
 
 export const ratingStarIconClass = "size-3 shrink-0"

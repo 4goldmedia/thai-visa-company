@@ -1,4 +1,4 @@
-/* Visa page hero — wide grid, homepage-quality hierarchy, outcome imagery */
+/* Visa page hero  -  wide grid, homepage-quality hierarchy, outcome imagery */
 
 @layer components {
   .visa-hero-premium__inner {
@@ -83,7 +83,7 @@
     }
   }
 
-  /* Hero messaging CTAs — desktop only; sticky bar covers mobile/tablet contact */
+  /* Hero messaging CTAs  -  desktop only; sticky bar covers mobile/tablet contact */
   .visa-hero-premium__cta {
     display: none;
   }

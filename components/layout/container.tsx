@@ -5,12 +5,12 @@ import { Slot } from "radix-ui"
 import { cn } from "@/lib/utils"
 
 /**
- * Site container sizes — align with `docs/design/layout-system.md`.
+ * Site container sizes  -  align with `docs/design/layout-system.md`.
  *
- * - `site` / `default` — 1280px shell (homepage, visa, blog hub, article frame)
- * - `prose` — 760px narrow column (legal, privacy, focused forms)
- * - `wide` — alias of site (visa editorial sections)
- * - `content` — @deprecated alias of `site`; use `prose` for narrow pages
+ * - `site` / `default`  -  1280px shell (homepage, visa, blog hub, article frame)
+ * - `prose`  -  760px narrow column (legal, privacy, focused forms)
+ * - `wide`  -  alias of site (visa editorial sections)
+ * - `content`  -  @deprecated alias of `site`; use `prose` for narrow pages
  */
 const containerVariants = cva("mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-10", {
   variants: {
@@ -18,7 +18,7 @@ const containerVariants = cva("mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-10", {
       site: "max-w-[var(--width-site,80rem)]",
       default: "max-w-[var(--width-site,80rem)]",
       wide: "max-w-[var(--width-site,80rem)]",
-      /** @deprecated Use `site` — kept for gradual migration */
+      /** @deprecated Use `site`  -  kept for gradual migration */
       content: "max-w-[var(--width-site,80rem)]",
       prose: "max-w-[var(--width-narrow,47.5rem)]",
     },

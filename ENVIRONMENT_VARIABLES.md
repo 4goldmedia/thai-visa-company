@@ -1,6 +1,6 @@
 # ENVIRONMENT VARIABLES
 
-## Airtable (server-only — never `NEXT_PUBLIC_`)
+## Airtable (server-only  -  never `NEXT_PUBLIC_`)
 
 Required for live lead capture (`lib/airtable.ts`):
 
@@ -14,7 +14,7 @@ Legacy alias: `AIRTABLE_TABLE_NAME` (used if `AIRTABLE_LEADS_TABLE_NAME` is unse
 
 Without these, inquiry submit returns success in development with `id: dev-stub` (see `allowUnconfigured`).
 
-**API:** `POST /api/inquiry` — JSON body with `name`, `nationality`, `visaInterest`, `currentLocation`, `message`, optional `leadSource` and `pagePath`.
+**API:** `POST /api/inquiry`  -  JSON body with `name`, `nationality`, `visaInterest`, `currentLocation`, `message`, optional `leadSource` and `pagePath`.
 
 ---
 
@@ -40,10 +40,10 @@ Brand, metadata defaults, canonical URL, social placeholders, and business locat
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Production origin — overrides `siteUrls.productionPlaceholder` and staging fallback |
+| `NEXT_PUBLIC_SITE_URL` | Production origin  -  overrides `siteUrls.productionPlaceholder` and staging fallback |
 | `NEXT_PUBLIC_TWITTER_HANDLE` | Twitter/X card `creator` (optional) |
 | `NEXT_PUBLIC_GOOGLE_REVIEWS_URL` | Google Business / Maps reviews URL (optional) |
-| `NEXT_PUBLIC_OG_IMAGE_PATH` | Default OG image — overrides `siteMetadata.defaultOgImagePath` (`/og/default.png`) |
+| `NEXT_PUBLIC_OG_IMAGE_PATH` | Default OG image  -  overrides `siteMetadata.defaultOgImagePath` (`/og/default.png`) |
 
 When `NEXT_PUBLIC_SITE_URL` is unset: **development** uses `http://localhost:3000`; **preview/production builds** fall back to `siteUrls.staging` until launch.
 
@@ -55,7 +55,7 @@ NEXT_PUBLIC_SITE_URL=
 
 ---
 
-# Communication (client — all LINE/WhatsApp CTAs)
+# Communication (client  -  all LINE/WhatsApp CTAs)
 
 | Variable | Description |
 |----------|-------------|
@@ -67,7 +67,7 @@ Resolved in `lib/contact/constants.ts` as `CONTACT_URLS` (used by all CTAs, foot
 
 - **Single source:** `CONTACT_URLS.line`, `CONTACT_URLS.whatsapp`, `CONTACT_URLS.email`
 - Trailing slashes are stripped at read time
-- Env is read with **static** `process.env.NEXT_PUBLIC_*` property access (required for client bundle inlining — do not use `process.env[key]` or read env in components)
+- Env is read with **static** `process.env.NEXT_PUBLIC_*` property access (required for client bundle inlining  -  do not use `process.env[key]` or read env in components)
 - After changing `.env.local`, restart `npm run dev`
 
 ```

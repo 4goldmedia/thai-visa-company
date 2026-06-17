@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 
 type OptimizedImageProps = Omit<ImageProps, "alt"> & {
   alt: string
-  /** Responsive sizes hint — required for fill or responsive layouts */
+  /** Responsive sizes hint  -  required for fill or responsive layouts */
   sizes?: string
 }
 

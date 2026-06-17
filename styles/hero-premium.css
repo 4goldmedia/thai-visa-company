@@ -1,4 +1,4 @@
-/* Homepage hero — high-fidelity reference composition (premium-direction-reference-v1) */
+/* Homepage hero  -  high-fidelity reference composition (premium-direction-reference-v1) */
 
 @layer components {
   .hero-premium {
@@ -48,7 +48,7 @@
     }
   }
 
-  /* Full-bleed environment — lg+ only (visibility via hidden lg:block in markup) */
+  /* Full-bleed environment  -  lg+ only (visibility via hidden lg:block in markup) */
   @media (min-width: 1024px) {
     .hero-premium__environment {
       position: absolute;
@@ -80,7 +80,7 @@
       opacity: 0.2;
     }
 
-    /* Skyline stays sharp — no background blur on immersive hero */
+    /* Skyline stays sharp  -  no background blur on immersive hero */
     .hero-premium__environment .hero-media-frame__depth {
       display: none;
     }
@@ -169,7 +169,7 @@
     }
   }
 
-  /* Intentional line breaks — do not rely on auto-wrap for “made simple.” */
+  /* Intentional line breaks  -  do not rely on auto-wrap for “made simple.” */
   .hero-premium__title-br {
     display: block;
     line-height: 0;
@@ -292,7 +292,7 @@
       gap: 0;
     }
 
-    /* Edge-to-edge Bangkok skyline — same asset as desktop (LS) */
+    /* Edge-to-edge Bangkok skyline  -  same asset as desktop (LS) */
     .hero-premium__scene {
       position: relative;
       width: 100vw;
@@ -358,14 +358,14 @@
     }
   }
 
-  /* Legacy mobile scene rules — desktop only via lg:hidden on markup */
+  /* Legacy mobile scene rules  -  desktop only via lg:hidden on markup */
   @media (min-width: 1024px) {
     .hero-premium__scene {
       display: none;
     }
   }
 
-  /* Panel column — flex-centers card within image composition zone */
+  /* Panel column  -  flex-centers card within image composition zone */
   .hero-premium__panel-slot {
     width: 100%;
   }
@@ -401,7 +401,7 @@
     }
   }
 
-  /* Mobile / tablet — full content-width panel (overrides narrow default above) */
+  /* Mobile / tablet  -  full content-width panel (overrides narrow default above) */
   @media (max-width: 1023px) {
     .hero-premium__panel-slot {
       width: 100%;

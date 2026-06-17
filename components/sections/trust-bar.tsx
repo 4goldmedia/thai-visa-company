@@ -8,7 +8,7 @@ type TrustBarProps = TrustBarContent & {
 }
 
 /**
- * Premium horizontal trust layer — typography-only credibility band beneath the hero.
+ * Premium horizontal trust layer  -  typography-only credibility band beneath the hero.
  */
 function TrustBar({
   id = "trust-bar",

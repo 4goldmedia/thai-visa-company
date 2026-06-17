@@ -2,7 +2,7 @@ import { buildFaqSchemaGraph } from "@/lib/schema/faq-schema"
 import type { FaqRecord } from "@/lib/faq/types"
 import type { JsonLdGraphDocument } from "@/lib/schema/types"
 
-/** Future `/faq` and `/faq/topic/*` pages — not routed yet */
+/** Future `/faq` and `/faq/topic/*` pages  -  not routed yet */
 export function buildFaqHubSchemaGraph(input: {
   name: string
   path: string

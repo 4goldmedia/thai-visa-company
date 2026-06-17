@@ -6,14 +6,14 @@ import { siteBrand } from "@/lib/site"
 const consultationHeadingId = "consultation-page-heading"
 
 /**
- * Dedicated consultation page — concierge-led layout with room for future sections.
+ * Dedicated consultation page  -  concierge-led layout with room for future sections.
  */
 function ConsultationPageTemplate() {
   return (
     <main
       id="main-content"
       tabIndex={-1}
-      aria-label={`Request a consultation — ${siteBrand.name}`}
+      aria-label={`Request a consultation, ${siteBrand.name}`}
       className="consultation-page flex flex-1 flex-col overflow-x-clip bg-background"
     >
       <PageBreadcrumbs

@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils"
 
-/** Display / page H1 — Inter Tight */
+/** Display / page H1  -  Inter Tight */
 export const fontDisplayClass = "font-display"
 
-/** Section H2 — Inter Tight, architectural scale */
+/** Section H2  -  Inter Tight, architectural scale */
 export const sectionTitleClass = cn(
   fontDisplayClass,
   "font-medium tracking-[var(--tracking-heading)] text-balance text-foreground",

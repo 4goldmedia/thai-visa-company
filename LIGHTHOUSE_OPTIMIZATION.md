@@ -1,6 +1,6 @@
 # Lighthouse optimization review
 
-Code-based audit for performance, accessibility, SEO, and best practices. Run Lighthouse in production (Vercel preview or live domain) for scored baselines — local CLI requires Chrome.
+Code-based audit for performance, accessibility, SEO, and best practices. Run Lighthouse in production (Vercel preview or live domain) for scored baselines  -  local CLI requires Chrome.
 
 ## Summary
 
@@ -17,30 +17,30 @@ Code-based audit for performance, accessibility, SEO, and best practices. Run Li
 
 ### Strengths
 
-- **Mostly Server Components** — only 4 client modules: `navbar`, `accordion`, `faq-item`, `inquiry-form` (form not on pages yet).
-- **CSS-only motion** — `SectionReveal` uses `animation-timeline: view()`; no GSAP/framer.
-- **`prefers-reduced-motion`** — global shorten in `styles/base.css`.
-- **Fonts** — Geist Sans `display: swap`, `adjustFontFallback`, single preloaded family.
-- **Below-fold deferral** — `content-visibility: auto` on `main > section:not(#hero)` with `contain-intrinsic-size`.
-- **Static generation** — homepage, visas, articles pre-rendered.
-- **`next/image` ready** — `OptimizedImage` + AVIF/WebP in `next.config.ts` (no content images yet).
+- **Mostly Server Components**  -  only 4 client modules: `navbar`, `accordion`, `faq-item`, `inquiry-form` (form not on pages yet).
+- **CSS-only motion**  -  `SectionReveal` uses `animation-timeline: view()`; no GSAP/framer.
+- **`prefers-reduced-motion`**  -  global shorten in `styles/base.css`.
+- **Fonts**  -  Geist Sans `display: swap`, `adjustFontFallback`, single preloaded family.
+- **Below-fold deferral**  -  `content-visibility: auto` on `main > section:not(#hero)` with `contain-intrinsic-size`.
+- **Static generation**  -  homepage, visas, articles pre-rendered.
+- **`next/image` ready**  -  `OptimizedImage` + AVIF/WebP in `next.config.ts` (no content images yet).
 
 ### Risks & fixes
 
 | Issue | Impact | Priority |
 |-------|--------|----------|
-| Hero copy had `motion-fade-up-mount` (opacity 0 → 1) | Delays LCP text paint | **Fixed** — copy column no longer animated |
-| Hero visual still uses mount animation | Low — `aria-hidden`, not LCP | P3 |
-| `backdrop-blur` on navbar + mobile contact bar | GPU on scroll | P3 — acceptable for premium feel |
-| Geist Mono loaded, rarely used | Extra font bytes | P2 — remove from layout if unused |
-| FAQ accordion client JS on every FAQ section | Small hydration cost | P2 — optional native `<details>` variant |
-| No `NEXT_PUBLIC_OG_IMAGE_PATH` | No social image bytes; metadata gap | P1 — add 1200×630 asset |
+| Hero copy had `motion-fade-up-mount` (opacity 0 → 1) | Delays LCP text paint | **Fixed**  -  copy column no longer animated |
+| Hero visual still uses mount animation | Low  -  `aria-hidden`, not LCP | P3 |
+| `backdrop-blur` on navbar + mobile contact bar | GPU on scroll | P3  -  acceptable for premium feel |
+| Geist Mono loaded, rarely used | Extra font bytes | P2  -  remove from layout if unused |
+| FAQ accordion client JS on every FAQ section | Small hydration cost | P2  -  optional native `<details>` variant |
+| No `NEXT_PUBLIC_OG_IMAGE_PATH` | No social image bytes; metadata gap | P1  -  add 1200×630 asset |
 
 ### Core Web Vitals (expected)
 
-- **LCP** — Text hero (no image LCP); keep h1/description free of opacity-0 animations.
-- **CLS** — Hero visual uses fixed `h-[9.5rem]` on mobile; contact bar offset via `--mobile-contact-bar-height`; font fallback adjusted.
-- **INP** — Low; navbar menu + accordions only interactive islands.
+- **LCP**  -  Text hero (no image LCP); keep h1/description free of opacity-0 animations.
+- **CLS**  -  Hero visual uses fixed `h-[9.5rem]` on mobile; contact bar offset via `--mobile-contact-bar-height`; font fallback adjusted.
+- **INP**  -  Low; navbar menu + accordions only interactive islands.
 
 ---
 
@@ -59,10 +59,10 @@ Code-based audit for performance, accessibility, SEO, and best practices. Run Li
 
 | Issue | Priority |
 |-------|----------|
-| FAQ questions in `sr-only` `<h3>` — visible text only in trigger | P1 |
+| FAQ questions in `sr-only` `<h3>`  -  visible text only in trigger | P1 |
 | Broken nav/footer links (`/visas`, `/contact`, `/reviews`, planned articles) | P0 |
 | `resources` search input disabled without clear “coming soon” context | P3 |
-| Inquiry form not wired — N/A until contact page ships | — |
+| Inquiry form not wired  -  N/A until contact page ships |  -  |
 
 ---
 
@@ -70,7 +70,7 @@ Code-based audit for performance, accessibility, SEO, and best practices. Run Li
 
 ### Strengths
 
-- `createPageMetadata` — canonical, robots, OG, Twitter
+- `createPageMetadata`  -  canonical, robots, OG, Twitter
 - Article `publishedTime` / `modifiedTime`
 - JSON-LD: Organization, LocalBusiness, WebSite, Article, FAQ, Breadcrumb
 - `robots.ts` + dynamic `sitemap.xml`
@@ -101,7 +101,7 @@ Code-based audit for performance, accessibility, SEO, and best practices. Run Li
 | Module | Required? | Notes |
 |--------|-----------|--------|
 | `navbar.tsx` | Yes | Menu state, scroll, `data-mobile-nav-open` |
-| `accordion.tsx` | Yes* | Radix — only if keeping accordion FAQ |
+| `accordion.tsx` | Yes* | Radix  -  only if keeping accordion FAQ |
 | `faq-item.tsx` | Yes* | Wraps accordion |
 | `inquiry-form.tsx` | Yes when used | Load only on contact route via dynamic import |
 

@@ -135,7 +135,7 @@ export function renderVisaPageSection(
           eyebrow={visa.faq.eyebrow}
           items={visa.faq.items}
           jsonLd={{
-            name: `${visa.hero.title} — FAQ`,
+            name: `${visa.hero.title}: FAQ`,
             path: visa.path,
             description:
               visa.faq.description ??

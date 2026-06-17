@@ -6,11 +6,11 @@ import {
   ctaButtonSecondaryClass,
 } from "@/lib/section-styles"
 
-/** Short reassurance above messaging buttons — trust without pressure */
+/** Short reassurance above messaging buttons  -  trust without pressure */
 export const ctaReassuranceLine =
   "Free to ask · We typically reply the same business day"
 
-/** Canonical CTA copy — use across homepage for consistency */
+/** Canonical CTA copy  -  use across homepage for consistency */
 export const ctaLabels = {
   line: messagingChannelLabels.line,
   lineShort: messagingChannelLabels.lineShort,

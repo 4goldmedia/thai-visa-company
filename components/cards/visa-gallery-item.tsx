@@ -15,7 +15,7 @@ type VisaGalleryItemProps = {
 }
 
 /**
- * Image-first visa tile — open editorial layout (no card chrome).
+ * Image-first visa tile  -  open editorial layout (no card chrome).
  */
 function VisaGalleryItem({
   title,

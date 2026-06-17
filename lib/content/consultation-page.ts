@@ -1,4 +1,4 @@
-/** Dedicated consultation page — copy and SEO */
+/** Dedicated consultation page  -  copy and SEO */
 
 export const consultationPageContent = {
   seo: {

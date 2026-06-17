@@ -1,5 +1,5 @@
 /**
- * Site & brand configuration — `lib/site/config.ts` is the single source of truth.
+ * Site & brand configuration  -  `lib/site/config.ts` is the single source of truth.
  *
  * @example
  * import { siteBrand, siteMetadata, getSiteOrigin } from "@/lib/site"

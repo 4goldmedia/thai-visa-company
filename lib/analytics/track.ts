@@ -12,7 +12,7 @@ function gtagSafe(
 }
 
 /**
- * Low-level GA4 event — prefer typed helpers from `@/lib/analytics`.
+ * Low-level GA4 event  -  prefer typed helpers from `@/lib/analytics`.
  */
 export function trackEvent(
   eventName: string,

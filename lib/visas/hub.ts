@@ -2,7 +2,7 @@ import type { VisaPageContent, VisaSlug } from "@/lib/visas/types"
 import { VISA_REFERENCE_IMPLEMENTATION_SLUG } from "@/lib/visas/constants"
 
 /**
- * Future `/visas` hub contract — not implemented in Phase 1.
+ * Future `/visas` hub contract  -  not implemented in Phase 1.
  * Navigation and `siteRoutes` hub entry remain unpublished until Phase 2+.
  */
 export type VisaHubCard = {

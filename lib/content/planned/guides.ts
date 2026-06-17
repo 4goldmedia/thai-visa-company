@@ -1,7 +1,7 @@
 import type { GuidePostCard } from "@/lib/guides/types"
 
 /**
- * Planned guide articles — no MDX yet. Shown on the guides index only.
+ * Planned guide articles  -  no MDX yet. Shown on the guides index only.
  * When shipped, add `content/articles/guides/<slug>/` and run `npm run sync:articles`.
  */
 export const plannedGuideArticles = [

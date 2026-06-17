@@ -1,4 +1,4 @@
-/** Main navigation — shared by Navbar and Footer. Paths mirror `lib/site-routes.ts`. */
+/** Main navigation  -  shared by Navbar and Footer. Paths mirror `lib/site-routes.ts`. */
 
 import { visasHubPath } from "@/lib/visas/navigation"
 
@@ -29,7 +29,7 @@ export const mainNavLinks = [
 
 export type MainNavLink = (typeof mainNavLinks)[number]
 
-/** Footer navigation — shared structure for SEO and consistent site IA */
+/** Footer navigation  -  shared structure for SEO and consistent site IA */
 export const footerVisaLinks = [
   { label: "DTV Visa", href: "/visas/dtv" },
   { label: "Retirement Visa", href: "/visas/retirement" },
@@ -49,7 +49,7 @@ export const footerBlogLinks = [
   { label: "Living in Thailand", href: "/blog/cluster/living-in-thailand" },
 ] as const
 
-/** @deprecated Guides are supporting SEO assets — not in primary nav */
+/** @deprecated Guides are supporting SEO assets  -  not in primary nav */
 export const footerGuidesLinks = [] as const
 
 /** @deprecated Use `footerBlogLinks` */

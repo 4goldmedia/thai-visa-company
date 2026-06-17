@@ -1,4 +1,4 @@
-/* Why Thailand — editorial lifestyle band + image collage */
+/* Why Thailand  -  editorial lifestyle band + image collage */
 
 @layer components {
   .why-thailand {
@@ -83,7 +83,7 @@
     }
   }
 
-  /* Editorial collage — feature + 2×2 tiles */
+  /* Editorial collage  -  feature + 2×2 tiles */
   .why-thailand__collage {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

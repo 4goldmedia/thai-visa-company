@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 
 type ArticleQuickAnswerProps = {
-  /** Single answer string — split on blank lines into paragraphs */
+  /** Single answer string  -  split on blank lines into paragraphs */
   answer?: string
   /** Explicit paragraphs override `answer` */
   paragraphs?: ReadonlyArray<string>

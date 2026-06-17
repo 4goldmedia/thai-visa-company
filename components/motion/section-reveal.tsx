@@ -8,7 +8,7 @@ type SectionRevealProps = {
   delay?: number
 }
 
-/** Server-safe scroll reveal — CSS `animation-timeline: view()` with reduced-motion fallback */
+/** Server-safe scroll reveal  -  CSS `animation-timeline: view()` with reduced-motion fallback */
 function SectionReveal({ children, className, delay = 0 }: SectionRevealProps) {
   return (
     <div

@@ -77,7 +77,7 @@ function PageHeroReviewBadge({
 }
 
 /**
- * Unified premium hero — display type, split layout, trust below CTAs.
+ * Unified premium hero  -  display type, split layout, trust below CTAs.
  */
 function PageHero({
   eyebrow,

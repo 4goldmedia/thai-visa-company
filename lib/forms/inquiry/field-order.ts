@@ -10,7 +10,7 @@ export const inquiryFieldOrder: readonly InquiryFieldName[] = [
   inquiryFieldNames.message,
 ] as const
 
-/** DOM id suffixes — must match `InquiryForm` field `id` props */
+/** DOM id suffixes  -  must match `InquiryForm` field `id` props */
 export const inquiryFieldElementId: Record<InquiryFieldName, string> = {
   [inquiryFieldNames.name]: "name",
   [inquiryFieldNames.email]: "email",

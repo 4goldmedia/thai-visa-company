@@ -1,4 +1,4 @@
-/* Visa options — editorial image-first gallery (no card chrome) */
+/* Visa options  -  editorial image-first gallery (no card chrome) */
 
 @layer components {
   .visa-section-header {
@@ -85,7 +85,7 @@
     transform: scale(1.025);
   }
 
-  /* Light cohesion wash — avoids resort-style heavy overlays */
+  /* Light cohesion wash  -  avoids resort-style heavy overlays */
   .visa-gallery__media::after {
     content: "";
     position: absolute;

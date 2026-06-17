@@ -1,7 +1,7 @@
 import { CONTACT_URLS } from "./constants"
 import { siteBrand, siteContact } from "@/lib/site/config"
 
-/** Business contact metadata — messaging URLs from `CONTACT_URLS`; identity from `lib/site/config` */
+/** Business contact metadata  -  messaging URLs from `CONTACT_URLS`; identity from `lib/site/config` */
 export const CONTACT_CONFIG = {
   companyName: siteBrand.name,
   get email() {

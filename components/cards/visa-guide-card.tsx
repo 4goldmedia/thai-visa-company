@@ -46,7 +46,7 @@ function VisaGuideCard({
         className="absolute inset-0 rounded-[inherit] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       >
         <span className="sr-only">
-          {ctaLabel} — {title}
+          {ctaLabel}: {title}
         </span>
       </Link>
     </article>

@@ -6,13 +6,13 @@ WCAG 2.2–oriented review of the marketing site (code + patterns). Validate wit
 
 | Area | Assessment |
 |------|------------|
-| Semantic structure | **Strong** — landmarks, lists, articles |
-| Heading hierarchy | **Strong** — one h1 per route; FAQ h3 fixed |
-| Color contrast | **Good** — calm palette; watch 11px eyebrows |
-| Keyboard | **Good** — skip link, focus rings, accordion keys (Radix) |
-| ARIA | **Good** — sections labelled; minor menu trap gap |
-| Forms | **Strong** (when mounted) — labels, errors, `aria-invalid` |
-| Mobile | **Strong** — 44px targets, contact bar, readable type |
+| Semantic structure | **Strong**  -  landmarks, lists, articles |
+| Heading hierarchy | **Strong**  -  one h1 per route; FAQ h3 fixed |
+| Color contrast | **Good**  -  calm palette; watch 11px eyebrows |
+| Keyboard | **Good**  -  skip link, focus rings, accordion keys (Radix) |
+| ARIA | **Good**  -  sections labelled; minor menu trap gap |
+| Forms | **Strong** (when mounted)  -  labels, errors, `aria-invalid` |
+| Mobile | **Strong**  -  44px targets, contact bar, readable type |
 
 ---
 
@@ -36,7 +36,7 @@ WCAG 2.2–oriented review of the marketing site (code + patterns). Validate wit
 
 ### Watch
 
-- Article pages have multiple **h2** siblings (TOC, body, FAQ, related) — valid and expected.
+- Article pages have multiple **h2** siblings (TOC, body, FAQ, related)  -  valid and expected.
 - Do not add extra h1s in section components.
 
 ---
@@ -61,7 +61,7 @@ WCAG 2.2–oriented review of the marketing site (code + patterns). Validate wit
 | `text-muted-foreground/70` placeholders | Placeholder not required to meet contrast | OK |
 | Disabled search `opacity-70` | Disabled controls exempt | `aria-disabled` + hint text ✓ |
 
-Dark tokens exist (`.dark`) but theme toggle is not shipped — no user-facing dark mode yet.
+Dark tokens exist (`.dark`) but theme toggle is not shipped  -  no user-facing dark mode yet.
 
 ---
 
@@ -70,15 +70,15 @@ Dark tokens exist (`.dark`) but theme toggle is not shipped — no user-facing d
 ### Global
 
 - **Skip link** → `#main-content` (`components/layout/skip-link.tsx`).
-- **`main` `tabIndex={-1}`** — focus target after skip.
-- **Tab order** — logical: header → main → footer → mobile bar (fixed, end of DOM).
+- **`main` `tabIndex={-1}`**  -  focus target after skip.
+- **Tab order**  -  logical: header → main → footer → mobile bar (fixed, end of DOM).
 
 ### Navbar
 
 - Desktop nav links focusable.
 - Menu button: `aria-expanded`, `aria-controls`, **Escape** closes.
 - Open menu: focus moves to first link; body scroll locked.
-- **Gap (P2):** No focus trap in mobile panel — focus can tab behind overlay. Consider `focus-trap` when menu is open.
+- **Gap (P2):** No focus trap in mobile panel  -  focus can tab behind overlay. Consider `focus-trap` when menu is open.
 
 ### FAQ accordion
 
@@ -92,7 +92,7 @@ Dark tokens exist (`.dark`) but theme toggle is not shipped — no user-facing d
 
 ### Breadcrumbs
 
-- Current page is **text** (`aria-current="page"`), not a link — correct.
+- Current page is **text** (`aria-current="page"`), not a link  -  correct.
 
 ---
 
@@ -106,10 +106,10 @@ Dark tokens exist (`.dark`) but theme toggle is not shipped — no user-facing d
 
 ### Components
 
-- Buttons (`components/ui/button.tsx`) — `focus-visible:ring-3`.
-- Nav, footer links, form controls, breadcrumb links — ring or outline.
-- Accordion triggers — `focus-visible:ring-3`.
-- Google review link wrapper — ring on focus.
+- Buttons (`components/ui/button.tsx`)  -  `focus-visible:ring-3`.
+- Nav, footer links, form controls, breadcrumb links  -  ring or outline.
+- Accordion triggers  -  `focus-visible:ring-3`.
+- Google review link wrapper  -  ring on focus.
 
 ### Avoid
 
@@ -143,9 +143,9 @@ Dark tokens exist (`.dark`) but theme toggle is not shipped — no user-facing d
 
 - Section `aria-labelledby` → stable ids in `lib/section-ids.ts`.
 - Lists with `aria-label` when title isn’t on the list (reviews, visa types, process).
-- `GoogleReviewSummary` — `role="group"` + descriptive `aria-label`.
-- External CTAs — `aria-label` where visible text is shortened (“LINE”).
-- FAQ `FAQAccordion` — `aria-labelledby` → section h2.
+- `GoogleReviewSummary`  -  `role="group"` + descriptive `aria-label`.
+- External CTAs  -  `aria-label` where visible text is shortened (“LINE”).
+- FAQ `FAQAccordion`  -  `aria-labelledby` → section h2.
 
 ### Fixed / improved
 
@@ -156,16 +156,16 @@ Dark tokens exist (`.dark`) but theme toggle is not shipped — no user-facing d
 
 | Issue | Priority |
 |-------|----------|
-| Broken nav links (404) — confusing for all users | P0 |
-| Filter chips use `<span aria-disabled>` — not in tab order (OK for inactive) | — |
-| Mobile menu not announced as `role="dialog"` — disclosure pattern acceptable | P3 |
+| Broken nav links (404)  -  confusing for all users | P0 |
+| Filter chips use `<span aria-disabled>`  -  not in tab order (OK for inactive) |  -  |
+| Mobile menu not announced as `role="dialog"`  -  disclosure pattern acceptable | P3 |
 
 ---
 
 ## 7. Button accessibility
 
 - All actions use `<button>` or `<a href>`.
-- `Button asChild` + anchor for LINE/WhatsApp — correct.
+- `Button asChild` + anchor for LINE/WhatsApp  -  correct.
 - Menu toggle: `type="button"`, `aria-expanded`, label toggles Open/Close.
 - No `div onClick` buttons found.
 - Touch targets ≥ **44px** on primary CTAs (`h-11 min-h-11`).
@@ -192,11 +192,11 @@ Recommend: `autocomplete` already set; add visible required legend if more requi
 
 ## 9. Mobile accessibility
 
-- **Readable type** — 15px body on mobile, line-height 1.65–1.7.
-- **No horizontal scroll** — `overflow-x-clip` on main.
-- **Sticky bar** — does not cover focusable footer content (padding offset).
-- **Zoom** — no `user-scalable=no` in viewport ✓
-- **Spacing** — thumb-friendly gaps in forms and CTAs.
+- **Readable type**  -  15px body on mobile, line-height 1.65–1.7.
+- **No horizontal scroll**  -  `overflow-x-clip` on main.
+- **Sticky bar**  -  does not cover focusable footer content (padding offset).
+- **Zoom**  -  no `user-scalable=no` in viewport ✓
+- **Spacing**  -  thumb-friendly gaps in forms and CTAs.
 
 ---
 
@@ -228,6 +228,6 @@ Recommend: `autocomplete` already set; add visible required legend if more requi
 
 ## Related docs
 
-- `LIGHTHOUSE_OPTIMIZATION.md` — performance overlap (LCP, CLS)
-- `LAUNCH_CHECKLIST.md` — pre-launch verification
-- `DESIGN_SYSTEM.md` — typography and spacing intent
+- `LIGHTHOUSE_OPTIMIZATION.md`  -  performance overlap (LCP, CLS)
+- `LAUNCH_CHECKLIST.md`  -  pre-launch verification
+- `DESIGN_SYSTEM.md`  -  typography and spacing intent

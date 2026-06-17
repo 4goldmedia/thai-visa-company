@@ -15,7 +15,7 @@ export const businessVisaPage: VisaPageContent = {
     eyebrow: "Work & business stays",
     title: "Thailand Business Visa",
     overview:
-      "Clear guidance for business, work, and company-related visas—matched to your role, employer, or investment setup in Thailand.",
+      "Clear guidance for business, work, and company-related visas, matched to your role, employer, or investment setup in Thailand.",
   },
   overview: {
     audience: {

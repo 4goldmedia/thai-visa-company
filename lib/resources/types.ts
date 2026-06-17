@@ -31,7 +31,7 @@ export type ResourceArticle = {
 
 import type { ContentSeo } from "@/lib/content/types"
 
-/** @alias ContentSeo — resources index metadata */
+/** @alias ContentSeo  -  resources index metadata */
 export type ResourceIndexSeo = Pick<
   ContentSeo,
   "title" | "description" | "keywords"

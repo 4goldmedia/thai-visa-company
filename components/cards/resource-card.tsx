@@ -6,17 +6,17 @@ import { cardSurfaceClass, editorialLinkCompactClass } from "@/lib/section-style
 import { cn } from "@/lib/utils"
 
 type ResourceCardProps = {
-  /** Article title — natural search-style phrasing */
+  /** Article title  -  natural search-style phrasing */
   title: string
   /** Short supporting description */
   description: string
   /** Category or topic label, e.g. Retirement, DTV, Timelines */
   category: string
-  /** Destination URL — omit when `status` is `planned` */
+  /** Destination URL  -  omit when `status` is `planned` */
   href: string
   /** Published guides are linked; planned stubs show a calm coming-soon state */
   status?: ResourceArticleStatus
-  /** CTA label — defaults to "Read guide" */
+  /** CTA label  -  defaults to "Read guide" */
   ctaLabel?: string
   className?: string
 }
@@ -78,7 +78,7 @@ function ResourceCard({
           </span>
         ) : (
           <p className="mt-3.5 text-[13px] leading-snug text-muted-foreground sm:mt-4">
-            Guide in progress — message us on LINE if you need this topic now.
+            Guide in progress. Message us on LINE if you need this topic now.
           </p>
         )}
       </div>
@@ -92,7 +92,7 @@ function ResourceCard({
           )}
         >
           <span className="sr-only">
-            {ctaLabel} — {title}
+            {ctaLabel}: {title}
           </span>
         </Link>
       ) : null}

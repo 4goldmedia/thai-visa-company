@@ -17,7 +17,7 @@ type MessagingPlatformActionProps = {
 }
 
 /**
- * LINE or WhatsApp — typography-only concierge actions (hero + mobile bar).
+ * LINE or WhatsApp  -  typography-only concierge actions (hero + mobile bar).
  */
 function MessagingPlatformAction({
   channel,

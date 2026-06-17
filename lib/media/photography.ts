@@ -17,7 +17,7 @@ export type HeroMediaAsset = {
   caption?: string
 }
 
-/** Homepage hero — landscape desktop + portrait mobile */
+/** Homepage hero  -  landscape desktop + portrait mobile */
 export type ResponsiveHeroMedia = {
   desktop: HeroMediaAsset
   mobile: HeroMediaAsset
@@ -34,7 +34,7 @@ export type VisaGalleryImage = {
 /** @deprecated Use VisaGalleryImage */
 export type VisaCardImage = VisaGalleryImage
 
-/** Editorial section imagery — calm Thailand lifestyle (homepage transition band) */
+/** Editorial section imagery  -  calm Thailand lifestyle (homepage transition band) */
 export const editorialPhotography = {
   movingSimple: {
     src: "/images/editorial/krabi-thailand-beachside.webp",
@@ -43,7 +43,7 @@ export const editorialPhotography = {
   },
 } as const
 
-/** Local temp assets — swap files in `public/images/hero/` when brand photography ships */
+/** Local temp assets  -  swap files in `public/images/hero/` when brand photography ships */
 export const heroPhotography = {
   homepage: {
     desktop: {
@@ -64,7 +64,7 @@ export const heroPhotography = {
 } as const satisfies Record<string, HeroMediaAsset | ResponsiveHeroMedia>
 
 /**
- * Visa gallery — contextual lifestyle photography per route.
+ * Visa gallery  -  contextual lifestyle photography per route.
  * Sources: Unsplash (premium editorial selects); replace with brand shoots in `public/images/visas/`.
  */
 export const visaGalleryPhotography = {

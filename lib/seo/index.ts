@@ -1,5 +1,5 @@
 /**
- * SEO metadata system — helpers consume `lib/site/config.ts` for brand and URLs.
+ * SEO metadata system  -  helpers consume `lib/site/config.ts` for brand and URLs.
  *
  * @example
  * import { createPageMetadata, createVisaPageMetadata, homeMetadata } from "@/lib/seo"

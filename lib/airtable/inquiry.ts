@@ -15,7 +15,7 @@ export type SubmitInquiryToAirtableResult =
 
 /**
  * Persist an inquiry form submission to the Airtable Leads table.
- * Server-only — call from Server Actions or Route Handlers.
+ * Server-only  -  call from Server Actions or Route Handlers.
  */
 export async function submitInquiryToAirtable(
   payload: InquiryFormPayload,

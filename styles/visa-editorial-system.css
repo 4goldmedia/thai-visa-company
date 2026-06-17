@@ -1,5 +1,5 @@
 /* =============================================================================
-   Visa page — premium editorial system (visa routes only)
+   Visa page  -  premium editorial system (visa routes only)
    Spacing: 80px mobile · 112px tablet · 140px desktop (major sections)
    Width: 1280px shared content grid (--width-site)
    ============================================================================= */
@@ -537,7 +537,7 @@
     background-color: color-mix(in srgb, var(--surface-muted) 40%, var(--surface-elevated));
   }
 
-  /* ── Understanding the DTV (overview) — divider & subheading rhythm ── */
+  /* ── Understanding the DTV (overview)  -  divider & subheading rhythm ── */
   .visa-overview-section {
     --visa-overview-before-divider: 4rem;
     --visa-overview-after-divider: 3rem;
@@ -1032,7 +1032,7 @@
     margin-top: 1.125rem;
   }
 
-  /* ── Calm focus — neutral outlines only (no blue accent ring) ── */
+  /* ── Calm focus  -  neutral outlines only (no blue accent ring) ── */
   .visa-page #main-content:focus {
     outline: none;
   }
@@ -1079,7 +1079,7 @@
     }
   }
 
-  /* ── Visa FAQ — align SectionHeading with editorial scale ── */
+  /* ── Visa FAQ  -  align SectionHeading with editorial scale ── */
   .visa-page .visa-faq-section [data-slot="section-heading"] {
     gap: 0;
   }

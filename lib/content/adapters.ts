@@ -5,7 +5,7 @@ import type { BlogPostCard } from "@/lib/blog/types"
 import type { ResourceArticleMeta } from "@/lib/content/collections/resources"
 import type { ResourceArticle } from "@/lib/resources/types"
 
-/** @deprecated Resources collection — use `blogMetaToIndexCard` */
+/** @deprecated Resources collection  -  use `blogMetaToIndexCard` */
 export function resourceMetaToIndexCard(meta: ResourceArticleMeta): ResourceArticle {
   return {
     slug: meta.slug,

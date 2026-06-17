@@ -16,7 +16,7 @@ type ResourcesToolbarProps = {
 }
 
 /**
- * Search and category filter placeholders — wire to client logic when ready.
+ * Search and category filter placeholders  -  wire to client logic when ready.
  */
 function ResourcesToolbar({
   sectionId = resourcesIndexSectionIds.toolbar,

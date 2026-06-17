@@ -6,7 +6,7 @@ import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { CONTACT_URLS, getMessagingChannels } from "@/lib/contact"
 
 /**
- * Footer contact list — LINE, WhatsApp, and email with outline-style icons.
+ * Footer contact list  -  LINE, WhatsApp, and email with outline-style icons.
  */
 function FooterMessagingLinks() {
   const channels = getMessagingChannels()

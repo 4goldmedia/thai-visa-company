@@ -1,8 +1,8 @@
 # Photography direction
 
-> **Superseded for photography rules.** See [Photography direction](docs/design/brand-system.md#photography-direction) in [`docs/design/brand-system.md`](docs/design/brand-system.md). Calibration image: [`docs/design/premium-direction-reference-v1.png`](docs/design/premium-direction-reference-v1.png) (atmosphere only — not layout).
+> **Superseded for photography rules.** See [Photography direction](docs/design/brand-system.md#photography-direction) in [`docs/design/brand-system.md`](docs/design/brand-system.md). Calibration image: [`docs/design/premium-direction-reference-v1.png`](docs/design/premium-direction-reference-v1.png) (atmosphere only  -  not layout).
 
-**Thai Visa Company — relocation & residency platform**
+**Thai Visa Company  -  relocation & residency platform**
 
 The site should feel: *moving to Thailand, handled beautifully.*
 
@@ -12,11 +12,11 @@ The site should feel: *moving to Thailand, handled beautifully.*
 
 | Quality | Direction |
 |---------|-----------|
-| **Aspirational** | Light, space, calm confidence — not backpacker energy |
+| **Aspirational** | Light, space, calm confidence  -  not backpacker energy |
 | **Cinematic** | Soft contrast, natural vignette, 4:5 or 5:6 crop |
 | **Sophisticated** | Architectural, interior, lived-in details |
-| **Warm** | Golden hour, wood, linen, stone — ivory-aligned grade |
-| **Lived-in** | Real residences, workspaces, terraces — not empty resorts |
+| **Warm** | Golden hour, wood, linen, stone  -  ivory-aligned grade |
+| **Lived-in** | Real residences, workspaces, terraces  -  not empty resorts |
 
 ## Avoid
 
@@ -30,9 +30,9 @@ The site should feel: *moving to Thailand, handled beautifully.*
 
 ## Technical treatment (implemented)
 
-- `HeroMediaFrame` — warm multiply wash + bottom charcoal gradient  
+- `HeroMediaFrame`  -  warm multiply wash + bottom charcoal gradient  
 - Caption in uppercase tracking (hospitality label style)  
-- `object-position: center 35%` — architectural headroom  
+- `object-position: center 35%`  -  architectural headroom  
 
 ## Asset sources
 
@@ -45,9 +45,9 @@ Configure in `lib/media/photography.ts`.
 
 ## Shot list (brand photography)
 
-1. **Homepage** — Modern Thai residence or Bangkok apartment terrace at soft light  
-2. **Contact** — Consultant workspace or calm meeting moment (no faces required)  
-3. **Visa clusters** (future) — Subtle detail: documents organized, passport + tea, balcony  
+1. **Homepage**  -  Modern Thai residence or Bangkok apartment terrace at soft light  
+2. **Contact**  -  Consultant workspace or calm meeting moment (no faces required)  
+3. **Visa clusters** (future)  -  Subtle detail: documents organized, passport + tea, balcony  
 
 ## Licensing
 

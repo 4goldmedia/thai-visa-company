@@ -6,7 +6,7 @@ type VisaPageJsonLdProps = {
   visa: VisaPageContent
 }
 
-/** Visa page graph — WebPage + Service + BreadcrumbList; FAQ via `FaqSection` */
+/** Visa page graph  -  WebPage + Service + BreadcrumbList; FAQ via `FaqSection` */
 function VisaPageJsonLd({ visa }: VisaPageJsonLdProps) {
   return (
     <JsonLdScript

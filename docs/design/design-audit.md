@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-21  
 **Baseline:** Current frontend vs [brand-system.md](./brand-system.md) and [ui-principles.md](./ui-principles.md)  
-**Scope:** Visual system drift only — not product architecture, section order, or unpublished content strategy.
+**Scope:** Visual system drift only  -  not product architecture, section order, or unpublished content strategy.
 
 ---
 
@@ -10,7 +10,7 @@
 
 The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing variables, shared `section-styles`). The largest gap is **typography direction**: Newsreader serif and `font-editorial` conflict with the target **Inter Tight + Geist** architectural sans system. Secondary gaps: **shadow and radius inconsistency**, fragmented type scales, and legacy documentation that sends mixed signals.
 
-**Remediation:** Phase 2 — no component changes in the documentation phase.
+**Remediation:** Phase 2  -  no component changes in the documentation phase.
 
 ---
 
@@ -26,7 +26,7 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 ## Findings
 
-### 1. Serif / editorial typography — **High**
+### 1. Serif / editorial typography  -  **High**
 
 **Target:** Inter Tight display + Geist UI; no serif; no editorial treatment.
 
@@ -51,7 +51,7 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 ---
 
-### 2. Conflicting design documentation — **High**
+### 2. Conflicting design documentation  -  **High**
 
 **Target:** Single canonical direction in `docs/design/`.
 
@@ -59,18 +59,18 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 | Doc | Conflict |
 |-----|----------|
-| [`DESIGN_SYSTEM.md`](../../DESIGN_SYSTEM.md) | Geist-first, but recommends `rounded-2xl` / `rounded-3xl` — conflicts with tokenized 6px radius |
+| [`DESIGN_SYSTEM.md`](../../DESIGN_SYSTEM.md) | Geist-first, but recommends `rounded-2xl` / `rounded-3xl`  -  conflicts with tokenized 6px radius |
 | [`RELOCATION_PLATFORM_DESIGN.md`](../../RELOCATION_PLATFORM_DESIGN.md) | Legacy hospitality/editorial framing; references superseded aesthetic |
 | [`PREMIUM_DESIGN_REFINEMENT.md`](../../PREMIUM_DESIGN_REFINEMENT.md) | Earlier pass; may contradict shadow/radius targets |
 
 **Phase 2 fix:**
 
-- Supersession banners added (this phase) — agents should read `docs/design/` first
+- Supersession banners added (this phase)  -  agents should read `docs/design/` first
 - Optionally archive or trim legacy root docs after Phase 2 code alignment
 
 ---
 
-### 3. Shadow overuse / inconsistency — **Medium**
+### 3. Shadow overuse / inconsistency  -  **Medium**
 
 **Target:** Borders and spacing before shadows; nearly imperceptible shadows only for layering/interaction.
 
@@ -78,8 +78,8 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 | Location | Issue |
 |----------|--------|
-| [`lib/section-styles.ts`](../../lib/section-styles.ts) | `cardSurfaceClass` — resting `shadow-[0_1px_2px...]` + stronger hover shadow |
-| [`lib/mobile-contact-bar-styles.ts`](../../lib/mobile-contact-bar-styles.ts) | `shadow-[0_-6px_20px_-10px_rgba(0,0,0,0.12)]` — acceptable for layer, but not tokenized |
+| [`lib/section-styles.ts`](../../lib/section-styles.ts) | `cardSurfaceClass`  -  resting `shadow-[0_1px_2px...]` + stronger hover shadow |
+| [`lib/mobile-contact-bar-styles.ts`](../../lib/mobile-contact-bar-styles.ts) | `shadow-[0_-6px_20px_-10px_rgba(0,0,0,0.12)]`  -  acceptable for layer, but not tokenized |
 | Trust / visa cards | Mixed flat vs lifted card languages |
 
 **Phase 2 fix:**
@@ -90,7 +90,7 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 ---
 
-### 4. Radius inconsistency — **Medium**
+### 4. Radius inconsistency  -  **Medium**
 
 **Target:** Unified `--radius` (6px) with rare `--radius-md` for media; avoid `rounded-xl` as default card language.
 
@@ -113,7 +113,7 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 ---
 
-### 5. Section rhythm inconsistency — **Medium**
+### 5. Section rhythm inconsistency  -  **Medium**
 
 **Target:** `Section` component spacing tokens everywhere on marketing pages.
 
@@ -123,7 +123,7 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 |----------|--------|
 | [`components/layout/section.tsx`](../../components/layout/section.tsx) | Tokenized section padding via explicit vars (`--space-section-y`, `-sm`, `-lg`, `-hero`) |
 | [`components/layout/article-layout.tsx`](../../components/layout/article-layout.tsx) | Hardcoded `py-12 sm:py-14 md:py-16` on bands |
-| [`components/sections/page-at-a-glance.tsx`](../../components/sections/page-at-a-glance.tsx) | `py-9 sm:py-10` — tighter than section scale |
+| [`components/sections/page-at-a-glance.tsx`](../../components/sections/page-at-a-glance.tsx) | `py-9 sm:py-10`  -  tighter than section scale |
 | [`components/layout/footer.tsx`](../../components/layout/footer.tsx) | `py-12 sm:py-14 lg:py-16` |
 
 **Phase 2 fix:**
@@ -132,7 +132,7 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 ---
 
-### 6. Typography scale fragmentation — **Medium**
+### 6. Typography scale fragmentation  -  **Medium**
 
 **Target:** Semantic scale from brand-system; minimize arbitrary pixels.
 
@@ -153,7 +153,7 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 ---
 
-### 7. Card system split — **Medium**
+### 7. Card system split  -  **Medium**
 
 **Target:** Border-first cards via `cardSurfaceClass`; consistent radius and padding.
 
@@ -172,7 +172,7 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 ---
 
-### 8. Visual clutter / gimmick risk — **Low–Medium**
+### 8. Visual clutter / gimmick risk  -  **Low–Medium**
 
 **Target:** Restraint; no stacked decorative layers.
 
@@ -180,20 +180,20 @@ The codebase has strong foundations (ivory/charcoal tokens, `Section` spacing va
 
 | Location | Risk |
 |----------|------|
-| [`lib/section-styles.ts`](../../lib/section-styles.ts) | `sectionBandClass` — olive tint band |
+| [`lib/section-styles.ts`](../../lib/section-styles.ts) | `sectionBandClass`  -  olive tint band |
 | Hero | `hero-media-frame` wash + overlay + trust list + mock panel |
 | [`styles/editorial.css`](../../styles/editorial.css) | Editorial eyebrow olive dot |
 | Trust sections | Multiple Lucide icons at small size |
 
 **Phase 2 fix:**
 
-- Cap olive bands per page (already documented — enforce in templates)
+- Cap olive bands per page (already documented  -  enforce in templates)
 - Simplify hero overlays to one wash OR one gradient
 - Replace editorial eyebrow marker with sans eyebrow per brand-system
 
 ---
 
-### 9. Legacy radius guidance in DESIGN_SYSTEM — **Medium**
+### 9. Legacy radius guidance in DESIGN_SYSTEM  -  **Medium**
 
 **Evidence:** [`DESIGN_SYSTEM.md`](../../DESIGN_SYSTEM.md) recommends `rounded-2xl` / `rounded-3xl` while tokens use 6px.
 

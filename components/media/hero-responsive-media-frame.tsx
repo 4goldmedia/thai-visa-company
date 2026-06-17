@@ -13,7 +13,7 @@ type HeroResponsiveMediaFrameProps = {
 }
 
 /**
- * Homepage hero — separate desktop (md+) and mobile crops for sharp responsive backgrounds.
+ * Homepage hero  -  separate desktop (md+) and mobile crops for sharp responsive backgrounds.
  */
 function HeroResponsiveMediaFrame({
   assets,

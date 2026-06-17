@@ -12,7 +12,7 @@ import {
 import type { JsonLdGraphDocument } from "@/lib/schema/types"
 
 // -----------------------------------------------------------------------------
-// UI breadcrumbs — shared by layout and JSON-LD
+// UI breadcrumbs  -  shared by layout and JSON-LD
 // -----------------------------------------------------------------------------
 
 export function getVisaPageRouteBreadcrumbs(
@@ -25,7 +25,7 @@ export function getVisaPageRouteBreadcrumbs(
 }
 
 // -----------------------------------------------------------------------------
-// Next.js metadata — canonical URL, Open Graph, site defaults
+// Next.js metadata  -  canonical URL, Open Graph, site defaults
 // -----------------------------------------------------------------------------
 
 export function buildVisaPageMetadata(visa: VisaPageContent): Metadata {
@@ -38,7 +38,7 @@ export function buildVisaPageMetadata(visa: VisaPageContent): Metadata {
 }
 
 // -----------------------------------------------------------------------------
-// JSON-LD — WebPage + Service + BreadcrumbList
+// JSON-LD  -  WebPage + Service + BreadcrumbList
 // -----------------------------------------------------------------------------
 
 export function buildVisaPageRouteSchemaGraph(
@@ -51,7 +51,7 @@ export function buildVisaPageRouteSchemaGraph(
   return buildVisaPageSchemaGraph({ visa, breadcrumbs })
 }
 
-/** FAQ graph for visa pages — used by `FaqSection` */
+/** FAQ graph for visa pages  -  used by `FaqSection` */
 export function buildVisaPageRouteFaqSchemaGraph(
   input: VisaPageFaqSchemaInput,
 ): JsonLdGraphDocument | null {

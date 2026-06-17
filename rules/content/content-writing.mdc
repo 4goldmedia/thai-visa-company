@@ -1,5 +1,5 @@
 ---
-description: Writing standard for Thai Visa Company articles — clarity, structure, AEO
+description: Writing standard for Thai Visa Company articles  -  clarity, structure, AEO
 globs: content/**/*,lib/blog/**/*,lib/guides/**/*
 alwaysApply: false
 ---

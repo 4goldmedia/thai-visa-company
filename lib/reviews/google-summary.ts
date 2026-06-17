@@ -3,7 +3,7 @@ import {
   platformBusinessProfile,
 } from "@/lib/schema/business-profile"
 
-/** Default Google review summary — single source for UI + trust blocks */
+/** Default Google review summary  -  single source for UI + trust blocks */
 export const defaultGoogleReviewSummary = {
   rating: platformBusinessProfile.googleReviews.aggregateRating.ratingValue,
   reviewCount:

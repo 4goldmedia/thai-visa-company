@@ -1,7 +1,7 @@
 import type { BlogCluster } from "@/lib/blog/types"
 
 /**
- * Blog content clusters — user-intent subject areas.
+ * Blog content clusters  -  user-intent subject areas.
  * Canonical definitions: `rules/content/content-clusters.mdc`
  */
 export const blogClusters = [

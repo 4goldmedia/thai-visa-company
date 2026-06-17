@@ -8,7 +8,7 @@ export type ArticleJsonLdProps = {
 }
 
 /**
- * Resource article JSON-LD — Article + BreadcrumbList (+ meta.schema extensions).
+ * Resource article JSON-LD  -  Article + BreadcrumbList (+ meta.schema extensions).
  * FAQ schema is rendered separately via `FaqJsonLd` on `ArticleInlineFaq`.
  */
 function ArticleJsonLd({ article, id = "schema-article" }: ArticleJsonLdProps) {

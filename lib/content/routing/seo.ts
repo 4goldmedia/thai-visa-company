@@ -22,7 +22,7 @@ import { createArticlePageMetadata } from "@/lib/seo"
 import type { JsonLdGraphDocument, JsonLdNode } from "@/lib/schema/types"
 
 // -----------------------------------------------------------------------------
-// UI breadcrumbs — shared by layout and JSON-LD
+// UI breadcrumbs  -  shared by layout and JSON-LD
 // -----------------------------------------------------------------------------
 
 export function getResourceArticleRouteBreadcrumbs(
@@ -85,7 +85,7 @@ export function buildArticleMetadata(meta: ArticleMetadataSource): Metadata {
 }
 
 // -----------------------------------------------------------------------------
-// Next.js metadata — canonical URL, Open Graph article type, site defaults
+// Next.js metadata  -  canonical URL, Open Graph article type, site defaults
 // -----------------------------------------------------------------------------
 
 export function buildResourceArticleMetadata(
@@ -103,7 +103,7 @@ export function buildGuideArticleMetadata(meta: GuideArticleMeta): Metadata {
 }
 
 // -----------------------------------------------------------------------------
-// JSON-LD — Article + BreadcrumbList (+ per-article schema extensions)
+// JSON-LD  -  Article + BreadcrumbList (+ per-article schema extensions)
 // -----------------------------------------------------------------------------
 
 export type BuildArticleRouteSchemaInput = {

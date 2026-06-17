@@ -1,5 +1,5 @@
 /**
- * Internal linking automation — semantic related content across articles and visas.
+ * Internal linking automation  -  semantic related content across articles and visas.
  *
  * Integrates: article registry, visa registry, content types, SEO link model.
  * Strategies: manual curation (highest priority) → explicit slugs → tag/category/topic scoring.
@@ -39,7 +39,7 @@ import type { VisaPageContent, VisaSlug } from "@/lib/visas/types"
 export { contentTopicIds, type ContentTopicId } from "@/lib/content/topics"
 
 // -----------------------------------------------------------------------------
-// Scoring weights — explicit curation always wins over algorithmic matches
+// Scoring weights  -  explicit curation always wins over algorithmic matches
 // -----------------------------------------------------------------------------
 
 const SCORE = {
@@ -61,7 +61,7 @@ const DEFAULT_MAX_RELATED = 3
 const DEFAULT_MAX_CROSS_LINKS = 3
 
 // -----------------------------------------------------------------------------
-// Semantic topic taxonomy — topical clusters for AI-search + crawl depth
+// Semantic topic taxonomy  -  topical clusters for AI-search + crawl depth
 // -----------------------------------------------------------------------------
 
 export type ContentTopicDefinition = {
@@ -157,7 +157,7 @@ export const contentTopicTaxonomy: Record<ContentTopicId, ContentTopicDefinition
     },
   }
 
-/** Default visa-to-visa clusters — override per page with `relatedVisaSlugs` */
+/** Default visa-to-visa clusters  -  override per page with `relatedVisaSlugs` */
 export const defaultRelatedVisaSlugs: Partial<
   Record<VisaSlug, ReadonlyArray<VisaSlug>>
 > = {
@@ -559,7 +559,7 @@ export async function filterPublishedRelatedLinks(
   return filtered.filter((entry) => entry.published).map((entry) => entry.item)
 }
 
-/** Merge link lists in order — manual entries first, deduped by href */
+/** Merge link lists in order  -  manual entries first, deduped by href */
 export function mergeRelatedLinks(
   ...lists: ReadonlyArray<ReadonlyArray<ContentRelatedLink>>
 ): ContentRelatedLink[] {

@@ -31,7 +31,7 @@ export function isAirtableError(error: unknown): error is AirtableError {
   return error instanceof AirtableError
 }
 
-/** Safe message for API responses — never expose tokens or raw Airtable bodies */
+/** Safe message for API responses  -  never expose tokens or raw Airtable bodies */
 export function toPublicAirtableMessage(error: unknown): string {
   if (error instanceof AirtableError) {
     if (error.code === "CONFIG") {

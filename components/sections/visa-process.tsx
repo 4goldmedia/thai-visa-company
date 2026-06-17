@@ -22,7 +22,7 @@ function VisaProcess({
   headingId,
   title = "How your application moves forward",
   description =
-    "A clear sequence from first review to arrival—so you know what happens at each stage.",
+    "A clear sequence from first review to arrival, so you know what happens at each stage.",
   eyebrow = "How it works",
   steps,
   processAriaLabel = "Visa application process",

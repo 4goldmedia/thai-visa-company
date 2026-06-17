@@ -6,7 +6,7 @@ export const retirementVisaPage: VisaPageContent = {
   path: "/visas/retirement",
   ...defaultVisaPublishMeta,
   seo: {
-    title: "Thailand Retirement Visa — Requirements & Support",
+    title: "Thailand Retirement Visa  -  Requirements & Support",
     description:
       "Plain-language retirement visa guidance for foreigners in Thailand. Typical eligibility, example documents, and support on LINE and WhatsApp.",
     keywords: [
@@ -19,7 +19,7 @@ export const retirementVisaPage: VisaPageContent = {
     eyebrow: "Long-stay visa",
     title: "Thailand Retirement Visa",
     overview:
-      "Planning to retire in Thailand? We explain typical age and financial requirements, the documents embassies usually ask for, and your next steps—with clear support throughout.",
+      "Planning to retire in Thailand? We explain typical age and financial requirements, the documents embassies usually ask for, and your next steps - with clear support throughout.",
   },
   overview: {
     eyebrow: "At a glance",
@@ -36,26 +36,26 @@ export const retirementVisaPage: VisaPageContent = {
     eligibility: {
       content: [
         "Minimum age is generally 50 (some dependent cases differ).",
-        "Financial proof in a form accepted by your embassy — savings, pension, or a combination.",
+        "Financial proof in a form accepted by your embassy  -  savings, pension, or a combination.",
         "Valid passport, suitable travel history, and standard background checks when requested.",
       ],
     },
     practicalOverview: {
       content:
-        "Embassies and immigration offices do not all ask for the same file. We review your nationality, where you will apply, and your timeline, then give you a realistic checklist — so you know what to prepare before you pay fees or book flights.",
+        "Embassies and immigration offices do not all ask for the same file. We review your nationality, where you will apply, and your timeline, then give you a realistic checklist  -  so you know what to prepare before you pay fees or book flights.",
     },
   },
   requirements: {
     eyebrow: "What you need",
     title: "Example requirements",
     description:
-      "Typical items retirees are asked to provide. Your embassy may request additional documents — we confirm your list before you submit.",
+      "Typical items retirees are asked to provide. Your embassy may request additional documents  -  we confirm your list before you submit.",
     requirements: {
       intro: "Figures and forms change; treat these as common examples, not legal advice.",
       items: [
         "Passport valid at least six months beyond your planned entry",
         "Proof of age (50+) such as passport bio data",
-        "Financial evidence — often bank statements, pension letters, or fixed deposits",
+        "Financial evidence  -  often bank statements, pension letters, or fixed deposits",
         "Health insurance or qualifying coverage when required by your post",
         "Completed visa application forms and passport photos",
       ],
@@ -84,7 +84,7 @@ export const retirementVisaPage: VisaPageContent = {
     eyebrow: "How it works",
     title: "How we support your retirement visa",
     description:
-      "A straightforward flow — you stay informed at each step without managing everything alone.",
+      "A straightforward flow  -  you stay informed at each step without managing everything alone.",
     steps: defaultVisaProcessSteps,
   },
   faq: {
@@ -109,7 +109,7 @@ export const retirementVisaPage: VisaPageContent = {
         value: "retirement-insurance",
         question: "Is health insurance required?",
         answer:
-          "Many embassies ask for coverage that meets their minimum terms. Requirements vary — we check what your post expects and whether your existing policy qualifies.",
+          "Many embassies ask for coverage that meets their minimum terms. Requirements vary  -  we check what your post expects and whether your existing policy qualifies.",
       },
       {
         value: "retirement-renewal",
@@ -121,7 +121,7 @@ export const retirementVisaPage: VisaPageContent = {
         value: "retirement-timeline",
         question: "How long does processing take?",
         answer:
-          "Embassy workload and how complete your file is make the biggest difference. After reviewing your documents, we give a realistic range — not a vague promise.",
+          "Embassy workload and how complete your file is make the biggest difference. After reviewing your documents, we give a realistic range  -  not a vague promise.",
       },
     ],
   },

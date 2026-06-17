@@ -1,6 +1,6 @@
 /**
  * Stable section and heading ids for `aria-labelledby`, in-page anchors, and tests.
- * Import from section components — do not duplicate string literals.
+ * Import from section components  -  do not duplicate string literals.
  */
 export const sectionHeadingIds = {
   hero: "hero-heading",
@@ -19,7 +19,7 @@ export const sectionHeadingIds = {
 /** Optional `id` on `<section>` for skip links and deep linking */
 export const sectionIds = {
   hero: "hero",
-  visaTypes: "visa-services",
+  visaTypes: "visa-options",
   whyChooseUs: "why-choose-us",
   movingSimple: "moving-simple",
   process: "process",
@@ -41,5 +41,6 @@ export const homepageHashSectionIds = [
   sectionIds.reviews,
   sectionIds.faq,
   sectionIds.visaTypes,
+  "visa-services",
   sectionIds.finalCta,
 ] as const

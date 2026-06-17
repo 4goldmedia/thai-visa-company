@@ -25,7 +25,7 @@ function resolveContactPoints(
 }
 
 /**
- * LocalBusiness + ProfessionalService — primary trust entity for visa support.
+ * LocalBusiness + ProfessionalService  -  primary trust entity for visa support.
  * Includes LINE/WhatsApp contact, Google reviews, and client excerpts.
  */
 export function buildLocalBusiness(

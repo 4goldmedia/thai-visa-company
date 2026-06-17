@@ -1,5 +1,5 @@
 /**
- * Stable CTA identifiers — use in `analyticsDataAttributes` and reporting.
+ * Stable CTA identifiers  -  use in `analyticsDataAttributes` and reporting.
  * Do not inline arbitrary strings in components.
  */
 export const analyticsCtaIds = {

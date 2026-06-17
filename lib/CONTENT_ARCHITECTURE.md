@@ -46,8 +46,8 @@ Collection-specific fields (FAQ, related, CTA, TOC) live on **`ResourceArticleMe
 
 Define helpers:
 
-- `defineResourceArticle()` — `lib/content/collections/resources.ts`
-- `defineVisaGuideArticle()` — `lib/content/collections/visa-guides.ts`
+- `defineResourceArticle()`  -  `lib/content/collections/resources.ts`
+- `defineVisaGuideArticle()`  -  `lib/content/collections/visa-guides.ts`
 
 ## Registry
 
@@ -60,11 +60,11 @@ Define helpers:
 3. Add the same key to `articleEntriesSync` in `lib/content/articles.ts` (for static index builds)
 4. Set `published: true` when shipping
 
-No manual index lists — the resources hub uses `getResourceIndexArticlesSync()` (registry + planned stubs).
+No manual index lists  -  the resources hub uses `getResourceIndexArticlesSync()` (registry + planned stubs).
 
 ## Article collection API
 
-`lib/content/articles.ts` — centralized retrieval (no hardcoded article lists):
+`lib/content/articles.ts`  -  centralized retrieval (no hardcoded article lists):
 
 | Function | Use |
 |----------|-----|
@@ -93,11 +93,11 @@ Public entry: `@/lib/content` (re-exports `@/lib/content/articles`)
 
 ## Resources dynamic routing (`/resources/[slug]`)
 
-App Router page: `app/resources/[slug]/page.tsx` — thin; all logic in `lib/content/routing/`.
+App Router page: `app/resources/[slug]/page.tsx`  -  thin; all logic in `lib/content/routing/`.
 
 | Module | Role |
 |--------|------|
-| `lib/content/routing/resources.ts` | `resolveResourceArticlePageContext(slug)` — route + metadata + breadcrumbs + related |
+| `lib/content/routing/resources.ts` | `resolveResourceArticlePageContext(slug)`  -  route + metadata + breadcrumbs + related |
 | `lib/content/routing/seo.ts` | `buildResourceArticleMetadata`, `buildResourceArticleRouteSchemaGraph` |
 | `lib/content/schema/article.ts` | Article → `ArticleInput`, schema graph composer |
 | `lib/content/registry.ts` | MDX loaders (single registration point) |
@@ -113,7 +113,7 @@ Route config: `dynamicParams = false` (404 unknown slugs).
 |---------|--------|
 | Canonical + OG `article` | `createArticlePageMetadata()` via `buildResourceArticleMetadata` |
 | Site URL / OG defaults | `lib/site/config` |
-| Article JSON-LD | `buildResourceArticleRouteSchemaGraph` — Article + BreadcrumbList |
+| Article JSON-LD | `buildResourceArticleRouteSchemaGraph`  -  Article + BreadcrumbList |
 | FAQ JSON-LD | `ArticleInlineFaq` + `buildResourceArticleFaqSchemaGraph` |
 | Related links | `resolveRelatedArticles` (registry + `relatedSlugs`) |
 | Sitemap paths | `getPublishedArticlePaths("resources")` |
@@ -122,8 +122,8 @@ Optional `meta.schema`: `primaryType`, `featuredImage`, `additionalNodes` for JS
 
 ## Deprecations
 
-- `lib/resources/routing/*` — re-exports `@/lib/content/routing`
-- `lib/resources/mdx/*` — re-exports `@/lib/content`
-- `lib/schema/article-schema.ts` — re-exports `@/lib/content/schema/article`
+- `lib/resources/routing/*`  -  re-exports `@/lib/content/routing`
+- `lib/resources/mdx/*`  -  re-exports `@/lib/content`
+- `lib/schema/article-schema.ts`  -  re-exports `@/lib/content/schema/article`
 
 Prefer `@/lib/content/routing` in new code.

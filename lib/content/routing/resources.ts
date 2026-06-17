@@ -41,7 +41,7 @@ export const resolveResourceArticleRoute = cache(
   },
 )
 
-/** `generateStaticParams` for `app/resources/[slug]` — registry published slugs only */
+/** `generateStaticParams` for `app/resources/[slug]`  -  registry published slugs only */
 export async function getResourceArticleStaticParams(): Promise<
   ResourceArticleStaticParam[]
 > {
@@ -68,7 +68,7 @@ export async function resolveResourceArticleRelated(
 }
 
 /**
- * Full `/resources/[slug]` context — route, metadata, breadcrumbs, related articles.
+ * Full `/resources/[slug]` context  -  route, metadata, breadcrumbs, related articles.
  * Single entry point for the dynamic article page.
  */
 export const resolveResourceArticlePageContext = cache(

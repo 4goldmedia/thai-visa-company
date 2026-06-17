@@ -12,7 +12,7 @@ export type VisaPageSchemaGraphInput = {
 }
 
 /**
- * Visa landing page `@graph` — WebPage + Service (+ optional BreadcrumbList).
+ * Visa landing page `@graph`  -  WebPage + Service (+ optional BreadcrumbList).
  * FAQ schema is rendered separately via `FaqSection` / `buildVisaPageFaqSchemaGraph`.
  */
 export function buildVisaPageSchemaGraph(

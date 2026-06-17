@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils"
 type ContactCtaGroupProps = {
   /** Visual density for hero vs inner pages */
   layout?: "default" | "hero" | "hero-premium"
-  /** Optional line above buttons — set null to hide */
+  /** Optional line above buttons  -  set null to hide */
   reassurance?: string | null
   /** Show tertiary link to visa services */
   showExplore?: boolean

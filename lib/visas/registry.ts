@@ -3,7 +3,7 @@ import type { VisaPageContent, VisaSlug } from "@/lib/visas/types"
 import { visaSlugs } from "@/lib/visas/types"
 
 /**
- * Visa page registry — single source of truth for all visa landing pages.
+ * Visa page registry  -  single source of truth for all visa landing pages.
  * Add new visas in `lib/visas/content/<slug>.ts` and register here via `visaPages`.
  */
 export const visaRegistry = visaPages

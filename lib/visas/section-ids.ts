@@ -1,6 +1,6 @@
 import type { VisaSlug } from "@/lib/visas/types"
 
-/** Stable section and heading ids per visa page — for landmarks and SEO */
+/** Stable section and heading ids per visa page  -  for landmarks and SEO */
 export function getVisaSectionIds(slug: VisaSlug) {
   return {
     hero: `${slug}-hero`,

@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!context) return {}
 
   return createPageMetadata({
-    title: `${context.cluster.label} — Thailand Visa Answers`,
+    title: `${context.cluster.label}: Thailand Visa Answers`,
     description: context.cluster.description,
     path: blogClusterPath(context.cluster.id),
   })

@@ -78,9 +78,9 @@ Use `normalizeFaqItems()` when bridging `VisaFaqItem[]` to schema. Page-level gr
 
 ## Site-wide business entities
 
-`lib/schema/business-profile.ts` — single source for name, description, LINE, WhatsApp, email, Google reviews URL, expertise (`knowsAbout`), and sample reviews.
+`lib/schema/business-profile.ts`  -  single source for name, description, LINE, WhatsApp, email, Google reviews URL, expertise (`knowsAbout`), and sample reviews.
 
-`buildPlatformBusinessSchemaGraph()` — Organization + LocalBusiness with:
+`buildPlatformBusinessSchemaGraph()`  -  Organization + LocalBusiness with:
 - `contactPoint` array (LINE, WhatsApp, email, phone)
 - `sameAs` (LINE, WhatsApp, Google Maps)
 - `aggregateRating` + `review` excerpts

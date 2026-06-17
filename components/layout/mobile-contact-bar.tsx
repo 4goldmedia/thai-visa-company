@@ -8,7 +8,7 @@ type MobileContactBarProps = {
 }
 
 /**
- * Sticky bottom messaging bar — mobile/tablet only; conversation-first conversion.
+ * Sticky bottom messaging bar  -  mobile/tablet only; conversation-first conversion.
  */
 function MobileContactBar({ className }: MobileContactBarProps) {
   return (

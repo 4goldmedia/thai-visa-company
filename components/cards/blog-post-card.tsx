@@ -97,7 +97,7 @@ function BlogPostCard({
             </span>
           ) : (
             <p className="blog-index-card__planned-copy">
-              Article in progress — message us on LINE if you need this topic now.
+              Article in progress. Message us on LINE if you need this topic now.
             </p>
           )}
         </div>
@@ -108,7 +108,7 @@ function BlogPostCard({
             className="absolute inset-0 rounded-[inherit] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           >
             <span className="sr-only">
-              {ctaLabel} — {title}
+              {ctaLabel}: {title}
             </span>
           </Link>
         ) : null}
@@ -170,7 +170,7 @@ function BlogPostCard({
           </div>
         ) : (
           <p className="mt-3.5 text-[13px] leading-snug text-muted-foreground sm:mt-4">
-            Article in progress — message us on LINE if you need this topic now.
+            Article in progress. Message us on LINE if you need this topic now.
           </p>
         )}
       </div>
@@ -184,7 +184,7 @@ function BlogPostCard({
           )}
         >
           <span className="sr-only">
-            {ctaLabel} — {title}
+            {ctaLabel}: {title}
           </span>
         </Link>
       ) : null}

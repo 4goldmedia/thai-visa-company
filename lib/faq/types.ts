@@ -1,7 +1,7 @@
 import type { ContentTopicId } from "@/lib/content/topics"
 import type { VisaSlug } from "@/lib/visas/types"
 
-/** Where FAQ content originated — for future /faq aggregation */
+/** Where FAQ content originated  -  for future /faq aggregation */
 export type FaqSourceType = "article" | "guide" | "visa" | "standalone"
 
 export type FaqSource = {
@@ -27,6 +27,6 @@ export type FaqHubConfig = {
   slug: FaqHubTopicSlug
   title: string
   description: string
-  /** Future route — not exposed in nav yet */
+  /** Future route  -  not exposed in nav yet */
   path: `/faq/topic/${string}`
 }

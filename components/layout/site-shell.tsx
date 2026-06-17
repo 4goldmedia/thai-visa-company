@@ -9,7 +9,7 @@ type SiteShellProps = {
 }
 
 /**
- * Global marketing site chrome — nav, page content, footer, mobile contact bar.
+ * Global marketing site chrome  -  nav, page content, footer, mobile contact bar.
  * Rendered from `app/layout.tsx` on every public route.
  */
 function SiteShell({ children, className }: SiteShellProps) {

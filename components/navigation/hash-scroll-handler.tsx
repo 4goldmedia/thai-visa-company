@@ -5,10 +5,11 @@ import { usePathname } from "next/navigation"
 
 import { homepageHashSectionIds } from "@/lib/section-ids"
 
-/** Homepage sections linked from global nav/footer — must match `sectionIds` */
+/** Homepage sections linked from global nav/footer  -  must match `sectionIds` */
 const HASH_SCROLL_TARGETS = new Set<string>([
   ...homepageHashSectionIds,
   "final-cta",
+  "visa-options",
 ])
 
 function getScrollBehavior(): ScrollBehavior {

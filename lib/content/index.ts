@@ -1,5 +1,5 @@
 /**
- * Content platform — types, collections, registry, and article retrieval API.
+ * Content platform  -  types, collections, registry, and article retrieval API.
  */
 
 export { resourceMetaToIndexCard } from "@/lib/content/adapters"

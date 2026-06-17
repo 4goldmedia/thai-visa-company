@@ -5,7 +5,7 @@ type VisaPageViewProps = {
   context: ResolvedVisaPageContext
 }
 
-/** Server view for visa routes — delegates layout to `VisaPageTemplate` */
+/** Server view for visa routes  -  delegates layout to `VisaPageTemplate` */
 function VisaPageView({ context }: VisaPageViewProps) {
   return <VisaPageTemplate context={context} />
 }

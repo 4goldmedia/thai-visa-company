@@ -11,7 +11,7 @@ export function getResourceArticles(): ResourceArticle[] {
   return [...resourceArticles]
 }
 
-/** Published guides only — JSON-LD ItemList and sitemap-aligned URLs */
+/** Published guides only  -  JSON-LD ItemList and sitemap-aligned URLs */
 export function getPublishedResourceArticles(): ResourceArticle[] {
   return resourceArticles.filter(
     (article) => article.status !== "planned",

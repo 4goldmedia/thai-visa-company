@@ -1,7 +1,7 @@
 import type { ResourceArticle } from "@/lib/resources/types"
 
 /**
- * Planned resource articles — no MDX yet. Shown on the resources index only.
+ * Planned resource articles  -  no MDX yet. Shown on the resources index only.
  * When shipped, add `content/articles/resources/<slug>/` and register in `lib/content/registry.ts`.
  */
 export const plannedResourceArticles = [

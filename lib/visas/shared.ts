@@ -1,6 +1,6 @@
 import type { VisaProcessStep } from "@/lib/visas/types"
 
-/** Default four-step flow — shared across visa pages unless overridden */
+/** Default four-step flow  -  shared across visa pages unless overridden */
 export const defaultVisaProcessSteps: ReadonlyArray<VisaProcessStep> = [
   {
     step: 1,
@@ -31,7 +31,7 @@ export const defaultVisaProcessSteps: ReadonlyArray<VisaProcessStep> = [
 export const defaultFinalCtaFootnote =
   "We typically reply within one business day. No obligation to proceed."
 
-/** Shared publish metadata for live visa pages — update per editorial review */
+/** Shared publish metadata for live visa pages  -  update per editorial review */
 export const defaultVisaPublishMeta = {
   published: true as const,
   publishedAt: "2026-01-15",

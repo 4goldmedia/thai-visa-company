@@ -41,7 +41,7 @@ export const guideTopicHubs = [
     slug: "thailand-immigration",
     title: "Thailand Immigration",
     description:
-      "Cross-cutting topics — extensions, reporting, and how visa routes fit together.",
+      "Cross-cutting topics: extensions, reporting, and how visa routes fit together.",
     topicId: "general",
     path: "/guides/topic/thailand-immigration",
   },

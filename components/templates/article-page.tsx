@@ -120,7 +120,7 @@ function ArticlePageTemplate({
             description={`Short answers about ${article.title.toLowerCase()}.`}
             items={article.faq}
             jsonLd={{
-              name: `${article.title} — FAQ`,
+              name: `${article.title}: FAQ`,
               path: article.path,
               description: article.lead,
               aboutArticle: true,

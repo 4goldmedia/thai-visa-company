@@ -1,5 +1,5 @@
 /**
- * Airtable integration — server-only CRM layer.
+ * Airtable integration  -  server-only CRM layer.
  *
  * Import from `@/lib/airtable` in Server Actions, Route Handlers, and scripts only.
  * Do not import in Client Components (`"use client"`).

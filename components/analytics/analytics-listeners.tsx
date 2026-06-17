@@ -11,7 +11,7 @@ type AnalyticsListenersProps = {
 }
 
 /**
- * GA4 client listeners — page views on route change; one persistent click delegate.
+ * GA4 client listeners  -  page views on route change; one persistent click delegate.
  */
 function AnalyticsListeners({ measurementId }: AnalyticsListenersProps) {
   const pathname = usePathname()

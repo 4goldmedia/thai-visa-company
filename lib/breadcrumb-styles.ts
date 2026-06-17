@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-/** Wrapper nav — calm fintech breadcrumb bar */
+/** Wrapper nav  -  calm fintech breadcrumb bar */
 export const breadcrumbNavClass = "w-full min-w-0"
 
 export const breadcrumbListClass = cn(

@@ -1,11 +1,11 @@
 /**
- * Homepage trust bar — fast-scan credibility pillars beneath the hero.
+ * Homepage trust bar  -  fast-scan credibility pillars beneath the hero.
  */
 
 export type TrustBarItem = {
-  /** Primary line — editorial emphasis */
+  /** Primary line  -  editorial emphasis */
   primary: string
-  /** Secondary line — muted support */
+  /** Secondary line  -  muted support */
   secondary: string
 }
 

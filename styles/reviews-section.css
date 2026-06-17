@@ -1,4 +1,4 @@
-/* Client reviews — brand dark band with subtle editorial cards */
+/* Client reviews  -  brand dark band with subtle editorial cards */
 
 @layer components {
   .reviews-section {
@@ -129,17 +129,6 @@
     border-color: var(--reviews-card-border);
     background-color: rgba(252, 250, 248, 0.08);
     color: var(--reviews-fg);
-  }
-
-  .reviews-section .editorial-link--inverse {
-    color: var(--reviews-fg);
-    --editorial-link-underline: rgba(252, 250, 248, 0.5);
-    --editorial-link-underline-hover: rgba(252, 250, 248, 0.5);
-  }
-
-  .reviews-section .editorial-link--inverse:hover {
-    color: var(--reviews-fg);
-    opacity: 0.8;
   }
 
   .reviews-card {

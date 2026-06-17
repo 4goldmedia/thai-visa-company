@@ -8,7 +8,7 @@ type SignatureMessagingCtaGroupProps = {
 }
 
 /**
- * Canonical LINE (secondary) + WhatsApp (primary) pair — matches homepage hero contact box.
+ * Canonical LINE (secondary) + WhatsApp (primary) pair  -  matches homepage hero contact box.
  */
 function SignatureMessagingCtaGroup({
   className,

@@ -5,7 +5,7 @@ import {
 import { readContactEmailEnv } from "@/lib/site/env"
 
 /**
- * Contact URL configuration — single source of truth.
+ * Contact URL configuration  -  single source of truth.
  *
  * IMPORTANT: Use static `process.env.NEXT_PUBLIC_*` access only.
  * Dynamic `process.env[key]` is not inlined in the client bundle and causes hydration mismatches.
@@ -18,7 +18,7 @@ export const CONTACT_URL_FALLBACKS = {
   email: siteContactDefaults.supportEmail,
 } as const
 
-/** @deprecated Reference only — env is read via static property access below */
+/** @deprecated Reference only  -  env is read via static property access below */
 export const CONTACT_ENV_KEYS = {
   line: "NEXT_PUBLIC_LINE_URL",
   whatsapp: "NEXT_PUBLIC_WHATSAPP_URL",
@@ -37,7 +37,7 @@ function resolveMessagingUrl(
   return normalizeContactUrl(envValue && envValue.length > 0 ? envValue : fallback)
 }
 
-/** Static env reads — required for Next.js client bundle inlining */
+/** Static env reads  -  required for Next.js client bundle inlining */
 function readLineEnv(): string | undefined {
   return process.env.NEXT_PUBLIC_LINE_URL?.trim()
 }

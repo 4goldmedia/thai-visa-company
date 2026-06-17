@@ -1,6 +1,6 @@
 /**
- * Class names for CSS motion utilities — keep in sync with `styles/motion.css`.
- * Do not apply `fadeUpMount` to hero copy (h1/description) — preserves LCP paint.
+ * Class names for CSS motion utilities  -  keep in sync with `styles/motion.css`.
+ * Do not apply `fadeUpMount` to hero copy (h1/description)  -  preserves LCP paint.
  */
 
 export const motionClass = {

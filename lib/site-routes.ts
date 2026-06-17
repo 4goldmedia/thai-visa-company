@@ -32,7 +32,7 @@ export type SiteRoute = {
 }
 
 // -----------------------------------------------------------------------------
-// Route registry — single source of truth for sitemap & crawl policy
+// Route registry  -  single source of truth for sitemap & crawl policy
 // -----------------------------------------------------------------------------
 
 /**
@@ -50,13 +50,6 @@ export const siteRoutes = [
   },
 
   // Visa services
-  {
-    path: "/visas",
-    group: "visa",
-    changeFrequency: "weekly",
-    priority: 0.9,
-    published: true,
-  },
   {
     path: "/visas/retirement",
     group: "visa",
@@ -114,7 +107,7 @@ export const siteRoutes = [
     published: false,
   },
 
-  // Guides — evergreen authority
+  // Guides  -  evergreen authority
   {
     path: "/guides",
     group: "resource",
@@ -172,7 +165,7 @@ export const siteRoutes = [
     published: true,
   },
 
-  // Blog — freshness publication
+  // Blog  -  freshness publication
   {
     path: "/blog",
     group: "resource",

@@ -4,7 +4,7 @@ import { VisaPageView } from "@/components/templates/visa-page-view"
 import { resolveVisaPageContext } from "@/lib/visas/routing"
 
 /**
- * Thailand Retirement Visa — dedicated route at `/visas/retirement`.
+ * Thailand Retirement Visa  -  dedicated route at `/visas/retirement`.
  * Content: `lib/visas/content/retirement.ts` · Routing: `lib/visas/routing`
  */
 export async function generateMetadata() {

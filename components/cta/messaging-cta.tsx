@@ -8,9 +8,9 @@ export type MessagingCtaLabelMode = "full" | "short"
 
 export type MessagingCtaProps = {
   channel: MessagingChannelId
-  /** Button style — primary for LINE, outline for WhatsApp by convention */
+  /** Button style  -  primary for LINE, outline for WhatsApp by convention */
   variant?: "primary" | "outline"
-  /** Skip shadcn Button — for concierge surfaces with custom CSS */
+  /** Skip shadcn Button  -  for concierge surfaces with custom CSS */
   unstyled?: boolean
   /** Visible label: full (“Chat on LINE”) or short (“LINE”) */
   labelMode?: MessagingCtaLabelMode
@@ -24,7 +24,7 @@ const opensNewTabHint = (
 )
 
 /**
- * Accessible external CTA for LINE or WhatsApp — uses centralized `getMessagingChannel`.
+ * Accessible external CTA for LINE or WhatsApp  -  uses centralized `getMessagingChannel`.
  */
 function MessagingCta({
   channel,

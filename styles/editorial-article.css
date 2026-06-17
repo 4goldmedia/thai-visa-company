@@ -1,11 +1,11 @@
 /* =============================================================================
-   Editorial blog articles — premium publication system
+   Editorial blog articles  -  premium publication system
    ============================================================================= */
 
 @layer components {
   [data-slot="blog-article"] {
-    --editorial-frame-max: 68.75rem; /* 1100px — hero + image/TOC row */
-    --editorial-prose-max: 47.5rem; /* 760px — article body */
+    --editorial-frame-max: 68.75rem; /* 1100px  -  hero + image/TOC row */
+    --editorial-prose-max: 47.5rem; /* 760px  -  article body */
     --editorial-sidebar-width: 16.25rem; /* 260px */
     --editorial-media-gap: 3rem; /* 48px */
     --editorial-sticky-top: 7.5rem; /* 120px */
@@ -53,7 +53,7 @@
     }
   }
 
-  /* ── Editorial frame — hero, image+TOC, and body share one column ── */
+  /* ── Editorial frame  -  hero, image+TOC, and body share one column ── */
   .editorial-article-frame {
     width: 100%;
     max-width: var(--editorial-frame-max);
@@ -65,12 +65,12 @@
     padding-top: 2.5rem;
   }
 
-  /* ── Hero — title block, full frame width, left-aligned ── */
+  /* ── Hero  -  title block, full frame width, left-aligned ── */
   .editorial-article-hero-band {
     width: 100%;
   }
 
-  /* ── Main article grid — content column + TOC track (sticky boundary) ── */
+  /* ── Main article grid  -  content column + TOC track (sticky boundary) ── */
   .editorial-article-layout-grid {
     display: flex;
     flex-direction: column;
@@ -134,7 +134,7 @@
     }
   }
 
-  /* ── Hero — left-aligned stack inside reading column ── */
+  /* ── Hero  -  left-aligned stack inside reading column ── */
   .editorial-hero {
     display: flex;
     flex-direction: column;
@@ -190,7 +190,7 @@
     margin-bottom: 2.5rem;
     border: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
     border-radius: var(--radius-card);
-    background: var(--card);
+    background: var(--palette-white);
     padding: 1.25rem 1.375rem;
   }
 
@@ -382,6 +382,18 @@
     color: var(--foreground);
   }
 
+  .editorial-share__actions--toc .editorial-share__btn {
+    border: 1px solid rgba(248, 244, 242, 0.15);
+    background: #23211e;
+    color: #f8f4f2;
+  }
+
+  .editorial-share__actions--toc .editorial-share__btn:hover {
+    border-color: rgba(248, 244, 242, 0.25);
+    background: #2d2a26;
+    color: #f8f4f2;
+  }
+
   /* ── Prose ── */
   .editorial-prose {
     min-width: 0;
@@ -501,6 +513,24 @@
   .editorial-prose .visa-comparison-shell {
     margin-block: 2rem;
     max-width: var(--editorial-prose-wide);
+    background-color: var(--palette-white);
+  }
+
+  .editorial-prose .visa-comparison-table thead th:not(.visa-comparison-table__cell--active) {
+    background-color: var(--palette-white);
+  }
+
+  .editorial-prose .visa-comparison-table__corner,
+  .editorial-prose .visa-comparison-table__row-label {
+    background-color: var(--palette-white);
+  }
+
+  .editorial-prose .visa-comparison-table__cell:not(.visa-comparison-table__cell--active) {
+    background-color: var(--palette-white);
+  }
+
+  .editorial-prose .visa-comparison-mobile-card {
+    background-color: var(--palette-white);
   }
 
   .editorial-prose .visa-timeline {
@@ -529,6 +559,7 @@
   .editorial-table caption {
     padding: 0.875rem 1rem;
     caption-side: top;
+    background: #f8f4f2;
     text-align: left;
     font-size: 0.8125rem;
     font-weight: 500;
@@ -538,7 +569,7 @@
   .editorial-table thead th {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
-    background: color-mix(in srgb, var(--muted) 35%, transparent);
+    background: #f8f4f2;
     text-align: left;
     font-size: 0.75rem;
     font-weight: 600;
@@ -552,6 +583,7 @@
     padding: 0.75rem 1rem;
     border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
     vertical-align: top;
+    background: var(--palette-white);
     color: var(--text-secondary);
   }
 
@@ -559,11 +591,6 @@
     font-weight: 500;
     color: color-mix(in srgb, var(--foreground) 88%, transparent);
     text-align: left;
-  }
-
-  .editorial-table tbody tr:nth-child(even) td,
-  .editorial-table tbody tr:nth-child(even) th {
-    background: color-mix(in srgb, var(--muted) 18%, transparent);
   }
 
   .editorial-table tbody tr:last-child td,
@@ -578,7 +605,7 @@
     border: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
     border-radius: var(--radius-card);
     padding: 1.125rem 1.25rem;
-    background: color-mix(in srgb, var(--card) 90%, var(--muted));
+    background: var(--palette-white);
   }
 
   .editorial-callout-block--important {
@@ -595,7 +622,7 @@
 
   .editorial-callout-block--expert {
     border-left: 3px solid color-mix(in srgb, var(--foreground) 65%, var(--border));
-    background: color-mix(in srgb, var(--muted) 25%, var(--card));
+    background: var(--palette-white);
   }
 
   .editorial-callout-block__title {
@@ -620,7 +647,7 @@
     border: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
     border-radius: var(--radius-card);
     padding: 1.25rem 1.375rem;
-    background: var(--card);
+    background: var(--palette-white);
   }
 
   .editorial-checklist__title {
@@ -659,7 +686,7 @@
     border: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
     border-radius: var(--radius-card);
     padding: 1.5rem 1.75rem;
-    background: color-mix(in srgb, var(--muted) 22%, var(--card));
+    background: var(--palette-white);
   }
 
   .editorial-stat__value {

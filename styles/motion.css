@@ -1,5 +1,5 @@
 /* =============================================================================
-   CSS motion — homepage sections (no JS runtime, respects reduced motion via base.css)
+   CSS motion  -  homepage sections (no JS runtime, respects reduced motion via base.css)
    Uses transform + opacity only for compositor-friendly animation.
    ============================================================================= */
 
@@ -15,7 +15,7 @@
     }
   }
 
-  /* Hero / above-the-fold mount — subtle, fast */
+  /* Hero / above-the-fold mount  -  subtle, fast */
   .motion-fade-up-mount {
     animation: motion-fade-up 0.32s cubic-bezier(0.22, 0.03, 0.26, 1) both;
   }
@@ -79,7 +79,7 @@
     }
   }
 
-  /* Mobile nav panel — mount only (exit is instant; avoids AnimatePresence cost) */
+  /* Mobile nav panel  -  mount only (exit is instant; avoids AnimatePresence cost) */
   @keyframes motion-fade-down {
     from {
       opacity: 0;

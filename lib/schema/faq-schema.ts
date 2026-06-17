@@ -4,7 +4,7 @@ import type { FaqItemInput, JsonLdGraphDocument } from "@/lib/schema/types"
 import type { VisaFaqItem } from "@/lib/visas/types"
 
 // -----------------------------------------------------------------------------
-// Normalization — UI `VisaFaqItem` and schema `FaqItemInput` share one shape
+// Normalization  -  UI `VisaFaqItem` and schema `FaqItemInput` share one shape
 // -----------------------------------------------------------------------------
 
 export function normalizeFaqItems(

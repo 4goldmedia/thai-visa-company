@@ -30,7 +30,7 @@ export function buildFaqAnswer(item: FaqItemInput): JsonLdNode {
 }
 
 /**
- * Schema.org FAQPage — use when on-page FAQ content matches `items` exactly.
+ * Schema.org FAQPage  -  use when on-page FAQ content matches `items` exactly.
  * Returns `null` when there are no items (avoids empty graphs).
  */
 export function buildFaqPage(

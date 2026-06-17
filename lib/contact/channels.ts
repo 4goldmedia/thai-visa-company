@@ -43,7 +43,7 @@ const channelDefinitions: Record<
 /** @deprecated Use `CONTACT_URLS` from `@/lib/contact` */
 export const contactLinks = CONTACT_URLS
 
-/** LINE first, WhatsApp second — site-wide conversion priority */
+/** LINE first, WhatsApp second  -  site-wide conversion priority */
 export const messagingChannelOrder: readonly MessagingChannelId[] = [
   "line",
   "whatsapp",

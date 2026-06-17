@@ -4,7 +4,7 @@ export const blogIndexContent = {
   seo: {
     title: "Thailand Visa Answers",
     description:
-      "Practical answers for foreigners navigating Thai visas and life in Thailand — eligibility, documents, costs, and common mistakes explained clearly.",
+      "Practical answers for foreigners navigating Thai visas and life in Thailand: eligibility, documents, costs, and common mistakes explained clearly.",
     keywords: [
       "Thailand visa questions",
       "Thailand DTV visa",

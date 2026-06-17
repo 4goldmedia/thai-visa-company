@@ -1,5 +1,5 @@
 /* =============================================================================
-   Editorial secondary links — Aman-inspired text navigation
+   Editorial secondary links  -  Aman-inspired text navigation
    Text above a always-visible underline; subtle hover only
    ============================================================================= */
 
@@ -79,7 +79,7 @@
     width: calc(100% + 0.5rem);
   }
 
-  /* Dark band — client reviews */
+  /* Dark band  -  client reviews */
   .editorial-link--inverse {
     color: var(--reviews-fg, var(--foreground));
     --editorial-link-underline: color-mix(

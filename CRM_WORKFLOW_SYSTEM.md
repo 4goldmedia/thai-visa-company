@@ -1,6 +1,6 @@
 # CRM workflow system
 
-**Thai Visa Company — lead qualification & operations**
+**Thai Visa Company  -  lead qualification & operations**
 
 Production-grade, trust-first workflow for a small team using **Airtable** as the CRM. Designed for mobile operations, consistent replies, and scalable volume without enterprise complexity.
 
@@ -20,7 +20,7 @@ Production-grade, trust-first workflow for a small team using **Airtable** as th
 | **Higher conversion** | Qualification signals, timely follow-up, trust-oriented tone |
 | **Scalable operations** | Same pipeline at 5 or 50 leads/week; optional automations later |
 
-**Principles:** approachable, clear, human — not aggressive sales, not bureaucratic stages.
+**Principles:** approachable, clear, human  -  not aggressive sales, not bureaucratic stages.
 
 ---
 
@@ -52,13 +52,13 @@ Create these **views** so operators can work from phone in under 30 seconds:
 | View | Filter / sort | Use |
 |------|-------------|-----|
 | **🔴 Action today** | Status = `New Inquiry` OR Follow-Up Date ≤ today; sort oldest first | Morning triage |
-| **📱 New — unassigned** | Status = `New Inquiry`, Assigned To empty | Assign & first reply |
+| **📱 New  -  unassigned** | Status = `New Inquiry`, Assigned To empty | Assign & first reply |
 | **⏳ Waiting on client** | Status = `Waiting For Documents` | Gentle nudges |
 | **🔄 In progress** | Status = `In Progress` | Active cases |
 | **By visa** | Group by Visa Type Interest | Specialist routing |
-| **Lost — learn** | Status = `Lost Lead` | Optional monthly review |
+| **Lost  -  learn** | Status = `Lost Lead` | Optional monthly review |
 
-**Mobile tips:** Pin **Action today** and **New — unassigned**. Use Airtable app notifications for automations (§12). Keep field order matching the table above so scrolling is predictable.
+**Mobile tips:** Pin **Action today** and **New  -  unassigned**. Use Airtable app notifications for automations (§12). Keep field order matching the table above so scrolling is predictable.
 
 ---
 
@@ -66,9 +66,9 @@ Create these **views** so operators can work from phone in under 30 seconds:
 
 ### 3.1 Intake channels (priority order on site)
 
-1. **LINE** — primary; conversational, mobile-native  
-2. **WhatsApp** — secondary messaging  
-3. **Website inquiry form** — structured; auto-creates Airtable row  
+1. **LINE**  -  primary; conversational, mobile-native  
+2. **WhatsApp**  -  secondary messaging  
+3. **Website inquiry form**  -  structured; auto-creates Airtable row  
 
 All channels are valid. **Only the form auto-syncs to Airtable today.** Messaging leads must be logged manually (see §3.3).
 
@@ -96,7 +96,7 @@ Visitor submits form
 | `leadSource` | Lead Source (Homepage, Visa Pages, Contact Page, …) |
 | `pagePath` | Notes (prefix line) |
 
-**Lead source values (website)** — `InquiryLeadSource` in code:
+**Lead source values (website)**  -  `InquiryLeadSource` in code:
 
 - Homepage  
 - Visa Pages  
@@ -118,7 +118,7 @@ Visitor submits form
 
 | Step | Action |
 |------|--------|
-| 1 | Open **New — unassigned** or create record |
+| 1 | Open **New  -  unassigned** or create record |
 | 2 | Full Name (or LINE display name), Visa Type Interest, Current Country if known |
 | 3 | Lead Source = `LINE` or `WhatsApp` |
 | 4 | Paste key message into Inquiry Message; ongoing detail in Notes |
@@ -151,7 +151,7 @@ Matches website visa pages and `inquiryVisaOptions` (`lib/forms/inquiry/visa-opt
 | **Elite** | Thailand Elite | Premium long-stay, membership route |
 | **Business** | Business visa | Work, company, employment |
 | **Education** | Education visa | Study, school enrollment |
-| **Other** | Another visa type | Tourist, marriage, etc. — clarify in Notes |
+| **Other** | Another visa type | Tourist, marriage, etc.  -  clarify in Notes |
 | **Unsure** | Not sure yet | Education-first reply; route to right visa |
 
 **Routing:** assign by familiarity, not rigid territories. One person can own multiple categories at low volume; split by view when volume grows.
@@ -160,7 +160,7 @@ Matches website visa pages and `inquiryVisaOptions` (`lib/forms/inquiry/visa-opt
 
 ## 5. Lead qualification stages
 
-Qualification is **lightweight** — enough to prioritize and reply well, not a long discovery call.
+Qualification is **lightweight**  -  enough to prioritize and reply well, not a long discovery call.
 
 ### 5.1 Operational stages (Airtable Status)
 
@@ -177,16 +177,16 @@ New Inquiry → Contacted → Waiting For Documents → In Progress → Complete
 | **Contacted** | First helpful reply sent | Substantive reply on LINE/WA/email |
 | **Waiting For Documents** | Client owes info/files | You asked for specific items |
 | **In Progress** | Actively working the case | Docs received or application underway |
-| **Completed** | Closed won — supported through agreed outcome | Service delivered or handoff done |
-| **Lost Lead** | Closed — no longer pursuing | Unresponsive, ineligible, chose elsewhere, withdrew |
+| **Completed** | Closed won  -  supported through agreed outcome | Service delivered or handoff done |
+| **Lost Lead** | Closed  -  no longer pursuing | Unresponsive, ineligible, chose elsewhere, withdrew |
 
 **Rules**
 
 - Never skip **Contacted** after a real first reply.  
-- Do not use **In Progress** for “thinking about it” — use **Contacted** + Follow-Up Date.  
+- Do not use **In Progress** for “thinking about it”  -  use **Contacted** + Follow-Up Date.  
 - **Lost Lead** requires one line in Notes (reason code: `no-response` / `ineligible` / `competitor` / `timing` / `other`).
 
-### 5.2 Qualification depth (internal — not extra Airtable fields)
+### 5.2 Qualification depth (internal  -  not extra Airtable fields)
 
 Record in **Notes** using a short template after first exchange:
 
@@ -205,7 +205,7 @@ Fit: [Strong / Possible / Weak / Unknown]
 
 **Weak fit examples**
 
-- Requirements clearly not met — note politely, offer alternatives or **Lost Lead**  
+- Requirements clearly not met  -  note politely, offer alternatives or **Lost Lead**  
 
 ---
 
@@ -222,8 +222,8 @@ Use signals to set **priority** (§7), not to bombard the client with questions.
 | “Already in Thailand” | Current Country / message | Often higher urgency |
 | Embassy or deadline mentioned | Message | Time-sensitive |
 | Documents list question | Message | Near **Waiting For Documents** |
-| Repeat visitor / referral | Notes / source | Higher trust — prioritize tone |
-| Visa page source | Notes `Submitted from: /visas/dtv` | Pre-educated — shorter explainer |
+| Repeat visitor / referral | Notes / source | Higher trust  -  prioritize tone |
+| Visa page source | Notes `Submitted from: /visas/dtv` | Pre-educated  -  shorter explainer |
 
 ### 6.2 Urgency indicators
 
@@ -254,9 +254,9 @@ Use **Notes** prefix or Airtable **color** (optional): `P1` / `P2` / `P3`.
 
 | Tier | Who | First response target | Follow-up cadence |
 |------|-----|----------------------|-------------------|
-| **P1 — Urgent** | Expiry, travel &lt;2 weeks, stuck in Thailand | **&lt;2 hours** (business hours) | Daily until resolved or Waiting For Documents |
-| **P2 — Standard** | Form + clear visa; normal planning | **Same business day** | Every 2–3 business days if no reply |
-| **P3 — Nurture** | Unsure, early research | **Within 24 hours** | One follow-up at 5–7 days, then weekly max 2 |
+| **P1  -  Urgent** | Expiry, travel &lt;2 weeks, stuck in Thailand | **&lt;2 hours** (business hours) | Daily until resolved or Waiting For Documents |
+| **P2  -  Standard** | Form + clear visa; normal planning | **Same business day** | Every 2–3 business days if no reply |
+| **P3  -  Nurture** | Unsure, early research | **Within 24 hours** | One follow-up at 5–7 days, then weekly max 2 |
 
 Aligns with public promise: *“typically same business day”* ([CONVERSION_AUDIT.md](./CONVERSION_AUDIT.md)).
 
@@ -294,16 +294,16 @@ Aligns with public promise: *“typically same business day”* ([CONVERSION_AUD
 | Application submitted | +7 days or embassy-specific date |
 | Nurture (P3) | +5 to +7 days |
 
-**Always** update Follow-Up Date when the ball moves — stale dates cause lost leads.
+**Always** update Follow-Up Date when the ball moves  -  stale dates cause lost leads.
 
 ### 8.2 Follow-up message principles
 
 - One clear ask per message  
 - Reference their words (“You mentioned UK passport and retirement…”)  
-- No pressure close — “When you’re ready” / “Happy to clarify”  
+- No pressure close  -  “When you’re ready” / “Happy to clarify”  
 - Same channel they used (LINE → LINE)  
 
-**Copy-paste templates:** [INQUIRY_RESPONSE_TEMPLATES.md](./INQUIRY_RESPONSE_TEMPLATES.md) — first reply, follow-up, documents, scheduling, completion, review, delays.
+**Copy-paste templates:** [INQUIRY_RESPONSE_TEMPLATES.md](./INQUIRY_RESPONSE_TEMPLATES.md)  -  first reply, follow-up, documents, scheduling, completion, review, delays.
 
 ### 8.3 Waiting For Documents
 
@@ -330,7 +330,7 @@ Aligns with public promise: *“typically same business day”* ([CONVERSION_AUD
 When reassigning:
 
 1. Update **Assigned To**  
-2. Note in **Notes**: `Handoff [date]: [summary] — next step: …`  
+2. Note in **Notes**: `Handoff [date]: [summary]  -  next step: …`  
 3. New owner sets **Follow-Up Date**  
 
 ### 9.3 Escalation handling
@@ -339,10 +339,10 @@ When reassigning:
 |---------|--------|
 | Eligibility unclear / edge case | Note `Escalate: eligibility`; tag senior reviewer in Notes; reply within SLA: “Checking with our team…” |
 | Complaint or distress | Note `Escalate: service`; owner + one senior; calm, factual reply same day |
-| Legal/overstay risk | Note `Escalate: urgent`; P1; no casual advice — stick to documented guidance |
+| Legal/overstay risk | Note `Escalate: urgent`; P1; no casual advice  -  stick to documented guidance |
 | Technical failure (form not in CRM) | Check Airtable/API logs; manually create row; reply to client if delay &gt;8h |
 
-**No** multi-level approval chains — escalate = one knowledgeable person weighs in.
+**No** multi-level approval chains  -  escalate = one knowledgeable person weighs in.
 
 ---
 
@@ -379,10 +379,10 @@ stateDiagram-v2
 
 ### 11.1 Tone
 
-- **Clear** over clever — plain English, short paragraphs  
-- **Honest** about uncertainty (“Rules can depend on nationality — for UK passports we usually see…”)  
-- **Calm** — no countdown timers, no “limited slots”  
-- **Respectful** of their timeline — no obligation to proceed  
+- **Clear** over clever  -  plain English, short paragraphs  
+- **Honest** about uncertainty (“Rules can depend on nationality  -  for UK passports we usually see…”)  
+- **Calm**  -  no countdown timers, no “limited slots”  
+- **Respectful** of their timeline  -  no obligation to proceed  
 
 ### 11.2 First-reply structure (LINE / WhatsApp / email)
 
@@ -396,7 +396,7 @@ stateDiagram-v2
 - Aggressive upsell or multiple visa pitches in one message  
 - Guarantees of approval  
 - Sharing other clients’ details  
-- Long walls of text on mobile — use line breaks  
+- Long walls of text on mobile  -  use line breaks  
 
 Matches site conversion philosophy: [CONVERSION_INFRASTRUCTURE.md](./CONVERSION_INFRASTRUCTURE.md).
 
@@ -411,7 +411,7 @@ Matches site conversion philosophy: [CONVERSION_INFRASTRUCTURE.md](./CONVERSION_
 | **Inquiry** | Any meaningful contact (form row or logged messaging lead) |
 | **Qualified lead** | Status moved past **New Inquiry** with Fit ≥ Possible in Notes |
 | **Active case** | **In Progress** or **Waiting For Documents** |
-| **Conversion (won)** | **Completed** — service agreed and delivered per your offer |
+| **Conversion (won)** | **Completed**  -  service agreed and delivered per your offer |
 | **Lost** | **Lost Lead** with reason in Notes |
 
 ### 12.2 Tracking layers
@@ -426,7 +426,7 @@ Matches site conversion philosophy: [CONVERSION_INFRASTRUCTURE.md](./CONVERSION_
 
 1. Count: New → Contacted → Completed / Lost (by visa)  
 2. Average time to first reply (sample 5 rows)  
-3. Top **Lost Lead** reasons — fix FAQ or site copy if repeated  
+3. Top **Lost Lead** reasons  -  fix FAQ or site copy if repeated  
 4. One process fix (not a new field)  
 
 ### 12.4 Optional Airtable automations (future)
@@ -456,12 +456,12 @@ Keep automations minimal until volume justifies them ([AIRTABLE_CRM_ARCHITECTURE
 
 ## 14. Operational consistency guidelines
 
-1. **One lead = one thread** — link LINE ID in record when known  
-2. **Single source of truth** — Airtable beats chat memory  
+1. **One lead = one thread**  -  link LINE ID in record when known  
+2. **Single source of truth**  -  Airtable beats chat memory  
 3. **Status reflects client state**, not your to-do list (use Follow-Up Date for tasks)  
-4. **Public SLAs ≤ internal targets** — same-day reply is the norm, not the exception  
-5. **Document edge cases once in Notes** — builds team knowledge without new fields  
-6. **Production checklist** — Airtable env set in production (`ENVIRONMENT_VARIABLES.md`); `allowUnconfigured` is false in production so no silent dropped leads  
+4. **Public SLAs ≤ internal targets**  -  same-day reply is the norm, not the exception  
+5. **Document edge cases once in Notes**  -  builds team knowledge without new fields  
+6. **Production checklist**  -  Airtable env set in production (`ENVIRONMENT_VARIABLES.md`); `allowUnconfigured` is false in production so no silent dropped leads  
 
 ---
 
@@ -508,14 +508,14 @@ No new tables required until you introduce invoicing or contracts (out of scope)
 
 ### New form lead (2 min)
 
-1. Confirm row in **New — unassigned**  
+1. Confirm row in **New  -  unassigned**  
 2. Read Inquiry Message + Notes (`pagePath`)  
 3. Set P1/P2/P3 in Notes  
 4. Assign → reply → **Contacted** → Follow-Up Date  
 
 ### New LINE lead (3 min)
 
-1. Create row — Source LINE, paste message  
+1. Create row  -  Source LINE, paste message  
 2. Visa + country + name  
 3. Same as above  
 
@@ -526,7 +526,7 @@ No new tables required until you introduce invoicing or contracts (out of scope)
 
 ---
 
-## Appendix A — Reason codes for Lost Lead (Notes)
+## Appendix A  -  Reason codes for Lost Lead (Notes)
 
 | Code | Use when |
 |------|----------|
@@ -538,7 +538,7 @@ No new tables required until you introduce invoicing or contracts (out of scope)
 
 ---
 
-## Appendix B — Field ↔ code reference
+## Appendix B  -  Field ↔ code reference
 
 ```text
 lib/airtable/types.ts          → airtableLeadFields, airtableLeadStatuses
@@ -550,4 +550,4 @@ app/api/inquiry/route.ts       → HTTP intake
 
 ---
 
-*Last updated: May 2026 — align with codebase when schema or form fields change.*
+*Last updated: May 2026  -  align with codebase when schema or form fields change.*

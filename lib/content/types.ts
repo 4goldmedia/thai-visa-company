@@ -4,7 +4,7 @@ import type { ContentTopicId } from "@/lib/content/topics"
 import type { VisaSlug } from "@/lib/visas/types"
 
 // -----------------------------------------------------------------------------
-// Collections — MDX article registry
+// Collections  -  MDX article registry
 // -----------------------------------------------------------------------------
 
 export const contentCollectionIds = [
@@ -28,7 +28,7 @@ export type ContentArticleKey = `${ContentCollectionId}/${string}`
 // Primitives
 // -----------------------------------------------------------------------------
 
-/** ISO calendar date for publish metadata — `YYYY-MM-DD` */
+/** ISO calendar date for publish metadata  -  `YYYY-MM-DD` */
 export type ContentIsoDate = string
 
 /** Stable id for accordion / FAQ schema (`value` in Radix, FAQPage) */
@@ -38,7 +38,7 @@ export type ContentFaqId = string
 export type ContentHeadingId = string
 
 // -----------------------------------------------------------------------------
-// SEO — shared by visa pages, articles, and index content
+// SEO  -  shared by visa pages, articles, and index content
 // -----------------------------------------------------------------------------
 
 export type ContentSeo = {
@@ -62,7 +62,7 @@ export type ContentVisaPageSeo = Pick<
 >
 
 // -----------------------------------------------------------------------------
-// FAQ — visible UI + FAQPage JSON-LD (must match)
+// FAQ  -  visible UI + FAQPage JSON-LD (must match)
 // -----------------------------------------------------------------------------
 
 export type ContentFaqItem = {
@@ -89,7 +89,7 @@ export type ContentRelatedLink = {
   href: string
 }
 
-/** @alias ContentRelatedLink — used by `RelatedResources` section */
+/** @alias ContentRelatedLink  -  used by `RelatedResources` section */
 export type RelatedResourceItem = ContentRelatedLink
 
 export type ContentRelatedSection = {
@@ -102,7 +102,7 @@ export type ContentRelatedSection = {
 }
 
 // -----------------------------------------------------------------------------
-// CTA blocks — article sidebars and closing sections
+// CTA blocks  -  article sidebars and closing sections
 // -----------------------------------------------------------------------------
 
 export type ContentCta = {
@@ -115,7 +115,7 @@ export type ContentCta = {
 }
 
 // -----------------------------------------------------------------------------
-// Featured image — MDX / schema placeholders
+// Featured image  -  MDX / schema placeholders
 // -----------------------------------------------------------------------------
 
 /**
@@ -154,7 +154,7 @@ export type ContentArticleTocItem = {
   label: string
 }
 
-/** Article byline — maps to Person or Organization in JSON-LD */
+/** Article byline  -  maps to Person or Organization in JSON-LD */
 export type ContentArticleAuthor = {
   name: string
   role?: string
@@ -218,15 +218,15 @@ export type ContentArticleLayoutMeta = {
   lead: string
   headingId: ContentHeadingId
   readingTime?: string
-  /** Short AEO answer — optional direct response above the lead */
+  /** Short AEO answer  -  optional direct response above the lead */
   answer?: string
-  /** Byline author — optional; defaults to organization in schema */
+  /** Byline author  -  optional; defaults to organization in schema */
   author?: ContentArticleAuthor
-  /** Editorial reviewer — optional; surfaced in byline and JSON-LD */
+  /** Editorial reviewer  -  optional; surfaced in byline and JSON-LD */
   reviewedBy?: ContentArticleReviewedBy
-  /** Hero image path under `public/` — falls back to schema.featuredImage */
+  /** Hero image path under `public/`  -  falls back to schema.featuredImage */
   heroImage?: ContentFeaturedImage
-  /** Semantic cluster — drives related linking and series fallback */
+  /** Semantic cluster  -  drives related linking and series fallback */
   topicId?: ContentTopicId
   /** Explicit visa pillar for contextual linking */
   pillarSlug?: VisaSlug
@@ -239,7 +239,7 @@ export type ContentArticleLayoutMeta = {
 }
 
 // -----------------------------------------------------------------------------
-// Visa landing pages — typed content model (data in `lib/visas/content/*`)
+// Visa landing pages  -  typed content model (data in `lib/visas/content/*`)
 // -----------------------------------------------------------------------------
 
 export type ContentVisaProcessStep = {
@@ -312,7 +312,7 @@ export type ContentVisaDocumentChecklistSection = {
   groups: ReadonlyArray<ContentVisaChecklistGroup>
 }
 
-/** Pathway-first qualification card — "Which category am I?" */
+/** Pathway-first qualification card  -  "Which category am I?" */
 export type ContentVisaQualificationPathway = {
   id: string
   title: string
@@ -342,7 +342,7 @@ export type ContentVisaLastReviewed = {
   reviewedBy?: string
 }
 
-/** Conversion-focused block — replaces off-site application directions on visa pages */
+/** Conversion-focused block  -  replaces off-site application directions on visa pages */
 export type ContentVisaGettingStarted = {
   eyebrow?: string
   title: string
@@ -350,7 +350,7 @@ export type ContentVisaGettingStarted = {
   buttonLabel?: string
 }
 
-/** Visa page final CTA — dark premium block on visa pages */
+/** Visa page final CTA  -  dark premium block on visa pages */
 export type ContentVisaFinalCta = ContentCta & {
   headline?: string
   buttonLabel?: string

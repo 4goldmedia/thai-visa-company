@@ -1,4 +1,4 @@
-/** GA4 event names — single source for reporting */
+/** GA4 event names  -  single source for reporting */
 export const analyticsEvents = {
   pageView: "page_view",
   lineClick: "line_click",

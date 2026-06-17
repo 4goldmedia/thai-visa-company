@@ -1,5 +1,5 @@
 ---
-description: Search reality gate — only create articles for real applicant queries
+description: Search reality gate  -  only create articles for real applicant queries
 globs: content/**/*,lib/blog/**/*,lib/guides/**/*
 alwaysApply: false
 ---

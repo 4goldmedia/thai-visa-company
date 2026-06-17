@@ -1,7 +1,7 @@
 # Visual inconsistency audit (post Phase 2 tokens)
 
 **Date:** 2026-05-21  
-**Scope:** Full frontend scan after Inter Tight + semantic tokens. No section redesigns — infrastructure and normalization only.
+**Scope:** Full frontend scan after Inter Tight + semantic tokens. No section redesigns  -  infrastructure and normalization only.
 
 **Canonical direction:** [brand-system.md](./brand-system.md) · [ui-principles.md](./ui-principles.md)
 
@@ -19,7 +19,7 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 | **Too empty (desktop)** | Resources index category stacks (`gap-14` → `gap-20`) vs homepage grids (`gap-4`–`gap-5`) |
 | **Not fully premium** | CTA height inverts on desktop (navbar `h-9` vs section `h-10`); shadcn `Button` + `rounded-lg` link overlays parallel to token CTAs; residual `shadow-sm` on skip-link |
 
-**Overall:** Structure and architecture are sound. The next wins are **small, systematic normalizations** — shared text utilities, grid gap tokens, card interior rhythm, CTA scale, and muted text tiers.
+**Overall:** Structure and architecture are sound. The next wins are **small, systematic normalizations**  -  shared text utilities, grid gap tokens, card interior rhythm, CTA scale, and muted text tiers.
 
 ---
 
@@ -41,7 +41,7 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 | [`footer.tsx`](../components/layout/footer.tsx) | `py-12 sm:py-14 lg:py-16` | Outside section token scale |
 | [`article-layout.tsx`](../components/layout/article-layout.tsx) | `py-10 sm:py-12 md:py-14` | Article bands ≠ `Section` spacing |
 | [`resources-category-groups.tsx`](../components/sections/resources-category-groups.tsx) | `gap-14 sm:gap-16 md:gap-20` | Much looser than homepage `gap-3.5`–`gap-5` |
-| [`contact-inquiry-section.tsx`](../components/sections/contact-inquiry-section.tsx) | `gap-10 lg:gap-12 xl:gap-14` | Hero uses `gap-10 lg:gap-14 xl:gap-16` — close but not shared |
+| [`contact-inquiry-section.tsx`](../components/sections/contact-inquiry-section.tsx) | `gap-10 lg:gap-12 xl:gap-14` | Hero uses `gap-10 lg:gap-14 xl:gap-16`  -  close but not shared |
 | [`page-hero.tsx`](../components/layout/page-hero.tsx) | `mt-4`, `mt-7 sm:mt-8`, `mt-4 sm:mt-5` | Hero vertical rhythm not tokenized |
 | Card grids | `gap-3.5`, `gap-4`, `gap-5` | Visa, reviews, trust grids disagree |
 | [`form-styles.ts`](../lib/form-styles.ts) | `formCardClass` `p-5 sm:p-6 md:p-7` | Third padding tier vs `--space-card-padding-md` |
@@ -54,7 +54,7 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 
 ### Proposed refinements
 
-1. Add `--space-grid-gap-sm: 0.875rem` (14px) and `--space-grid-gap: 1.25rem` (20px) — map `gap-3.5` / `gap-4` / `gap-5` explicitly.
+1. Add `--space-grid-gap-sm: 0.875rem` (14px) and `--space-grid-gap: 1.25rem` (20px)  -  map `gap-3.5` / `gap-4` / `gap-5` explicitly.
 2. Add `--space-stack-section: 2.5rem` for resources category groups (replace `gap-14`…`gap-20` with `gap-[var(--space-stack-section)]` stepped at one token).
 3. Export `footerBandClass` / `articleBandClass` using `--space-section-y-sm` or `compact` variant.
 4. Tokenize hero offsets: `--space-hero-eyebrow-to-title`, `--space-hero-title-to-lead`, `--space-hero-lead-to-cta`.
@@ -67,7 +67,7 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 
 ### Tokenized (good)
 
-- [`pageTitleClass`](../lib/section-styles.ts), [`section-heading.tsx`](../components/layout/section-heading.tsx), [`typography.ts`](../lib/design/typography.ts) — Inter Tight + CSS scale vars.
+- [`pageTitleClass`](../lib/section-styles.ts), [`section-heading.tsx`](../components/layout/section-heading.tsx), [`typography.ts`](../lib/design/typography.ts)  -  Inter Tight + CSS scale vars.
 
 ### Still pixel / Tailwind scale (drift)
 
@@ -83,8 +83,8 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 ### Hierarchy drift
 
 - **Display layer** (Inter Tight): heroes + `SectionHeading` only.
-- **Card H3s** use Geist 15px medium — visually closer to body than to section titles (display 18–24px). Cards feel **utility-dense**, sections feel **architectural** → uneven premium.
-- **Related resources / contact sidebar** use sans `text-lg semibold` — a third headline style between section display and card titles.
+- **Card H3s** use Geist 15px medium  -  visually closer to body than to section titles (display 18–24px). Cards feel **utility-dense**, sections feel **architectural** → uneven premium.
+- **Related resources / contact sidebar** use sans `text-lg semibold`  -  a third headline style between section display and card titles.
 
 ### Proposed refinements
 
@@ -105,23 +105,23 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 
 ### Token intent
 
-- `--radius` (6px) — cards, CTAs, inputs
-- `--radius-sm` (4px) — chips, small controls
-- `--radius-md` (8px) — media / optional
+- `--radius` (6px)  -  cards, CTAs, inputs
+- `--radius-sm` (4px)  -  chips, small controls
+- `--radius-md` (8px)  -  media / optional
 
 ### Drift
 
 | Class | Where | Note |
 |-------|-------|------|
 | `rounded-[var(--radius)]` | Cards, CTAs, forms | Correct |
-| `rounded-md` | Footer links, review badge, process step badge, resource “planned” chip | 4px tier — OK if documented |
+| `rounded-md` | Footer links, review badge, process step badge, resource “planned” chip | 4px tier  -  OK if documented |
 | `rounded-lg` | [`button.tsx`](../components/ui/button.tsx), skip-link, visa card **overlay** `Link`, article blockquote, resources toolbar | Theme `rounded-lg` = `--radius` (6px) but **named differently** from cards |
 | `rounded-full` | Form success icons, step markers | Intentional |
 
 ### Feels
 
-- Subtle **mismatch**: visa card surface is 6px but focus overlay `rounded-lg` — same size, different token path.
-- shadcn Button uses `rounded-lg` + `active:translate-y-px` — slightly more “app UI” than marketing CTAs.
+- Subtle **mismatch**: visa card surface is 6px but focus overlay `rounded-lg`  -  same size, different token path.
+- shadcn Button uses `rounded-lg` + `active:translate-y-px`  -  slightly more “app UI” than marketing CTAs.
 
 ### Proposed refinements
 
@@ -149,16 +149,16 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 | Pattern | Issue |
 |---------|--------|
 | `cardSurfaceClass` | Standard elevated card |
-| `lg:bg-card/30` | [`visa-requirements`](../components/sections/visa-requirements.tsx) — translucent panel |
-| `bg-muted/5` dashed | Placeholders — OK |
+| `lg:bg-card/30` | [`visa-requirements`](../components/sections/visa-requirements.tsx)  -  translucent panel |
+| `bg-muted/5` dashed | Placeholders  -  OK |
 | `formCardClass` | Extra `md:p-7` padding, same border language |
-| `review-card` | Custom layout — verify if uses `cardSurfaceClass` |
+| `review-card` | Custom layout  -  verify if uses `cardSurfaceClass` |
 
 ### Shadows (residual)
 
 | Location | Issue |
 |----------|--------|
-| [`skip-link.tsx`](../components/layout/skip-link.tsx) | `shadow-sm` — violates border-first philosophy |
+| [`skip-link.tsx`](../components/layout/skip-link.tsx) | `shadow-sm`  -  violates border-first philosophy |
 
 ### Feels
 
@@ -169,8 +169,8 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 
 1. Unify band backgrounds: `contact-trust-strip` → `bg-[var(--surface-band)]` or new `--surface-band-subtle`.
 2. Remove `skip-link` shadow; use `border` only.
-3. Add `panelMutedClass` for `bg-card/30` panels (visa requirements) — one semantic token.
-4. Enforce **max 2 band sections per page** in comments/checklist (already in brand-system — audit homepage order).
+3. Add `panelMutedClass` for `bg-card/30` panels (visa requirements)  -  one semantic token.
+4. Enforce **max 2 band sections per page** in comments/checklist (already in brand-system  -  audit homepage order).
 
 **Priority:** P1 (trust strip + skip-link) · P2 (panel token)
 
@@ -186,17 +186,17 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 | `navbarCtaPrimaryClass` | 40px | **36px (`h-9`)** | inherits | `text-sm` |
 | `mobileContactBar` | 40px | 40px | inherits | `text-[14px]` |
 | `form` submit | `h-11` | `sm:text-sm` | `--radius` | `text-[15px]` |
-| shadcn `Button` default | 32px (`h-8`) | — | `rounded-lg` | `text-sm` |
+| shadcn `Button` default | 32px (`h-8`) |  -  | `rounded-lg` | `text-sm` |
 
 ### Feels
 
-- **Navbar CTAs smaller than in-page CTAs on desktop** — undermines premium confidence at the exact conversion point (header).
-- Mobile bar at `h-10` while forms push `h-11` — minor thumb-target inconsistency.
-- Tertiary links vs `Button` ghost variant — duplicate patterns.
+- **Navbar CTAs smaller than in-page CTAs on desktop**  -  undermines premium confidence at the exact conversion point (header).
+- Mobile bar at `h-10` while forms push `h-11`  -  minor thumb-target inconsistency.
+- Tertiary links vs `Button` ghost variant  -  duplicate patterns.
 
 ### Proposed refinements
 
-1. Add `ctaSizeClasses` in `section-styles.ts`: `marketing` (current), `compact` (navbar — but use **min-h-10** not h-9 on sm+).
+1. Add `ctaSizeClasses` in `section-styles.ts`: `marketing` (current), `compact` (navbar  -  but use **min-h-10** not h-9 on sm+).
 2. Point `navbarCta*` and `mobileContactBar*` at shared scale; only width/flex differ.
 3. Form primary submit → extend `ctaButtonPrimaryClass` (already partially duplicated in `form-styles`).
 4. Document: shadcn `Button` for **UI chrome only** (accordion, dialogs); marketing CTAs use `ctaButton*`.
@@ -223,7 +223,7 @@ Phase 2 fixed the largest drift (serif stack, card shadows, reference radius on 
 
 ### Feels
 
-- **Not broken** — intentional narrow prose.
+- **Not broken**  -  intentional narrow prose.
 - **Uneven** when hero lead is 36rem and section description 32rem on same page.
 
 ### Proposed refinements
@@ -248,16 +248,16 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 | Card | Title → body | Body → footer/CTA |
 |------|--------------|-------------------|
 | Visa | `mt-2` | `mt-4` / `mt-5` block |
-| Trust | `mt-1.5` | — |
+| Trust | `mt-1.5` |  -  |
 | Resource | `mt-2.5` / `mt-2` | `mt-3.5` |
-| Process step | `mt-1.5` | — |
-| Review | custom header spacing | — |
+| Process step | `mt-1.5` |  -  |
+| Review | custom header spacing |  -  |
 
 ### Grid alignment
 
 - Visa / trust: `gap-3.5` → `gap-4`
 - Reviews: `gap-3.5` → `gap-5` at lg
-- Process: mobile stacked divider vs sm card grid — intentional but **dense on mobile**
+- Process: mobile stacked divider vs sm card grid  -  intentional but **dense on mobile**
 
 ### Proposed refinements
 
@@ -274,12 +274,12 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 
 | Issue | Detail |
 |-------|--------|
-| Navbar CTA | `sm:h-9` — below 40px comfortable tap |
-| FAQ accordion | `py-3` / `sm:py-4` with `text-[15px]` — OK but tight next to `min-h-11` triggers |
-| Process steps | `px-3.5 py-3.5` inside shell — feels cramped vs `p-5` cards |
-| Footer links | `min-h-8` — acceptable for secondary, but `text-[12px]` borderline legibility |
-| Form stack | `gap-5 sm:gap-6` vs inquiry section `gap-10` — large jump between sidebar and form |
-| Horizontal padding | Container `px-4` consistent — good |
+| Navbar CTA | `sm:h-9`  -  below 40px comfortable tap |
+| FAQ accordion | `py-3` / `sm:py-4` with `text-[15px]`  -  OK but tight next to `min-h-11` triggers |
+| Process steps | `px-3.5 py-3.5` inside shell  -  feels cramped vs `p-5` cards |
+| Footer links | `min-h-8`  -  acceptable for secondary, but `text-[12px]` borderline legibility |
+| Form stack | `gap-5 sm:gap-6` vs inquiry section `gap-10`  -  large jump between sidebar and form |
+| Horizontal padding | Container `px-4` consistent  -  good |
 
 ### Proposed refinements
 
@@ -301,9 +301,9 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 ### Weak / competing
 
 - Card grids scan as **equal weight** to section titles (15px medium vs 18–24px display).
-- **Google review** sizes: `text-2xl`/`text-3xl` rating in hero/footer — competes with H1 on small screens.
-- **At a glance** uses `foreground/90` body — louder than muted section descriptions.
-- **Related resources** custom heading — doesn’t match section display layer.
+- **Google review** sizes: `text-2xl`/`text-3xl` rating in hero/footer  -  competes with H1 on small screens.
+- **At a glance** uses `foreground/90` body  -  louder than muted section descriptions.
+- **Related resources** custom heading  -  doesn’t match section display layer.
 
 ### Proposed refinements
 
@@ -337,7 +337,7 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 
 1. Add `iconSmClass` (`size-3.5`), `iconMdClass` (`size-4`), `iconNavClass` (`size-5`).
 2. Standardize decorative icons to `text-muted-foreground/50` (not olive) except hero trust list.
-3. Remove trust card `sm:size-[1.125rem]` — stay `size-4`.
+3. Remove trust card `sm:size-[1.125rem]`  -  stay `size-4`.
 
 **Priority:** P1 (icon tokens + trust card color/size)
 
@@ -351,9 +351,9 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 |------|----------|
 | `text-muted-foreground` | Body secondary |
 | `text-muted-foreground/90` | Article TOC, at-a-glance |
-| `text-muted-foreground/80` | — |
+| `text-muted-foreground/80` |  -  |
 | `text-muted-foreground/75` | Links |
-| `text-muted-foreground/70` | — |
+| `text-muted-foreground/70` |  -  |
 | `text-muted-foreground/65` | Placeholders |
 | `text-foreground/90` | Benefit lines |
 | `text-foreground/80` | Card links |
@@ -362,8 +362,8 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 
 ### Feels
 
-- **Noisy** — opacity used as a second color system instead of `--text-secondary` / `--text-tertiary`.
-- **Insufficiently premium** — premium UIs use 2–3 muted tiers, not 8+.
+- **Noisy**  -  opacity used as a second color system instead of `--text-secondary` / `--text-tertiary`.
+- **Insufficiently premium**  -  premium UIs use 2–3 muted tiers, not 8+.
 
 ### Proposed refinements
 
@@ -372,7 +372,7 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
    - Secondary: `text-[var(--text-secondary)]` or `text-muted-foreground`
    - Tertiary: `text-[var(--text-tertiary)]` for meta/captions
 2. Deprecate `foreground/XX` except `foreground/90` for one “emphasized muted” if needed.
-3. Add ESLint comment or grep checklist in PR template — no new `/XX` opacities without audit.
+3. Add ESLint comment or grep checklist in PR template  -  no new `/XX` opacities without audit.
 
 **Priority:** P0 (define 3 tiers + migrate cards/links) · P1 (article/footer)
 
@@ -380,7 +380,7 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 
 ## Normalization roadmap (no section redesign)
 
-### Batch A — P0 (highest leverage, smallest diff)
+### Batch A  -  P0 (highest leverage, smallest diff)
 
 | # | Action | Files |
 |---|--------|-------|
@@ -389,7 +389,7 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 | A3 | Muted text: cards → tertiary for descriptions; links → secondary | visa-card, resource-card, textLinkClass |
 | A4 | Remove skip-link shadow | `skip-link.tsx` |
 
-### Batch B — P1
+### Batch B  -  P1
 
 | # | Action | Files |
 |---|--------|-------|
@@ -400,7 +400,7 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 | B5 | Icon size/color utilities | trust-card, visa-card, section-styles |
 | B6 | Resources category `gap` → `--space-stack-section` | resources-category-groups |
 
-### Batch C — P2
+### Batch C  -  P2
 
 | # | Action | Files |
 |---|--------|-------|
@@ -421,7 +421,7 @@ Most cards use `cardSurfaceClass` (padding tokens, border, no shadow).
 | **Grid** | 4 gap values | `cardGridClass` |
 | **Band section** | 2 bg recipes | `sectionBandClass` only |
 | **Meta / legal** | 11–13px mix | `metaTextClass`, `legalTextClass` |
-| **Placeholder** | `cardPlaceholderClass` | Already unified — reuse everywhere |
+| **Placeholder** | `cardPlaceholderClass` | Already unified  -  reuse everywhere |
 
 Optional thin file: `lib/design/surface.ts` exporting `cardSurfaceClass`, `cardShellClass`, `sectionBandClass` re-exports for discoverability.
 
@@ -462,5 +462,5 @@ Optional thin file: `lib/design/surface.ts` exporting `cardSurfaceClass`, `cardS
 
 ## Related docs
 
-- [design-audit.md](./design-audit.md) — Phase 2 completion status
-- [phase-2-token-audit.md](./phase-2-token-audit.md) — Pre-implementation token notes
+- [design-audit.md](./design-audit.md)  -  Phase 2 completion status
+- [phase-2-token-audit.md](./phase-2-token-audit.md)  -  Pre-implementation token notes

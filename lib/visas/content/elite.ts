@@ -15,7 +15,7 @@ export const eliteVisaPage: VisaPageContent = {
     eyebrow: "Premium long-stay",
     title: "Thailand Elite Visa",
     overview:
-      "Hands-on support for Thailand Elite membership — package options, documentation, and a clear view of costs and timelines.",
+      "Hands-on support for Thailand Elite membership, including package options, documentation, and a clear view of costs and timelines.",
   },
   overview: {
     audience: {

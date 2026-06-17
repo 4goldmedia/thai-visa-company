@@ -34,7 +34,7 @@ function isLeadSource(value: string): value is InquiryLeadSource {
 
 /**
  * Normalize and coerce a JSON body into inquiry form values.
- * Does not validate business rules — use `validateInquiryForm` after parsing.
+ * Does not validate business rules  -  use `validateInquiryForm` after parsing.
  */
 export function parseInquiryApiBody(body: unknown): ParseInquiryApiBodyResult {
   if (!isRecord(body)) {

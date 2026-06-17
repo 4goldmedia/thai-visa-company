@@ -45,7 +45,7 @@ export const meta = defineBlogArticle({
     ogTitle:
       "Thailand DTV Visa Requirements (2026): The Complete Applicant Guide",
     ogDescription:
-      "Eligibility, 500,000 THB financial proof, documents, embassy timelines, costs, and practical pitfalls — everything you need before applying for Thailand’s DTV.",
+      "Eligibility, 500,000 THB financial proof, documents, embassy timelines, costs, and practical pitfalls. Everything you need before applying for Thailand’s DTV.",
   },
   index: {
     clusterId: "dtv",
@@ -54,7 +54,7 @@ export const meta = defineBlogArticle({
   headingId: "thailand-dtv-visa-requirements-heading",
   eyebrow: "DTV Visa",
   lead:
-    "Thailand’s Destination Thailand Visa (DTV) is a five-year, multiple-entry long-stay route for remote workers, freelancers, and people pursuing approved soft-power activities — but eligibility is narrower than social media suggests. This guide explains who qualifies, what financial evidence embassies accept, which documents matter, and how to apply without preventable delays.",
+    "Thailand’s Destination Thailand Visa (DTV) is a five-year, multiple-entry long-stay route for remote workers, freelancers, and people pursuing approved soft-power activities, but eligibility is narrower than social media suggests. This guide explains who qualifies, what financial evidence embassies accept, which documents matter, and how to apply without preventable delays.",
   answer:
     "The Thailand DTV requires eligible applicants to show at least 500,000 THB in savings (or equivalent), prove an approved activity such as remote employment or freelance work, and apply through a Thai embassy or consulate before travel. The visa allows multiple entries over five years with stays up to 180 days per entry, extendable in Thailand.",
   author: {
@@ -91,7 +91,7 @@ export const meta = defineBlogArticle({
       accessedAt: "2026-06-01",
     },
     {
-      title: "Ministry of Foreign Affairs of Thailand — Visa Information",
+      title: "Ministry of Foreign Affairs of Thailand: Visa Information",
       href: "https://www.mfa.go.th/",
       accessedAt: "2026-06-01",
     },
@@ -101,13 +101,13 @@ export const meta = defineBlogArticle({
       value: "faq-work",
       question: "Can I work in Thailand on a DTV visa?",
       answer:
-        "You may perform remote work for employers or clients outside Thailand if that is the activity you declared and documented. Local employment in the Thai labour market generally requires a work permit and a different visa category — the DTV is not a substitute for a business or work visa.",
+        "You may perform remote work for employers or clients outside Thailand if that is the activity you declared and documented. Local employment in the Thai labour market generally requires a work permit and a different visa category. The DTV is not a substitute for a business or work visa.",
     },
     {
       value: "faq-spouse",
       question: "Can I bring my spouse on a DTV visa?",
       answer:
-        "Dependents may be included when embassy rules allow, with marriage or birth certificates and additional financial proof. Requirements vary by consulate — confirm whether your post accepts simultaneous dependent applications before you assume one filing covers the family.",
+        "Dependents may be included when embassy rules allow, with marriage or birth certificates and additional financial proof. Requirements vary by consulate, so confirm whether your post accepts simultaneous dependent applications before you assume one filing covers the family.",
     },
     {
       value: "faq-renew",
@@ -125,13 +125,13 @@ export const meta = defineBlogArticle({
       value: "faq-reentry",
       question: "Can I leave and re-enter Thailand on a DTV?",
       answer:
-        "Yes — the DTV is designed as a multiple-entry visa. Each entry is usually granted a stay permission up to 180 days, which may be extended in Thailand subject to rules at the time of extension.",
+        "Yes. The DTV is designed as a multiple-entry visa. Each entry is usually granted a stay permission up to 180 days, which may be extended in Thailand subject to rules at the time of extension.",
     },
     {
       value: "faq-overseas-savings",
       question: "Can I use savings from an overseas bank account?",
       answer:
-        "Many embassies accept foreign bank statements if they clearly show your name, account number, balance history, and currency equivalent to at least 500,000 THB. Some posts prefer Thai bank evidence — check your consulate’s published checklist before transferring funds.",
+        "Many embassies accept foreign bank statements if they clearly show your name, account number, balance history, and currency equivalent to at least 500,000 THB. Some posts prefer Thai bank evidence, so check your consulate’s published checklist before transferring funds.",
     },
     {
       value: "faq-timing",
@@ -143,7 +143,7 @@ export const meta = defineBlogArticle({
       value: "faq-500k",
       question: "What is the 500,000 THB financial requirement?",
       answer:
-        "Applicants must demonstrate liquid savings of at least 500,000 Thai baht or equivalent in a bank account held in their name. The funds should be available — not borrowed for a short-term deposit — and statements should cover the period your embassy specifies.",
+        "Applicants must demonstrate liquid savings of at least 500,000 Thai baht or equivalent in a bank account held in their name. The funds should be available, not borrowed for a short-term deposit, and statements should cover the period your embassy specifies.",
     },
     {
       value: "faq-thai-bank",
@@ -155,7 +155,7 @@ export const meta = defineBlogArticle({
       value: "faq-freelancer",
       question: "Can freelancers qualify for the DTV visa?",
       answer:
-        "Freelancers can qualify when they document ongoing client relationships, contracts, invoices, or platform income outside Thailand. The file should show that your economic activity remains abroad — vague “digital nomad” statements without evidence are frequently challenged.",
+        "Freelancers can qualify when they document ongoing client relationships, contracts, invoices, or platform income outside Thailand. The file should show that your economic activity remains abroad. Vague “digital nomad” statements without evidence are frequently challenged.",
     },
     {
       value: "faq-muay-thai",
@@ -167,7 +167,7 @@ export const meta = defineBlogArticle({
       value: "faq-digital-nomad",
       question: "Is the DTV the same as Thailand’s digital nomad visa?",
       answer:
-        "Colloquially, many people call the DTV Thailand’s digital nomad visa because remote workers are a core audience. Officially it is the Destination Thailand Visa — a broader category that also covers freelancers, certain students, and medical treatment applicants.",
+        "Colloquially, many people call the DTV Thailand’s digital nomad visa because remote workers are a core audience. Officially it is the Destination Thailand Visa, a broader category that also covers freelancers, certain students, and medical treatment applicants.",
     },
     {
       value: "faq-activities",
@@ -179,7 +179,7 @@ export const meta = defineBlogArticle({
       value: "faq-dependents-work",
       question: "Can dependents work or study in Thailand on a DTV?",
       answer:
-        "Dependents receive permission tied to the principal holder. Work rights depend on separate immigration and labour rules — dependents do not automatically inherit work eligibility. Study arrangements may require additional school documentation.",
+        "Dependents receive permission tied to the principal holder. Work rights depend on separate immigration and labour rules. Dependents do not automatically inherit work eligibility. Study arrangements may require additional school documentation.",
     },
     {
       value: "faq-entries",
@@ -191,7 +191,7 @@ export const meta = defineBlogArticle({
       value: "faq-passport",
       question: "What passport validity is required for the DTV?",
       answer:
-        "Your passport should meet standard embassy minimums — typically at least six months validity beyond your intended stay and enough blank pages for visas and entry stamps. Expired or nearly expired passports are a routine reason for refusal at the document-check stage.",
+        "Your passport should meet standard embassy minimums, typically at least six months validity beyond your intended stay and enough blank pages for visas and entry stamps. Expired or nearly expired passports are a routine reason for refusal at the document-check stage.",
     },
     {
       value: "faq-business-owner",
@@ -203,7 +203,7 @@ export const meta = defineBlogArticle({
       value: "faq-refused",
       question: "What happens if my DTV application is refused?",
       answer:
-        "You receive a refusal notice or verbal explanation from the embassy. You may reapply after correcting deficiencies — commonly financial evidence or activity documentation — but repeated weak filings can make later reviews more skeptical. There is no guaranteed appeal at most consulates.",
+        "You receive a refusal notice or verbal explanation from the embassy. You may reapply after correcting deficiencies, commonly financial evidence or activity documentation, but repeated weak filings can make later reviews more skeptical. There is no guaranteed appeal at most consulates.",
     },
   ],
   related: [

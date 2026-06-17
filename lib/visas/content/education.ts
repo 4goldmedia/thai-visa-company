@@ -15,7 +15,7 @@ export const educationVisaPage: VisaPageContent = {
     eyebrow: "Study in Thailand",
     title: "Thailand Education Visa",
     overview:
-      "Support for study-based stays — school enrollment, required documents, and clear steps from application to arrival.",
+      "Support for study-based stays, including school enrollment, required documents, and clear steps from application to arrival.",
   },
   overview: {
     audience: {
@@ -38,7 +38,7 @@ export const educationVisaPage: VisaPageContent = {
   },
   requirements: {
     requirements: {
-      intro: "Your school provides core enrollment documents — we help organize the full file.",
+      intro: "Your school provides core enrollment documents, and we help organize the full file.",
       items: [
         "Valid passport and visa application forms",
         "Enrollment or acceptance letter from an approved institution",
@@ -75,7 +75,7 @@ export const educationVisaPage: VisaPageContent = {
         value: "education-language",
         question: "Can I study Thai on an education visa?",
         answer:
-          "Language programs at qualifying centers are a common route. Program length and attendance rules apply — we outline them for your case.",
+          "Language programs at qualifying centers are a common route. Program length and attendance rules apply, and we outline them for your case.",
       },
       {
         value: "education-attendance",

@@ -7,7 +7,7 @@ import type { FaqItemInput } from "@/lib/schema/types"
 import type { VisaFaqItem } from "@/lib/visas/types"
 
 export type FaqJsonLdProps = {
-  /** FAQ copy — must match visible accordion content on the page */
+  /** FAQ copy  -  must match visible accordion content on the page */
   items: ReadonlyArray<FaqItemInput | VisaFaqItem>
   /** Schema.org FAQPage name */
   name: string

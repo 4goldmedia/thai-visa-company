@@ -1,5 +1,5 @@
 /**
- * Unified cross-engine linking — Visas ↔ Guides ↔ Blog.
+ * Unified cross-engine linking  -  Visas ↔ Guides ↔ Blog.
  * Re-exports collection-specific resolvers and shared scoring helpers.
  */
 

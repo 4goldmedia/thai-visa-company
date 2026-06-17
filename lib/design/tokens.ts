@@ -1,5 +1,5 @@
 /**
- * Semantic design token keys — mirror CSS variables in styles/tokens.css.
+ * Semantic design token keys  -  mirror CSS variables in styles/tokens.css.
  * Use for documentation, tests, and typed references; styling stays in CSS.
  */
 

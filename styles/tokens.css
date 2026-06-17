@@ -1,5 +1,5 @@
 /* =============================================================================
-   Design tokens — professional advisory neutrals
+   Design tokens  -  professional advisory neutrals
    Background #FCFAF8 · Secondary #F6F1EE · Primary dark #23211E · White #FFFFFF
    ============================================================================= */
 
@@ -11,7 +11,7 @@
     system-ui, sans-serif;
   --font-heading: var(--font-display);
 
-  /* Type rhythm — architectural, not editorial luxury */
+  /* Type rhythm  -  architectural, not editorial luxury */
   --leading-body: 1.6;
   --leading-heading: 1.15;
   --leading-display: 1.06;
@@ -19,12 +19,12 @@
   --tracking-heading: -0.02em;
   --tracking-eyebrow: 0.09em;
 
-  /* Type scale — mobile-first */
+  /* Type scale  -  mobile-first */
   --text-display: 1.75rem;
   --text-display-md: 2rem;
   --text-display-lg: 2.25rem;
   --text-display-xl: 2.5rem;
-  /* Homepage hero H1 — editorial display scale (homepage-hero only) */
+  /* Homepage hero H1  -  editorial display scale (homepage-hero only) */
   --text-hero-title: 2.75rem; /* 44px mobile */
   --text-hero-title-md: 3.4375rem; /* 55px desktop md+ */
   --leading-hero-title: 0.95;
@@ -38,7 +38,7 @@
   --text-small: 0.8125rem;
   --text-meta: 0.6875rem;
 
-  /* ── Core palette (hex — single source) ── */
+  /* ── Core palette (hex  -  single source) ── */
   --palette-bg-primary: #fcfaf8;
   --palette-bg-secondary: #f6f1ee;
   --palette-primary-dark: #23211e;
@@ -48,7 +48,7 @@
   --palette-text-muted: rgba(35, 33, 30, 0.7);
   --palette-border-alpha: rgba(35, 33, 30, 0.08);
 
-  /* Legacy aliases — map old names to brand palette */
+  /* Legacy aliases  -  map old names to brand palette */
   --ivory: var(--palette-bg-primary);
   --ivory-muted: var(--palette-bg-secondary);
   --charcoal: var(--palette-text);
@@ -84,7 +84,7 @@
   --text-secondary: color-mix(in srgb, var(--palette-text) 72%, transparent);
   --text-tertiary: color-mix(in srgb, var(--palette-text) 55%, transparent);
 
-  /* ── UI & CTA — charcoal primary on cream ── */
+  /* ── UI & CTA  -  charcoal primary on cream ── */
   --primary: var(--palette-text);
   --primary-foreground: var(--palette-bg-primary);
   --primary-hover: color-mix(in srgb, var(--palette-text) 85%, var(--palette-bg-primary));
@@ -105,7 +105,7 @@
   --input: var(--border-default);
   --ring: color-mix(in srgb, var(--palette-text) 45%, transparent);
 
-  /* Text selection — restrained neutral wash */
+  /* Text selection  -  restrained neutral wash */
   --selection-background: color-mix(in srgb, var(--palette-text) 12%, transparent);
   --selection-foreground: var(--palette-text);
 
@@ -133,8 +133,8 @@
   --space-hero-trust-gap: 0.625rem;
   --width-hero-prose: 34rem;
 
-  /* ── Layout widths — single grid across page types ── */
-  /** Site shell — homepage, visa, blog hub, article outer frame */
+  /* ── Layout widths  -  single grid across page types ── */
+  /** Site shell  -  homepage, visa, blog hub, article outer frame */
   --width-site: 80rem; /* 1280px */
   /** Article & long-form reading column */
   --width-prose: 42rem; /* ~672px */
@@ -148,7 +148,7 @@
   --article-gutter: 3rem;
   --hero-ref-min-height: 34rem;
   --hero-ref-min-height-lg: 40rem;
-  /** Homepage hero — cinematic viewport band (minus header handled in CSS) */
+  /** Homepage hero  -  cinematic viewport band (minus header handled in CSS) */
   --hero-ref-viewport-min: 88vh;
   --hero-ref-image-start: 34%;
   --hero-ref-copy-max: 32rem;
@@ -174,16 +174,16 @@
   --space-heading-offset-md: 2.25rem;
   --space-heading-offset-lg: 2.5rem;
 
-  /* ── Shape — architectural radius system ── */
+  /* ── Shape  -  architectural radius system ── */
   --radius-none: 0;
-  --radius-input: 0.375rem; /* 6px — forms */
-  --radius-card: 0.625rem; /* 10px — cards, hero panel */
+  --radius-input: 0.375rem; /* 6px  -  forms */
+  --radius-card: 0.625rem; /* 10px  -  cards, hero panel */
   --radius-button: 0;
   --radius-sm: var(--radius-none);
   --radius: var(--radius-button);
   --radius-md: var(--radius-card);
 
-  /* Signature primary CTA — site-wide */
+  /* Signature primary CTA  -  site-wide */
   --cta-primary-bg: var(--palette-text);
   --cta-primary-fg: var(--palette-bg-primary);
   --cta-primary-hover-bg: color-mix(in srgb, var(--palette-text) 85%, var(--palette-bg-primary));
@@ -209,7 +209,7 @@
   --shadow-none: none;
   --shadow-layer: 0 -4px 20px -8px color-mix(in srgb, var(--palette-text) 8%, transparent);
 
-  /* Photography overlays — neutral grade */
+  /* Photography overlays  -  neutral grade */
   --hero-overlay: linear-gradient(
     180deg,
     color-mix(in srgb, var(--palette-text) 0%, transparent) 45%,

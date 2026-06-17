@@ -1,4 +1,4 @@
-/* Signature CTA system — typography-only LINE / WhatsApp (hero = canonical) */
+/* Signature CTA system  -  typography-only LINE / WhatsApp (hero = canonical) */
 
 @layer components {
   .messaging-platform-action {
@@ -33,7 +33,7 @@
     line-height: 1;
   }
 
-  /* Primary — WhatsApp */
+  /* Primary  -  WhatsApp */
   .messaging-platform-action[data-contact-channel="whatsapp"] {
     background-color: var(--cta-primary-bg);
     border-color: transparent;
@@ -72,7 +72,7 @@
     color: var(--cta-primary-hover-fg);
   }
 
-  /* Primary CTA — links, form submit, Book a consultation */
+  /* Primary CTA  -  links, form submit, Book a consultation */
   .signature-cta-primary {
     display: inline-flex;
     align-items: center;
@@ -127,7 +127,7 @@
     pointer-events: none;
   }
 
-  /* Secondary — LINE */
+  /* Secondary  -  LINE */
   .messaging-platform-action[data-contact-channel="line"] {
     background-color: var(--concierge-btn-secondary-bg);
     border-color: var(--concierge-btn-secondary-border);
@@ -166,7 +166,7 @@
     }
   }
 
-  /* Hero contact strip — tighter pair inside the card */
+  /* Hero contact strip  -  tighter pair inside the card */
   .hero-contact-strip__actions {
     display: flex;
     flex-direction: row;
@@ -187,7 +187,7 @@
     }
   }
 
-  /* Mobile sticky bar — full-width split */
+  /* Mobile sticky bar  -  full-width split */
   .mobile-messaging-bar .messaging-platform-action {
     min-width: 0;
     flex: 1;

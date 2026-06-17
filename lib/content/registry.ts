@@ -15,7 +15,7 @@ import type {
 } from "@/lib/content/types"
 
 // -----------------------------------------------------------------------------
-// Registry — generated from `content/articles/**` via `npm run sync:articles`
+// Registry  -  generated from `content/articles/**` via `npm run sync:articles`
 // -----------------------------------------------------------------------------
 
 const articleEntries = generatedArticleEntries

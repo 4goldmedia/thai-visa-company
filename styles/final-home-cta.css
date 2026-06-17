@@ -1,4 +1,4 @@
-/* Homepage final CTA — neutral bordered conversion block */
+/* Homepage final CTA  -  neutral bordered conversion block */
 
 @layer components {
   .final-home-cta__block {
@@ -159,7 +159,7 @@
     outline-offset: 3px;
   }
 
-  /* ── Homepage brand block — inverted premium conversion ── */
+  /* ── Homepage brand block  -  inverted premium conversion ── */
   .final-home-cta--brand .final-home-cta__block {
     border: none;
     background-color: var(--palette-text);

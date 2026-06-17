@@ -29,7 +29,7 @@ export type BuildArticlePageSchemaInput = {
   additionalNodes?: ReadonlyArray<JsonLdNode>
 }
 
-/** Article + optional FAQ + breadcrumbs — generic composer */
+/** Article + optional FAQ + breadcrumbs  -  generic composer */
 export function buildArticlePageSchemaGraph(
   input: BuildArticlePageSchemaInput,
 ): JsonLdGraphDocument {

@@ -1,4 +1,4 @@
-# Phase 2 — Token audit (pre-implementation)
+# Phase 2  -  Token audit (pre-implementation)
 
 **Date:** 2026-05-21
 
@@ -6,22 +6,22 @@
 
 | Layer | Location | Status |
 |-------|----------|--------|
-| Brand palette | `styles/tokens.css` | Ivory, charcoal, stone, olive OKLCH — solid foundation |
+| Brand palette | `styles/tokens.css` | Ivory, charcoal, stone, olive OKLCH  -  solid foundation |
 | shadcn semantic colors | `tokens.css` → `app/globals.css` `@theme` | background, foreground, card, primary, muted, border, ring mapped |
 | Section spacing | `--space-section-y*` | Used by `components/layout/section.tsx` |
 | Radius base | `--radius: 0.375rem` + Tailwind `--radius-sm`…`3xl` multipliers in `@theme` | Good; components bypass with `rounded-xl` |
 | Type rhythm | `--leading-*`, `--tracking-heading` | Present; `--tracking-editorial` serif-era naming |
 | Fonts in layout | Geist Sans + Geist Mono + **Newsreader** | Drift from target |
-| Shared UI classes | `lib/section-styles.ts` | Centralized CTAs, cards, headings — card shadows violate Phase 2 shadow rules |
+| Shared UI classes | `lib/section-styles.ts` | Centralized CTAs, cards, headings  -  card shadows violate Phase 2 shadow rules |
 | Hero/media | `styles/editorial.css` | Frames OK; class names imply editorial stack |
 
 ## What needs consolidation
 
-1. **Typography** — Replace `--font-editorial` / Newsreader with `--font-display` / Inter Tight; rename tracking tokens; add `--text-*` scale variables.
-2. **Shadows** — Replace ad-hoc `shadow-[...]` with `--shadow-layer` (sticky chrome only); remove card resting/hover shadows.
-3. **Radius** — Standardize components on `rounded-[var(--radius)]` or theme `rounded-lg` (maps to `--radius`).
-4. **Spacing** — Tie card padding and grid gaps to `--space-card-*` / `--space-grid-*`; align one-off section `py-*` to section tokens where safe.
-5. **Semantic aliases** — Add `--surface-*`, `--text-*`, `--border-subtle`, `--cta-*` documenting hierarchy without new colors.
+1. **Typography**  -  Replace `--font-editorial` / Newsreader with `--font-display` / Inter Tight; rename tracking tokens; add `--text-*` scale variables.
+2. **Shadows**  -  Replace ad-hoc `shadow-[...]` with `--shadow-layer` (sticky chrome only); remove card resting/hover shadows.
+3. **Radius**  -  Standardize components on `rounded-[var(--radius)]` or theme `rounded-lg` (maps to `--radius`).
+4. **Spacing**  -  Tie card padding and grid gaps to `--space-card-*` / `--space-grid-*`; align one-off section `py-*` to section tokens where safe.
+5. **Semantic aliases**  -  Add `--surface-*`, `--text-*`, `--border-subtle`, `--cta-*` documenting hierarchy without new colors.
 
 ## Semantic tokens to add (Phase 2)
 

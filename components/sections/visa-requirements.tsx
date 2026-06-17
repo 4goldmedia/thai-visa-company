@@ -244,7 +244,7 @@ function VisaPathwaysRequirements({
 function VisaLegacyRequirements({
   headingId,
   title = "Requirements",
-  description = "What you typically need to qualify and apply — explained in plain language, without legal jargon.",
+  description = "What you typically need to qualify and apply, explained in plain language, without legal jargon.",
   eyebrow = "What you need",
   requirements,
   eligibility,
@@ -291,7 +291,7 @@ function VisaLegacyRequirements({
           <EditorialCallout variant="requirements-change" className="mb-6 sm:mb-8">
             <p>
               Visa rules and document lists change. We keep your file aligned with what
-              officers expect before you submit—so you are not guessing from outdated
+              officers expect before you submit, so you are not guessing from outdated
               checklists.
             </p>
           </EditorialCallout>

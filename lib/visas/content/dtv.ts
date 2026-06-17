@@ -9,7 +9,7 @@ export const dtvVisaPage: VisaPageContent = {
   publishedAt: "2026-01-15",
   updatedAt: DTV_UPDATED_AT,
   seo: {
-    title: "Thailand DTV Visa (Destination Thailand Visa) — Requirements & How to Apply",
+    title: "Thailand DTV Visa (Destination Thailand Visa)  -  Requirements & How to Apply",
     description:
       "Clear Thailand DTV visa guide: who qualifies, 500,000 THB savings rule, remote work, extensions, documents, and expert help with your application.",
     keywords: [
@@ -32,7 +32,7 @@ export const dtvVisaPage: VisaPageContent = {
   keyFacts: {
     eyebrow: "At a glance",
     title: "DTV visa key facts",
-    description: "The essentials in one place—what the visa is, how long you can stay, and what you need to qualify.",
+    description: "The essentials in one place - what the visa is, how long you can stay, and what you need to qualify.",
     items: [
       {
         label: "Visa type",
@@ -78,7 +78,7 @@ export const dtvVisaPage: VisaPageContent = {
       {
         label: "Typical timing",
         value: "About 2–4 weeks",
-        detail: "After a complete application—we help you avoid delays from missing items.",
+        detail: "After a complete application - we help you avoid delays from missing items.",
       },
     ],
   },
@@ -92,7 +92,7 @@ export const dtvVisaPage: VisaPageContent = {
         "You work remotely for a company outside Thailand",
         "You freelance or consult for clients abroad",
         "You run an online business serving non-Thai customers",
-        "You want months in Thailand—not a quick holiday",
+        "You want months in Thailand - not a quick holiday",
         "You can show qualifying work and roughly 500,000 THB in savings",
         "You plan Muay Thai, cooking classes, or similar programmes with proper enrolment",
         "Your spouse or children under 20 may join as dependents",
@@ -122,8 +122,8 @@ export const dtvVisaPage: VisaPageContent = {
         "The visa is valid for five years and allows multiple entries.",
         "Each time you enter Thailand, you can usually stay up to 180 days.",
         "You can often extend that stay once for another 180 days while you are in Thailand.",
-        "After that, you leave and re-enter on the same visa to start a new stay period—while the five-year visa is still valid.",
-        "This is not a work permit—you cannot work for a Thai employer on a DTV.",
+        "After that, you leave and re-enter on the same visa to start a new stay period - while the five-year visa is still valid.",
+        "This is not a work permit - you cannot work for a Thai employer on a DTV.",
       ],
     },
     eligibility: {
@@ -132,7 +132,7 @@ export const dtvVisaPage: VisaPageContent = {
         "Remote workers and employees paid from outside Thailand",
         "Freelancers, consultants, and creators with foreign income",
         "Online business owners with customers mainly outside Thailand",
-        "People joining approved programmes—Muay Thai, cooking schools, medical treatment, and similar",
+        "People joining approved programmes - Muay Thai, cooking schools, medical treatment, and similar",
         "Spouses and dependent children (under 20) of an approved DTV holder",
       ],
     },
@@ -162,7 +162,7 @@ export const dtvVisaPage: VisaPageContent = {
       },
       {
         label: "Multiple entry",
-        cells: ["Yes — 5 years", "Often limited", "Often yes", "Often yes"],
+        cells: ["Yes  -  5 years", "Often limited", "Often yes", "Often yes"],
       },
       {
         label: "Work in Thailand",
@@ -194,10 +194,10 @@ export const dtvVisaPage: VisaPageContent = {
       {
         label: "Complexity",
         cells: [
-          "Moderate — proof of work + funds",
+          "Moderate  -  proof of work + funds",
           "Simple for short trips",
-          "Higher — company documents",
-          "High — specialist routes",
+          "Higher  -  company documents",
+          "High  -  specialist routes",
         ],
       },
       {
@@ -211,7 +211,7 @@ export const dtvVisaPage: VisaPageContent = {
       },
     ],
     footnote:
-      "Every case is different. If you are 50+ and not working remotely, a retirement visa may suit you better—we can advise.",
+      "Every case is different. If you are 50+ and not working remotely, a retirement visa may suit you better - we can advise.",
   },
   requirements: {
     eyebrow: "Eligibility",
@@ -280,7 +280,7 @@ export const dtvVisaPage: VisaPageContent = {
     eyebrow: "How it works",
     title: "How we help with your DTV application",
     description:
-      "A clear path from first message to arriving in Thailand—with less guesswork at each step.",
+      "A clear path from first message to arriving in Thailand - with less guesswork at each step.",
     steps: [
       {
         step: 1,
@@ -292,7 +292,7 @@ export const dtvVisaPage: VisaPageContent = {
         step: 2,
         title: "Document checklist",
         description:
-          "You receive a tailored list—savings proof, work evidence, photos, and anything else your nationality requires.",
+          "You receive a tailored list - savings proof, work evidence, photos, and anything else your nationality requires.",
       },
       {
         step: 3,
@@ -304,13 +304,13 @@ export const dtvVisaPage: VisaPageContent = {
         step: 4,
         title: "Application support",
         description:
-          "We guide you through submission and what to expect while your application is processed—usually about two to four weeks for a complete file.",
+          "We guide you through submission and what to expect while your application is processed - usually about two to four weeks for a complete file.",
       },
       {
         step: 5,
         title: "Approval & travel",
         description:
-          "Once approved, you plan your entry to Thailand. Immigration stamps your stay—up to 180 days per visit.",
+          "Once approved, you plan your entry to Thailand. Immigration stamps your stay - up to 180 days per visit.",
       },
       {
         step: 6,
@@ -330,7 +330,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-what-is",
         question: "What is the Thailand DTV visa?",
         answer:
-          "The DTV (Destination Thailand Visa) is a five-year visa that lets you enter Thailand multiple times. Each visit can last up to 180 days, often with one extension for another 180 days. It suits remote workers, freelancers, and people joining approved activities—not employment with a Thai company.",
+          "The DTV (Destination Thailand Visa) is a five-year visa that lets you enter Thailand multiple times. Each visit can last up to 180 days, often with one extension for another 180 days. It suits remote workers, freelancers, and people joining approved activities - not employment with a Thai company.",
       },
       {
         value: "dtv-who-qualifies",
@@ -354,7 +354,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-freelancer",
         question: "Can freelancers apply for the DTV?",
         answer:
-          "Yes, if you can show real freelance work—invoices, contracts, a portfolio, or platform earnings—plus the savings proof (typically 500,000 THB).",
+          "Yes, if you can show real freelance work - invoices, contracts, a portfolio, or platform earnings - plus the savings proof (typically 500,000 THB).",
       },
       {
         value: "dtv-youtuber",
@@ -378,7 +378,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-bank-seasoning",
         question: "How long must funds stay in my bank account?",
         answer:
-          "Many applicants provide recent statements; some officers want to see stable balances over a few months. Large sudden deposits without explanation can raise questions—we help you present funds clearly.",
+          "Many applicants provide recent statements; some officers want to see stable balances over a few months. Large sudden deposits without explanation can raise questions - we help you present funds clearly.",
       },
       {
         value: "dtv-vs-tourist",
@@ -390,7 +390,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-vs-business",
         question: "How is the DTV different from a business visa?",
         answer:
-          "A business visa is for working with or for Thai companies. The DTV is for earning from outside Thailand or joining approved activities—not a Thai payroll job.",
+          "A business visa is for working with or for Thai companies. The DTV is for earning from outside Thailand or joining approved activities - not a Thai payroll job.",
       },
       {
         value: "dtv-vs-ltr",
@@ -408,7 +408,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-extension-how",
         question: "Can I extend my DTV stay in Thailand?",
         answer:
-          "Yes—usually once per visit for up to 180 more days at immigration (fee often around 1,900 THB). You need your passport, forms, address reporting, and updated proof where required.",
+          "Yes - usually once per visit for up to 180 more days at immigration (fee often around 1,900 THB). You need your passport, forms, address reporting, and updated proof where required.",
       },
       {
         value: "dtv-reentry",
@@ -438,13 +438,13 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-apply-where",
         question: "Where do I apply for the DTV?",
         answer:
-          "Application rules depend on your nationality and where you live. We handle the guidance—eligibility review, document prep, and submission support—so you are not navigating it alone. Request a consultation to start.",
+          "Application rules depend on your nationality and where you live. We handle the guidance - eligibility review, document prep, and submission support - so you are not navigating it alone. Request a consultation to start.",
       },
       {
         value: "dtv-apply-inside-thailand",
         question: "Can I apply for a DTV while already in Thailand?",
         answer:
-          "Often you need to apply from outside Thailand. If you are already here on another visa, contact us—we will outline realistic options before your current stay ends.",
+          "Often you need to apply from outside Thailand. If you are already here on another visa, contact us - we will outline realistic options before your current stay ends.",
       },
       {
         value: "dtv-convert-visa",
@@ -456,7 +456,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-processing-time",
         question: "How long does DTV processing take?",
         answer:
-          "A complete application often takes about two to four weeks. Missing documents cause most delays—we reduce that risk with a proper file review first.",
+          "A complete application often takes about two to four weeks. Missing documents cause most delays - we reduce that risk with a proper file review first.",
       },
       {
         value: "dtv-fee",
@@ -492,7 +492,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-taxes",
         question: "Do I pay Thai tax on remote income with a DTV?",
         answer:
-          "Tax depends on how long you stay and your personal situation—not just the visa type. We focus on immigration; speak with a tax adviser for tax questions.",
+          "Tax depends on how long you stay and your personal situation - not just the visa type. We focus on immigration; speak with a tax adviser for tax questions.",
       },
       {
         value: "dtv-refusal",
@@ -532,7 +532,7 @@ export const dtvVisaPage: VisaPageContent = {
         category: "Business",
         title: "Thailand Business Visa",
         description:
-          "For employment or business tied to a Thai company—not remote-only income.",
+          "For employment or business tied to a Thai company - not remote-only income.",
         href: "/visas/business",
       },
       {

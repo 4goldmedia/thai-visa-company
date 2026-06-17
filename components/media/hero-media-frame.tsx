@@ -16,7 +16,7 @@ type HeroMediaFrameProps = {
 }
 
 /**
- * Architectural hero frame — subtle warm grade and restrained bottom fade.
+ * Architectural hero frame  -  subtle warm grade and restrained bottom fade.
  */
 function HeroMediaFrame({
   asset,

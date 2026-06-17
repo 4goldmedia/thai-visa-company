@@ -1,4 +1,4 @@
-/** Stable ids for the contact page — anchors, `aria-labelledby`, tests */
+/** Stable ids for the contact page  -  anchors, `aria-labelledby`, tests */
 export const contactSectionIds = {
   hero: "contact-hero",
   heroHeading: "contact-hero-heading",

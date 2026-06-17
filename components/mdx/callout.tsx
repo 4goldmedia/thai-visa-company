@@ -10,7 +10,7 @@ type CalloutProps = {
   className?: string
 }
 
-/** MDX callout — wraps the shared editorial callout variants */
+/** MDX callout  -  wraps the shared editorial callout variants */
 function Callout({
   variant = "good-to-know",
   title,

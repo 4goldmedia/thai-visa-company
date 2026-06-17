@@ -5,7 +5,7 @@ type ConsultationCtaProps = {
   description?: string
 }
 
-/** Opt-in MDX consultation band — use sparingly in article bodies */
+/** Opt-in MDX consultation band  -  use sparingly in article bodies */
 function ConsultationCta({ title, description }: ConsultationCtaProps) {
   return (
     <ArticleConsultationBand

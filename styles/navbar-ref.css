@@ -1,4 +1,4 @@
-/* Navbar — reference-aligned spacing and restraint */
+/* Navbar  -  reference-aligned spacing and restraint */
 
 @layer components {
   [data-slot="navbar"] .navbar-ref__logo {

@@ -39,7 +39,7 @@ export type VisaSlug = (typeof visaSlugs)[number]
 /** @alias ContentVisaProcessStep */
 export type VisaProcessStep = ContentVisaProcessStep
 
-/** @alias ContentFaqItem — shared with MDX articles */
+/** @alias ContentFaqItem  -  shared with MDX articles */
 export type VisaFaqItem = ContentFaqItem
 
 /** @alias ContentRelatedLink */
@@ -77,7 +77,7 @@ export type VisaPageContent = {
     title?: string
     description?: string
     eyebrow?: string
-    /** Pathway-first layout — when present, replaces legacy requirement cards */
+    /** Pathway-first layout  -  when present, replaces legacy requirement cards */
     pathways?: ReadonlyArray<ContentVisaQualificationPathway>
     documentsOverview?: ContentVisaRequirementsDocumentsOverview
     clarification?: ContentVisaRequirementsClarification
@@ -94,7 +94,7 @@ export type VisaPageContent = {
     steps: ReadonlyArray<VisaProcessStep>
   }
   faq: ContentFaqSection
-  /** Optional manual related visa cards — merged with `relatedVisaSlugs` / defaults */
+  /** Optional manual related visa cards  -  merged with `relatedVisaSlugs` / defaults */
   relatedVisas?: ContentRelatedSection
   /** Registry slugs for automatic related visa suggestions */
   relatedVisaSlugs?: ReadonlyArray<VisaSlug>

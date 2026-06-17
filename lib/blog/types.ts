@@ -1,7 +1,7 @@
 import type { ContentTopicId } from "@/lib/content/topics"
 import type { VisaSlug } from "@/lib/visas/types"
 
-/** Content clusters — aligned with `rules/content/content-clusters.mdc` */
+/** Content clusters  -  aligned with `rules/content/content-clusters.mdc` */
 export const blogClusterIds = [
   "dtv",
   "retirement",

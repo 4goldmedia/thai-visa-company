@@ -5,7 +5,7 @@ import {
 import type { InquiryFormErrors } from "@/lib/forms/inquiry/types"
 
 /**
- * Move focus to the first invalid field — used only after submit, not on blur.
+ * Move focus to the first invalid field  -  used only after submit, not on blur.
  */
 export function focusFirstInquiryError(
   errors: InquiryFormErrors,

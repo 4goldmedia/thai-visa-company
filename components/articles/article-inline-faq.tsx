@@ -37,7 +37,7 @@ function ArticleInlineFaq({
 }: ArticleInlineFaqProps) {
   const titleHeadingId = `${headingId}-heading`
   const schemaEnabled = jsonLd.enabled !== false
-  const schemaName = jsonLd.name ?? `${title} — FAQ`
+  const schemaName = jsonLd.name ?? `${title}: FAQ`
 
   return (
     <section

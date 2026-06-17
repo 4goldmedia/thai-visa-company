@@ -9,12 +9,12 @@ import {
 } from "@/lib/site/env"
 
 // -----------------------------------------------------------------------------
-// Brand — rebrand by editing this block only
+// Brand  -  rebrand by editing this block only
 // -----------------------------------------------------------------------------
 
 export const siteBrand = {
   name: "Thai Visa Company",
-  /** Compact label — nav, mobile chrome, constrained UI */
+  /** Compact label  -  nav, mobile chrome, constrained UI */
   shortName: "Thai Visa",
   tagline: "Moving to Thailand, handled beautifully.",
 } as const
@@ -22,7 +22,7 @@ export const siteBrand = {
 export type SiteBrand = typeof siteBrand
 
 // -----------------------------------------------------------------------------
-// Metadata defaults — SEO, Open Graph, root layout
+// Metadata defaults  -  SEO, Open Graph, root layout
 // -----------------------------------------------------------------------------
 
 export const siteMetadata = {
@@ -42,7 +42,7 @@ export const siteMetadata = {
    * Override per deploy with `NEXT_PUBLIC_OG_IMAGE_PATH`.
    */
   defaultOgImagePath: "/og/default.svg",
-  openGraphImageAlt: `${siteBrand.name} — Thailand visa support`,
+  openGraphImageAlt: `${siteBrand.name}: Thailand visa support`,
 } as const
 
 export type SiteMetadata = typeof siteMetadata
@@ -60,11 +60,11 @@ export const siteLocale = {
 export type SiteLocale = typeof siteLocale
 
 // -----------------------------------------------------------------------------
-// URLs — domain changes via env; staging placeholder until production cutover
+// URLs  -  domain changes via env; staging placeholder until production cutover
 // -----------------------------------------------------------------------------
 
 export const siteUrls = {
-  /** Target production origin — set `NEXT_PUBLIC_SITE_URL` in production */
+  /** Target production origin  -  set `NEXT_PUBLIC_SITE_URL` in production */
   productionPlaceholder: "https://www.thaivisacompany.com",
   /** Temporary staging / preview origin when env is unset (non-dev) */
   staging: "https://thai-visa-company.vercel.app",
@@ -111,7 +111,7 @@ export function getDefaultOgImageUrl(): string | undefined {
 }
 
 // -----------------------------------------------------------------------------
-// Support contact — operational messaging URLs remain in `lib/contact`
+// Support contact  -  operational messaging URLs remain in `lib/contact`
 // -----------------------------------------------------------------------------
 
 export const siteContactDefaults = {
@@ -138,7 +138,7 @@ export const siteContact = {
 } as const
 
 // -----------------------------------------------------------------------------
-// Social & messaging placeholders — replace via env / contact config at launch
+// Social & messaging placeholders  -  replace via env / contact config at launch
 // -----------------------------------------------------------------------------
 
 export const siteSocialPlaceholders = {
@@ -174,7 +174,7 @@ export const siteSocial = {
 } as const
 
 // -----------------------------------------------------------------------------
-// Business location placeholder — JSON-LD LocalBusiness / Organization
+// Business location placeholder  -  JSON-LD LocalBusiness / Organization
 // -----------------------------------------------------------------------------
 
 export const siteLocation = {
@@ -193,7 +193,7 @@ export type SiteLocation = typeof siteLocation
 // -----------------------------------------------------------------------------
 
 export function getDefaultDocumentTitle(): string {
-  return `${siteBrand.name} — ${siteBrand.tagline}`
+  return `${siteBrand.name}: ${siteBrand.tagline}`
 }
 
 export function getTitleTemplate(): string {
@@ -201,7 +201,7 @@ export function getTitleTemplate(): string {
 }
 
 // -----------------------------------------------------------------------------
-// Legacy aggregate — backward compatible `@/lib/site` imports
+// Legacy aggregate  -  backward compatible `@/lib/site` imports
 // -----------------------------------------------------------------------------
 
 /**

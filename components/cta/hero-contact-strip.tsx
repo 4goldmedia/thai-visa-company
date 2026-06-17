@@ -11,7 +11,7 @@ type HeroContactStripProps = {
 }
 
 /**
- * Desktop hero messaging panel — primary conversion on lg+; hidden on mobile (sticky bar).
+ * Desktop hero messaging panel  -  primary conversion on lg+; hidden on mobile (sticky bar).
  */
 function HeroContactStrip({
   analyticsSurface = "homepage",

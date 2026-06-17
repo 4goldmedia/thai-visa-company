@@ -6,7 +6,7 @@ import { sectionEyebrowClass } from "@/lib/section-styles"
 // Measure & layout
 // -----------------------------------------------------------------------------
 
-/** Optimal reading column — comfortable ~65–72 characters */
+/** Optimal reading column  -  comfortable ~65–72 characters */
 export const articleProseMeasureClass =
   "max-w-[var(--width-prose,42rem)]"
 
@@ -21,7 +21,7 @@ export const articleProseWideClass =
 /** Full site shell inside article pages */
 export const articleShellClass = "mx-auto w-full max-w-[var(--width-site,80rem)]"
 
-/** Header block — title can breathe wider than body prose */
+/** Header block  -  title can breathe wider than body prose */
 export const articleHeaderInnerClass = cn(articleShellClass, "w-full")
 
 /** @deprecated Use articleProseMeasureClass for text; articleShellClass for frames */
@@ -37,7 +37,7 @@ export const articleGridClass = cn(
   "lg:items-start lg:gap-x-[var(--article-gutter,3.5rem)]",
 )
 
-/** Below-article bands (related, CTA) — site width, inner content can span grid */
+/** Below-article bands (related, CTA)  -  site width, inner content can span grid */
 export const articleBandInnerClass = articleShellClass
 
 // -----------------------------------------------------------------------------

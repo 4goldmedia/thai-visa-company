@@ -1,10 +1,10 @@
 # Relocation platform design system
 
-> **Superseded.** Canonical brand and UI direction: [`docs/design/brand-system.md`](docs/design/brand-system.md), [`docs/design/ui-principles.md`](docs/design/ui-principles.md). Target aesthetic: modern premium relocation infrastructure (Apple, Linear, Bilt, premium real estate) — **not** editorial, resort, or hospitality styling. Serif/editorial guidance in this file is historical only. Audit: [`docs/design/design-audit.md`](docs/design/design-audit.md).
+> **Superseded.** Canonical brand and UI direction: [`docs/design/brand-system.md`](docs/design/brand-system.md), [`docs/design/ui-principles.md`](docs/design/ui-principles.md). Target aesthetic: modern premium relocation infrastructure (Apple, Linear, Bilt, premium real estate)  -  **not** editorial, resort, or hospitality styling. Serif/editorial guidance in this file is historical only. Audit: [`docs/design/design-audit.md`](docs/design/design-audit.md).
 
-Progressive refinement for a premium Thailand residency experience — **architecture unchanged**.
+Progressive refinement for a premium Thailand residency experience  -  **architecture unchanged**.
 
-**References (historical):** Bilt · Ramp — see `docs/design/` for current comparables  
+**References (historical):** Bilt · Ramp  -  see `docs/design/` for current comparables  
 **Tagline:** *Moving to Thailand, handled beautifully.*
 
 ---
@@ -55,8 +55,8 @@ Hierarchy via **weight and color**, not oversized scale.
 
 | Component | Use |
 |-----------|-----|
-| `PageHero` | All page heroes — copy, CTAs, trust, optional `mediaSlot` |
-| `HeroMediaFrame` | Cinematic still — homepage (priority LCP) |
+| `PageHero` | All page heroes  -  copy, CTAs, trust, optional `mediaSlot` |
+| `HeroMediaFrame` | Cinematic still  -  homepage (priority LCP) |
 | `Section` + `SectionHeading` | Body sections |
 | `cardSurfaceClass` | Visa, resource, review, trust cards |
 
@@ -64,13 +64,13 @@ Hierarchy via **weight and color**, not oversized scale.
 
 ## Strongest visual improvements
 
-1. **Editorial headline voice** — Newsreader + ivory/charcoal reads hospitality-grade, not SaaS template.  
-2. **Cinematic homepage hero** — Architectural photography with warm wash replaces abstract mock UI.  
-3. **Unified `PageHero`** — One rhythm across home, visa, contact, resources.  
-4. **Olive accent discipline** — Trust icons, eyebrows, at-a-glance bullets — never loud fills.  
-5. **Stone-border cards** — Whisper shadow, hover border deepen (Aman/Ramp restraint).  
-6. **Spacing tokens** — Section padding tied to CSS variables for consistent vertical pace.  
-7. **Brand line** — Tagline aligned to relocation promise.
+1. **Editorial headline voice**  -  Newsreader + ivory/charcoal reads hospitality-grade, not SaaS template.  
+2. **Cinematic homepage hero**  -  Architectural photography with warm wash replaces abstract mock UI.  
+3. **Unified `PageHero`**  -  One rhythm across home, visa, contact, resources.  
+4. **Olive accent discipline**  -  Trust icons, eyebrows, at-a-glance bullets  -  never loud fills.  
+5. **Stone-border cards**  -  Whisper shadow, hover border deepen (Aman/Ramp restraint).  
+6. **Spacing tokens**  -  Section padding tied to CSS variables for consistent vertical pace.  
+7. **Brand line**  -  Tagline aligned to relocation promise.
 
 ---
 
@@ -80,7 +80,7 @@ Hierarchy via **weight and color**, not oversized scale.
 |------|--------|
 | **Stock photography** | Unsplash placeholders until brand shoot |
 | **Visa page heroes** | Text-only (no per-visa imagery yet) |
-| **FAQ accordions** | Still card-boxed — could move to border-only rows |
+| **FAQ accordions** | Still card-boxed  -  could move to border-only rows |
 | **Dark mode** | Tokens exist; no product toggle |
 | **LINE green** | Channel brand colors unchanged in buttons (intentional) |
 
@@ -88,12 +88,12 @@ Hierarchy via **weight and color**, not oversized scale.
 
 ## Highest-impact future opportunities
 
-1. **Brand photography** in `/public/images/hero/` — swap `lib/media/photography.ts` URLs  
-2. **Per-visa hero stills** — subtle 4:5 frame on DTV / retirement only  
-3. **FAQ editorial rows** — divider-only, no card chrome  
+1. **Brand photography** in `/public/images/hero/`  -  swap `lib/media/photography.ts` URLs  
+2. **Per-visa hero stills**  -  subtle 4:5 frame on DTV / retirement only  
+3. **FAQ editorial rows**  -  divider-only, no card chrome  
 4. **Custom display cut** of Newsreader (optional licensing)  
-5. **Contact page split** — optional `heroPhotography.contact` media column  
-6. **Print-toned OG images** — ivory + charcoal typography on still backgrounds  
+5. **Contact page split**  -  optional `heroPhotography.contact` media column  
+6. **Print-toned OG images**  -  ivory + charcoal typography on still backgrounds  
 
 ---
 

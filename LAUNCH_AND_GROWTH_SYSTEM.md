@@ -1,6 +1,6 @@
 # Launch and growth system
 
-**Thai Visa Company — operational strategy for launch, SEO, AI-search, reviews, content, and analytics**
+**Thai Visa Company  -  operational strategy for launch, SEO, AI-search, reviews, content, and analytics**
 
 Practical sequencing for sustainable authority and inquiry growth. Trust-first: no spam tactics, no random publishing, no aggressive funnels.
 
@@ -37,7 +37,7 @@ Practical sequencing for sustainable authority and inquiry growth. Trust-first: 
 | Measure → adjust CTAs and content | Growth hacks, link schemes, keyword stuffing |
 | Keep ops simple (Airtable, templates, cadence) | Enterprise CRM or 20-stage funnels |
 
-**AI-search:** Treat AI assistants as readers of the same clear copy and JSON-LD you ship for Google — see [AI_SEARCH_OPTIMIZATION.md](./AI_SEARCH_OPTIMIZATION.md).
+**AI-search:** Treat AI assistants as readers of the same clear copy and JSON-LD you ship for Google  -  see [AI_SEARCH_OPTIMIZATION.md](./AI_SEARCH_OPTIMIZATION.md).
 
 ---
 
@@ -56,7 +56,7 @@ Use [LAUNCH_CHECKLIST.md](./LAUNCH_CHECKLIST.md) and [PRODUCTION_READINESS.md](.
 | **Build** | `npm run build` clean · no TS errors |
 | **Routes** | Home, 5 visa pages, `/contact`, `/resources`, published articles only |
 | **Env** | `NEXT_PUBLIC_SITE_URL`, Airtable, GA4, LINE/WhatsApp URLs set in production |
-| **Legal** | Privacy + terms when required for your jurisdiction (routes in `lib/site-routes.ts` — set `published: true` when live) |
+| **Legal** | Privacy + terms when required for your jurisdiction (routes in `lib/site-routes.ts`  -  set `published: true` when live) |
 | **Content** | Copy review on homepage + visa pages · no STUB links in live `related` blocks |
 | **Ops** | [CRM_WORKFLOW_SYSTEM.md](./CRM_WORKFLOW_SYSTEM.md) triage view ready · [INQUIRY_RESPONSE_TEMPLATES.md](./INQUIRY_RESPONSE_TEMPLATES.md) shared with team |
 
@@ -71,8 +71,8 @@ Use [LAUNCH_CHECKLIST.md](./LAUNCH_CHECKLIST.md) and [PRODUCTION_READINESS.md](.
 
 | Task | Action |
 |------|--------|
-| **Sitemap** | `app/sitemap.ts` — only `published: true` in [lib/site-routes.ts](./lib/site-routes.ts) |
-| **Robots** | `app/robots.ts` — allow crawl · point to sitemap · disallow `/api/` |
+| **Sitemap** | `app/sitemap.ts`  -  only `published: true` in [lib/site-routes.ts](./lib/site-routes.ts) |
+| **Robots** | `app/robots.ts`  -  allow crawl · point to sitemap · disallow `/api/` |
 | **Canonical** | Every page uses production origin via `lib/seo/helpers.ts` |
 | **Noindex** | Staging/preview must not index (env + `buildRobots`) |
 | **STUB routes** | Planned articles: `published: false` until MDX ships |
@@ -83,7 +83,7 @@ Use [LAUNCH_CHECKLIST.md](./LAUNCH_CHECKLIST.md) and [PRODUCTION_READINESS.md](.
 
 Per route (home, each visa, contact, resources index, each article):
 
-- [ ] Unique `<title>` — intent-first, brand suffix  
+- [ ] Unique `<title>`  -  intent-first, brand suffix  
 - [ ] Meta description matches extractable summary (≤ ~160 chars usable)  
 - [ ] Open Graph title/description/url  
 - [ ] Canonical URL correct  
@@ -95,11 +95,11 @@ Per route (home, each visa, contact, resources index, each article):
 
 | Page type | JSON-LD (verify in Rich Results / schema validator) |
 |-----------|---------------------------------------------------|
-| Site-wide | Organization / LocalBusiness — [components/seo/site-business-json-ld.tsx](./components/seo/site-business-json-ld.tsx) |
-| Home | WebPage + WebSite — [components/seo/home-json-ld.tsx](./components/seo/home-json-ld.tsx) |
-| Visa | WebPage + Service + FAQ — [components/seo/visa-page-json-ld.tsx](./components/seo/visa-page-json-ld.tsx) |
-| Article | Article + FAQ + Breadcrumb — [components/seo/resource-article-json-ld.tsx](./components/seo/resource-article-json-ld.tsx) |
-| Contact | WebPage + ContactPoint — [components/seo/contact-page-json-ld.tsx](./components/seo/contact-page-json-ld.tsx) |
+| Site-wide | Organization / LocalBusiness  -  [components/seo/site-business-json-ld.tsx](./components/seo/site-business-json-ld.tsx) |
+| Home | WebPage + WebSite  -  [components/seo/home-json-ld.tsx](./components/seo/home-json-ld.tsx) |
+| Visa | WebPage + Service + FAQ  -  [components/seo/visa-page-json-ld.tsx](./components/seo/visa-page-json-ld.tsx) |
+| Article | Article + FAQ + Breadcrumb  -  [components/seo/resource-article-json-ld.tsx](./components/seo/resource-article-json-ld.tsx) |
+| Contact | WebPage + ContactPoint  -  [components/seo/contact-page-json-ld.tsx](./components/seo/contact-page-json-ld.tsx) |
 | FAQ sections | Visible Q&A matches FAQPage `mainEntity` |
 
 **Rule:** FAQ accordion text = schema answers (no mismatch).
@@ -111,9 +111,9 @@ Follow [ANALYTICS_SETUP.md](./ANALYTICS_SETUP.md).
 | Check | How |
 |-------|-----|
 | GA4 loads | `NEXT_PUBLIC_GA_ID` set · Realtime shows active user |
-| Page views | Navigate home → visa → contact — `page_view` fires |
-| LINE / WhatsApp | Click CTAs — `line_click` / `whatsapp_click` |
-| Inquiry funnel | Submit test lead — `inquiry_submission` (use test row in Airtable) |
+| Page views | Navigate home → visa → contact  -  `page_view` fires |
+| LINE / WhatsApp | Click CTAs  -  `line_click` / `whatsapp_click` |
+| Inquiry funnel | Submit test lead  -  `inquiry_submission` (use test row in Airtable) |
 | Surface attribution | `data-analytics-*` on hero, final CTA, mobile bar |
 
 **Production:** exclude internal traffic (GA4 filter) or use debug only in dev.
@@ -150,7 +150,7 @@ Use [LIGHTHOUSE_OPTIMIZATION.md](./LIGHTHOUSE_OPTIMIZATION.md).
 | Metric | Target (marketing site) |
 |--------|-------------------------|
 | LCP | &lt; 2.5s on 4G (hero text-first helps) |
-| CLS | Minimal — mobile contact bar offset in CSS |
+| CLS | Minimal  -  mobile contact bar offset in CSS |
 | INP | Low client JS (navbar, FAQ, form only) |
 
 Run Lighthouse on `/`, `/visas/retirement`, `/contact` before launch.
@@ -177,10 +177,10 @@ T+7  First analytics + indexing review (§6)
 
 **Priority crawl order** (submit and monitor first):
 
-1. `/` — homepage entity + internal links  
-2. `/visas/retirement`, `/visas/dtv` — highest commercial intent  
+1. `/`  -  homepage entity + internal links  
+2. `/visas/retirement`, `/visas/dtv`  -  highest commercial intent  
 3. `/visas/elite`, `/visas/business`, `/visas/education`  
-4. `/contact` — conversion endpoint  
+4. `/contact`  -  conversion endpoint  
 5. `/resources` + each **published** article  
 
 **Do not** link prominently to URLs with `published: false` in `siteRoutes` until pages exist.
@@ -194,7 +194,7 @@ T+7  First analytics + indexing review (§6)
 ### 3.2 Sitemap submission
 
 1. Confirm `https://{domain}/sitemap.xml` lists only live routes  
-2. [SEARCH_CONSOLE_SETUP.md](./SEARCH_CONSOLE_SETUP.md) — add property · DNS verify  
+2. [SEARCH_CONSOLE_SETUP.md](./SEARCH_CONSOLE_SETUP.md)  -  add property · DNS verify  
 3. Submit sitemap URL in GSC  
 4. Confirm “Success” under Sitemaps · note discovered vs indexed counts  
 
@@ -217,22 +217,22 @@ Align with **Foundation** phase in [CONTENT_ROADMAP.md](./CONTENT_ROADMAP.md):
 
 | Month 1 | Ship |
 |---------|------|
-| Week 2 | `how-long-does-thai-visa-take` (process — unblocks visa related links) |
+| Week 2 | `how-long-does-thai-visa-take` (process  -  unblocks visa related links) |
 | Week 3–4 | `what-is-thailand-dtv-visa` OR second retirement depth piece |
 | Ongoing | 2 articles/month max until process stable |
 
-**Each publish:** full [EDITORIAL_WORKFLOW.md](./EDITORIAL_WORKFLOW.md) — registry, `published: true`, `siteRoutes.published: true`, internal links, build.
+**Each publish:** full [EDITORIAL_WORKFLOW.md](./EDITORIAL_WORKFLOW.md)  -  registry, `published: true`, `siteRoutes.published: true`, internal links, build.
 
 ### 3.5 First authority-building priorities
 
 | Priority | Action |
 |----------|--------|
-| **1 — Visa landings** | Accurate requirements, FAQ, final CTA — already LIVE; quarterly refresh |
-| **2 — Process hub** | One timeline article linked from all visas |
-| **3 — DTV + retirement cores** | Highest search demand clusters |
-| **4 — Internal linking** | Every article → visa + sibling; use `lib/content/related.ts` |
-| **5 — GBP + reviews** | Parallel track (§4) — local trust signal |
-| **6 — Fix graph gaps** | Publish `/visas` hub when ready (P2 in roadmap) |
+| **1  -  Visa landings** | Accurate requirements, FAQ, final CTA  -  already LIVE; quarterly refresh |
+| **2  -  Process hub** | One timeline article linked from all visas |
+| **3  -  DTV + retirement cores** | Highest search demand clusters |
+| **4  -  Internal linking** | Every article → visa + sibling; use `lib/content/related.ts` |
+| **5  -  GBP + reviews** | Parallel track (§4)  -  local trust signal |
+| **6  -  Fix graph gaps** | Publish `/visas` hub when ready (P2 in roadmap) |
 
 **Not yet:** mass guest posts, directory spam, AI-generated pages without review.
 
@@ -250,16 +250,16 @@ See [LOCAL_SEO_STRATEGY.md](./LOCAL_SEO_STRATEGY.md). Copy: [INQUIRY_RESPONSE_TE
 | Asset | Setup |
 |-------|--------|
 | **Google Business Profile** | Correct categories (visa / immigration consultant) · Bangkok service area · LINE/WhatsApp in description |
-| **Review link** | `NEXT_PUBLIC_GOOGLE_REVIEWS_URL` — used on site + templates |
+| **Review link** | `NEXT_PUBLIC_GOOGLE_REVIEWS_URL`  -  used on site + templates |
 | **NAP** | Name, address, phone consistent with website footer and schema |
 
-**Positioning:** reviews reinforce *clear guidance and fast replies* — not “cheapest visa.”
+**Positioning:** reviews reinforce *clear guidance and fast replies*  -  not “cheapest visa.”
 
 ### 4.2 Review timing workflow
 
 | Moment | Ask for review? |
 |--------|-----------------|
-| After **Completed** in CRM + positive feedback | **Yes** — primary window |
+| After **Completed** in CRM + positive feedback | **Yes**  -  primary window |
 | After first reply | No |
 | After problem resolved well | Yes (optional) |
 | Client stressed or ineligible | No |
@@ -273,7 +273,7 @@ See [LOCAL_SEO_STRATEGY.md](./LOCAL_SEO_STRATEGY.md). Copy: [INQUIRY_RESPONSE_TE
 |------|-------|
 | Max asks per client | **1** per completed engagement |
 | Wait after completion | **3–7 days** (let outcome settle) |
-| Team-wide | Track monthly asks vs reviews received — aim for quality, not volume |
+| Team-wide | Track monthly asks vs reviews received  -  aim for quality, not volume |
 
 ### 4.4 Review response process
 
@@ -319,7 +319,7 @@ Core how-to / what-is
   → Comparisons (sparse, intentional)
 ```
 
-**Cannibalization:** Visa H1 = service intent; resource slug = “how to” / “how long” / “vs” intent — see roadmap table.
+**Cannibalization:** Visa H1 = service intent; resource slug = “how to” / “how long” / “vs” intent  -  see roadmap table.
 
 ### 5.3 AI-search optimization process
 
@@ -347,7 +347,7 @@ Run on **every** new or majorly updated page ([AI_SEARCH_OPTIMIZATION.md](./AI_S
 | Business / Education | Phase A after DTV+retirement depth | Respective visa pages |
 | Elite | Phase A month 6–8 | `/visas/elite` |
 
-**Hub:** Ship `/visas` with CollectionPage + ItemList when `published: true` — central discovery for users and crawlers.
+**Hub:** Ship `/visas` with CollectionPage + ItemList when `published: true`  -  central discovery for users and crawlers.
 
 ### 5.5 Content update workflow
 
@@ -415,9 +415,9 @@ Use [CONVERSION_AUDIT.md](./CONVERSION_AUDIT.md) lenses:
 Quarterly (or after major UX change):
 
 - Compare `hero_contact` vs `final_cta_contact` vs `mobile_bar_contact`  
-- Test copy in [lib/cta.ts](./lib/cta.ts) / reassurance line — one change at a time  
+- Test copy in [lib/cta.ts](./lib/cta.ts) / reassurance line  -  one change at a time  
 - Verify visa page final CTA before FAQ still holds  
-- No aggressive additions — maintain calm hierarchy ([CONVERSION_AUDIT.md](./CONVERSION_AUDIT.md))
+- No aggressive additions  -  maintain calm hierarchy ([CONVERSION_AUDIT.md](./CONVERSION_AUDIT.md))
 
 ---
 
@@ -432,8 +432,8 @@ From [LOCAL_SEO_STRATEGY.md](./LOCAL_SEO_STRATEGY.md):
 
 | Lever | Scale when |
 |-------|------------|
-| **GBP posts** | Monthly — tips, timeline updates, no keyword stuffing |
-| **Photos** | Real office/team/process — refresh quarterly |
+| **GBP posts** | Monthly  -  tips, timeline updates, no keyword stuffing |
+| **Photos** | Real office/team/process  -  refresh quarterly |
 | **Reviews** | Steady 2–4 quality reviews/month if volume allows |
 | **NAP citations** | Selective directories (quality &gt; quantity) |
 | **Maps / local pack** | Track “visa consultant Bangkok” visibility in GSC + manual checks |
@@ -443,9 +443,9 @@ From [LOCAL_SEO_STRATEGY.md](./LOCAL_SEO_STRATEGY.md):
 | Type | Approach |
 |------|----------|
 | **Resource links** | Helpful guides worth citing (timelines, eligibility) |
-| **Partners** | Relocation services, schools, employers — mutual “official partner” pages only if real |
-| **PR / expertise** | Quotes on visa rule changes — link to relevant guide |
-| **Directories** | vetted expat/legal lists — no paid link farms |
+| **Partners** | Relocation services, schools, employers  -  mutual “official partner” pages only if real |
+| **PR / expertise** | Quotes on visa rule changes  -  link to relevant guide |
+| **Directories** | vetted expat/legal lists  -  no paid link farms |
 
 **Avoid:** PBNs, mass guest posts, irrelevant anchors.
 
@@ -453,12 +453,12 @@ From [LOCAL_SEO_STRATEGY.md](./LOCAL_SEO_STRATEGY.md):
 
 | Partner type | Value |
 |--------------|-------|
-| Immigration lawyers | Referral clarity — who handles what |
+| Immigration lawyers | Referral clarity  -  who handles what |
 | Relocation / property | Co-education content, not duplicate visa advice |
 | Education agents | Education visa cluster support |
 | Corporate HR | Business visa B2B inquiries |
 
-**Document:** Referral terms in Notes/CRM — not on-site legal advice.
+**Document:** Referral terms in Notes/CRM  -  not on-site legal advice.
 
 ### 7.4 FAQ expansion strategy
 
@@ -474,11 +474,11 @@ From [LOCAL_SEO_STRATEGY.md](./LOCAL_SEO_STRATEGY.md):
 
 | Language | When | Approach |
 |----------|------|----------|
-| **Thai** | Local trust / GBP | Key contact + about sections — not full site day one |
+| **Thai** | Local trust / GBP | Key contact + about sections  -  not full site day one |
 | **Chinese** | Demand proven in analytics | Start with retirement/DTV high-intent pages |
 | **Japanese** | Secondary | Selective guides |
 
-**Technical:** i18n routing is a major project — defer until English corpus and conversion baseline are stable. No auto-translate without human review.
+**Technical:** i18n routing is a major project  -  defer until English corpus and conversion baseline are stable. No auto-translate without human review.
 
 ### 7.6 Future automation opportunities
 
@@ -529,7 +529,7 @@ Adjust dates to your actual launch.
 | **Ops / CRM** | Contact QA, Airtable, templates | Triage, reviews, SLAs |
 | **Reviewer** | Visa accuracy sign-off | Article fact-check |
 
-One person can wear multiple hats — cadence matters more than headcount.
+One person can wear multiple hats  -  cadence matters more than headcount.
 
 ---
 
@@ -574,4 +574,4 @@ One person can wear multiple hats — cadence matters more than headcount.
 
 ---
 
-*Last updated: May 2026 — update phase dates and P1 slugs when launch day is set.*
+*Last updated: May 2026  -  update phase dates and P1 slugs when launch day is set.*

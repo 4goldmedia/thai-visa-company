@@ -118,7 +118,7 @@ export type ResourceArticleSchemaGraphInput = {
 }
 
 /**
- * Article `@graph` for resource guides — Article + optional BreadcrumbList + extensions.
+ * Article `@graph` for resource guides  -  Article + optional BreadcrumbList + extensions.
  * FAQ schema is rendered separately via `FaqJsonLd` on `ArticleInlineFaq`.
  */
 export function buildResourceArticleSchemaGraph(

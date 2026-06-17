@@ -1,5 +1,5 @@
 ---
-description: Thai Visa Company content philosophy — trust-first immigration knowledge
+description: Thai Visa Company content philosophy  -  trust-first immigration knowledge
 globs: content/**/*,lib/blog/**/*,lib/guides/**/*,docs/content-strategy.md
 alwaysApply: false
 ---

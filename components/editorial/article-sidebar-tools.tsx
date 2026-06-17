@@ -76,7 +76,7 @@ function ArticleSidebarTools({ items, path, title, className }: ArticleSidebarTo
       >
         <p className="editorial-sidebar-card__label">Share article</p>
         <div className="editorial-sidebar-card__body">
-          <div className="editorial-share__actions">
+          <div className="editorial-share__actions editorial-share__actions--toc">
             <ShareButton href={buildShareUrl("facebook", url, title)} label="Share on Facebook">
               <span aria-hidden>f</span>
             </ShareButton>

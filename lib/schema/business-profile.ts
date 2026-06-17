@@ -13,7 +13,7 @@ import type {
   ReviewItemInput,
 } from "@/lib/schema/types"
 
-/** Google Business / Maps reviews listing — from `siteSocial` */
+/** Google Business / Maps reviews listing  -  from `siteSocial` */
 export const googleReviewsUrl = siteSocial.googleReviews
 
 /**
@@ -52,7 +52,7 @@ export const platformBusinessProfile = {
       worstRating: 1,
     } satisfies AggregateRatingInput,
   },
-  /** Representative client excerpts — align with homepage reviews section */
+  /** Representative client excerpts  -  align with homepage reviews section */
   reviews: [
     {
       author: "James R.",

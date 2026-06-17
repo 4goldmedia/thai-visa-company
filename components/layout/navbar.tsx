@@ -337,7 +337,7 @@ function NavbarLogo() {
         "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
       )}
     >
-      <span className="sr-only">{siteBrand.name} — Home</span>
+      <span className="sr-only">{siteBrand.name}, Home</span>
       <span className="navbar-ref__logo" aria-hidden>
         {siteBrand.name}
       </span>

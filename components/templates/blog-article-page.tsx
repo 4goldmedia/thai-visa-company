@@ -73,7 +73,7 @@ function BlogArticlePageView({ context }: BlogArticlePageViewProps) {
             items={article.faq}
             className="!mt-[var(--editorial-section-gap,3.5rem)] !border-t !border-border/35 !pt-10 sm:!pt-12"
             jsonLd={{
-              name: `${article.title} — FAQ`,
+              name: `${article.title}: FAQ`,
               path: article.path,
               description: article.lead,
               aboutArticle: true,

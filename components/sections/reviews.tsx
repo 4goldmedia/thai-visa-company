@@ -7,14 +7,12 @@ import {
   clientReviewsSectionCopy,
   homepageClientReviews,
 } from "@/lib/content/client-reviews"
-import { googleReviewsUrl } from "@/lib/schema/business-profile"
 import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
-import { editorialLinkInverseClass } from "@/lib/section-styles"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { cn } from "@/lib/utils"
 
 function Reviews() {
-  const { eyebrow, title, description, footerLink } = clientReviewsSectionCopy
+  const { eyebrow, title, description } = clientReviewsSectionCopy
 
   return (
     <SectionReveal className="flex flex-col">
@@ -64,17 +62,6 @@ function Reviews() {
           </li>
         ))}
       </ul>
-
-      <p className="mt-8 sm:mt-9">
-        <a
-          href={googleReviewsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={editorialLinkInverseClass}
-        >
-          {footerLink}
-        </a>
-      </p>
     </SectionReveal>
   )
 }

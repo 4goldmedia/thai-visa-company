@@ -26,7 +26,7 @@ import type {
 } from "@/lib/seo/types"
 
 // -----------------------------------------------------------------------------
-// Canonical URLs — single resolver tied to `lib/site/config`
+// Canonical URLs  -  single resolver tied to `lib/site/config`
 // -----------------------------------------------------------------------------
 
 export function getSiteUrl(): URL {
@@ -201,10 +201,10 @@ function assemblePageMetadata(input: {
 }
 
 // -----------------------------------------------------------------------------
-// Page factories — homepage, visas, articles, future routes
+// Page factories  -  homepage, visas, articles, future routes
 // -----------------------------------------------------------------------------
 
-/** Generic page — contact, resources index, legal, future dynamic routes */
+/** Generic page  -  contact, resources index, legal, future dynamic routes */
 export function createPageMetadata({
   title,
   description,
@@ -223,7 +223,7 @@ export function createPageMetadata({
   })
 }
 
-/** Root layout — `metadataBase`, title template, site-wide defaults */
+/** Root layout  -  `metadataBase`, title template, site-wide defaults */
 export function createRootMetadata(): Metadata {
   const description = siteMetadata.defaultDescription
 
@@ -254,7 +254,7 @@ export function createRootMetadata(): Metadata {
   }
 }
 
-/** Homepage — topic-first title and extractable summary for AI Overviews */
+/** Homepage  -  topic-first title and extractable summary for AI Overviews */
 export function createHomeMetadata(): Metadata {
   return createPageMetadata({
     title: { absolute: getHomepageDocumentTitle() },
@@ -284,7 +284,7 @@ export function createVisaPageMetadata(input: VisaPageMetadataInput): Metadata {
   }
 }
 
-/** Resource / MDX articles — article Open Graph + published times */
+/** Resource / MDX articles  -  article Open Graph + published times */
 export function createArticlePageMetadata(
   input: ArticlePageMetadataInput,
 ): Metadata {

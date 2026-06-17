@@ -6,7 +6,7 @@ import {
   JsonLdScript,
 } from "@/lib/seo/schema"
 
-/** Contact page — WebPage + customer contact points */
+/** Contact page  -  WebPage + customer contact points */
 function ContactPageJsonLd() {
   const graph = buildPageSchemaGraph({
     nodes: [

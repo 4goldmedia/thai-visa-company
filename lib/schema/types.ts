@@ -1,6 +1,6 @@
 /**
  * Schema.org JSON-LD types for the Thailand visa platform.
- * Nodes omit `@context` — added by `buildJsonLdGraph`.
+ * Nodes omit `@context`  -  added by `buildJsonLdGraph`.
  */
 
 export const SCHEMA_CONTEXT = "https://schema.org" as const
@@ -83,7 +83,7 @@ export type ContactPointInput = {
 export type OrganizationInput = {
   name?: string
   description?: string
-  /** Short brand line — maps to schema.org `slogan` */
+  /** Short brand line  -  maps to schema.org `slogan` */
   tagline?: string
   url?: string
   logo?: string
@@ -123,7 +123,7 @@ export type ArticleInput = {
   headline: string
   /** Meta / SEO description */
   description: string
-  /** Lead paragraph — maps to `abstract` for AI extraction */
+  /** Lead paragraph  -  maps to `abstract` for AI extraction */
   abstract?: string
   datePublished: string
   dateUpdated?: string

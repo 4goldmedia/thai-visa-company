@@ -11,7 +11,7 @@ type VisaPageTemplateProps = {
 }
 
 /**
- * Reusable Thailand visa page layout — section order from `visa.layout`
+ * Reusable Thailand visa page layout  -  section order from `visa.layout`
  * or `DEFAULT_VISA_PAGE_LAYOUT`. Content from `lib/visas/content/*`.
  */
 function VisaPageTemplate({ context }: VisaPageTemplateProps) {
@@ -28,7 +28,7 @@ function VisaPageTemplate({ context }: VisaPageTemplateProps) {
       <main
         id="main-content"
         tabIndex={-1}
-        aria-label={`${visa.hero.title} — Thailand visa information`}
+        aria-label={`${visa.hero.title}: Thailand visa information`}
         className={`${visaPageClass} flex flex-1 flex-col overflow-x-clip bg-background`}
       >
         <PageBreadcrumbs items={crumbs} />

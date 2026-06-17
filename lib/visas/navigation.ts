@@ -1,6 +1,6 @@
 import type { VisaSlug } from "@/lib/visas/types"
 
-export const visasHubPath = "/visas" as const
+export const visasHubPath = "/#visa-options" as const
 
 export type VisaNavItem = {
   slug: VisaSlug
@@ -9,7 +9,7 @@ export type VisaNavItem = {
   href: `/visas/${VisaSlug}` | "/visas/retirement"
 }
 
-/** Canonical visa nav order — hub, flyout, mobile menu, footer */
+/** Canonical visa nav order  -  hub, flyout, mobile menu, footer */
 export const visaNavItems = [
   {
     slug: "dtv",
@@ -44,5 +44,5 @@ export const visaNavItems = [
 ] as const satisfies ReadonlyArray<VisaNavItem>
 
 export function isVisasSectionActive(pathname: string): boolean {
-  return pathname === visasHubPath || pathname.startsWith(`${visasHubPath}/`)
+  return pathname === "/" || pathname.startsWith("/visas/")
 }

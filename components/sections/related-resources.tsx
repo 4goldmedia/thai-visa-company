@@ -18,7 +18,7 @@ type RelatedResourcesProps = {
   description?: string
   eyebrow?: string
   items: ReadonlyArray<RelatedResourceItem>
-  /** Cap visible cards — keeps the section calm (default 3) */
+  /** Cap visible cards  -  keeps the section calm (default 3) */
   maxItems?: number
   listAriaLabel?: string
   className?: string

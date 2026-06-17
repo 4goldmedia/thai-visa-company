@@ -53,7 +53,7 @@ export type InquiryFormVariant = "standard" | "consultation"
 export type InquiryFormProps = {
   /** Standard multi-field vs homepage consultation */
   variant?: InquiryFormVariant
-  /** CRM + analytics source — required for routing and reporting */
+  /** CRM + analytics source  -  required for routing and reporting */
   leadSource: InquiryLeadSource
   /** Pre-select visa interest on visa pages */
   defaultVisaInterest?: InquiryVisaInterest
@@ -61,7 +61,7 @@ export type InquiryFormProps = {
   pagePath?: string
   title?: string
   description?: string
-  /** Short line under description — e.g. time to complete */
+  /** Short line under description  -  e.g. time to complete */
   timeEstimate?: string
   submitLabel?: string
   trustNote?: string | null
@@ -94,7 +94,7 @@ function InquiryForm({
   defaultVisaInterest,
   pagePath,
   title = "Ask about your visa",
-  description = "Share a few details and we will reply with clear next steps—no obligation.",
+  description = "Share a few details and we will reply with clear next steps, with no obligation.",
   timeEstimate,
   submitLabel = "Send inquiry",
   trustNote = "We typically reply within one business day on LINE, WhatsApp, or email.",
@@ -440,7 +440,7 @@ function InquiryForm({
             hint={
               isConsultation
                 ? undefined
-                : "A sentence or two is enough—we will ask for details if needed."
+                : "A sentence or two is enough. We will ask for details if needed."
             }
             error={errors?.[inquiryFieldNames.message]}
           >

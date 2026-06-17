@@ -14,18 +14,18 @@ export type GoogleReviewSummaryProps = {
   bestRating?: number
   href?: string
   sourceLabel?: string
-  /** `inline` — hero bars; `stacked` — section aside */
+  /** `inline`  -  hero bars; `stacked`  -  section aside */
   layout?: "inline" | "stacked"
   size?: "sm" | "md"
   /** Link summary to Google reviews (external) */
   linkToReviews?: boolean
   /** Include business name in screen reader label */
   includeBusinessInLabel?: boolean
-  /** `dark` — reviews band (#23211E) */
+  /** `dark`  -  reviews band (#23211E) */
   variant?: "light" | "dark"
-  /** Stacked layout only — hide stars (e.g. when cards already show ratings) */
+  /** Stacked layout only  -  hide stars (e.g. when cards already show ratings) */
   showStackedStars?: boolean
-  /** Stacked layout — editorial score with /5 denominator */
+  /** Stacked layout  -  editorial score with /5 denominator */
   stackedScoreStyle?: "default" | "editorial"
   className?: string
 }

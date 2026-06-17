@@ -11,7 +11,7 @@ type UnpublishedVisaStubInput = {
   heroOverview: string
 }
 
-/** Minimal registry entry for unpublished visa slugs — not routed or linked publicly */
+/** Minimal registry entry for unpublished visa slugs  -  not routed or linked publicly */
 export function createUnpublishedVisaStub(
   input: UnpublishedVisaStubInput,
 ): VisaPageContent {
@@ -43,7 +43,7 @@ export function createUnpublishedVisaStub(
     finalCta: {
       title: `Questions about ${input.heroTitle}?`,
       description:
-        "Message us when this page is live — we are happy to advise in the meantime.",
+        "Message us when this page is live  -  we are happy to advise in the meantime.",
     },
   }
 }

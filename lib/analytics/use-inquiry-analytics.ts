@@ -12,7 +12,7 @@ type UseInquiryAnalyticsOptions = {
 }
 
 /**
- * Stable inquiry funnel tracking — view fires once per mount; start once per session.
+ * Stable inquiry funnel tracking  -  view fires once per mount; start once per session.
  */
 export function useInquiryAnalytics({
   leadSource,

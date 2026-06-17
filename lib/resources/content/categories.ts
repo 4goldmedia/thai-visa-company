@@ -11,7 +11,7 @@ export const resourceCategories = [
     id: "process",
     label: "Process & timelines",
     description:
-      "What to expect when applying — processing times, steps, and follow-up.",
+      "What to expect when applying  -  processing times, steps, and follow-up.",
   },
   {
     id: "comparisons",

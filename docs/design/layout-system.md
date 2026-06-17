@@ -6,10 +6,10 @@ Canonical container widths and gutters for Thai Visa Company. Implementation: `c
 
 ## Principles
 
-1. **One site shell** — Marketing, visa, blog hub, and article frames align to `--width-site` (1280px).
-2. **Prose is nested** — Long-form reading uses a narrower column inside the shell; the page does not shrink to prose width.
-3. **No ad-hoc max-width** — Prefer `Container` sizes and layout tokens over inline `max-w-*` on sections.
-4. **Tables and figures break out** — MDX comparison tables and figures use `--width-prose-wide` (52rem) inside the article column.
+1. **One site shell**  -  Marketing, visa, blog hub, and article frames align to `--width-site` (1280px).
+2. **Prose is nested**  -  Long-form reading uses a narrower column inside the shell; the page does not shrink to prose width.
+3. **No ad-hoc max-width**  -  Prefer `Container` sizes and layout tokens over inline `max-w-*` on sections.
+4. **Tables and figures break out**  -  MDX comparison tables and figures use `--width-prose-wide` (52rem) inside the article column.
 
 ---
 
@@ -18,9 +18,9 @@ Canonical container widths and gutters for Thai Visa Company. Implementation: `c
 | Size | Token | Width | Use |
 |------|-------|-------|-----|
 | `site` / `default` | `--width-site` | 80rem (1280px) | Homepage, navbar, footer, visa pages, blog hub, article outer frame, reviews |
-| `wide` | `--width-site` | 80rem | Alias of site — visa editorial sections |
+| `wide` | `--width-site` | 80rem | Alias of site  -  visa editorial sections |
 | `prose` | `--width-narrow` | 47.5rem (760px) | Privacy, terms, narrow form intros |
-| `content` | `--width-site` | 80rem | **Deprecated** — alias of site; migrate to `default` |
+| `content` | `--width-site` | 80rem | **Deprecated**  -  alias of site; migrate to `default` |
 
 ### Gutters
 
@@ -33,7 +33,7 @@ Horizontal padding on all containers: `px-4 sm:px-6 md:px-8 lg:px-10`.
 ### Homepage
 
 - Sections use `<Container>` (site width).
-- Hero copy constrained with `--width-hero-prose` (34rem) inside the shell — not a narrower page.
+- Hero copy constrained with `--width-hero-prose` (34rem) inside the shell  -  not a narrower page.
 
 ### Visa service pages
 
@@ -55,7 +55,7 @@ Horizontal padding on all containers: `px-4 sm:px-6 md:px-8 lg:px-10`.
 
 ### Reviews (homepage section)
 
-- Site-width `Container` inside dark band — matches homepage grid.
+- Site-width `Container` inside dark band  -  matches homepage grid.
 
 ### Consultation
 
@@ -92,9 +92,9 @@ Defined on `[data-slot="article-layout"]` in `styles/article-reading.css`:
 
 **Don't**
 
-- Set `size="content"` expecting a narrow page — it is now site width.
+- Set `size="content"` expecting a narrow page  -  it is now site width.
 - Wrap `<Container>` inside another max-width div without reason.
-- Cap article pages at 36rem shell — use shell + nested prose.
+- Cap article pages at 36rem shell  -  use shell + nested prose.
 
 ---
 

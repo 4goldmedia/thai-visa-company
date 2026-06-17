@@ -57,7 +57,7 @@ function StarRating({
 }
 
 /**
- * Dark-band client review card — stars, quote, avatar + meta.
+ * Dark-band client review card  -  stars, quote, avatar + meta.
  */
 function ReviewCard({
   name,

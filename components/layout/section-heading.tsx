@@ -63,12 +63,12 @@ type SectionHeadingProps = {
   title: string
   /** Supporting description below the headline */
   description?: string
-  /** Heading element — default `h2` for in-page sections */
+  /** Heading element  -  default `h2` for in-page sections */
   as?: SectionHeadingElement
   /** Stable id for `aria-labelledby` on parent `<section>` */
   id?: string
   /**
-   * Wrapper element — use `div` when composing with sibling controls
+   * Wrapper element  -  use `div` when composing with sibling controls
    * (e.g. rating summary) to avoid nested `<header>` elements.
    */
   wrapper?: "header" | "div"

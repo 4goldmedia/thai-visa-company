@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!context) return {}
 
   return createPageMetadata({
-    title: `${context.category.label} — Thailand Visa Guides`,
+    title: `${context.category.label}: Thailand Visa Guides`,
     description: context.category.description,
     path: guideCategoryPath(context.category.id),
   })

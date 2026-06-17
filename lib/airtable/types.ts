@@ -1,4 +1,4 @@
-/** Airtable field names on the Leads table — align with `AIRTABLE_CRM_ARCHITECTURE.md` */
+/** Airtable field names on the Leads table  -  align with `AIRTABLE_CRM_ARCHITECTURE.md` */
 export const airtableLeadFields = {
   fullName: "Full Name",
   nationality: "Nationality",
@@ -49,7 +49,7 @@ export type AirtableLeadCreateInput = {
   notes?: string
 }
 
-/** Partial update keyed by Airtable column names — for automations and admin tools */
+/** Partial update keyed by Airtable column names  -  for automations and admin tools */
 export type AirtableLeadUpdateInput = Partial<
   Record<AirtableLeadFieldName, string | number | boolean | null>
 >

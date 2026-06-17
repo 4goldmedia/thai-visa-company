@@ -1,5 +1,5 @@
 ---
-description: Content cluster map — every article must belong to a cluster
+description: Content cluster map  -  every article must belong to a cluster
 globs: content/**/*,lib/blog/**/*,lib/guides/**/*
 alwaysApply: false
 ---

@@ -1,9 +1,9 @@
 /* =============================================================================
-   Sticky mobile messaging bar — conversation-first conversion (below lg)
+   Sticky mobile messaging bar  -  conversation-first conversion (below lg)
    ============================================================================= */
 
 :root {
-  /* .mobile-messaging-bar__inner padding + h-12 actions — keep in sync */
+  /* .mobile-messaging-bar__inner padding + h-12 actions  -  keep in sync */
   --mobile-contact-bar-height: 4.25rem;
 }
 

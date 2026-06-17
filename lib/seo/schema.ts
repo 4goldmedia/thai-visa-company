@@ -1,9 +1,9 @@
 /**
- * JSON-LD schema automation — single entry for structured data.
+ * JSON-LD schema automation  -  single entry for structured data.
  *
  * Integrates:
- * - `lib/site/config.ts` — brand, contact, location (via `platformBusinessProfile`)
- * - `lib/seo/helpers.ts` — canonical URLs (`getSiteUrl`, `toAbsoluteUrl`)
+ * - `lib/site/config.ts`  -  brand, contact, location (via `platformBusinessProfile`)
+ * - `lib/seo/helpers.ts`  -  canonical URLs (`getSiteUrl`, `toAbsoluteUrl`)
  *
  * @example
  * import { buildVisaPageSchemaGraph, JsonLdScript } from "@/lib/seo/schema"
@@ -61,7 +61,7 @@ export type {
 } from "@/lib/schema/types"
 
 // -----------------------------------------------------------------------------
-// Utilities — absolute URLs from site config + SEO helpers
+// Utilities  -  absolute URLs from site config + SEO helpers
 // -----------------------------------------------------------------------------
 
 export {
@@ -73,7 +73,7 @@ export {
 } from "@/lib/schema/utils"
 
 // -----------------------------------------------------------------------------
-// Entity registry — stable `@id` anchors from site origin
+// Entity registry  -  stable `@id` anchors from site origin
 // -----------------------------------------------------------------------------
 
 export {
@@ -165,7 +165,7 @@ export type ResourceArticleFaqSchemaInput = {
   description?: string
 }
 
-/** Homepage FAQ — branded name and description from site config */
+/** Homepage FAQ  -  branded name and description from site config */
 export function buildHomepageFaqSchemaGraph(
   input: HomepageFaqSchemaInput,
 ): JsonLdGraphDocument | null {
@@ -199,7 +199,7 @@ export function buildResourceArticleFaqSchemaGraph(
 ): JsonLdGraphDocument | null {
   return buildFaqSchemaGraph({
     items: input.items,
-    name: `${input.title} — FAQ`,
+    name: `${input.title}: FAQ`,
     path: input.path,
     description:
       input.description ??
@@ -222,7 +222,7 @@ export type { ResourceArticleSchemaGraphInput } from "@/lib/content/schema/artic
 export { buildResourceArticleRouteSchemaGraph } from "@/lib/content/routing/seo"
 
 // -----------------------------------------------------------------------------
-// Site-wide business graph (root layout — render once)
+// Site-wide business graph (root layout  -  render once)
 // -----------------------------------------------------------------------------
 
 import { buildPlatformBusinessSchemaGraph as buildPlatformBusinessSchemaGraphImpl } from "@/lib/schema/business-graph"
@@ -235,10 +235,10 @@ export function buildPlatformBusinessSchemaGraph(): JsonLdGraphDocument {
 export { buildPlatformBusinessSchemaGraph as buildSiteBusinessSchemaGraph }
 
 // -----------------------------------------------------------------------------
-// Page-level automation — homepage, visas, resources, future routes
+// Page-level automation  -  homepage, visas, resources, future routes
 // -----------------------------------------------------------------------------
 
-/** Homepage WebSite + WebPage — FAQ rendered separately by `FaqSection` */
+/** Homepage WebSite + WebPage  -  FAQ rendered separately by `FaqSection` */
 export function buildHomepageSchemaGraph(): JsonLdGraphDocument {
   return buildPageSchemaGraph({
     nodes: [
@@ -267,7 +267,7 @@ export type ResourcesIndexSchemaInput = {
   breadcrumbs?: ReadonlyArray<BreadcrumbItem>
 }
 
-/** Guides index — CollectionPage + ItemList + breadcrumbs */
+/** Guides index  -  CollectionPage + ItemList + breadcrumbs */
 export function buildGuidesIndexSchemaGraph(
   input: ResourcesIndexSchemaInput,
 ): JsonLdGraphDocument {
@@ -291,7 +291,7 @@ export function buildGuidesIndexSchemaGraph(
   })
 }
 
-/** Blog index — CollectionPage + ItemList + breadcrumbs */
+/** Blog index  -  CollectionPage + ItemList + breadcrumbs */
 export function buildBlogIndexSchemaGraph(
   input: ResourcesIndexSchemaInput,
 ): JsonLdGraphDocument {
@@ -356,7 +356,7 @@ export function buildServiceSchemaGraph(
 }
 
 // -----------------------------------------------------------------------------
-// Breadcrumb helper — from app breadcrumb presets
+// Breadcrumb helper  -  from app breadcrumb presets
 // -----------------------------------------------------------------------------
 
 export {

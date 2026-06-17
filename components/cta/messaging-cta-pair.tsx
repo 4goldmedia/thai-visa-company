@@ -44,7 +44,7 @@ export type MessagingCtaPairProps = {
 }
 
 /**
- * LINE + WhatsApp pair — consistent order, labels, and env-based URLs.
+ * LINE + WhatsApp pair  -  consistent order, labels, and env-based URLs.
  */
 function MessagingCtaPair({
   layout = "stack",
