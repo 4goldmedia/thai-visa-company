@@ -9,7 +9,6 @@
     --premium-cta-button-fg: #1f1b18;
     --premium-cta-button-hover-bg: #f2ece6;
     --premium-cta-radius: clamp(1.75rem, 2vw, 2rem); /* 28-32px */
-    --premium-cta-button-radius: 0.5rem;
     --premium-cta-button-min-width: 16.25rem; /* 260px */
     --premium-cta-button-height: 3.5rem; /* 56px */
     --premium-cta-copy-max: 37.5rem; /* 600px */
@@ -47,6 +46,24 @@
   .premium-cta__copy {
     min-width: 0;
     max-width: var(--premium-cta-copy-max);
+  }
+
+  @media (max-width: 639px) {
+    .premium-cta__copy {
+      margin-inline: auto;
+      max-width: min(100%, 28rem);
+      text-align: center;
+    }
+
+    .premium-cta__title {
+      text-align: center;
+    }
+
+    .premium-cta__description {
+      margin-inline: auto;
+      max-width: min(100%, 26rem);
+      text-align: center;
+    }
   }
 
   .premium-cta__title {
@@ -101,7 +118,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid var(--premium-cta-button-bg);
-    border-radius: var(--premium-cta-button-radius);
+    border-radius: var(--radius-button);
     background-color: var(--premium-cta-button-bg);
     padding-inline: 1.75rem;
     font-family: var(--font-sans);
