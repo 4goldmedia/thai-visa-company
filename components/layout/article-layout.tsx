@@ -2,7 +2,8 @@ import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-import { ContactCtaGroup } from "@/components/cta"
+import { PremiumCtaSection, premiumCtaButtonLabel } from "@/components/sections/premium-cta-section"
+import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { Breadcrumbs } from "@/components/navigation/breadcrumbs"
 import { Container } from "@/components/layout/container"
 import type { BreadcrumbLink } from "@/lib/breadcrumbs"
@@ -31,11 +32,9 @@ import type {
   ContentArticleAuthor,
   ContentArticleReviewedBy,
 } from "@/lib/content/types"
-import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
 import {
   cardPlaceholderClass,
   mobileReadableWidthClass,
-  sectionBandClass,
 } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
 
@@ -396,58 +395,15 @@ function ArticleRelatedResourcesPlaceholder() {
 // CTA
 // -----------------------------------------------------------------------------
 
-type ArticleCtaProps = {
-  children?: React.ReactNode
-  headingId?: string
-  title?: string
-  description?: string
-  className?: string
-}
-
-function ArticleCta({
-  children,
-  headingId = "article-cta-heading",
-  title = "Questions about this topic?",
-  description = "Message us on LINE or WhatsApp. We help you apply what you have read to your situation.",
-  className,
-}: ArticleCtaProps) {
-  return (
-    <Section
-      spacing="compact"
-      aria-labelledby={headingId}
-      className={cn(sectionBandClass, className)}
-    >
-      <Container>
-        <div className={cn(articleBandInnerClass, "flex max-w-[40rem] flex-col")}>
-          <SectionHeading
-            id={headingId}
-            wrapper="div"
-            eyebrow="Get in touch"
-            title={title}
-            description={description}
-            titleClassName="max-w-xl"
-          />
-          <div className="mt-5 border-t border-border/50 pt-5 sm:mt-6 sm:pt-6">
-            {children}
-          </div>
-        </div>
-      </Container>
-    </Section>
-  )
-}
-
 function ArticleCtaPlaceholder() {
   return (
-    <ArticleCta>
-      <ContactCtaGroup
-        showExplore={false}
-        analyticsSurface="article"
-        analyticsCtaId="article_cta_contact"
-      />
-      <p className="mt-4 text-[13px] leading-[1.6] text-muted-foreground sm:text-sm sm:leading-snug">
-        {defaultFinalCtaFootnote}
-      </p>
-    </ArticleCta>
+    <PremiumCtaSection
+      title="Questions about this topic?"
+      description="Message us on LINE or WhatsApp. We help you apply what you have read to your situation."
+      buttonLabel={premiumCtaButtonLabel}
+      analyticsSurface="article"
+      analyticsCtaId={analyticsCtaIds.articleCtaContact}
+    />
   )
 }
 
@@ -542,6 +498,5 @@ export {
   ArticleTableOfContentsPlaceholder,
   ArticleRelatedResources,
   ArticleRelatedResourcesPlaceholder,
-  ArticleCta,
   ArticleCtaPlaceholder,
 }

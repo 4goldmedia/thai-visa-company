@@ -1,6 +1,8 @@
-import { ContactCtaGroup } from "@/components/cta"
-import { Container } from "@/components/layout/container"
-import { cn } from "@/lib/utils"
+import {
+  PremiumCtaSection,
+  premiumCtaButtonLabel,
+} from "@/components/sections/premium-cta-section"
+import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 
 type ArticleCTAProps = {
   title?: string
@@ -16,22 +18,15 @@ function ArticleCTA({
   className,
 }: ArticleCTAProps) {
   return (
-    <section className={cn("editorial-cta-band", className)} aria-label="Consultation">
-      <Container>
-        <div className="editorial-cta-band__inner">
-          <h2 className="editorial-cta-band__title">{title}</h2>
-          <p className="editorial-cta-band__description">{description}</p>
-          <div className="editorial-cta-band__actions">
-            <ContactCtaGroup
-              showExplore={false}
-              analyticsSurface="article"
-              analyticsCtaId="article_editorial_cta"
-              articleSlug={articleSlug}
-            />
-          </div>
-        </div>
-      </Container>
-    </section>
+    <PremiumCtaSection
+      title={title}
+      description={description}
+      buttonLabel={premiumCtaButtonLabel}
+      analyticsSurface="article"
+      analyticsCtaId={analyticsCtaIds.articleCtaContact}
+      articleSlug={articleSlug}
+      sectionClassName={className}
+    />
   )
 }
 

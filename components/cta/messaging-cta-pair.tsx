@@ -61,15 +61,15 @@ function MessagingCtaPair({
         <MessagingCta
           channel="line"
           labelMode="short"
-          className={navbarCtaPrimaryClass}
+          className={navbarCtaSecondaryClass}
           onClick={handleNavigate}
         />
         <MessagingCta
           channel="whatsapp"
           labelMode="full"
-          variant="outline"
+          variant="primary"
           className={cn(
-            navbarCtaSecondaryClass,
+            navbarCtaPrimaryClass,
             "hidden min-[480px]:inline-flex",
           )}
           onClick={handleNavigate}
@@ -89,13 +89,13 @@ function MessagingCtaPair({
         <MessagingCta
           channel="line"
           labelMode="full"
-          className={navbarMenuCtaPrimaryClass}
+          className={navbarMenuCtaSecondaryClass}
           onClick={handleNavigate}
         />
         <MessagingCta
           channel="whatsapp"
-          variant="outline"
-          className={navbarMenuCtaSecondaryClass}
+          variant="primary"
+          className={navbarMenuCtaPrimaryClass}
           onClick={handleNavigate}
         />
       </div>
@@ -105,11 +105,11 @@ function MessagingCtaPair({
   if (layout === "success") {
     return (
       <div className={cn(formSuccessCtaStackClass, className)}>
-        <MessagingCta channel="line" className={formSuccessCtaPrimaryClass} />
+        <MessagingCta channel="line" className={formSuccessCtaSecondaryClass} />
         <MessagingCta
           channel="whatsapp"
-          variant="outline"
-          className={formSuccessCtaSecondaryClass}
+          variant="primary"
+          className={formSuccessCtaPrimaryClass}
         />
       </div>
     )
@@ -121,12 +121,12 @@ function MessagingCtaPair({
         <MessagingCta
           channel="line"
           labelMode="short"
-          className={mobileContactBarButtonPrimaryClass}
+          className={mobileContactBarButtonSecondaryClass}
         />
         <MessagingCta
           channel="whatsapp"
-          variant="outline"
-          className={mobileContactBarButtonSecondaryClass}
+          variant="primary"
+          className={mobileContactBarButtonPrimaryClass}
         />
       </div>
     )
@@ -135,11 +135,11 @@ function MessagingCtaPair({
   if (layout === "hero") {
     return (
       <div className={cn(heroCtaStackClass, className)}>
-        <MessagingCta channel="line" className={heroCtaButtonPrimaryClass} />
+        <MessagingCta channel="line" className={heroCtaButtonSecondaryClass} />
         <MessagingCta
           channel="whatsapp"
-          variant="outline"
-          className={heroCtaButtonSecondaryClass}
+          variant="primary"
+          className={heroCtaButtonPrimaryClass}
         />
       </div>
     )
@@ -150,12 +150,12 @@ function MessagingCtaPair({
       <div className={cn(heroPremiumCtaStackClass, className)}>
         <MessagingCta
           channel="line"
-          className={heroPremiumCtaButtonPrimaryClass}
+          className={heroPremiumCtaButtonSecondaryClass}
         />
         <MessagingCta
           channel="whatsapp"
-          variant="outline"
-          className={heroPremiumCtaButtonSecondaryClass}
+          variant="primary"
+          className={heroPremiumCtaButtonPrimaryClass}
         />
       </div>
     )
@@ -163,11 +163,11 @@ function MessagingCtaPair({
 
   return (
     <div className={cn(ctaStackClass, className)}>
-      <MessagingCta channel="line" className={ctaButtonPrimaryClass} />
+      <MessagingCta channel="line" className={ctaButtonSecondaryClass} />
       <MessagingCta
         channel="whatsapp"
-        variant="outline"
-        className={ctaButtonSecondaryClass}
+        variant="primary"
+        className={ctaButtonPrimaryClass}
       />
     </div>
   )

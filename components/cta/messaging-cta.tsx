@@ -28,7 +28,7 @@ const opensNewTabHint = (
  */
 function MessagingCta({
   channel,
-  variant = channel === "line" ? "primary" : "outline",
+  variant = channel === "whatsapp" ? "primary" : "outline",
   unstyled = false,
   labelMode = "full",
   className,

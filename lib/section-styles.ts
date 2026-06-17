@@ -151,9 +151,9 @@ export const ctaButtonPrimaryClass = cn(
 export const ctaButtonSecondaryClass = cn(
   "h-11 min-h-11 w-full rounded-[var(--radius-button)] px-5",
   "text-[length:var(--text-body)] font-medium tracking-normal",
-  "border border-[var(--border-default)] bg-transparent text-foreground",
+  "border border-[var(--palette-text)] bg-[var(--palette-white)] text-[var(--palette-text)]",
   "transition-[border-color,background-color] duration-200 ease-out",
-  "hover:border-foreground/15 hover:bg-[var(--surface-muted)]",
+  "hover:border-[var(--palette-text)] hover:bg-[#F8F4F2]",
   "sm:h-10 sm:min-h-10 sm:w-auto sm:text-[length:var(--text-body-md)]",
   "motion-reduce:transition-none",
 )
@@ -172,7 +172,7 @@ export const heroCtaButtonPrimaryClass = cn(
 
 export const heroCtaButtonSecondaryClass = cn(
   ctaButtonSecondaryClass,
-  "border-border/70 bg-background px-5 sm:min-w-[11.25rem]",
+  "px-5 sm:min-w-[11.25rem]",
 )
 
 export const heroCtaTertiaryLinkClass = editorialLinkClass
@@ -192,9 +192,9 @@ export const heroPremiumCtaButtonPrimaryClass = cn(
 
 export const heroPremiumCtaButtonSecondaryClass = cn(
   ctaButtonSecondaryClass,
-  "h-11 min-h-11 border-border/55 bg-transparent px-6",
-  "text-[length:var(--text-small)] font-medium text-[var(--text-secondary)]",
-  "hover:bg-muted/35 sm:h-11 sm:min-h-11 sm:w-full",
+  "h-11 min-h-11 px-6",
+  "text-[length:var(--text-small)] font-medium text-[var(--palette-text)]",
+  "hover:bg-[#F8F4F2] sm:h-11 sm:min-h-11 sm:w-full",
 )
 
 /** Homepage hero  -  single editorial explore link */

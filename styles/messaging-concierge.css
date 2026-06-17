@@ -129,27 +129,26 @@
 
   /* Secondary  -  LINE */
   .messaging-platform-action[data-contact-channel="line"] {
-    background-color: var(--concierge-btn-secondary-bg);
-    border-color: var(--concierge-btn-secondary-border);
-    color: var(--concierge-btn-secondary-fg);
+    background-color: #ffffff;
+    border-color: #23211e;
+    color: #23211e;
   }
 
   .messaging-platform-action[data-contact-channel="line"]:hover {
-    background-color: var(--concierge-btn-secondary-bg-hover);
-    border-color: color-mix(
-      in srgb,
-      var(--concierge-btn-secondary-border) 85%,
-      var(--foreground)
-    );
+    background-color: #f8f4f2;
+    border-color: #23211e;
+    color: #23211e;
   }
 
   .messaging-platform-action[data-contact-channel="line"]:active {
-    background-color: var(--concierge-btn-secondary-bg-hover);
+    background-color: #f8f4f2;
+    border-color: #23211e;
+    color: #23211e;
   }
 
   .messaging-platform-action[data-contact-channel="line"]
     .messaging-platform-action__label {
-    color: var(--concierge-btn-secondary-fg);
+    color: #23211e;
   }
 
   /** Shared layout for signature CTA pairs (consultation, contact groups, etc.) */

@@ -150,7 +150,7 @@
     padding: 1.25rem 1.375rem;
     border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
     border-radius: var(--visa-card-radius);
-    background-color: var(--surface-elevated);
+    background-color: var(--palette-white);
     transition:
       border-color 0.2s ease,
       box-shadow 0.2s ease,
@@ -328,6 +328,10 @@
     color: var(--foreground);
   }
 
+  .visa-best-for-group--not-ideal .visa-best-for-group__title {
+    color: #6f6a63;
+  }
+
   .visa-best-for-group__cards {
     display: flex;
     flex-direction: column;
@@ -339,7 +343,7 @@
     padding: 1rem 1.125rem;
     border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
     border-radius: calc(var(--visa-card-radius) - 2px);
-    background-color: var(--surface-elevated);
+    background-color: var(--palette-white);
     font-size: var(--text-body);
     line-height: 1.62;
     color: var(--text-secondary);
@@ -534,7 +538,7 @@
   }
 
   .visa-best-for-group--not-ideal .visa-recommendation-card {
-    background-color: color-mix(in srgb, var(--surface-muted) 40%, var(--surface-elevated));
+    background-color: #f8f4f2;
   }
 
   /* ── Understanding the DTV (overview)  -  divider & subheading rhythm ── */
@@ -811,7 +815,7 @@
   .visa-comparison-shell {
     border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
     border-radius: var(--visa-card-radius);
-    background-color: var(--surface-elevated);
+    background-color: var(--palette-white);
     overflow: hidden;
   }
 
@@ -839,7 +843,7 @@
     position: sticky;
     top: 0;
     z-index: 2;
-    background-color: var(--surface-elevated);
+    background-color: var(--palette-white);
     font-family: var(--font-display);
     font-size: var(--text-small);
     font-weight: 500;
@@ -852,7 +856,7 @@
     left: 0;
     z-index: 3;
     min-width: 9.5rem;
-    background-color: var(--surface-elevated);
+    background-color: var(--palette-white);
     box-shadow: 4px 0 12px -8px color-mix(in srgb, var(--palette-text) 12%, transparent);
   }
 
@@ -863,19 +867,20 @@
     min-width: 9.5rem;
     font-weight: 500;
     color: var(--foreground);
-    background-color: var(--surface-elevated);
+    background-color: var(--palette-white);
     box-shadow: 4px 0 12px -8px color-mix(in srgb, var(--palette-text) 10%, transparent);
   }
 
   .visa-comparison-table__cell {
     min-width: 8.5rem;
+    background-color: var(--palette-white);
     line-height: 1.55;
     color: var(--text-secondary);
   }
 
   .visa-comparison-table__cell--active,
   .visa-comparison-table thead .visa-comparison-table__cell--active {
-    background-color: color-mix(in srgb, var(--surface-muted) 70%, var(--surface-elevated));
+    background-color: #f8f4f2;
     color: var(--foreground);
   }
 
@@ -1151,24 +1156,8 @@
     color: var(--text-secondary);
   }
 
-  /* ── Final CTA refinements on visa pages ── */
+  /* ── Final CTA on visa pages uses shared premium-cta band ── */
   .visa-page .visa-final-cta {
-    padding-block: var(--visa-section-y-lg);
     border-bottom: none;
-  }
-
-  @media (min-width: 1024px) {
-    .visa-page .visa-final-cta .final-home-cta__block {
-      grid-template-columns: minmax(0, 1.5fr) auto auto;
-    }
-  }
-
-  @media (max-width: 639px) {
-    .visa-page .visa-final-cta .final-home-cta__links {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      gap: 1.25rem 2rem;
-    }
   }
 }
