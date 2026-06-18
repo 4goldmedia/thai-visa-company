@@ -1,14 +1,30 @@
 import { Fragment } from "react"
 
+import {
+  VisaComplianceSection,
+  VisaDecisionGuidesSection,
+  VisaEmbassyVarianceTableSection,
+  VisaEntityGlossarySection,
+  VisaFeesAndTimelinesSection,
+  VisaGovernmentProcessSection,
+  VisaLegalBoundariesSection,
+  VisaOfficialSourcesSection,
+  VisaPitfallsSection,
+  VisaPracticeInsightsSection,
+} from "@/components/sections/visa-authority-blocks"
 import { VisaFaqSection } from "@/components/sections/visa-faq"
 import { VisaProcessSection } from "@/components/sections/visa-process"
+import { VisaRelatedResourcesSection } from "@/components/sections/visa-related-resources"
 import { VisaRelatedVisasSection } from "@/components/sections/visa-related-visas"
 import { VisaBestForSection } from "@/components/sections/visa-best-for"
 import { VisaComparisonSection } from "@/components/sections/visa-comparison"
 import { VisaDocumentChecklistSection } from "@/components/sections/visa-document-checklist"
+import { VisaDefinitionSection } from "@/components/sections/visa-definition-section"
+import { VisaEeatSection } from "@/components/sections/visa-eeat-section"
 import { VisaFinalCtaSection } from "@/components/sections/visa-final-cta"
 import { VisaHeroSection } from "@/components/sections/visa-hero"
 import { VisaKeyFactsSection } from "@/components/sections/visa-key-facts"
+import { VisaLastUpdatedSection } from "@/components/sections/visa-last-updated"
 import { VisaOverviewSection } from "@/components/sections/visa-overview"
 import { VisaRequirementsSection } from "@/components/sections/visa-requirements"
 import type { VisaSectionId } from "@/lib/visas/layout"
@@ -29,7 +45,7 @@ export function renderVisaPageSection(
   sectionId: VisaSectionId,
   { context, ids }: VisaPageSectionRenderContext,
 ): React.ReactNode | null {
-  const { visa, relatedVisas } = context
+  const { visa, relatedVisas, relatedResources, clusterHref } = context
 
   switch (sectionId) {
     case "hero":
@@ -43,7 +59,24 @@ export function renderVisaPageSection(
       )
 
     case "lastUpdated":
-      return null
+      if (!visa.updatedAt) return null
+      return (
+        <VisaLastUpdatedSection
+          sectionId={ids.lastUpdated}
+          updatedAt={visa.updatedAt}
+          lastReviewed={visa.lastReviewed}
+        />
+      )
+
+    case "definition":
+      if (!visa.definition?.body) return null
+      return (
+        <VisaDefinitionSection
+          sectionId={ids.definition}
+          headingId={ids.definitionHeading}
+          {...visa.definition}
+        />
+      )
 
     case "keyFacts":
       if (!visa.keyFacts?.items.length) return null
@@ -80,6 +113,26 @@ export function renderVisaPageSection(
         />
       )
 
+    case "officialSources":
+      if (!visa.officialSources?.items.length) return null
+      return (
+        <VisaOfficialSourcesSection
+          sectionId={ids.officialSources}
+          headingId={ids.officialSourcesHeading}
+          {...visa.officialSources}
+        />
+      )
+
+    case "entityGlossary":
+      if (!visa.entityGlossary?.entries.length) return null
+      return (
+        <VisaEntityGlossarySection
+          sectionId={ids.entityGlossary}
+          headingId={ids.entityGlossaryHeading}
+          {...visa.entityGlossary}
+        />
+      )
+
     case "comparison":
       if (!visa.comparison?.rows.length) return null
       return (
@@ -107,6 +160,94 @@ export function renderVisaPageSection(
           sectionId={ids.checklist}
           headingId={ids.checklistHeading}
           {...visa.checklist}
+        />
+      )
+
+    case "feesAndTimelines":
+      if (
+        !visa.feesAndTimelines?.fees.length &&
+        !visa.feesAndTimelines?.timelines?.length
+      ) {
+        return null
+      }
+      return (
+        <VisaFeesAndTimelinesSection
+          sectionId={ids.feesAndTimelines}
+          headingId={ids.feesAndTimelinesHeading}
+          {...visa.feesAndTimelines}
+        />
+      )
+
+    case "governmentProcess":
+      if (!visa.governmentProcess?.steps.length) return null
+      return (
+        <VisaGovernmentProcessSection
+          sectionId={ids.governmentProcess}
+          headingId={ids.governmentProcessHeading}
+          processAriaLabel={`${visa.hero.title} government application steps`}
+          {...visa.governmentProcess}
+        />
+      )
+
+    case "pitfalls":
+      if (!visa.pitfalls?.rejections?.length && !visa.pitfalls?.mistakes?.length) {
+        return null
+      }
+      return (
+        <VisaPitfallsSection
+          sectionId={ids.pitfalls}
+          headingId={ids.pitfallsHeading}
+          {...visa.pitfalls}
+        />
+      )
+
+    case "practiceInsights":
+      if (!visa.practiceInsights?.insights.length) return null
+      return (
+        <VisaPracticeInsightsSection
+          sectionId={ids.practiceInsights}
+          headingId={ids.practiceInsightsHeading}
+          {...visa.practiceInsights}
+        />
+      )
+
+    case "embassyVarianceTable":
+      if (!visa.embassyVarianceTable?.rows.length) return null
+      return (
+        <VisaEmbassyVarianceTableSection
+          sectionId={ids.embassyVarianceTable}
+          headingId={ids.embassyVarianceTableHeading}
+          {...visa.embassyVarianceTable}
+        />
+      )
+
+    case "compliance":
+      if (!visa.compliance?.items.length) return null
+      return (
+        <VisaComplianceSection
+          sectionId={ids.compliance}
+          headingId={ids.complianceHeading}
+          {...visa.compliance}
+        />
+      )
+
+    case "legalBoundaries":
+      if (!visa.legalBoundaries) return null
+      return (
+        <VisaLegalBoundariesSection
+          sectionId={ids.legalBoundaries}
+          headingId={ids.legalBoundariesHeading}
+          {...visa.legalBoundaries}
+        />
+      )
+
+    case "decisionGuides":
+      if (!visa.decisionGuides?.guides.length) return null
+      return (
+        <VisaDecisionGuidesSection
+          sectionId={ids.decisionGuides}
+          headingId={ids.decisionGuidesHeading}
+          {...visa.decisionGuides}
         />
       )
 
@@ -140,6 +281,31 @@ export function renderVisaPageSection(
               visa.faq.description ??
               `Answers to common questions about ${visa.hero.title}.`,
           }}
+        />
+      )
+
+    case "eeat":
+      if (!visa.eeat?.methodology.length) return null
+      return (
+        <VisaEeatSection
+          sectionId={ids.eeat}
+          headingId={ids.eeatHeading}
+          lastReviewed={visa.lastReviewed}
+          {...visa.eeat}
+        />
+      )
+
+    case "relatedResources":
+      if (!relatedResources.length) return null
+      return (
+        <VisaRelatedResourcesSection
+          sectionId={ids.relatedResources}
+          headingId={ids.relatedResourcesHeading}
+          title={visa.relatedResources.title}
+          description={visa.relatedResources.description}
+          eyebrow={visa.relatedResources.eyebrow}
+          items={relatedResources}
+          clusterHref={clusterHref}
         />
       )
 

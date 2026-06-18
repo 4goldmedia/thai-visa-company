@@ -173,6 +173,32 @@ export type ContentSourceRef = {
   title: string
   href: string
   accessedAt?: string
+  /** What this official source covers */
+  coverage?: string
+  /** Why applicants should verify against it */
+  rationale?: string
+}
+
+/** Answer-first definitional block for visa hub pages (AEO / speakable) */
+export type ContentVisaDefinitionSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  /** 100–150 words, answer-first; mirror to page `answer` for schema */
+  body: string
+}
+
+/** Review methodology and content standards (EEAT) */
+export type ContentVisaEeatSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  methodology: ReadonlyArray<{
+    title: string
+    description: string
+  }>
+  contentStandards?: string
+  disclaimer?: string
 }
 
 /** Ordered cluster navigation within a named series */
@@ -302,6 +328,8 @@ export type ContentVisaChecklistItem = {
 export type ContentVisaChecklistGroup = {
   title: string
   intro?: string
+  /** Links checklist group to a qualification pathway (`requirements.pathways[].id`) */
+  pathwayId?: string
   items: ReadonlyArray<ContentVisaChecklistItem>
 }
 
@@ -338,8 +366,141 @@ export type ContentVisaRequirementsClarification = {
   linkHref?: string
 }
 
+/** Editorial reviewer attribution for visa hub pages (EEAT) */
 export type ContentVisaLastReviewed = {
-  reviewedBy?: string
+  reviewerName: string
+  reviewerTitle?: string
+  reviewerCredentials?: string
+  reviewDate: ContentIsoDate
+  /** Future reviewer profile page, e.g. `/about/reviewers/name` */
+  reviewerUrl?: string
+}
+
+export type ContentVisaOfficialSourcesSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  items: ReadonlyArray<ContentSourceRef>
+  lastCheckedAt?: ContentIsoDate
+}
+
+export type ContentVisaFeeTimelineRow = {
+  label: string
+  value: string
+  note?: string
+}
+
+export type ContentVisaFeesAndTimelinesSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  fees: ReadonlyArray<ContentVisaFeeTimelineRow>
+  timelines?: ReadonlyArray<ContentVisaFeeTimelineRow>
+  footnote?: string
+}
+
+export type ContentVisaGovernmentProcessSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  steps: ReadonlyArray<ContentVisaProcessStep>
+}
+
+export type ContentVisaPitfallItem = {
+  title: string
+  description: string
+  remedy?: string
+}
+
+export type ContentVisaPitfallsSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  rejections?: ReadonlyArray<ContentVisaPitfallItem>
+  mistakes?: ReadonlyArray<ContentVisaPitfallItem>
+}
+
+export type ContentVisaComplianceItem = {
+  title: string
+  description: string
+}
+
+export type ContentVisaComplianceSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  items: ReadonlyArray<ContentVisaComplianceItem>
+}
+
+export type ContentVisaLegalBoundariesSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  content: string | ReadonlyArray<string>
+  disclaimer?: string
+}
+
+export type ContentVisaEntityGlossaryEntry = {
+  term: string
+  definition: string
+  synonyms?: ReadonlyArray<string>
+}
+
+export type ContentVisaEntityGlossarySection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  entries: ReadonlyArray<ContentVisaEntityGlossaryEntry>
+}
+
+export type ContentVisaPracticeInsight = {
+  title: string
+  description: string
+}
+
+export type ContentVisaPracticeInsightsSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  insights: ReadonlyArray<ContentVisaPracticeInsight>
+}
+
+/** Embassy variance row  -  scales to per-embassy cluster pages via `href` */
+export type ContentEmbassyVarianceRow = {
+  embassyId: string
+  embassyName: string
+  visaFee?: string
+  bankStatementMonths?: string
+  insuranceRequired?: string
+  notes?: string
+  href?: string
+}
+
+export type ContentVisaEmbassyVarianceTableSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  rows: ReadonlyArray<ContentEmbassyVarianceRow>
+  footnote?: string
+}
+
+export type ContentVisaDecisionBranch = {
+  label: string
+  outcome: string
+}
+
+export type ContentVisaDecisionGuide = {
+  id: string
+  question: string
+  intro?: string
+  branches: ReadonlyArray<ContentVisaDecisionBranch>
+}
+
+export type ContentVisaDecisionGuidesSection = {
+  title?: string
+  description?: string
+  eyebrow?: string
+  guides: ReadonlyArray<ContentVisaDecisionGuide>
 }
 
 /** Conversion-focused block  -  replaces off-site application directions on visa pages */

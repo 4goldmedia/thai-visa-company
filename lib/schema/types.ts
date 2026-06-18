@@ -152,4 +152,10 @@ export type WebPageInput = {
   path: string
   name: string
   description: string
+  datePublished?: string
+  dateModified?: string
+  author?: ArticleAuthorInput
+  reviewedBy?: ArticleAuthorInput
+  /** CSS selectors for speakable content blocks */
+  speakableSelectors?: ReadonlyArray<string>
 }

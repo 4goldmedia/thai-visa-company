@@ -938,10 +938,17 @@ export async function resolveRelatedVisasForArticle(
 
 export async function resolveRelatedArticlesForVisa(
   visa: Pick<VisaPageContent, "slug" | "hero" | "seo" | "path">,
-  options: { max?: number; collection?: ContentCollectionId } = {},
+  options: {
+    max?: number
+    /** @deprecated Use `collections` */
+    collection?: ContentCollectionId
+    collections?: ReadonlyArray<ContentCollectionId>
+  } = {},
 ): Promise<ReadonlyArray<ContentRelatedLink>> {
   const max = options.max ?? DEFAULT_MAX_CROSS_LINKS
-  const collection = options.collection ?? "guides"
+  const collections =
+    options.collections ??
+    (options.collection ? [options.collection] : (["blog", "guides"] as const))
 
   const source: VisaLinkSource = {
     slug: visa.slug,
@@ -951,11 +958,16 @@ export async function resolveRelatedArticlesForVisa(
     keywords: visa.seo.keywords,
   }
 
-  const candidates = await loadPublishedArticleSummaries(collection)
-  const scored = candidates
-    .map((article) => scoreVisaToArticle(source, article))
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score)
+  const scoredGroups = await Promise.all(
+    collections.map(async (collection) => {
+      const candidates = await loadPublishedArticleSummaries(collection)
+      return candidates
+        .map((article) => scoreVisaToArticle(source, article))
+        .filter((item) => item.score > 0)
+    }),
+  )
+
+  const scored = scoredGroups.flat().sort((a, b) => b.score - a.score)
 
   return mergeScoredRelatedLinks(scored, { max, excludeHrefs: [visa.path] })
 }

@@ -20,5 +20,7 @@ export type ResolvedVisaPageContext = {
   metadata: Metadata
   breadcrumbs: ReadonlyArray<BreadcrumbLink>
   relatedVisas: ReadonlyArray<ContentRelatedLink>
+  relatedResources: ReadonlyArray<ContentRelatedLink>
+  clusterHref?: string
   ctaLinks: ReadonlyArray<CtaLinkOpportunity>
 }

@@ -8,19 +8,32 @@ import type {
   ContentRelatedLink,
   ContentRelatedSection,
   ContentVisaBestForSection,
+  ContentVisaComplianceSection,
+  ContentVisaDecisionGuidesSection,
+  ContentVisaDefinitionSection,
   ContentVisaDocumentChecklistSection,
+  ContentVisaEeatSection,
+  ContentVisaEmbassyVarianceTableSection,
+  ContentVisaEntityGlossarySection,
+  ContentVisaFeesAndTimelinesSection,
   ContentVisaFinalCta,
+  ContentVisaGovernmentProcessSection,
   ContentVisaKeyFactsSection,
   ContentVisaComparisonSection,
   ContentVisaGettingStarted,
   ContentVisaLastReviewed,
+  ContentVisaLegalBoundariesSection,
+  ContentVisaOfficialSourcesSection,
   ContentVisaPageSeo,
+  ContentVisaPitfallsSection,
+  ContentVisaPracticeInsightsSection,
   ContentVisaProcessStep,
   ContentVisaPath,
   ContentVisaQualificationPathway,
   ContentVisaRequirementsClarification,
   ContentVisaRequirementsDocumentsOverview,
 } from "@/lib/content/types"
+import type { ContentTopicId } from "@/lib/content/topics"
 import type { VisaSectionId } from "@/lib/visas/layout"
 
 export const visaSlugs = [
@@ -55,14 +68,34 @@ export type VisaPageContent = {
   publishedAt: ContentIsoDate
   updatedAt?: ContentIsoDate
   lastReviewed?: ContentVisaLastReviewed
+  /** Semantic topic for cluster linking; defaults to slug when it matches a topic id */
+  topicId?: ContentTopicId
+  /** Explicit blog/guide slugs for hub → cluster links (collection resolved at link time) */
+  relatedArticleSlugs?: ReadonlyArray<string>
+  /** Override blog cluster archive href; defaults from `blogClusters` pillar mapping */
+  clusterHref?: string
+  /** Citable answer-first summary for AEO; should match `definition.body` when present */
+  answer?: string
   layout?: ReadonlyArray<VisaSectionId>
   seo: VisaPageSeo
   hero: VisaPageHeroContent
+  definition?: ContentVisaDefinitionSection
+  eeat?: ContentVisaEeatSection
   keyFacts?: ContentVisaKeyFactsSection
   gettingStarted?: ContentVisaGettingStarted
   bestFor?: ContentVisaBestForSection
   comparison?: ContentVisaComparisonSection
   checklist?: ContentVisaDocumentChecklistSection
+  officialSources?: ContentVisaOfficialSourcesSection
+  feesAndTimelines?: ContentVisaFeesAndTimelinesSection
+  governmentProcess?: ContentVisaGovernmentProcessSection
+  pitfalls?: ContentVisaPitfallsSection
+  compliance?: ContentVisaComplianceSection
+  legalBoundaries?: ContentVisaLegalBoundariesSection
+  entityGlossary?: ContentVisaEntityGlossarySection
+  practiceInsights?: ContentVisaPracticeInsightsSection
+  embassyVarianceTable?: ContentVisaEmbassyVarianceTableSection
+  decisionGuides?: ContentVisaDecisionGuidesSection
   overview: {
     title?: string
     description?: string
@@ -98,6 +131,7 @@ export type VisaPageContent = {
   relatedVisas?: ContentRelatedSection
   /** Registry slugs for automatic related visa suggestions */
   relatedVisaSlugs?: ReadonlyArray<VisaSlug>
+  /** Manual cluster links; merged with auto-resolved articles at render time */
   relatedResources: ContentRelatedSection
   finalCta: ContentVisaFinalCta
 }

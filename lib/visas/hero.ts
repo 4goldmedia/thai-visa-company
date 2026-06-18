@@ -28,6 +28,8 @@ export type VisaPageHeroContent = {
   subtitle?: string
   /** Plain-English lead  -  keep to 2–3 short lines in content */
   overview: string
+  /** Answer-first definitional extract for AEO (40–60 words) */
+  definition?: string
   heroImage?: string
   heroImageAlt?: string
   objectPosition?: string

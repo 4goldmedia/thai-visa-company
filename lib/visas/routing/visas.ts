@@ -4,6 +4,7 @@ import {
   resolveCtaLinkOpportunities,
   resolveRelatedVisas,
 } from "@/lib/content/related"
+import { resolveVisaRelatedResources } from "@/lib/visas/related-resources"
 import {
   getVisaFromRegistry,
   isVisaSlug,
@@ -14,6 +15,7 @@ import {
   buildVisaPageMetadata,
   getVisaPageRouteBreadcrumbs,
 } from "@/lib/visas/routing/seo"
+import { resolveVisaClusterHref } from "@/lib/visas/topic"
 import type {
   ResolvedVisaPageContext,
   VisaPageStaticParam,
@@ -35,11 +37,15 @@ export const resolveVisaPageContext = cache(
       return null
     }
 
+    const relatedResources = await resolveVisaRelatedResources(visa)
+
     return {
       visa,
       metadata: buildVisaPageMetadata(visa),
       breadcrumbs: getVisaPageRouteBreadcrumbs(visa),
       relatedVisas: resolveRelatedVisas(visa),
+      relatedResources,
+      clusterHref: resolveVisaClusterHref(visa),
       ctaLinks: resolveCtaLinkOpportunities({
         sourceType: "visa",
         tags: [...(visa.seo.keywords ?? []), visa.slug],

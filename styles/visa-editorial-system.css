@@ -964,6 +964,106 @@
     color: var(--text-tertiary);
   }
 
+  /* ── Authority blocks (Blueprint v3) ── */
+  .visa-authority-table-wrap {
+    overflow-x: auto;
+  }
+
+  .visa-authority-table-wrap--scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .visa-authority-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-small);
+    line-height: 1.6;
+  }
+
+  .visa-authority-table th,
+  .visa-authority-table td {
+    padding: 0.625rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .visa-authority-table th {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
+  .visa-authority-table td {
+    color: var(--text-secondary);
+  }
+
+  .visa-authority-table__note {
+    color: var(--text-tertiary);
+  }
+
+  .visa-authority-subheading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
+  .visa-authority-list {
+    display: grid;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .visa-authority-list--ordered {
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+
+  .visa-authority-list li p {
+    margin-top: 0.25rem;
+    color: var(--text-secondary);
+    font-size: var(--text-small);
+    line-height: 1.65;
+  }
+
+  .visa-authority-list__remedy {
+    color: var(--text-tertiary);
+  }
+
+  .visa-authority-prose {
+    color: var(--text-secondary);
+    font-size: var(--text-body);
+    line-height: 1.7;
+  }
+
+  .visa-authority-disclaimer,
+  .visa-authority-footnote {
+    font-size: var(--text-small);
+    line-height: 1.6;
+    color: var(--text-tertiary);
+  }
+
+  .visa-entity-glossary {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .visa-entity-glossary__entry dt {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
+  .visa-entity-glossary__entry dd {
+    margin-top: 0.25rem;
+    color: var(--text-secondary);
+    font-size: var(--text-small);
+    line-height: 1.65;
+  }
+
+  .visa-entity-glossary__synonyms {
+    color: var(--text-tertiary);
+  }
+
   /* ── Guide cards grid ── */
   .visa-guide-grid {
     display: grid;

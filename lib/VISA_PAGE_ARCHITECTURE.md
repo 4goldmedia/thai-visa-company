@@ -4,13 +4,19 @@
 
 ```
 lib/visas/
-  registry.ts          → visaRegistry (all five visa pages)
-  content/<slug>.ts    → page content + seo block
+  registry.ts              → visaRegistry (all visa pages)
+  content/<slug>.ts        → page content + seo block
+  layout.ts                → Blueprint v3 section order
+  section-ids.ts           → stable landmark ids per section
+  sections/render.tsx      → section renderer registry
+  related-resources.ts     → hub → cluster link merger
+  topic.ts                 → topicId + clusterHref resolution
   routing/
-    visas.ts           → resolveVisaPageContext(slug)
-    seo.ts             → metadata + JSON-LD (WebPage, Service, BreadcrumbList)
-  schema/visa.ts       → buildVisaPageSchemaGraph
-  related.ts           → resolveRelatedVisas (registry + topical defaults)
+    visas.ts               → resolveVisaPageContext(slug)
+    seo.ts                 → metadata + JSON-LD
+  schema/
+    visa.ts                → WebPage + Service + HowTo + ItemList
+    item-list.ts           → checklist ItemList builder
 ```
 
 App routes:
@@ -20,103 +26,47 @@ App routes:
 | `app/visas/[slug]/page.tsx` | `resolveVisaPageContext` (dtv, elite, business, education) |
 | `app/visas/retirement/page.tsx` | Same context resolver for retirement |
 
-`resolveVisaPageContext` returns: `visa`, `metadata`, `breadcrumbs`, `relatedVisas`.
+`resolveVisaPageContext` returns: `visa`, `metadata`, `breadcrumbs`, `relatedVisas`, `relatedResources`, `clusterHref`, `ctaLinks`.
 
-## Purpose
+## Blueprint v3 section order
 
-Visa pages serve as:
-- SEO landing pages
-- trust pages
-- conversion pages
+See `lib/visas/layout.ts` → `DEFAULT_VISA_PAGE_LAYOUT`.
 
-They should:
-- answer practical user questions
-- reduce uncertainty
-- simplify complexity
-- encourage contact
+Authority sections render only when typed content is present on `VisaPageContent`.
 
----
+Canonical policy: [`docs/content/visa-hub-canonical-policy.md`](../docs/content/visa-hub-canonical-policy.md).
 
-# Visa Page Structure
+## Content model
 
-1. Hero
-2. Visa Overview
-3. Requirements
-4. Benefits
-5. Process
-6. FAQ
-7. Related visa services (registry-backed suggestions)
-8. Related resources (guides)
-9. Final CTA
+All section types live in `lib/content/types.ts` under visa landing page types.
 
----
+Key hub fields:
 
-# Page Goals
+- `topicId`, `relatedArticleSlugs`, `clusterHref`
+- `answer`, `hero.definition`
+- `lastReviewed` (reviewerName, reviewerTitle, reviewerCredentials, reviewDate, reviewerUrl)
+- Authority sections: `officialSources`, `feesAndTimelines`, `governmentProcess`, `pitfalls`, `compliance`, `legalBoundaries`, `entityGlossary`, `practiceInsights`, `embassyVarianceTable`, `decisionGuides`
 
-Users should quickly understand:
-- who the visa is for
-- key requirements
-- process simplicity
-- available support
-- next steps
+Checklist groups support `pathwayId` linking to `requirements.pathways[].id`.
 
----
+## Schema
 
-# Tone
+Visa JSON-LD graph (`lib/visas/schema/visa.ts`):
 
-Pages should feel:
-- practical
-- calm
-- trustworthy
-- modern
-- highly readable
+- `WebPage` with `datePublished`, `dateModified`, `author`, `reviewedBy`, optional `speakable`
+- `Service`
+- `BreadcrumbList`
+- `HowTo` when `governmentProcess` is populated
+- `ItemList` when `checklist` is populated
+- `FAQPage` via `VisaFaqSection` (separate script)
 
-Avoid:
-- legal jargon
-- corporate wording
-- SEO spam
-- intimidating language
+## Internal linking
 
----
+`resolveVisaRelatedResources` merges manual links, explicit slugs, auto-scored blog+guide articles, and cluster archive URL.
 
-# SEO Direction
+`resolveRelatedArticlesForVisa` searches **blog and guides** by default.
 
-Titles should resemble:
-real user search intent.
+## Phase workflow
 
-Examples:
-- How to Get a Thailand Retirement Visa
-- Thailand DTV Visa Requirements
-- Thailand Elite Visa Cost
-
-Avoid:
-generic marketing SEO titles.
-
----
-
-# Conversion Goals
-
-Primary:
-- LINE
-
-Secondary:
-- WhatsApp
-- inquiry form
-
-CTA placement should feel:
-- natural
-- low friction
-- helpful
-
----
-
-# Trust Elements
-
-Include:
-- review proof
-- support messaging
-- process clarity
-- guidance reassurance
-
-Users should feel:
-"This seems manageable."
+- **Phase 0:** Types, registry, render paths, schema, linking (no hub content)
+- **Phase 1+:** Populate `lib/visas/content/dtv.ts` per DTV Authority Upgrade Plan v3

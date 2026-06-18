@@ -32,6 +32,34 @@ export function buildWebPage(input: WebPageInput): JsonLdNode {
     description: input.description,
     url: pageUrl,
     inLanguage: siteLocale.html,
+    ...(input.datePublished ? { datePublished: input.datePublished } : {}),
+    ...(input.dateModified ? { dateModified: input.dateModified } : {}),
+    ...(input.author
+      ? {
+          author: {
+            "@type": input.author.type ?? "Organization",
+            name: input.author.name,
+            ...(input.author.url ? { url: input.author.url } : {}),
+          },
+        }
+      : {}),
+    ...(input.reviewedBy
+      ? {
+          reviewedBy: {
+            "@type": input.reviewedBy.type ?? "Person",
+            name: input.reviewedBy.name,
+            ...(input.reviewedBy.url ? { url: input.reviewedBy.url } : {}),
+          },
+        }
+      : {}),
+    ...(input.speakableSelectors?.length
+      ? {
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: input.speakableSelectors,
+          },
+        }
+      : {}),
     isPartOf: {
       "@type": "WebSite",
       "@id": ids.website,
