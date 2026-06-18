@@ -5,7 +5,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import {
-  isVisasSectionActive,
   visaNavItems,
   visasHubPath,
 } from "@/lib/visas/navigation"
@@ -19,7 +18,7 @@ function VisasNavFlyout() {
   const closeTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
   const panelId = React.useId()
 
-  const isActive = isVisasSectionActive(pathname)
+  const isActive = pathname.startsWith("/visas/")
 
   const clearCloseTimer = React.useCallback(() => {
     if (closeTimerRef.current) {

@@ -32,7 +32,7 @@ const mobileNavLinkClass = cn(
 )
 
 function isNavLinkActive(pathname: string, href: string): boolean {
-  if (href.startsWith("/#")) return pathname === "/"
+  if (href.startsWith("/#")) return false
   if (href === "/") return pathname === "/"
   return pathname === href || pathname.startsWith(`${href}/`)
 }
