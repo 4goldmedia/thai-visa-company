@@ -2,7 +2,6 @@ import { Fragment } from "react"
 
 import { VisaFaqSection } from "@/components/sections/visa-faq"
 import { VisaProcessSection } from "@/components/sections/visa-process"
-import { VisaRelatedResourcesSection } from "@/components/sections/visa-related-resources"
 import { VisaRelatedVisasSection } from "@/components/sections/visa-related-visas"
 import { VisaBestForSection } from "@/components/sections/visa-best-for"
 import { VisaComparisonSection } from "@/components/sections/visa-comparison"
@@ -30,7 +29,7 @@ export function renderVisaPageSection(
   sectionId: VisaSectionId,
   { context, ids }: VisaPageSectionRenderContext,
 ): React.ReactNode | null {
-  const { visa, relatedVisas, resourceGuideItems } = context
+  const { visa, relatedVisas } = context
 
   switch (sectionId) {
     case "hero":
@@ -159,21 +158,6 @@ export function renderVisaPageSection(
           items={relatedVisas}
           maxItems={3}
           listAriaLabel={`Visa services related to ${visa.hero.title}`}
-        />
-      )
-
-    case "relatedResources":
-      if (!resourceGuideItems.length) return null
-      return (
-        <VisaRelatedResourcesSection
-          sectionId={ids.resources}
-          headingId={ids.resourcesHeading}
-          title={visa.relatedResources.title}
-          description={visa.relatedResources.description}
-          eyebrow={visa.relatedResources.eyebrow}
-          items={resourceGuideItems}
-          indexHref={visa.relatedResources.indexHref}
-          listAriaLabel={`Guides related to ${visa.hero.title}`}
         />
       )
 

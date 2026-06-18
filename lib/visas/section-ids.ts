@@ -26,8 +26,6 @@ export function getVisaSectionIds(slug: VisaSlug) {
     faqHeading: `${slug}-faq-heading`,
     relatedVisas: `${slug}-related-visas`,
     relatedVisasHeading: `${slug}-related-visas-heading`,
-    resources: `${slug}-resources`,
-    resourcesHeading: `${slug}-resources-heading`,
     finalCta: `${slug}-contact`,
     finalCtaHeading: `${slug}-contact-heading`,
   } as const

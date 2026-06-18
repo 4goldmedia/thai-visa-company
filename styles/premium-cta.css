@@ -4,9 +4,10 @@
   :root {
     --premium-cta-bg: #1f1b18;
     --premium-cta-heading: #f5f1e7;
+    --premium-cta-title: #ffffff;
     --premium-cta-body: color-mix(in srgb, #f5f1e7 72%, transparent);
-    --premium-cta-button-bg: #f5f1e7;
-    --premium-cta-button-fg: #1f1b18;
+    --premium-cta-button-bg: #ffffff;
+    --premium-cta-button-fg: #23211e;
     --premium-cta-button-hover-bg: #f2ece6;
     --premium-cta-radius: clamp(1.75rem, 2vw, 2rem); /* 28-32px */
     --premium-cta-button-min-width: 16.25rem; /* 260px */
@@ -72,7 +73,7 @@
     font-weight: 500;
     line-height: 1.12;
     letter-spacing: -0.025em;
-    color: var(--premium-cta-heading);
+    color: var(--premium-cta-title);
   }
 
   .premium-cta__description {

@@ -20,9 +20,5 @@ export type ResolvedVisaPageContext = {
   metadata: Metadata
   breadcrumbs: ReadonlyArray<BreadcrumbLink>
   relatedVisas: ReadonlyArray<ContentRelatedLink>
-  /** Registry-ranked guides related to this visa (visa → article) */
-  relatedArticles: ReadonlyArray<ContentRelatedLink>
-  /** Manual + ranked resource guides, filtered to published articles only */
-  resourceGuideItems: ReadonlyArray<ContentRelatedLink>
   ctaLinks: ReadonlyArray<CtaLinkOpportunity>
 }

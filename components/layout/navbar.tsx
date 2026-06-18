@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
 import { VisasNavFlyout } from "@/components/navigation/visas-nav-flyout"
-import { ctaHref, ctaLabels, navbarMenuCtaPrimaryClass } from "@/lib/cta"
+import { ctaHref, ctaLabels } from "@/lib/cta"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { Container } from "@/components/layout/container"
@@ -312,7 +312,7 @@ function MobileNavMenu({ open, panelId, onClose }: MobileNavMenuProps) {
         <div className="mt-4 border-t border-border/80 pt-4">
           <Link
             href={ctaHref.requestConsultation}
-            className={cn(navbarMenuCtaPrimaryClass, "w-full")}
+            className={cn("navbar-ref__consult", "navbar-ref__consult--menu")}
             onClick={onClose}
             {...analyticsDataAttributes({
               ctaId: analyticsCtaIds.bookConsultation,

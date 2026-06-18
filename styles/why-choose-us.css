@@ -88,7 +88,7 @@
   }
 
   .why-choose-us-section .why-feature__icon-wrap {
-    background-color: color-mix(in srgb, var(--palette-bg-primary) 42%, var(--why-section-bg));
+    background-color: #ffffff;
   }
 
   .why-feature__icon-wrap svg {

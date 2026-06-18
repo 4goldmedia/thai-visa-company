@@ -14,7 +14,6 @@ export const visaSectionIds = [
   "process",
   "faq",
   "relatedVisas",
-  "relatedResources",
   "finalCta",
 ] as const
 
@@ -32,7 +31,6 @@ export const DEFAULT_VISA_PAGE_LAYOUT: ReadonlyArray<VisaSectionId> = [
   "process",
   "faq",
   "relatedVisas",
-  "relatedResources",
   "finalCta",
 ]
 

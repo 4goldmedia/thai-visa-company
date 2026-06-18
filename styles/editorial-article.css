@@ -222,6 +222,16 @@
     margin-top: 0.875rem;
   }
 
+  /* ── MDX definition card (term + summary) ── */
+  .editorial-definition {
+    background-color: #f2ece6;
+  }
+
+  /* ── MDX key facts / requirements-at-a-glance card ── */
+  .editorial-key-facts {
+    background-color: #ffffff;
+  }
+
   /* ── Metadata row ── */
   .editorial-meta {
     display: flex;
