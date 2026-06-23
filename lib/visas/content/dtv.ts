@@ -5,14 +5,11 @@ const DTV_UPDATED_AT = "2026-06-03"
 
 const DTV_PHASE2_LAYOUT: ReadonlyArray<VisaSectionId> = [
   "hero",
-  "lastUpdated",
   "definition",
   "keyFacts",
   "bestFor",
-  "officialSources",
   "requirements",
   "checklist",
-  "feesAndTimelines",
   "governmentProcess",
   "pitfalls",
   "embassyVarianceTable",
@@ -63,18 +60,16 @@ export const dtvVisaPage: VisaPageContent = {
   hero: {
     eyebrow: "Destination Thailand Visa (DTV)",
     title: "Thailand DTV Visa",
-    subtitle: "Destination Thailand Visa",
     overview:
       "Five-year multiple-entry visa for remote workers and approved long-stay activities in Thailand.",
   },
   definition: {
-    eyebrow: "Definition",
+    eyebrow: "Destination Thailand Visa",
     title: "What is the Thailand DTV Visa?",
-    description:
-      "A direct answer to what the Destination Thailand Visa is, who it is for, and how it works.",
-    body: "The Destination Thailand Visa (DTV) is a long-stay multiple-entry visa issued by Thailand for foreign nationals who want to remain in the country while working remotely, freelancing, running an online business serving clients abroad, or joining approved activities. The visa is typically valid for five years and allows repeated entry. Each entry generally grants up to 180 days' stay in Thailand, with one in-country extension often available per visit before you must leave and re-enter. Applicants must usually demonstrate at least 500,000 Thai baht in savings (or equivalent) and provide proof of a qualifying activity. Approved activity categories include remote employment or self-employment with income from outside Thailand, structured programmes such as Muay Thai training, cooking courses, wellness or medical treatment with proper enrolment or appointment letters, and dependent applications for spouses or children under 20 linked to an approved primary holder. The DTV does not authorise working for a Thai employer or performing work primarily directed at the Thai labour market; that typically requires a business visa and work permit route instead.",
+    body: "The Destination Thailand Visa (DTV) is a long-stay visa for foreign nationals who want to spend extended time in Thailand while maintaining work, study, or approved activities outside the usual short-stay tourist route.\n\nThailand introduced it to welcome remote professionals, freelancers, and participants in qualifying programmes: people who add to the economy without taking local employment. It reflects a deliberate shift toward long-stay mobility rather than brief visits.\n\nUnlike a tourist visa, the DTV is designed for repeated entry and months-long stays, not two-week holidays or quick visa runs. It suits people treating Thailand as a base, with a different purpose and set of expectations than a standard holiday.",
   },
   keyFacts: {
+    highlight: true,
     eyebrow: "At a glance",
     title: "DTV visa key facts",
     description: "The essentials in one place - what the visa is, how long you can stay, and what you need to qualify.",
@@ -169,7 +164,7 @@ export const dtvVisaPage: VisaPageContent = {
     lastCheckedAt: DTV_UPDATED_AT,
     items: [
       {
-        title: "Ministry of Foreign Affairs of Thailand — Visa information",
+        title: "Ministry of Foreign Affairs of Thailand: Visa information",
         href: "https://www.mfa.go.th/",
         accessedAt: DTV_UPDATED_AT,
         coverage:
@@ -182,7 +177,7 @@ export const dtvVisaPage: VisaPageContent = {
         href: "https://www.immigration.go.th/",
         accessedAt: DTV_UPDATED_AT,
         coverage:
-          "Immigration rules after entry — stay permissions, extensions, re-entry, and reporting obligations.",
+          "Immigration rules after entry: stay permissions, extensions, re-entry, and reporting obligations.",
         rationale:
           "Embassies issue the visa; immigration officers govern your stay once you are in Thailand. Check here before planning extensions or re-entry.",
       },
@@ -218,7 +213,7 @@ export const dtvVisaPage: VisaPageContent = {
         accessedAt: DTV_UPDATED_AT,
         coverage: "Mandatory digital arrival card for foreign nationals entering Thailand.",
         rationale:
-          "After visa approval, complete TDAC before travel — immigration rules apply in addition to your visa vignette.",
+          "After visa approval, complete TDAC before travel. Immigration rules apply in addition to your visa vignette.",
       },
     ],
   },
@@ -226,7 +221,7 @@ export const dtvVisaPage: VisaPageContent = {
     eyebrow: "Planning",
     title: "DTV visa fees and processing times",
     description:
-      "Official government fees are set by the embassy and immigration authorities. Figures below are typical guides — confirm with your application post before you budget.",
+      "Official government fees are set by the embassy and immigration authorities. Figures below are typical guides. Confirm with your application post before you budget.",
     fees: [
       {
         label: "DTV visa fee (government)",
@@ -246,7 +241,7 @@ export const dtvVisaPage: VisaPageContent = {
       {
         label: "Agency or legal assistance",
         value: "Separate from government fees",
-        note: "Optional paid support for eligibility review, document preparation, and filing guidance — not required to apply.",
+        note: "Optional paid support for eligibility review, document preparation, and filing guidance, not required to apply.",
       },
     ],
     timelines: [
@@ -355,7 +350,7 @@ export const dtvVisaPage: VisaPageContent = {
         description:
           "Insurance, police certificates, translations, or particular statement periods are required at some posts but not others.",
         remedy:
-          "Download and follow your embassy's current checklist — not a generic online list.",
+          "Download and follow your embassy's current checklist, not a generic online list.",
       },
       {
         title: "Activity route without proper enrolment",
@@ -410,7 +405,7 @@ export const dtvVisaPage: VisaPageContent = {
       },
     ],
     footnote:
-      "This table is a planning guide, not a substitute for your embassy's published requirements. Embassy rules change — verify before you apply.",
+      "This table is a planning guide, not a substitute for your embassy's published requirements. Embassy rules change. Verify before you apply.",
   },
   comparison: {
     eyebrow: "Side by side",
@@ -525,75 +520,210 @@ export const dtvVisaPage: VisaPageContent = {
     eyebrow: "Documents",
     title: "DTV visa document checklist",
     description:
-      "Typical documents by pathway. Your embassy's published checklist is authoritative — requirements vary by post and nationality.",
+      "Typical documents by pathway. Your embassy's published checklist is authoritative. Requirements vary by post and nationality.",
+    summary: {
+      title: "Core Documents",
+      items: [
+        {
+          text: "Passport valid at least 6 months beyond intended travel",
+          icon: "passport",
+        },
+        {
+          text: "Financial evidence showing at least 500,000 THB equivalent",
+          icon: "financial",
+        },
+        {
+          text: "Qualifying activity or remote-work evidence",
+          icon: "employment",
+        },
+        {
+          text: "Completed visa application form",
+          icon: "application-form",
+        },
+        {
+          text: "Passport photographs per embassy specification",
+          icon: "photos",
+        },
+      ],
+    },
     groups: [
       {
-        title: "Remote worker pathway",
+        title: "Remote Worker Pathway",
         pathwayId: "remote-work",
         intro: "For employees, freelancers, and business owners earning income from outside Thailand.",
-        items: [
-          { text: "Passport valid at least 6 months beyond intended travel" },
+        categories: [
           {
-            text: "Financial evidence showing at least 500,000 THB equivalent",
-            note: "Usually recent bank statements in your name.",
+            title: "Passport & Identity",
+            items: [
+              {
+                text: "Passport valid at least 6 months beyond intended travel",
+                icon: "passport",
+              },
+            ],
           },
           {
-            text: "Employment contract, employer letter, or freelance portfolio",
-            note: "Must show remote work or foreign-source income.",
+            title: "Financial Evidence",
+            items: [
+              {
+                text: "Financial evidence showing at least 500,000 THB equivalent",
+                note: "Usually recent bank statements in your name.",
+                icon: "financial",
+              },
+            ],
           },
-          { text: "Passport photographs per embassy specification" },
-          { text: "Completed visa application form" },
           {
-            text: "Proof of current location or residence in application country",
-            note: "Utility bill, lease, or local ID where required.",
+            title: "Activity / Work Evidence",
+            items: [
+              {
+                text: "Employment contract, employer letter, or freelance portfolio",
+                note: "Must show remote work or foreign-source income.",
+                icon: "employment",
+              },
+            ],
           },
           {
-            text: "Travel or medical insurance",
-            note: "Required at some embassies — confirm your post's checklist.",
+            title: "Application Documents",
+            items: [
+              {
+                text: "Passport photographs per embassy specification",
+                icon: "photos",
+              },
+              {
+                text: "Completed visa application form",
+                icon: "application-form",
+              },
+            ],
+          },
+          {
+            title: "Additional Requirements",
+            items: [
+              {
+                text: "Proof of current location or residence in application country",
+                note: "Utility bill, lease, or local ID where required.",
+                icon: "residence",
+              },
+              {
+                text: "Travel or medical insurance",
+                note: "Required at some embassies. Confirm your post's checklist.",
+                icon: "insurance",
+              },
+            ],
           },
         ],
       },
       {
-        title: "Soft-power / activity pathway",
+        title: "Soft-Power / Activity Pathway",
         pathwayId: "approved-activity",
         intro: "For Muay Thai, cooking courses, medical treatment, and similar approved programmes.",
-        items: [
-          { text: "Passport valid at least 6 months beyond intended travel" },
+        categories: [
           {
-            text: "Financial evidence showing at least 500,000 THB equivalent",
+            title: "Passport & Identity",
+            items: [
+              {
+                text: "Passport valid at least 6 months beyond intended travel",
+                icon: "passport",
+              },
+            ],
           },
           {
-            text: "Activity enrolment or hospital appointment letter",
-            note: "From the Thai school, gym, or medical provider.",
+            title: "Financial Evidence",
+            items: [
+              {
+                text: "Financial evidence showing at least 500,000 THB equivalent",
+                icon: "financial",
+              },
+            ],
           },
           {
-            text: "Provider business registration or accreditation copy",
-            note: "When the embassy requests institutional proof.",
+            title: "Activity / Work Evidence",
+            items: [
+              {
+                text: "Activity enrolment or hospital appointment letter",
+                note: "From the Thai school, gym, or medical provider.",
+                icon: "activity",
+              },
+              {
+                text: "Provider business registration or accreditation copy",
+                note: "When the embassy requests institutional proof.",
+                icon: "institution",
+              },
+            ],
           },
-          { text: "Passport photographs per embassy specification" },
-          { text: "Completed visa application form" },
           {
-            text: "Travel or medical insurance",
-            note: "Often requested for activity and medical routes.",
+            title: "Application Documents",
+            items: [
+              {
+                text: "Passport photographs per embassy specification",
+                icon: "photos",
+              },
+              {
+                text: "Completed visa application form",
+                icon: "application-form",
+              },
+            ],
+          },
+          {
+            title: "Additional Requirements",
+            items: [
+              {
+                text: "Travel or medical insurance",
+                note: "Often requested for activity and medical routes.",
+                icon: "insurance",
+              },
+            ],
           },
         ],
       },
       {
-        title: "Dependent pathway",
+        title: "Dependent Pathway",
         pathwayId: "family-member",
         intro: "For spouses and children under 20 of an approved DTV holder.",
-        items: [
-          { text: "Passport valid at least 6 months beyond intended travel" },
-          { text: "Financial evidence per embassy rules for dependents" },
+        categories: [
           {
-            text: "Copy of primary holder's approved DTV visa",
+            title: "Passport & Identity",
+            items: [
+              {
+                text: "Passport valid at least 6 months beyond intended travel",
+                icon: "passport",
+              },
+            ],
           },
           {
-            text: "Relationship proof",
-            note: "Marriage certificate, birth certificate, or adoption papers.",
+            title: "Financial Evidence",
+            items: [
+              {
+                text: "Financial evidence per embassy rules for dependents",
+                icon: "financial",
+              },
+            ],
           },
-          { text: "Passport photographs per embassy specification" },
-          { text: "Completed visa application form" },
+          {
+            title: "Relationship & Dependent Proof",
+            items: [
+              {
+                text: "Copy of primary holder's approved DTV visa",
+                icon: "visa-copy",
+              },
+              {
+                text: "Relationship proof",
+                note: "Marriage certificate, birth certificate, or adoption papers.",
+                icon: "relationship",
+              },
+            ],
+          },
+          {
+            title: "Application Documents",
+            items: [
+              {
+                text: "Passport photographs per embassy specification",
+                icon: "photos",
+              },
+              {
+                text: "Completed visa application form",
+                icon: "application-form",
+              },
+            ],
+          },
         ],
       },
     ],
@@ -628,7 +758,7 @@ export const dtvVisaPage: VisaPageContent = {
           {
             label: "You have a Thai employer or run operations in Thailand",
             outcome:
-              "A Non-Immigrant B visa and work permit route is required — DTV does not cover local employment.",
+              "A Non-Immigrant B visa and work permit route is required. DTV does not cover local employment.",
           },
           {
             label: "You earn remotely from clients or employers outside Thailand",
@@ -662,7 +792,7 @@ export const dtvVisaPage: VisaPageContent = {
       {
         title: "Visa validity vs stay permission",
         description:
-          "The DTV vignette is typically valid for five years with multiple entry. Each entry grants a separate stay permission — usually up to 180 days — shown as a stamp in your passport.",
+          "The DTV vignette is typically valid for five years with multiple entry. Each entry grants a separate stay permission, usually up to 180 days, shown as a stamp in your passport.",
       },
       {
         title: "Extensions",
@@ -693,7 +823,7 @@ export const dtvVisaPage: VisaPageContent = {
     content: [
       "The DTV is intended for remote work, freelance income, or approved activities with economic ties outside Thailand. It does not replace a work permit for employment with a Thai company.",
       "Working for a Thai employer, performing services primarily for Thai clients, or operating a business that requires local labour market access usually requires a business visa and work permit route instead.",
-      "Immigration approval does not determine tax residency. Thai tax rules depend on stay length, income source, and remittance patterns. This page is not tax advice — consult a qualified adviser for your situation.",
+      "Immigration approval does not determine tax residency. Thai tax rules depend on stay length, income source, and remittance patterns. This page is not tax advice. Consult a qualified adviser for your situation.",
       "Overstaying your permitted stay leads to fines, possible deportation, and future visa difficulties. Extend on time or leave before your stamp expires.",
     ],
     disclaimer:
@@ -753,13 +883,13 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-self-employment",
         question: "Can freelancers, YouTubers, or online business owners get a DTV?",
         answer:
-          "Often yes when income is from outside Thailand and you document contracts, invoices, platform earnings, or company filings plus the savings threshold. Income mostly from Thai clients may not fit — see legal boundaries above.",
+          "Often yes when income is from outside Thailand and you document contracts, invoices, platform earnings, or company filings plus the savings threshold. Income mostly from Thai clients may not fit. See legal boundaries above.",
       },
       {
         value: "dtv-bank-seasoning",
         question: "How long must funds stay in my bank account?",
         answer:
-          "Many applicants provide recent statements; some officers want stable balances over a few months. Large sudden deposits without explanation can raise questions — present funds clearly across the full statement window.",
+          "Many applicants provide recent statements; some officers want stable balances over a few months. Large sudden deposits without explanation can raise questions. Present funds clearly across the full statement window.",
       },
       {
         value: "dtv-stop-remote-work",
@@ -783,7 +913,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-apply-inside-thailand",
         question: "Can I apply for a DTV while already in Thailand?",
         answer:
-          "Often you need to apply from outside Thailand. If you are already here on another visa, contact us — we will outline realistic options before your current stay ends.",
+          "Often you need to apply from outside Thailand. If you are already here on another visa, contact us. We will outline realistic options before your current stay ends.",
       },
       {
         value: "dtv-convert-visa",
@@ -813,13 +943,13 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-taxes",
         question: "Do I pay Thai tax on remote income with a DTV?",
         answer:
-          "Tax depends on how long you stay and your personal situation — not just the visa type. See legal boundaries above; speak with a tax adviser for tax questions.",
+          "Tax depends on how long you stay and your personal situation, not just the visa type. See legal boundaries above; speak with a tax adviser for tax questions.",
       },
       {
         value: "dtv-overstay",
         question: "What if I overstay on a DTV?",
         answer:
-          "Overstaying leads to fines, possible deportation, and future visa problems. Extend on time or leave before your permitted stay ends — see compliance above.",
+          "Overstaying leads to fines, possible deportation, and future visa problems. Extend on time or leave before your permitted stay ends. See compliance above.",
       },
     ],
   },
@@ -842,7 +972,7 @@ export const dtvVisaPage: VisaPageContent = {
       {
         title: "Operational filing review",
         description:
-          "Rejection patterns and embassy variance notes reflect anonymised patterns from files we prepare — not speculation.",
+          "Rejection patterns and embassy variance notes reflect anonymised patterns from files we prepare, not speculation.",
       },
       {
         title: "Update cadence",
@@ -851,7 +981,7 @@ export const dtvVisaPage: VisaPageContent = {
       },
     ],
     contentStandards:
-      "We write in plain English, separate government steps from optional agency services, and cite official sources where rules originate. We do not guarantee approval outcomes — embassies make final decisions.",
+      "We write in plain English, separate government steps from optional agency services, and cite official sources where rules originate. We do not guarantee approval outcomes. Embassies make final decisions.",
     disclaimer:
       "This page is general information, not legal advice. Immigration rules change. Confirm requirements with the embassy that will process your application.",
   },
@@ -893,7 +1023,7 @@ export const dtvVisaPage: VisaPageContent = {
         category: "Filing notes",
         title: "DTV Visa Filing Notes: Embassy Practice and Edge Cases",
         description:
-          "Long-tail observations on bank statement seasoning, document formatting, third-country filing, and embassy practice — not a duplicate overview.",
+          "Long-tail observations on bank statement seasoning, document formatting, third-country filing, and embassy practice, not a duplicate overview.",
         href: "/blog/thailand-dtv-visa-requirements",
       },
     ],

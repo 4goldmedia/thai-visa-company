@@ -86,6 +86,7 @@ Ask: **Would a real applicant type this into Google?**
 Full rules:
 
 - [`rules/content/content-writing.mdc`](../rules/content/content-writing.mdc)
+- [`rules/content/punctuation.mdc`](../rules/content/punctuation.mdc)
 - [`rules/content/search-reality-rule.mdc`](../rules/content/search-reality-rule.mdc)
 
 ---
@@ -225,6 +226,7 @@ Cursor rule: [`.cursor/rules/content-governance.mdc`](../.cursor/rules/content-g
 rules/content/
   content-philosophy.mdc    # Why we publish; trust gate
   content-writing.mdc       # Structure, voice, AEO blocks
+  punctuation.mdc           # No em dashes in user-facing copy
   content-clusters.mdc      # Six clusters and pillars
   search-reality-rule.mdc   # Google query validation
   internal-linking.mdc        # Knowledge network links

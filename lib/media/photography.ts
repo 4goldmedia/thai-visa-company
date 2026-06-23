@@ -69,17 +69,17 @@ export const heroPhotography = {
  */
 export const visaGalleryPhotography = {
   dtv: {
-    src: "/images/visas/dtv.jpg",
-    alt: "Professional working on a laptop on a balcony overlooking the city, suggesting remote work life in Thailand",
-    objectPosition: "center 35%",
+    src: "/images/visas/dtv-remote-work.jpg",
+    alt: "Professional working on a laptop on a balcony overlooking a city skyline, suggesting remote work life in Thailand",
+    objectPosition: "center 42%",
   },
   elite: {
-    src: "/images/visas/elite.jpg",
+    src: "/images/visas/thailand-elite-visa.webp",
     alt: "Person in a refined interior setting with laptop, suggesting premium long-stay residency lifestyle",
     objectPosition: "center 40%",
   },
   business: {
-    src: "/images/visas/business.jpg",
+    src: "/images/visas/thailand-business-visa-2.webp",
     alt: "Business team in a modern meeting room, suggesting international business relocation to Thailand",
     objectPosition: "center 45%",
   },
@@ -89,7 +89,7 @@ export const visaGalleryPhotography = {
     objectPosition: "center 55%",
   },
   education: {
-    src: "/images/visas/education.jpg",
+    src: "/images/visas/thailand-education-visa.webp",
     alt: "Group of friends in a warm social setting, suggesting family relocation and study life in Thailand",
     objectPosition: "center 38%",
   },

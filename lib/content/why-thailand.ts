@@ -22,9 +22,9 @@ export const whyThailandSectionCopy = {
 export const whyThailandCollageImages: ReadonlyArray<WhyThailandCollageImage> = [
   {
     id: "remote-work",
-    src: "/images/visas/dtv.jpg",
-    alt: "Professional working on a laptop with a city view, suggesting remote work life in Thailand",
-    objectPosition: "center 35%",
+    src: "/images/visas/dtv-remote-work.jpg",
+    alt: "Professional working on a laptop on a balcony overlooking a city skyline, suggesting remote work life in Thailand",
+    objectPosition: "center 42%",
   },
   {
     id: "skyline",

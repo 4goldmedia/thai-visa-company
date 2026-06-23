@@ -1,5 +1,6 @@
 import { buildItemList } from "@/lib/schema/web"
 import type { ContentVisaDocumentChecklistSection } from "@/lib/content/types"
+import { flattenChecklistGroupItems } from "@/lib/visas/checklist-icons"
 import type { JsonLdNode } from "@/lib/schema/types"
 
 /** ItemList JSON-LD for pathway document checklists on visa hub pages. */
@@ -8,7 +9,7 @@ export function buildVisaChecklistItemList(
   path: string,
 ): JsonLdNode | null {
   const items = checklist.groups.flatMap((group) =>
-    group.items.map((item) => ({
+    flattenChecklistGroupItems(group).map((item) => ({
       name: group.pathwayId
         ? `${group.title}: ${item.text}`
         : item.text,

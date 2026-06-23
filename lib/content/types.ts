@@ -184,7 +184,7 @@ export type ContentVisaDefinitionSection = {
   title?: string
   description?: string
   eyebrow?: string
-  /** 100–150 words, answer-first; mirror to page `answer` for schema */
+  /** Short editorial intro; separate paragraphs with a blank line */
   body: string
 }
 
@@ -285,6 +285,8 @@ export type ContentVisaKeyFactsSection = {
   description?: string
   eyebrow?: string
   items: ReadonlyArray<ContentVisaKeyFact>
+  /** Full-width dark band (client reviews treatment) for authority emphasis */
+  highlight?: boolean
 }
 
 export type ContentVisaFitList = {
@@ -320,9 +322,28 @@ export type ContentVisaComparisonSection = {
   footnote?: string
 }
 
+export type ContentVisaChecklistDocumentIcon =
+  | "passport"
+  | "financial"
+  | "employment"
+  | "activity"
+  | "relationship"
+  | "insurance"
+  | "application-form"
+  | "photos"
+  | "residence"
+  | "visa-copy"
+  | "institution"
+
 export type ContentVisaChecklistItem = {
   text: string
   note?: string
+  icon?: ContentVisaChecklistDocumentIcon
+}
+
+export type ContentVisaChecklistCategory = {
+  title: string
+  items: ReadonlyArray<ContentVisaChecklistItem>
 }
 
 export type ContentVisaChecklistGroup = {
@@ -330,6 +351,14 @@ export type ContentVisaChecklistGroup = {
   intro?: string
   /** Links checklist group to a qualification pathway (`requirements.pathways[].id`) */
   pathwayId?: string
+  /** Flat list (legacy) */
+  items?: ReadonlyArray<ContentVisaChecklistItem>
+  /** Grouped categories for scannable pathway checklists */
+  categories?: ReadonlyArray<ContentVisaChecklistCategory>
+}
+
+export type ContentVisaChecklistSummary = {
+  title?: string
   items: ReadonlyArray<ContentVisaChecklistItem>
 }
 
@@ -337,6 +366,7 @@ export type ContentVisaDocumentChecklistSection = {
   title?: string
   description?: string
   eyebrow?: string
+  summary?: ContentVisaChecklistSummary
   groups: ReadonlyArray<ContentVisaChecklistGroup>
 }
 

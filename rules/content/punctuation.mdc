@@ -1,0 +1,37 @@
+---
+description: Punctuation standard for user-facing Thai Visa Company copy
+globs: content/**/*,lib/visas/**/*,lib/content/**/*,lib/blog/**/*,lib/guides/**/*,components/**/*
+alwaysApply: false
+---
+
+# Punctuation standard
+
+## Em dashes
+
+**Do not use em dashes (`—`) in user-facing copy.**
+
+Use commas, periods, colons, or parentheses instead. Rewrite the sentence naturally for the context.
+
+| Avoid | Prefer |
+| --- | --- |
+| Remote workers — freelancers — consultants | Remote workers, freelancers, and consultants |
+| Requirements vary by embassy — always verify locally. | Requirements vary by embassy. Always verify locally. |
+| The visa allows multiple entry — subject to current regulations. | The visa allows multiple entry, subject to current regulations. |
+
+## Hyphens and en dashes
+
+- Use a **hyphen** (`-`) for compound modifiers and simple breaks in UI labels.
+- Use an **en dash** (`–`) **only for numeric ranges** (e.g. `60–90 days`, `2–4 weeks`).
+- Do not substitute an em dash with a hyphen when rewriting prose.
+
+## Scope
+
+Applies to:
+
+- Visa pages and hub content
+- Blog articles and guides
+- FAQ answers and CTAs
+- Comparison tables and cards
+- Metadata visible to users (titles, descriptions, leads)
+
+Internal engineering comments and non-user-facing docs may use other conventions, but prefer this standard in content governance docs too.

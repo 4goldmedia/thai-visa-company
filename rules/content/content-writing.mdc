@@ -50,6 +50,7 @@ Avoid:
 - government language
 - immigration bureaucracy language
 - marketing fluff
+- em dashes (`—`) in user-facing copy (see [`punctuation.mdc`](./punctuation.mdc))
 
 Write like an experienced visa specialist helping someone understand their options.
 

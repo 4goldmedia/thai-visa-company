@@ -63,7 +63,7 @@ function VisaEeatSection({
                     reviewerName
                   )}
                 </strong>
-                {lastReviewed?.reviewerTitle ? ` — ${lastReviewed.reviewerTitle}` : null}
+                {lastReviewed?.reviewerTitle ? `, ${lastReviewed.reviewerTitle}` : null}
               </p>
               {lastReviewed?.reviewerCredentials ? (
                 <p>{lastReviewed.reviewerCredentials}</p>

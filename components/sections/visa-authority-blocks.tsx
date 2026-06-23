@@ -452,10 +452,10 @@ function EmbassyVarianceRowCell({ row }: { row: ContentEmbassyVarianceRow }) {
   return (
     <tr>
       <th scope="row">{name}</th>
-      <td>{row.visaFee ?? "—"}</td>
-      <td>{row.bankStatementMonths ?? "—"}</td>
-      <td>{row.insuranceRequired ?? "—"}</td>
-      <td>{row.notes ?? "—"}</td>
+      <td>{row.visaFee ?? "N/A"}</td>
+      <td>{row.bankStatementMonths ?? "N/A"}</td>
+      <td>{row.insuranceRequired ?? "N/A"}</td>
+      <td>{row.notes ?? "N/A"}</td>
     </tr>
   )
 }

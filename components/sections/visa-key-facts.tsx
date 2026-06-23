@@ -21,6 +21,7 @@ function VisaKeyFactsSection({
   description,
   eyebrow,
   items,
+  highlight = false,
   className,
 }: VisaKeyFactsSectionProps) {
   return (
@@ -28,7 +29,10 @@ function VisaKeyFactsSection({
       id={sectionId}
       labelledBy={headingId}
       width="wide"
-      className={className}
+      className={cn(
+        highlight && "visa-key-facts-section--highlight",
+        className,
+      )}
     >
       <SectionReveal>
         <VisaEditorialHeading

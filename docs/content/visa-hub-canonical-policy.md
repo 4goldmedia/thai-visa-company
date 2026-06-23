@@ -45,23 +45,23 @@ Articles must include a prominent link to the hub in `related` metadata. Hubs su
 | Hub FAQ | Head-intent questions (what is, cost, qualify, extension summary) |
 | Article FAQ | Long-tail only (embassy-specific, nationality, edge cases) |
 
-**Rule:** When porting blog content to the hub in Phase 1+, deduplicate — hub FAQ answers link to section anchors; remove verbatim duplicates from articles.
+**Rule:** When porting blog content to the hub in Phase 1+, deduplicate: hub FAQ answers link to section anchors; remove verbatim duplicates from articles.
 
 ## Duplication rules
 
 1. **Never** publish the same FAQ question with the same answer on hub and article.
 2. **Tables** (fees, checklists) live on the hub; articles reference the hub section.
-3. **Practice insights** — summary on hub; expanded case detail in cluster articles.
-4. **Embassy variance** — summary table on hub; full page per embassy in cluster.
+3. **Practice insights**: summary on hub; expanded case detail in cluster articles.
+4. **Embassy variance**: summary table on hub; full page per embassy in cluster.
 
 ## Information-gain strategy
 
 Content that must be **original** (not aggregated from competitors):
 
-- `practiceInsights` — anonymized filing observations
-- `embassyVarianceTable` / diff tracker — structured embassy comparison data
-- `pitfalls` — rejection patterns from operational experience
-- `decisionGuides` — qualification routing logic
+- `practiceInsights`: anonymized filing observations
+- `embassyVarianceTable` / diff tracker: structured embassy comparison data
+- `pitfalls`: rejection patterns from operational experience
+- `decisionGuides`: qualification routing logic
 
 Generic facts (500,000 THB, 180-day stay) are table stakes; information gain comes from structure, embassy variance, and first-party filing insight.
 
@@ -91,4 +91,4 @@ Priority order (see `lib/visas/related-resources.ts`):
 | Comparison | `dtv-vs-tourist-visa-thailand` | `dtv` |
 | Rejection | `dtv-visa-rejected-what-to-do` | `dtv` |
 
-No new route types required — use existing blog/guide MDX registry with `topicId` and `clusterId`.
+No new route types required. Use existing blog/guide MDX registry with `topicId` and `clusterId`.
