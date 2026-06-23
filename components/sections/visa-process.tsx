@@ -1,5 +1,5 @@
 import { SectionReveal } from "@/components/motion"
-import { VisaTimeline } from "@/components/visa-editorial/visa-timeline"
+import { VisaEditorialProcessTimeline } from "@/components/visa-editorial/visa-editorial-process-timeline"
 import {
   VisaEditorialContent,
   VisaEditorialHeading,
@@ -37,7 +37,7 @@ function VisaProcess({
         description={description}
       />
       <VisaEditorialContent>
-        <VisaTimeline steps={steps} ariaLabel={processAriaLabel} />
+        <VisaEditorialProcessTimeline steps={steps} ariaLabel={processAriaLabel} />
       </VisaEditorialContent>
     </div>
   )

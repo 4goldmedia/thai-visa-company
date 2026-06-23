@@ -527,7 +527,8 @@
   }
 
   .editorial-prose .visa-comparison-table thead th:not(.visa-comparison-table__cell--active) {
-    background-color: var(--palette-white);
+    background-color: var(--comparison-header-bg, #23211e);
+    color: var(--comparison-header-fg, #fcfaf8);
   }
 
   .editorial-prose .visa-comparison-table__corner,
@@ -535,8 +536,22 @@
     background-color: var(--palette-white);
   }
 
+  .editorial-prose .visa-comparison-table thead .visa-comparison-table__corner {
+    background-color: var(--comparison-header-bg, #23211e);
+    color: var(--comparison-header-fg, #fcfaf8);
+  }
+
+  .editorial-prose .visa-comparison-table thead .visa-comparison-table__cell--active {
+    background-color: var(--comparison-header-active-bg, color-mix(in srgb, #fcfaf8 14%, #23211e));
+    color: var(--comparison-header-fg, #fcfaf8);
+  }
+
   .editorial-prose .visa-comparison-table__cell:not(.visa-comparison-table__cell--active) {
     background-color: var(--palette-white);
+  }
+
+  .editorial-prose .visa-comparison-table__cell--active {
+    background-color: var(--comparison-cell-active-bg, color-mix(in srgb, var(--palette-bg-secondary) 38%, #ffffff));
   }
 
   .editorial-prose .visa-comparison-mobile-card {

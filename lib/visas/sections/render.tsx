@@ -1,7 +1,6 @@
 import { Fragment } from "react"
 
 import {
-  VisaComplianceSection,
   VisaDecisionGuidesSection,
   VisaEmbassyVarianceTableSection,
   VisaEntityGlossarySection,
@@ -18,6 +17,7 @@ import { VisaRelatedResourcesSection } from "@/components/sections/visa-related-
 import { VisaRelatedVisasSection } from "@/components/sections/visa-related-visas"
 import { VisaBestForSection } from "@/components/sections/visa-best-for"
 import { VisaComparisonSection } from "@/components/sections/visa-comparison"
+import { VisaComplianceSection } from "@/components/sections/visa-compliance"
 import { VisaDocumentChecklistSection } from "@/components/sections/visa-document-checklist"
 import { VisaDefinitionSection } from "@/components/sections/visa-definition-section"
 import { VisaEeatSection } from "@/components/sections/visa-eeat-section"
@@ -222,7 +222,7 @@ export function renderVisaPageSection(
       )
 
     case "compliance":
-      if (!visa.compliance?.items.length) return null
+      if (!visa.compliance?.cards.length) return null
       return (
         <VisaComplianceSection
           sectionId={ids.compliance}
@@ -260,7 +260,7 @@ export function renderVisaPageSection(
           description={visa.process.description}
           eyebrow={visa.process.eyebrow}
           steps={visa.process.steps}
-          processAriaLabel={`${visa.hero.title} application process`}
+          processAriaLabel={`${visa.hero.title}: how we help`}
         />
       )
 

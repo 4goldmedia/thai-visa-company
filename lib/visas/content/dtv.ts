@@ -7,21 +7,14 @@ const DTV_PHASE2_LAYOUT: ReadonlyArray<VisaSectionId> = [
   "hero",
   "definition",
   "keyFacts",
-  "bestFor",
-  "requirements",
-  "checklist",
-  "governmentProcess",
-  "pitfalls",
-  "embassyVarianceTable",
-  "comparison",
-  "decisionGuides",
-  "compliance",
-  "legalBoundaries",
-  "faq",
-  "eeat",
-  "relatedResources",
-  "relatedVisas",
   "process",
+  "checklist",
+  "requirements",
+  "pitfalls",
+  "comparison",
+  "compliance",
+  "faq",
+  "relatedVisas",
   "finalCta",
 ]
 
@@ -33,7 +26,6 @@ export const dtvVisaPage: VisaPageContent = {
   updatedAt: DTV_UPDATED_AT,
   layout: DTV_PHASE2_LAYOUT,
   topicId: "dtv",
-  relatedArticleSlugs: ["thailand-dtv-visa-requirements"],
   lastReviewed: {
     reviewerName: "Thai Visa Company Editorial Team",
     reviewerTitle: "Licensed Thailand visa specialists",
@@ -121,33 +113,6 @@ export const dtvVisaPage: VisaPageContent = {
         detail: "Embassy processing time for a complete application file.",
       },
     ],
-  },
-  bestFor: {
-    eyebrow: "Fit check",
-    title: "Is the DTV visa right for you?",
-    description: "A quick check before you spend time and money on an application.",
-    goodFit: {
-      title: "Good fit",
-      items: [
-        "You work remotely for a company outside Thailand",
-        "You freelance or consult for clients abroad",
-        "You run an online business serving non-Thai customers",
-        "You want months in Thailand - not a quick holiday",
-        "You can show qualifying work and roughly 500,000 THB in savings",
-        "You plan Muay Thai, cooking classes, or similar programmes with proper enrolment",
-        "Your spouse or children under 20 may join as dependents",
-      ],
-    },
-    notIdeal: {
-      title: "Not ideal",
-      items: [
-        "You need a job with a Thai company (a business visa route is usually better)",
-        "Most of your clients or income are based in Thailand",
-        "You only need a short tourist trip",
-        "You cannot show savings or proof of remote work",
-        "You are under 20 and not applying as someone's dependent",
-      ],
-    },
   },
   overview: {
     title: "",
@@ -269,64 +234,22 @@ export const dtvVisaPage: VisaPageContent = {
     footnote:
       "Fees and processing times change. Your embassy's published fee schedule and checklist are authoritative.",
   },
-  governmentProcess: {
-    eyebrow: "Government process",
-    title: "How to apply for a DTV visa (official steps)",
-    description:
-      "Neutral overview of the government application path through a Thai embassy or consulate. This is separate from optional agency support.",
-    steps: [
-      {
-        step: 1,
-        title: "Confirm eligibility and pathway",
-        description:
-          "Identify whether you apply as a remote worker, approved-activity participant, or dependent. Verify nationality-specific rules on your embassy website.",
-      },
-      {
-        step: 2,
-        title: "Gather documents",
-        description:
-          "Prepare passport, application form, photographs, financial evidence (typically 500,000 THB or equivalent), proof of qualifying activity, and any embassy-specific items such as insurance or police clearance.",
-      },
-      {
-        step: 3,
-        title: "Book and submit",
-        description:
-          "Many posts require an online appointment. Submit your application in person or by post according to local instructions.",
-      },
-      {
-        step: 4,
-        title: "Embassy review",
-        description:
-          "The consular section checks completeness, financial evidence, and activity proof. They may request additional documents before deciding.",
-      },
-      {
-        step: 5,
-        title: "Collect visa or receive passport",
-        description:
-          "If approved, the DTV is affixed to your passport. Processing time is usually about two to four weeks for a complete file, but varies by post.",
-      },
-      {
-        step: 6,
-        title: "Enter Thailand",
-        description:
-          "Travel to Thailand and present your visa at immigration. You are typically granted a stay permission of up to 180 days per entry.",
-      },
-      {
-        step: 7,
-        title: "Extend or re-enter if needed",
-        description:
-          "You may apply for one extension per visit at immigration (fee often 1,900 THB). After the maximum stay for that visit, leave and re-enter on the same visa while it remains valid.",
-      },
-    ],
-  },
   pitfalls: {
     eyebrow: "Refusals",
     title: "Why DTV applications are refused",
     description:
       "Most refusals are document-driven, not mysterious. Understanding common patterns helps you prepare a complete file the first time.",
+    summary: {
+      title: "The five most common DTV refusal reasons",
+      paragraphs: [
+        "Most refusals are caused by missing, inconsistent, or unclear documentation rather than eligibility itself.",
+        "Preparing for these issues before filing can significantly reduce delays and requests for additional evidence.",
+      ],
+    },
     rejections: [
       {
         title: "Insufficient or unclear financial evidence",
+        icon: "financial",
         description:
           "Balances below the threshold, statements that do not show your name, or large unexplained deposits can weaken an application.",
         remedy:
@@ -334,6 +257,7 @@ export const dtvVisaPage: VisaPageContent = {
       },
       {
         title: "Weak proof of qualifying activity",
+        icon: "activity",
         description:
           "Generic letters, outdated contracts, or income that appears tied to Thailand rather than abroad raise questions for remote-work routes.",
         remedy:
@@ -341,12 +265,14 @@ export const dtvVisaPage: VisaPageContent = {
       },
       {
         title: "Inconsistent story across documents",
+        icon: "documents",
         description:
           "When your application form, employment proof, and bank activity describe different occupations or income patterns, officers may request more evidence or refuse.",
         remedy: "Align every document to one clear narrative before submission.",
       },
       {
         title: "Missing embassy-specific items",
+        icon: "checklist",
         description:
           "Insurance, police certificates, translations, or particular statement periods are required at some posts but not others.",
         remedy:
@@ -354,58 +280,13 @@ export const dtvVisaPage: VisaPageContent = {
       },
       {
         title: "Activity route without proper enrolment",
+        icon: "enrolment",
         description:
           "Training or medical routes need credible acceptance or appointment letters from the Thai provider.",
         remedy:
           "Obtain official enrolment documentation before you file; informal arrangements rarely suffice.",
       },
     ],
-  },
-  embassyVarianceTable: {
-    eyebrow: "Embassy differences",
-    title: "Why DTV advice differs between embassies",
-    description:
-      "Thailand sets national DTV policy, but each royal Thai embassy and consulate publishes its own checklist and applies local practice. Requirements that appear online for one country may not apply at your post.",
-    rows: [
-      {
-        embassyId: "london",
-        embassyName: "Royal Thai Embassy, London",
-        visaFee: "Confirm on embassy site",
-        bankStatementMonths: "Often 3–6 months",
-        insuranceRequired: "Sometimes requested",
-        notes:
-          "Publishes a dedicated DTV checklist; remote-work and activity routes may need different supporting letters.",
-      },
-      {
-        embassyId: "washington",
-        embassyName: "Royal Thai Embassy, Washington, D.C.",
-        visaFee: "Confirm on embassy site",
-        bankStatementMonths: "Often 6 months",
-        insuranceRequired: "Often requested",
-        notes:
-          "High application volume; appointment slots and document formatting requirements matter.",
-      },
-      {
-        embassyId: "berlin",
-        embassyName: "Royal Thai Embassy, Berlin",
-        visaFee: "Confirm on embassy site",
-        bankStatementMonths: "Varies",
-        insuranceRequired: "Check current list",
-        notes:
-          "EU applicants should verify whether statements must be in English or include certified translation.",
-      },
-      {
-        embassyId: "sydney",
-        embassyName: "Royal Thai Consulate-General, Sydney",
-        visaFee: "Confirm on consulate site",
-        bankStatementMonths: "Often 3–6 months",
-        insuranceRequired: "Sometimes requested",
-        notes:
-          "Processing routes and dependent rules should be confirmed directly with the consulate.",
-      },
-    ],
-    footnote:
-      "This table is a planning guide, not a substitute for your embassy's published requirements. Embassy rules change. Verify before you apply.",
   },
   comparison: {
     eyebrow: "Side by side",
@@ -421,64 +302,67 @@ export const dtvVisaPage: VisaPageContent = {
       {
         label: "Typical stay",
         cells: [
-          "180 days per visit (+ one extension often possible)",
-          "60–90 days per visit (varies)",
-          "90 days per visit; extensions depend on purpose",
-          "Long stays (category-dependent)",
+          "Up to 180 days per visit (one extension often possible)",
+          "Up to 60–90 days per visit (varies by route)",
+          "Often 90 days per visit; extensions depend on purpose",
+          "Long stays up to 10 years (category-dependent)",
         ],
       },
       {
         label: "Multiple entry",
-        cells: ["Yes  -  5 years", "Often limited", "Often yes", "Often yes"],
+        cells: [
+          "Yes - 5-year multiple-entry visa",
+          "Often single entry or limited",
+          "Often yes",
+          "Yes - 10-year visa (category-dependent)",
+        ],
       },
       {
         label: "Work in Thailand",
         cells: [
-          "Remote work for abroad only",
+          "Remote work for employers or clients abroad only",
           "Tourism only",
-          "Thai job or business (work permit path)",
-          "Depends on category",
+          "Thai employment (work permit route)",
+          "Depends on LTR category",
         ],
       },
       {
         label: "Savings / income proof",
         cells: [
           "About 500,000 THB typical",
-          "Lower amount",
-          "Employer + your funds",
-          "Higher thresholds",
+          "Proof of funds for the trip (varies)",
+          "Employer sponsorship plus personal funds",
+          "High wealth or income thresholds",
         ],
       },
       {
         label: "Family",
         cells: [
-          "Spouse & children under 20",
+          "Spouse and children under 20 (dependent route)",
           "Separate applications",
-          "Dependents possible",
+          "Dependents possible on linked visas",
           "Per programme rules",
         ],
       },
       {
         label: "Complexity",
         cells: [
-          "Moderate  -  proof of work + funds",
+          "Moderate - activity proof plus financial evidence",
           "Simple for short trips",
-          "Higher  -  company documents",
-          "High  -  specialist routes",
+          "Higher - employer and company documents",
+          "High - specialist eligibility routes",
         ],
       },
       {
         label: "Best for",
         cells: [
-          "Remote workers & long-stay visitors",
-          "Holidays",
-          "Thai employment",
-          "Wealth / talent programmes",
+          "Remote workers and approved long-stay activities",
+          "Short holidays",
+          "Employment with a Thai company",
+          "Wealth, talent, or pension programmes",
         ],
       },
     ],
-    footnote:
-      "Unsure which route fits? See the decision guides below for DTV vs retirement, business, and tourist visas.",
   },
   requirements: {
     eyebrow: "Eligibility",
@@ -728,148 +612,82 @@ export const dtvVisaPage: VisaPageContent = {
       },
     ],
   },
-  decisionGuides: {
-    eyebrow: "Which visa?",
-    title: "DTV visa decision guides",
-    description:
-      "Practical routing when you are unsure whether DTV is the right Thailand visa category.",
-    guides: [
-      {
-        id: "dtv-vs-retirement",
-        question: "Should I choose DTV or a Retirement visa?",
-        intro: "Age and income source determine the better long-stay route.",
-        branches: [
-          {
-            label: "You are 50+ with pension income and no remote work",
-            outcome:
-              "A retirement visa (Non-Immigrant O-A or related route) is usually the better fit. See our retirement visa page.",
-          },
-          {
-            label: "You are under 50 or work remotely for foreign income",
-            outcome:
-              "DTV is usually the better fit when you can show qualifying activity and the savings threshold.",
-          },
-        ],
-      },
-      {
-        id: "dtv-vs-business",
-        question: "Should I choose DTV or a Business visa?",
-        branches: [
-          {
-            label: "You have a Thai employer or run operations in Thailand",
-            outcome:
-              "A Non-Immigrant B visa and work permit route is required. DTV does not cover local employment.",
-          },
-          {
-            label: "You earn remotely from clients or employers outside Thailand",
-            outcome: "DTV is the appropriate category when activity and financial evidence are documented.",
-          },
-        ],
-      },
-      {
-        id: "dtv-vs-tourist",
-        question: "Should I choose DTV or a Tourist visa?",
-        branches: [
-          {
-            label: "You need a short holiday under about 60–90 days",
-            outcome: "A tourist visa or visa exemption is simpler and cheaper for brief visits.",
-          },
-          {
-            label: "You plan months-long stays with remote work or approved activity",
-            outcome:
-              "DTV is designed for multi-year long-stay planning with documented qualifying activity.",
-          },
-        ],
-      },
-    ],
-  },
   compliance: {
     eyebrow: "After approval",
-    title: "What happens after your DTV is approved",
-    description:
-      "Visa approval is only the start. Immigration rules govern each stay period after you enter Thailand.",
-    items: [
+    title: "What happens after your DTV is approved?",
+    description: "Your visa is approved. Here's what happens next.",
+    cards: [
       {
-        title: "Visa validity vs stay permission",
-        description:
-          "The DTV vignette is typically valid for five years with multiple entry. Each entry grants a separate stay permission, usually up to 180 days, shown as a stamp in your passport.",
+        label: "Visa validity",
+        value: "5 years",
+        detail: "Multiple-entry visa validity period.",
       },
       {
-        title: "Extensions",
-        description:
-          "You may apply for one extension per visit at a Thai immigration office, often for up to 180 additional days (fee commonly around 1,900 THB). Rules and forms are set by immigration authorities.",
+        label: "Stay per entry",
+        value: "Up to 180 days",
+        detail: "Granted each time you enter Thailand.",
       },
       {
-        title: "Re-entry",
-        description:
-          "While the five-year visa remains valid, you may leave Thailand and re-enter to start a new stay period. Each entry can grant a fresh 180-day permission.",
+        label: "Extension",
+        value: "One extension available",
+        detail: "Often up to an additional 180 days.",
       },
       {
-        title: "90-day reporting",
-        description:
-          "Long continuous stays may trigger address reporting obligations (TM30/TM47 rules). Confirm current immigration requirements for your situation.",
-      },
-      {
-        title: "Digital arrival card (TDAC)",
-        description:
-          "Complete the Thailand Digital Arrival Card before entry when required. See official sources for the current portal and deadlines.",
+        label: "Re-entry",
+        value: "Allowed",
+        detail: "Leave and return while the visa remains valid.",
       },
     ],
-  },
-  legalBoundaries: {
-    eyebrow: "Work and tax",
-    title: "DTV legal boundaries",
-    description: "What the DTV permits and what it does not.",
-    content: [
-      "The DTV is intended for remote work, freelance income, or approved activities with economic ties outside Thailand. It does not replace a work permit for employment with a Thai company.",
-      "Working for a Thai employer, performing services primarily for Thai clients, or operating a business that requires local labour market access usually requires a business visa and work permit route instead.",
-      "Immigration approval does not determine tax residency. Thai tax rules depend on stay length, income source, and remittance patterns. This page is not tax advice. Consult a qualified adviser for your situation.",
-      "Overstaying your permitted stay leads to fines, possible deportation, and future visa difficulties. Extend on time or leave before your stamp expires.",
-    ],
-    disclaimer:
-      "General immigration information only, not legal or tax advice. Confirm rules with Thai immigration and your embassy.",
+    reminders: {
+      title: "Things to remember",
+      items: [
+        "90-day reporting may apply during long stays",
+        "Complete the Thailand Digital Arrival Card (TDAC) before entry when required",
+        "Immigration rules can change; always verify current requirements",
+      ],
+    },
   },
   process: {
-    eyebrow: "How it works",
+    eyebrow: "How we help",
     title: "How we help with your DTV application",
     description:
-      "A clear path from first message to arriving in Thailand - with less guesswork at each step.",
+      "A clear path from first message to arriving in Thailand, with less guesswork at each step.",
     steps: [
       {
         step: 1,
         title: "Eligibility review",
         description:
-          "You tell us how you earn a living and how long you want to stay. We confirm whether DTV fits and which category applies to you.",
+          "You tell us about your work, income source, nationality, and plans for Thailand. We confirm whether the DTV is suitable and identify the correct application pathway.",
       },
       {
         step: 2,
-        title: "Document checklist",
+        title: "Personalized document checklist",
         description:
-          "You receive a tailored list - savings proof, work evidence, photos, and anything else your nationality requires.",
+          "Receive a tailored checklist based on your nationality, application route, and embassy requirements. No generic document lists.",
       },
       {
         step: 3,
-        title: "File review",
+        title: "Document review",
         description:
-          "We check your documents for gaps and common mistakes before anything is submitted.",
+          "We review your supporting documents and identify missing items, inconsistencies, or common issues before submission.",
       },
       {
         step: 4,
-        title: "Application support",
+        title: "Application guidance",
         description:
-          "We guide you through submission and what to expect while your application is processed - usually about two to four weeks for a complete file.",
+          "We explain the submission process, embassy requirements, expected timelines, and what to prepare for after filing.",
       },
       {
         step: 5,
-        title: "Approval & travel",
+        title: "Approval and travel planning",
         description:
-          "Once approved, you plan your entry to Thailand. Immigration stamps your stay - up to 180 days per visit.",
+          "Once approved, we help you understand entry requirements, stay periods, extensions, and practical next steps before arriving in Thailand.",
       },
       {
         step: 6,
-        title: "After arrival",
+        title: "Ongoing support",
         description:
-          "We explain extensions, re-entry, and address reporting so you stay compliant for the full five-year visa period.",
+          "Questions after approval? We remain available to explain extensions, re-entry, reporting obligations, and other DTV-related matters.",
       },
     ],
   },
@@ -883,7 +701,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-self-employment",
         question: "Can freelancers, YouTubers, or online business owners get a DTV?",
         answer:
-          "Often yes when income is from outside Thailand and you document contracts, invoices, platform earnings, or company filings plus the savings threshold. Income mostly from Thai clients may not fit. See legal boundaries above.",
+          "Often yes when income is from outside Thailand and you document contracts, invoices, platform earnings, or company filings plus the savings threshold. Income mostly from Thai clients may not fit.",
       },
       {
         value: "dtv-bank-seasoning",
@@ -922,6 +740,12 @@ export const dtvVisaPage: VisaPageContent = {
           "It is not always possible in-country. Many people apply from abroad. We review your current visa and timeline before you commit.",
       },
       {
+        value: "dtv-vs-retirement",
+        question: "Should I choose DTV or a retirement visa?",
+        answer:
+          "If you are 50 or older with pension income and no remote work, a retirement visa (Non-Immigrant O-A or related route) is usually the better fit. See our retirement visa page. DTV fits when you work remotely or join an approved activity and can show qualifying evidence plus the savings threshold.",
+      },
+      {
         value: "dtv-muay-thai",
         question: "Can I get a DTV for Muay Thai or cooking classes?",
         answer:
@@ -943,7 +767,7 @@ export const dtvVisaPage: VisaPageContent = {
         value: "dtv-taxes",
         question: "Do I pay Thai tax on remote income with a DTV?",
         answer:
-          "Tax depends on how long you stay and your personal situation, not just the visa type. See legal boundaries above; speak with a tax adviser for tax questions.",
+          "Tax depends on how long you stay and your personal situation, not just the visa type. Immigration approval does not determine tax residency. Speak with a tax adviser for tax questions.",
       },
       {
         value: "dtv-overstay",
@@ -952,38 +776,6 @@ export const dtvVisaPage: VisaPageContent = {
           "Overstaying leads to fines, possible deportation, and future visa problems. Extend on time or leave before your permitted stay ends. See compliance above.",
       },
     ],
-  },
-  eeat: {
-    eyebrow: "Editorial standards",
-    title: "How we verify DTV visa information",
-    description:
-      "This page is maintained for accuracy against official sources and practical filing experience.",
-    methodology: [
-      {
-        title: "Official source review",
-        description:
-          "We cross-check visa rules against MFA, immigration, and embassy publications each time material policy or fee guidance changes.",
-      },
-      {
-        title: "Embassy checklist alignment",
-        description:
-          "Document and fee guidance is validated against published embassy checklists for major application posts, not generic third-party summaries.",
-      },
-      {
-        title: "Operational filing review",
-        description:
-          "Rejection patterns and embassy variance notes reflect anonymised patterns from files we prepare, not speculation.",
-      },
-      {
-        title: "Update cadence",
-        description:
-          "The page shows a last-updated date and named review attribution. Sections are revised when Thai authorities or embassies publish changes.",
-      },
-    ],
-    contentStandards:
-      "We write in plain English, separate government steps from optional agency services, and cite official sources where rules originate. We do not guarantee approval outcomes. Embassies make final decisions.",
-    disclaimer:
-      "This page is general information, not legal advice. Immigration rules change. Confirm requirements with the embassy that will process your application.",
   },
   relatedVisaSlugs: ["retirement", "business", "elite"],
   relatedVisas: {
@@ -1015,19 +807,7 @@ export const dtvVisaPage: VisaPageContent = {
       },
     ],
   },
-  relatedResources: {
-    eyebrow: "Guides",
-    title: "DTV resources & timelines",
-    items: [
-      {
-        category: "Filing notes",
-        title: "DTV Visa Filing Notes: Embassy Practice and Edge Cases",
-        description:
-          "Long-tail observations on bank statement seasoning, document formatting, third-country filing, and embassy practice, not a duplicate overview.",
-        href: "/blog/thailand-dtv-visa-requirements",
-      },
-    ],
-  },
+  relatedResources: { items: [] },
   finalCta: {
     headline: "Ready to Start Your Thailand DTV Application?",
     title: "Ready to Start Your Thailand DTV Application?",

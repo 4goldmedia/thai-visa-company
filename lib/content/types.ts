@@ -436,30 +436,43 @@ export type ContentVisaGovernmentProcessSection = {
   steps: ReadonlyArray<ContentVisaProcessStep>
 }
 
+export type ContentVisaPitfallIcon =
+  | "financial"
+  | "activity"
+  | "documents"
+  | "checklist"
+  | "enrolment"
+
 export type ContentVisaPitfallItem = {
   title: string
   description: string
   remedy?: string
+  icon?: ContentVisaPitfallIcon
 }
 
 export type ContentVisaPitfallsSection = {
   title?: string
   description?: string
   eyebrow?: string
+  summary?: {
+    title?: string
+    paragraphs?: ReadonlyArray<string>
+  }
   rejections?: ReadonlyArray<ContentVisaPitfallItem>
   mistakes?: ReadonlyArray<ContentVisaPitfallItem>
 }
 
-export type ContentVisaComplianceItem = {
+export type ContentVisaComplianceReminders = {
   title: string
-  description: string
+  items: ReadonlyArray<string>
 }
 
 export type ContentVisaComplianceSection = {
   title?: string
   description?: string
   eyebrow?: string
-  items: ReadonlyArray<ContentVisaComplianceItem>
+  cards: ReadonlyArray<ContentVisaKeyFact>
+  reminders?: ContentVisaComplianceReminders
 }
 
 export type ContentVisaLegalBoundariesSection = {

@@ -17,7 +17,6 @@ import {
   formatVisaRequirementItem,
   getVisaRequirementItemTone,
 } from "@/lib/visa-requirement-item"
-import { editorialLinkClass } from "@/lib/section-styles"
 import { visaGroupCardClass } from "@/lib/visa-editorial-styles"
 import { cn } from "@/lib/utils"
 
@@ -109,7 +108,7 @@ function VisaRequirementsClarificationCard({
         {title}
       </h3>
       <p className="visa-requirements-clarification__description">{description}</p>
-      <Link href={linkHref} className={editorialLinkClass}>
+      <Link href={linkHref} className="visa-requirements-clarification__cta">
         {linkLabel}
       </Link>
     </aside>

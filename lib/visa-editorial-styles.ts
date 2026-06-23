@@ -23,9 +23,15 @@ export const visaRecommendationCardClass = "visa-recommendation-card"
 
 export const visaChecklistCardClass = "visa-checklist-card"
 
+export const visaPitfallCardClass = "visa-pitfall-card"
+
+export const visaPitfallGridClass = "visa-pitfall-grid"
+
 export const visaGuideCardClass = "visa-guide-card"
 
 export const visaTimelineClass = "visa-timeline"
+
+export const visaEditorialProcessTimelineClass = "visa-process-timeline"
 
 export const visaComparisonShellClass = "visa-comparison-shell"
 

@@ -3,7 +3,8 @@ import Link from "next/link"
 
 import { SectionReveal } from "@/components/motion"
 import { ArticleSources } from "@/components/articles/article-sources"
-import { VisaTimeline } from "@/components/visa-editorial/visa-timeline"
+import { VisaEditorialProcessTimeline } from "@/components/visa-editorial/visa-editorial-process-timeline"
+import { VisaPitfallCard } from "@/components/visa-editorial/visa-pitfall-card"
 import {
   VisaEditorialContent,
   VisaEditorialHeading,
@@ -11,7 +12,6 @@ import {
 import { VisaEditorialSection } from "@/components/visa-editorial/visa-editorial-section"
 import type {
   ContentEmbassyVarianceRow,
-  ContentVisaComplianceSection,
   ContentVisaDecisionGuidesSection,
   ContentVisaEmbassyVarianceTableSection,
   ContentVisaEntityGlossarySection,
@@ -23,6 +23,7 @@ import type {
   ContentVisaPracticeInsightsSection,
 } from "@/lib/content/types"
 import { editorialLinkClass } from "@/lib/section-styles"
+import { visaPitfallGridClass } from "@/lib/visa-editorial-styles"
 import { cn } from "@/lib/utils"
 
 type SectionShellProps = {
@@ -214,7 +215,7 @@ function VisaGovernmentProcessSection({
         description={description}
       />
       <VisaEditorialContent>
-        <VisaTimeline steps={steps} ariaLabel={processAriaLabel} />
+        <VisaEditorialProcessTimeline steps={steps} ariaLabel={processAriaLabel} />
       </VisaEditorialContent>
     </VisaAuthoritySectionShell>
   )
@@ -254,6 +255,7 @@ function VisaPitfallsSection({
   title = "Rejections and common mistakes",
   description,
   eyebrow,
+  summary,
   rejections,
   mistakes,
 }: PitfallsProps) {
@@ -267,50 +269,31 @@ function VisaPitfallsSection({
         title={title}
         description={description}
       />
-      <VisaEditorialContent className="flex flex-col gap-8">
-        {rejections?.length ? (
-          <PitfallList heading="Common rejection reasons" items={rejections} />
+      <VisaEditorialContent className="visa-pitfalls-section">
+        {summary?.title || summary?.paragraphs?.length ? (
+          <div className="visa-pitfalls-summary">
+            {summary.title ? (
+              <h3 className="visa-pitfalls-summary__title">{summary.title}</h3>
+            ) : null}
+            {summary.paragraphs?.map((paragraph) => (
+              <p key={paragraph} className="visa-pitfalls-summary__text">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         ) : null}
+
+        {rejections?.length ? (
+          <div className={visaPitfallGridClass}>
+            {rejections.map((item) => (
+              <VisaPitfallCard key={item.title} item={item} />
+            ))}
+          </div>
+        ) : null}
+
         {mistakes?.length ? (
           <PitfallList heading="Common mistakes" items={mistakes} />
         ) : null}
-      </VisaEditorialContent>
-    </VisaAuthoritySectionShell>
-  )
-}
-
-type ComplianceProps = ContentVisaComplianceSection & {
-  sectionId: string
-  headingId: string
-}
-
-function VisaComplianceSection({
-  sectionId,
-  headingId,
-  title = "After approval: compliance",
-  description,
-  eyebrow,
-  items,
-}: ComplianceProps) {
-  if (!items.length) return null
-
-  return (
-    <VisaAuthoritySectionShell sectionId={sectionId} headingId={headingId}>
-      <VisaEditorialHeading
-        id={headingId}
-        eyebrow={eyebrow}
-        title={title}
-        description={description}
-      />
-      <VisaEditorialContent>
-        <ul className="visa-authority-list">
-          {items.map((item) => (
-            <li key={item.title}>
-              <strong>{item.title}</strong>
-              <p>{item.description}</p>
-            </li>
-          ))}
-        </ul>
       </VisaEditorialContent>
     </VisaAuthoritySectionShell>
   )
@@ -559,7 +542,6 @@ export {
   VisaFeesAndTimelinesSection,
   VisaGovernmentProcessSection,
   VisaPitfallsSection,
-  VisaComplianceSection,
   VisaLegalBoundariesSection,
   VisaEntityGlossarySection,
   VisaPracticeInsightsSection,

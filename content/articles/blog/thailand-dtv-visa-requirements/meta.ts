@@ -130,7 +130,7 @@ export const meta = defineBlogArticle({
       category: "Visa services",
       title: "Thailand DTV Visa: Official Hub",
       description:
-        "Eligibility pathways, document checklist, key facts, government process, compliance, and decision guides.",
+        "Eligibility pathways, document checklist, key facts, government process, and compliance.",
       href: "/visas/dtv",
     },
     {
