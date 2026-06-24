@@ -64,8 +64,11 @@ function VisaRelatedVisasSection({
                   title={item.title}
                   description={item.description}
                   href={item.href}
+                  image={item.image}
+                  imageAlt={item.imageAlt}
+                  objectPosition={item.objectPosition}
                   ctaLabel="View visa guide"
-                  className="w-full"
+                  className="h-full w-full"
                 />
               </li>
             ))}

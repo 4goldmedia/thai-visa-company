@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 import { editorialLinkCompactClass } from "@/lib/section-styles"
@@ -10,6 +11,9 @@ type VisaGuideCardProps = {
   description: string
   href: string
   ctaLabel?: string
+  image?: string
+  imageAlt?: string
+  objectPosition?: string
   className?: string
 }
 
@@ -19,10 +23,34 @@ function VisaGuideCard({
   description,
   href,
   ctaLabel = "View guide",
+  image,
+  imageAlt,
+  objectPosition = "center",
   className,
 }: VisaGuideCardProps) {
+  const hasMedia = Boolean(image)
+
   return (
-    <article className={cn(visaGuideCardClass, "group", className)}>
+    <article
+      className={cn(
+        visaGuideCardClass,
+        "group",
+        hasMedia && "visa-guide-card--with-media",
+        className,
+      )}
+    >
+      {image ? (
+        <div className="visa-guide-card__media">
+          <Image
+            src={image}
+            alt={imageAlt ?? ""}
+            fill
+            className="visa-guide-card__image object-cover"
+            style={{ objectPosition }}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        </div>
+      ) : null}
       <div className="visa-guide-card__inner">
         <p className="visa-guide-card__category">
           <span className="sr-only">Category: </span>

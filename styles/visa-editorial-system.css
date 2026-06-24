@@ -723,7 +723,7 @@
     height: 3.125rem;
     padding-inline: 1.75rem;
     border: 1px solid transparent;
-    border-radius: 0.6875rem;
+    border-radius: 0;
     background-color: #1f1b18;
     color: #fcfaf8;
     font-family: var(--font-sans);
@@ -941,7 +941,7 @@
   .visa-checklist-summary__list {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
+    row-gap: 2.625rem;
     margin: 1.25rem 0 0;
     padding: 0;
     list-style: none;
@@ -950,7 +950,8 @@
   @media (min-width: 640px) {
     .visa-checklist-summary__list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.125rem 1.5rem;
+      row-gap: 1.875rem;
+      column-gap: 1.75rem;
       margin-top: 1.375rem;
     }
   }
@@ -958,12 +959,28 @@
   @media (min-width: 1024px) {
     .visa-checklist-summary__list {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      row-gap: 2.25rem;
+      column-gap: 2.25rem;
     }
   }
 
   .visa-checklist-summary__item.visa-checklist-item {
     align-items: flex-start;
-    gap: 0.875rem;
+    gap: 1.125rem;
+    padding-block: 0.25rem 0.625rem;
+  }
+
+  @media (min-width: 640px) {
+    .visa-checklist-summary__item.visa-checklist-item {
+      gap: 1.625rem;
+      padding-block: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .visa-checklist-summary__item.visa-checklist-item {
+      gap: 1.75rem;
+    }
   }
 
   .visa-checklist-summary .visa-checklist-item__icon-wrap {
@@ -1912,7 +1929,7 @@
   }
 
   .visa-pitfall-card__symbol--remedy {
-    color: #4d7c5a;
+    color: #15803d;
   }
 
   .visa-pitfall-card__text {
@@ -1987,6 +2004,7 @@
   .visa-guide-card {
     position: relative;
     display: flex;
+    flex-direction: column;
     min-height: 11rem;
     border: 1px solid var(--visa-content-card-border);
     border-radius: var(--visa-card-radius);
@@ -1997,10 +2015,33 @@
       box-shadow 0.2s ease;
   }
 
+  .visa-guide-card--with-media {
+    overflow: hidden;
+    min-height: 0;
+  }
+
   @media (hover: hover) {
     .visa-guide-card:hover {
       border-color: color-mix(in srgb, var(--border) 100%, transparent);
       box-shadow: 0 12px 32px -20px color-mix(in srgb, var(--palette-text) 16%, transparent);
+    }
+  }
+
+  .visa-guide-card__media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+    overflow: hidden;
+    background-color: color-mix(in srgb, var(--palette-muted) 35%, var(--background));
+  }
+
+  .visa-guide-card__image {
+    transition: transform 300ms ease;
+  }
+
+  @media (hover: hover) {
+    .visa-guide-card--with-media:hover .visa-guide-card__image {
+      transform: scale(1.025);
     }
   }
 
@@ -2009,6 +2050,10 @@
     flex: 1;
     flex-direction: column;
     padding: 1.375rem 1.5rem;
+  }
+
+  .visa-guide-card--with-media .visa-guide-card__inner {
+    padding-top: 1.5rem;
   }
 
   .visa-guide-card__category {

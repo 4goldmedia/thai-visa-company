@@ -33,6 +33,7 @@ function VisaComplianceSection({
       id={sectionId}
       labelledBy={headingId}
       width="wide"
+      band
       className={cn("visa-compliance-section", className)}
     >
       <SectionReveal>

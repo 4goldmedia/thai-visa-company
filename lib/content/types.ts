@@ -87,6 +87,10 @@ export type ContentRelatedLink = {
   title: string
   description: string
   href: string
+  /** Hero or featured image path (e.g. visa page hero) */
+  image?: ContentFeaturedImage
+  imageAlt?: string
+  objectPosition?: string
 }
 
 /** @alias ContentRelatedLink  -  used by `RelatedResources` section */

@@ -32,6 +32,7 @@ import {
   isVisaSlug,
   isVisaPublished,
 } from "@/lib/visas/registry"
+import { resolveVisaHeroMedia } from "@/lib/visas/hero"
 import { contentTopicIds, type ContentTopicId } from "@/lib/content/topics"
 import { getPublishedVisaSlugs } from "@/lib/visas/publish"
 import type { VisaPageContent, VisaSlug } from "@/lib/visas/types"
@@ -352,12 +353,43 @@ export function articleSummaryToRelatedLink(
   }
 }
 
+export function visaSlugFromRelatedHref(href: string): VisaSlug | undefined {
+  const normalized = href.replace(/\/$/, "")
+  if (!normalized.startsWith("/visas/")) return undefined
+  const slug = normalized.slice("/visas/".length)
+  return isVisaSlug(slug) ? slug : undefined
+}
+
+export function enrichRelatedLinkWithVisaHero(
+  link: ContentRelatedLink,
+): ContentRelatedLink {
+  if (link.image) return link
+
+  const slug = visaSlugFromRelatedHref(link.href)
+  if (!slug) return link
+
+  const visa = getVisaFromRegistry(slug)
+  if (!isVisaPublished(visa)) return link
+
+  const media = resolveVisaHeroMedia(slug, visa.hero)
+  return {
+    ...link,
+    image: media.src,
+    imageAlt: media.alt,
+    objectPosition: media.objectPosition,
+  }
+}
+
 export function visaToRelatedLink(visa: VisaPageContent): ContentRelatedLink {
+  const media = resolveVisaHeroMedia(visa.slug, visa.hero)
   return {
     category: "Visa service",
     title: visa.hero.title,
     description: visa.seo.description,
     href: visa.path,
+    image: media.src,
+    imageAlt: media.alt,
+    objectPosition: media.objectPosition,
   }
 }
 
@@ -904,7 +936,7 @@ export function resolveRelatedVisas(
   return mergeScoredRelatedLinks(scored, {
     max,
     excludeHrefs: [input.path],
-  })
+  }).map(enrichRelatedLinkWithVisaHero)
 }
 
 // -----------------------------------------------------------------------------

@@ -19,11 +19,7 @@
     overflow: hidden;
     border: 1px solid color-mix(in srgb, var(--why-divider) 85%, transparent);
     border-radius: var(--radius-card);
-    background-color: color-mix(
-      in srgb,
-      var(--surface-elevated) 40%,
-      var(--why-section-bg, var(--background))
-    );
+    background-color: #ffffff;
   }
 
   .why-features__item {
@@ -88,7 +84,7 @@
   }
 
   .why-choose-us-section .why-feature__icon-wrap {
-    background-color: #ffffff;
+    background-color: var(--palette-bg-secondary);
   }
 
   .why-feature__icon-wrap svg {
