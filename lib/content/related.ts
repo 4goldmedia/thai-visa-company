@@ -32,6 +32,7 @@ import {
   isVisaSlug,
   isVisaPublished,
 } from "@/lib/visas/registry"
+import { isFeaturedVisaRoute } from "@/lib/visas/featured-routes"
 import { resolveVisaHeroMedia } from "@/lib/visas/hero"
 import { contentTopicIds, type ContentTopicId } from "@/lib/content/topics"
 import { getPublishedVisaSlugs } from "@/lib/visas/publish"
@@ -872,6 +873,7 @@ export function rankRelatedVisas(
 
   for (const [index, relatedSlug] of slugHints.entries()) {
     if (relatedSlug === source.slug || !isVisaSlug(relatedSlug)) continue
+    if (!isFeaturedVisaRoute(relatedSlug)) continue
     const relatedVisa = getVisaFromRegistry(relatedSlug)
     if (!isVisaPublished(relatedVisa)) continue
     scored.push({
@@ -883,6 +885,7 @@ export function rankRelatedVisas(
 
   for (const visaSlug of getPublishedVisaSlugs()) {
     if (visaSlug === source.slug) continue
+    if (!isFeaturedVisaRoute(visaSlug)) continue
     const visa = getVisaFromRegistry(visaSlug)
     const item = scoreArticleToVisa(
       {
@@ -910,6 +913,11 @@ export function resolveRelatedVisas(
   const excludeHrefs = new Set<string>()
 
   for (const [index, link] of (input.relatedVisas?.items ?? []).entries()) {
+    const slug = visaSlugFromRelatedHref(link.href)
+    if (!slug) continue
+    if (!isFeaturedVisaRoute(slug)) continue
+    const visa = getVisaFromRegistry(slug)
+    if (!isVisaPublished(visa)) continue
     scored.push({
       link,
       score: SCORE.MANUAL - index,
