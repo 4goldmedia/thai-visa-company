@@ -84,7 +84,7 @@ export const visaGalleryPhotography = {
     objectPosition: "center 45%",
   },
   retirement: {
-    src: "/images/visas/retirement.jpg",
+    src: "/images/visas/retirement.png",
     alt: "Calm tropical beach at golden hour with lounge chairs and palm trees, suggesting relaxed premium retirement life in Thailand",
     objectPosition: "center 55%",
   },
