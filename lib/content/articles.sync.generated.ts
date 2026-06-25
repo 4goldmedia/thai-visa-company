@@ -3,12 +3,12 @@ import type { BlogArticleMeta } from "@/lib/content/collections/blog"
 import type { GuideArticleMeta } from "@/lib/content/collections/guides"
 import type { GeneratedArticleRegistryKey } from "@/lib/content/registry.generated"
 
-import { meta as meta_thailand_dtv_visa_requirements } from "@/content/articles/blog/thailand-dtv-visa-requirements/meta"
+import { meta as meta_business_visa_vs_work_permit_thailand } from "@/content/articles/guides/business-visa-vs-work-permit-thailand/meta"
 import { meta as meta_how_to_get_thailand_retirement_visa } from "@/content/articles/guides/how-to-get-thailand-retirement-visa/meta"
 
 export const generatedArticleMetaSync: Partial<
   Record<GeneratedArticleRegistryKey, GuideArticleMeta | BlogArticleMeta>
 > = {
-  "blog/thailand-dtv-visa-requirements": meta_thailand_dtv_visa_requirements,
+  "guides/business-visa-vs-work-permit-thailand": meta_business_visa_vs_work_permit_thailand,
   "guides/how-to-get-thailand-retirement-visa": meta_how_to_get_thailand_retirement_visa,
 }

@@ -6,17 +6,17 @@ import type { VisaGuideArticleMeta } from "@/lib/content/collections/visa-guides
 import type { ContentArticleModule } from "@/lib/content/types"
 
 export const generatedArticleEntries = {
-  "blog/thailand-dtv-visa-requirements": {
-    collection: "blog",
-    slug: "thailand-dtv-visa-requirements",
+  "guides/business-visa-vs-work-permit-thailand": {
+    collection: "guides",
+    slug: "business-visa-vs-work-permit-thailand",
     loadMeta: () =>
-      import("@/content/articles/blog/thailand-dtv-visa-requirements/meta").then(
+      import("@/content/articles/guides/business-visa-vs-work-permit-thailand/meta").then(
         (m) => m.meta,
       ),
     loadModule: async () => {
       const [{ default: Content }, { meta }] = await Promise.all([
-        import("@/content/articles/blog/thailand-dtv-visa-requirements/content.mdx"),
-        import("@/content/articles/blog/thailand-dtv-visa-requirements/meta"),
+        import("@/content/articles/guides/business-visa-vs-work-permit-thailand/content.mdx"),
+        import("@/content/articles/guides/business-visa-vs-work-permit-thailand/meta"),
       ])
       return { default: Content, meta }
     },

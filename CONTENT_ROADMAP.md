@@ -237,7 +237,6 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 |------|------|----------|---------------|
 | `what-is-thailand-dtv-visa` | Core what-is | **P1 STUB** | Definition, who it fits, vs tourist |
 | `how-to-apply-thailand-dtv-visa` | Core how-to | P2 | Application steps after what-is ships |
-| `thailand-dtv-visa-requirements` | Eligibility | P2 | Activity proof, income, documents |
 | `dtv-visa-income-requirements` | Eligibility | P2 | Financial thresholds (typical / embassy-specific) |
 | `thailand-dtv-visa-duration` | Process | P2 | Stay length, entry rules |
 | `dtv-visa-mistakes-to-avoid` | Mistake-prevention | P2 | Wrong activity proof, tourist misuse |
@@ -277,7 +276,6 @@ Pull from support channels; add to visa FAQ or dedicated guide FAQ:
 
 | Slug | Priority |
 |------|----------|
-| `thailand-dtv-visa-requirements` | P2 |
 | `who-qualifies-for-dtv-thailand` | P2 |
 
 ## Renewal questions
