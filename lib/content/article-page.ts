@@ -1,6 +1,5 @@
 import type { ArticleMetadata } from "@/components/layout/article-layout"
 import type { BlogArticlePageProps } from "@/lib/content/collections/blog"
-import type { GuideArticlePageProps } from "@/lib/content/collections/guides"
 import type { ResourceArticlePageProps } from "@/lib/content/collections/resources"
 import type {
   ContentArticleSchema,
@@ -18,7 +17,6 @@ import type {
 import type { ContentTopicId } from "@/lib/content/topics"
 import type { VisaSlug } from "@/lib/visas/types"
 import type { BlogClusterId } from "@/lib/blog/types"
-import type { GuideCategoryId } from "@/lib/guides/types"
 import type { ResourceCategoryId } from "@/lib/resources/types"
 
 /** Shared article page props for the unified Article Engine template */
@@ -54,7 +52,7 @@ export type ArticlePageProps = {
   index?: {
     clusterId?: BlogClusterId
     clusterLabel?: string
-    categoryId?: GuideCategoryId | ResourceCategoryId
+    categoryId?: ResourceCategoryId | string
     categoryLabel?: string
   }
   topicHubHref?: string
@@ -64,7 +62,7 @@ export type ArticlePageProps = {
 }
 
 export function toArticlePageProps(
-  article: ResourceArticlePageProps | BlogArticlePageProps | GuideArticlePageProps,
+  article: ResourceArticlePageProps | BlogArticlePageProps,
 ): ArticlePageProps {
   return article
 }

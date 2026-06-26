@@ -24,7 +24,7 @@ type RelatedResourcesProps = {
   className?: string
 }
 
-const defaultIndexHref = "/guides"
+const defaultIndexHref = "/blog"
 
 const headingClass =
   "text-lg font-semibold tracking-tight text-balance text-foreground sm:text-xl"

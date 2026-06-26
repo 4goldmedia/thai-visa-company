@@ -34,7 +34,10 @@ async function filterPublishedManualLinks(
       continue
     }
     if (item.href.startsWith("/guides/")) {
-      if (await isPublishedGuideHref(item.href)) published.push(item)
+      const match = item.href.match(/^\/guides\/([^/?#]+)/)
+      if (match?.[1] && (await isPublishedBlogHref(`/blog/${match[1]}`))) {
+        published.push(item)
+      }
       continue
     }
     published.push(item)
@@ -114,7 +117,7 @@ export async function resolveVisaRelatedResources(
   visa: ResolveVisaRelatedResourcesInput,
 ): Promise<ReadonlyArray<ContentRelatedLink>> {
   const max = visa.max ?? DEFAULT_MAX_RELATED
-  const collections: ContentCollectionId[] = ["blog", "guides"]
+  const collections: ContentCollectionId[] = ["blog"]
 
   const [manual, explicit, auto] = await Promise.all([
     filterPublishedManualLinks(visa.relatedResources.items),

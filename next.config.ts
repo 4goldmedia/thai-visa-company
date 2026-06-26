@@ -6,27 +6,57 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/resources",
-        destination: "/guides",
+        destination: "/blog",
         permanent: true,
       },
       {
         source: "/resources/:slug",
-        destination: "/guides/:slug",
+        destination: "/blog/:slug",
         permanent: true,
       },
       {
-        source: "/blog/topic/:topic",
-        destination: "/guides/topic/:topic",
+        source: "/guides",
+        destination: "/blog",
         permanent: true,
       },
       {
-        source: "/blog/how-to-get-thailand-retirement-visa",
-        destination: "/guides/how-to-get-thailand-retirement-visa",
+        source: "/guides/topic/thailand-immigration",
+        destination: "/blog/cluster/living-in-thailand",
+        permanent: true,
+      },
+      {
+        source: "/guides/topic/:topic",
+        destination: "/blog/cluster/:topic",
+        permanent: true,
+      },
+      {
+        source: "/guides/category/thailand-living",
+        destination: "/blog/cluster/living-in-thailand",
+        permanent: true,
+      },
+      {
+        source: "/guides/category/visa-requirements",
+        destination: "/blog/cluster/retirement",
+        permanent: true,
+      },
+      {
+        source: "/guides/category/visa-comparisons",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/guides/category/:category",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/guides/:slug",
+        destination: "/blog/:slug",
         permanent: true,
       },
       {
         source: "/blog/category/practical-guides",
-        destination: "/guides",
+        destination: "/blog",
         permanent: true,
       },
       {

@@ -1,21 +1,14 @@
 /**
- * Unified cross-engine linking  -  Visas ↔ Guides ↔ Blog.
+ * Unified cross-engine linking  -  Visas ↔ Blog articles.
  * Re-exports collection-specific resolvers and shared scoring helpers.
  */
 
 export {
-  resolveGuideCrossLinks,
-  buildGuideTopicHubLink,
-  buildGuidePillarVisaLink,
-  getGuideArticleCategoryBreadcrumb,
-  type ResolvedGuideCrossLinks,
-} from "@/lib/content/guides-related"
-
-export {
   resolveBlogCrossLinks,
+  buildBlogClusterTopicHubLink,
   buildRelatedGuideLink,
   buildPillarVisaLink,
-  getBlogArticleCategoryBreadcrumb,
+  getBlogArticleClusterBreadcrumb,
   type ResolvedBlogCrossLinks,
 } from "@/lib/content/blog-related"
 
@@ -28,7 +21,6 @@ export {
   resolveVisaCrossLinks,
   filterPublishedRelatedLinks,
   isPublishedArticleHref,
-  isPublishedGuideHref,
   isPublishedBlogHref,
   mergeRelatedLinks,
   rankRelatedArticles,

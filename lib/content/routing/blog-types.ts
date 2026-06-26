@@ -25,5 +25,6 @@ export type ResolvedBlogArticlePageContext = {
   related: ReadonlyArray<ContentRelatedLink>
   relatedVisas: ReadonlyArray<ContentRelatedLink>
   relatedGuide?: ContentRelatedLink
+  topicHub?: ContentRelatedLink
   seriesNav: ArticleSeriesNav
 }

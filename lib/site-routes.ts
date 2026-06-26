@@ -107,67 +107,51 @@ export const siteRoutes = [
     published: false,
   },
 
-  // Guides  -  evergreen authority
+  // Blog  -  unified article publication (authority guides + updates)
   {
-    path: "/guides",
+    path: "/blog",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.9,
     published: true,
   },
   {
-    path: "/guides/topic/dtv",
+    path: "/blog/cluster/dtv",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.85,
     published: true,
   },
   {
-    path: "/guides/topic/retirement",
+    path: "/blog/cluster/retirement",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.85,
     published: true,
   },
   {
-    path: "/guides/topic/business",
+    path: "/blog/cluster/business",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.85,
     published: true,
   },
   {
-    path: "/guides/topic/education",
+    path: "/blog/cluster/education",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.85,
     published: true,
   },
   {
-    path: "/guides/topic/thailand-immigration",
+    path: "/blog/cluster/immigration-procedures",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.85,
     published: true,
   },
   {
-    path: "/guides/category/visa-requirements",
-    group: "resource",
-    changeFrequency: "weekly",
-    priority: 0.8,
-    published: true,
-  },
-  {
-    path: "/guides/how-to-get-thailand-retirement-visa",
-    group: "resource",
-    changeFrequency: "monthly",
-    priority: 0.7,
-    published: true,
-  },
-
-  // Blog  -  freshness publication
-  {
-    path: "/blog",
+    path: "/blog/cluster/living-in-thailand",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.85,
@@ -276,8 +260,7 @@ export function getRouteByPath(path: string): SiteRoute | undefined {
 
 /** Build sitemap entries for published static routes plus published MDX articles */
 export async function buildSitemap(): Promise<MetadataRoute.Sitemap> {
-  const { getPublishedBlogArticlePaths, getPublishedGuideArticlePaths } =
-    await import("@/lib/content")
+  const { getPublishedBlogArticlePaths } = await import("@/lib/content")
   const { getPublishedVisaPages } = await import("@/lib/visas/publish")
   const builtAt = new Date()
   const entries = new Map<string, MetadataRoute.Sitemap[number]>()
@@ -300,11 +283,8 @@ export async function buildSitemap(): Promise<MetadataRoute.Sitemap> {
     })
   }
 
-  const [guidePaths, blogPaths] = await Promise.all([
-    getPublishedGuideArticlePaths(),
-    getPublishedBlogArticlePaths(),
-  ])
-  for (const path of [...guidePaths, ...blogPaths]) {
+  const blogPaths = await getPublishedBlogArticlePaths()
+  for (const path of blogPaths) {
     if (entries.has(path)) continue
     entries.set(path, {
       url: resolveCanonicalUrl(path).toString(),

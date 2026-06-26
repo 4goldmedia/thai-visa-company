@@ -1,5 +1,4 @@
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
-import type { GuideArticleMeta } from "@/lib/content/collections/guides"
 import type { ResourceArticleMeta } from "@/lib/content/collections/resources"
 import type { VisaGuideArticleMeta } from "@/lib/content/collections/visa-guides"
 import { toContentArticleKey } from "@/lib/content/collections"
@@ -63,7 +62,7 @@ export async function loadContentArticle(
   key: RegisteredContentArticleKey,
 ): Promise<
   ContentArticleModule<
-    ResourceArticleMeta | GuideArticleMeta | BlogArticleMeta | VisaGuideArticleMeta
+    ResourceArticleMeta | BlogArticleMeta | VisaGuideArticleMeta
   > | null
 > {
   const entry = articleEntries[key]
@@ -76,7 +75,7 @@ export async function loadContentArticleBySlug(
   slug: string,
 ): Promise<
   ContentArticleModule<
-    ResourceArticleMeta | GuideArticleMeta | BlogArticleMeta | VisaGuideArticleMeta
+    ResourceArticleMeta | BlogArticleMeta | VisaGuideArticleMeta
   > | null
 > {
   const key = toContentArticleKey(collection, slug)

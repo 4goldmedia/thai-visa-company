@@ -3,6 +3,7 @@ import { ArticleCTA } from "@/components/editorial/article-cta"
 import { ArticleLinkCard } from "@/components/editorial/article-link-card"
 import { RelatedArticles } from "@/components/editorial/related-articles"
 import { BlogArticleLayout } from "@/components/layout/blog-article-layout"
+import { ArticlePageTemplate } from "@/components/templates/article-page"
 import { ArticleJsonLd } from "@/components/seo/article-json-ld"
 import type { ResolvedBlogArticlePageContext } from "@/lib/content/routing/blog-types"
 
@@ -10,9 +11,37 @@ type BlogArticlePageViewProps = {
   context: ResolvedBlogArticlePageContext
 }
 
+function usesAuthorityArticleTemplate(
+  contentType: ResolvedBlogArticlePageContext["route"]["page"]["contentType"],
+): boolean {
+  return contentType === "guide" || contentType === "comparison"
+}
+
 function BlogArticlePageView({ context }: BlogArticlePageViewProps) {
-  const { route, related, relatedVisas, relatedGuide, breadcrumbs } = context
+  const { route, related, relatedVisas, relatedGuide, topicHub, breadcrumbs, seriesNav } =
+    context
   const { MdxContent, page } = route
+
+  if (usesAuthorityArticleTemplate(page.contentType)) {
+    const article = {
+      ...page,
+      related,
+      relatedVisas,
+      topicHubHref: topicHub?.href,
+      topicHubLabel: topicHub?.title,
+    }
+
+    return (
+      <ArticlePageTemplate
+        article={article}
+        breadcrumbs={breadcrumbs}
+        seriesNav={seriesNav}
+      >
+        <MdxContent />
+      </ArticlePageTemplate>
+    )
+  }
+
   const article = {
     ...page,
     related,

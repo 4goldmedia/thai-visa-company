@@ -9,7 +9,6 @@ import type { VisaSlug } from "@/lib/visas/types"
 
 export const contentCollectionIds = [
   "resources",
-  "guides",
   "blog",
   "visa-guides",
 ] as const

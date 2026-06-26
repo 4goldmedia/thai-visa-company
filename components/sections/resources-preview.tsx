@@ -23,7 +23,7 @@ const defaultResourcesPreview: ReadonlyArray<RelatedResourceItem> =
     href: article.path,
   }))
 
-const defaultResourcesIndexHref = "/guides"
+const defaultResourcesIndexHref = "/blog"
 
 type ResourcesPreviewProps = {
   headingId: string

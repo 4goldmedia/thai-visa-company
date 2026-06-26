@@ -123,9 +123,9 @@ export async function loadResourceContentArticle(slug: string) {
   return loadResourceArticleModule(slug)
 }
 
+/** @deprecated Guides merged into blog  -  use `getPublishedBlogArticlePaths` */
 export async function getPublishedGuideArticlePaths(): Promise<string[]> {
-  const { getPublishedArticlePaths } = await import("@/lib/content/articles")
-  return getPublishedArticlePaths("guides")
+  return getPublishedBlogArticlePaths()
 }
 
 export async function getPublishedBlogArticlePaths(): Promise<string[]> {
@@ -133,9 +133,9 @@ export async function getPublishedBlogArticlePaths(): Promise<string[]> {
   return getPublishedArticlePaths("blog")
 }
 
-/** @deprecated Use `getPublishedGuideArticlePaths` */
+/** @deprecated Use `getPublishedBlogArticlePaths` */
 export async function getPublishedResourceArticlePaths(): Promise<string[]> {
-  return getPublishedGuideArticlePaths()
+  return getPublishedBlogArticlePaths()
 }
 
 export async function getPublishedResourceArticleSlugs(): Promise<string[]> {
@@ -207,15 +207,6 @@ export {
 } from "@/lib/content/routing"
 
 export {
-  defineGuideArticle,
-  toGuideArticlePageProps,
-  type GuideArticleMeta,
-  type GuideArticlePageProps,
-} from "@/lib/content/collections/guides"
-
-export {
-  resolveGuideCrossLinks,
   resolveBlogCrossLinks,
-  type ResolvedGuideCrossLinks,
   type ResolvedBlogCrossLinks,
 } from "@/lib/content/cross-links"

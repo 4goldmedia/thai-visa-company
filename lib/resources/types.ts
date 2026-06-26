@@ -23,7 +23,7 @@ export type ResourceArticle = {
   category: string
   title: string
   description: string
-  path: `/guides/${string}` | `/blog/${string}` | `/resources/${string}`
+  path: `/blog/${string}` | `/resources/${string}`
   readingTime?: string
   /** Planned stubs are visible on the index but not linked until MDX ships */
   status?: ResourceArticleStatus

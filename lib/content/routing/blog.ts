@@ -5,6 +5,7 @@ import { loadContentArticleBySlug } from "@/lib/content/registry"
 import { toBlogArticlePageProps } from "@/lib/content/collections/blog"
 import { resolveArticleSeriesNav } from "@/lib/content/series"
 import {
+  buildBlogClusterTopicHubLink,
   getBlogArticleClusterBreadcrumb,
   resolveBlogCrossLinks,
 } from "@/lib/content/blog-related"
@@ -78,6 +79,7 @@ export const resolveBlogArticlePageContext = cache(
     ])
 
     const clusterCrumb = getBlogArticleClusterBreadcrumb(route.module.meta)
+    const topicHub = buildBlogClusterTopicHubLink(route.module.meta)
 
     return {
       route,
@@ -91,6 +93,7 @@ export const resolveBlogArticlePageContext = cache(
       related: crossLinks.articles,
       relatedVisas: crossLinks.visas,
       relatedGuide: crossLinks.relatedGuide,
+      topicHub,
       seriesNav,
     }
   },

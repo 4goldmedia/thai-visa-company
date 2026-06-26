@@ -1,21 +1,19 @@
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
-import type { GuideArticleMeta } from "@/lib/content/collections/guides"
 import type { FaqRecord } from "@/lib/faq/types"
 import type { VisaPageContent } from "@/lib/visas/types"
 
 function extractFaqFromArticleMeta(
   meta: Pick<
-    BlogArticleMeta | GuideArticleMeta,
+    BlogArticleMeta,
     "slug" | "path" | "title" | "topicId" | "pillarSlug" | "faq" | "updatedAt" | "publishedAt"
   >,
-  sourceType: "article" | "guide",
 ): FaqRecord[] {
   return meta.faq.map((item) => ({
     id: `${meta.slug}-${item.value}`,
     question: item.question,
     answer: item.answer,
     source: {
-      type: sourceType,
+      type: "article",
       path: meta.path,
       title: meta.title,
       topicId: meta.topicId,
@@ -25,13 +23,12 @@ function extractFaqFromArticleMeta(
   }))
 }
 
-export function extractFaqFromGuideArticle(meta: GuideArticleMeta): FaqRecord[] {
-  return extractFaqFromArticleMeta(meta, "guide")
+export function extractFaqFromBlogArticle(meta: BlogArticleMeta): FaqRecord[] {
+  return extractFaqFromArticleMeta(meta)
 }
 
-export function extractFaqFromBlogArticle(meta: BlogArticleMeta): FaqRecord[] {
-  return extractFaqFromArticleMeta(meta, "article")
-}
+/** @deprecated Use `extractFaqFromBlogArticle` */
+export const extractFaqFromGuideArticle = extractFaqFromBlogArticle
 
 export function extractFaqFromVisaPage(visa: VisaPageContent): FaqRecord[] {
   return visa.faq.items.map((item) => ({

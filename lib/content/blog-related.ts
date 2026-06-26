@@ -17,16 +17,33 @@ export type ResolvedBlogCrossLinks = ResolvedCrossLinks & {
   pillarVisa?: ContentRelatedLink
 }
 
+export function buildBlogClusterTopicHubLink(
+  meta: Pick<BlogArticleMeta, "index">,
+): ContentRelatedLink | undefined {
+  const clusterId = meta.index?.clusterId
+  if (!clusterId) return undefined
+
+  const cluster = getBlogClusterById(clusterId)
+  if (!cluster) return undefined
+
+  return {
+    category: "Subject",
+    title: cluster.label,
+    description: cluster.description,
+    href: blogClusterPath(clusterId),
+  }
+}
+
 export async function buildRelatedGuideLink(
   relatedGuideSlug?: string,
 ): Promise<ContentRelatedLink | undefined> {
   if (!relatedGuideSlug) return undefined
 
-  const key = toContentArticleKey("guides", relatedGuideSlug)
+  const key = toContentArticleKey("blog", relatedGuideSlug)
   if (!isRegisteredContentArticleKey(key)) return undefined
 
   const meta = await loadArticleMeta(key)
-  if (!meta?.published || meta.collection !== "guides") return undefined
+  if (!meta?.published || meta.collection !== "blog") return undefined
 
   return {
     category: "Guide",

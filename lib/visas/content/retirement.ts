@@ -14,6 +14,7 @@ const GOLDEN_VISA_PAGE_LAYOUT: ReadonlyArray<VisaSectionId> = [
   "comparison",
   "compliance",
   "faq",
+  "relatedResources",
   "relatedVisas",
   "finalCta",
 ]
@@ -26,6 +27,7 @@ export const retirementVisaPage: VisaPageContent = {
   updatedAt: RETIREMENT_UPDATED_AT,
   layout: GOLDEN_VISA_PAGE_LAYOUT,
   topicId: "retirement",
+  relatedArticleSlugs: ["best-visa-for-living-in-thailand"],
   lastReviewed: {
     reviewerName: "Thai Visa Company Editorial Team",
     reviewerTitle: "Licensed Thailand visa specialists",
@@ -608,7 +610,17 @@ export const retirementVisaPage: VisaPageContent = {
     eligibility: { title: "", content: "" },
     practicalOverview: { content: "" },
   },
-  relatedResources: { items: [] },
+  relatedResources: {
+    items: [
+      {
+        category: "Route selection",
+        title: "Best Visa for Living in Thailand",
+        description:
+          "Compare DTV, business, retirement, elite, and education routes by profile before you choose a hub.",
+        href: "/blog/best-visa-for-living-in-thailand",
+      },
+    ],
+  },
   finalCta: {
     eyebrow: "Get in touch",
     headline: "Ready to choose the right retirement visa route for Thailand?",

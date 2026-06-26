@@ -271,7 +271,7 @@ export type ResourcesIndexSchemaInput = {
 export function buildGuidesIndexSchemaGraph(
   input: ResourcesIndexSchemaInput,
 ): JsonLdGraphDocument {
-  const path = input.path ?? "/guides"
+  const path = input.path ?? "/blog"
 
   return buildPageSchemaGraph({
     nodes: [

@@ -7,11 +7,9 @@
 
 import {
   blogMetaToIndexCard,
-  guideMetaToIndexCard,
   resourceMetaToIndexCard,
 } from "@/lib/content/adapters"
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
-import type { GuideArticleMeta } from "@/lib/content/collections/guides"
 import type { ResourceArticleMeta } from "@/lib/content/collections/resources"
 import { toContentArticleKey } from "@/lib/content/collections"
 import {
@@ -472,7 +470,7 @@ export function scoreArticleToArticle(
 
   if (
     source.resourceCategoryId &&
-    (target.key.startsWith("blog/") || target.key.startsWith("guides/"))
+    target.key.startsWith("blog/")
   ) {
     score += SCORE.RESOURCE_CATEGORY
     reasons.push("resource-category")
@@ -546,10 +544,9 @@ export function scoreVisaToArticle(
 
 async function isPublishedArticleHrefForCollection(
   href: string,
-  collection: "blog" | "guides",
+  collection: "blog",
 ): Promise<boolean> {
-  const prefix = collection === "blog" ? "/blog" : "/guides"
-  const match = href.match(new RegExp(`^${prefix}/([^/?#]+)/?$`))
+  const match = href.match(/^\/blog\/([^/?#]+)\/?$/)
   if (!match) return true
 
   const key = toContentArticleKey(collection, match[1] as ContentSlug)
@@ -564,14 +561,20 @@ export async function isPublishedBlogHref(href: string): Promise<boolean> {
   return isPublishedArticleHrefForCollection(href, "blog")
 }
 
-/** True when a `/guides/*` href resolves to a published MDX article */
+/** @deprecated Legacy `/guides/*` URLs resolve against the blog collection */
 export async function isPublishedGuideHref(href: string): Promise<boolean> {
-  return isPublishedArticleHrefForCollection(href, "guides")
+  const match = href.match(/^\/guides\/([^/?#]+)\/?$/)
+  if (!match?.[1]) return true
+  return isPublishedBlogHref(`/blog/${match[1]}`)
 }
 
 export async function isPublishedArticleHref(href: string): Promise<boolean> {
   if (href.startsWith("/blog/")) return isPublishedBlogHref(href)
-  if (href.startsWith("/guides/")) return isPublishedGuideHref(href)
+  if (href.startsWith("/guides/")) {
+    const match = href.match(/^\/guides\/([^/?#]+)/)
+    if (match?.[1]) return isPublishedBlogHref(`/blog/${match[1]}`)
+    return true
+  }
   return true
 }
 
@@ -779,17 +782,7 @@ export async function resolveRelatedArticles(
                 href: card.path,
               }
             })()
-          : input.collection === "guides" && isGuideArticleMeta(meta)
-            ? (() => {
-                const card = guideMetaToIndexCard(meta)
-                return {
-                  category: card.category,
-                  title: card.title,
-                  description: card.description,
-                  href: card.path,
-                }
-              })()
-            : input.collection === "resources" && isResourceArticleMeta(meta)
+          : input.collection === "resources" && isResourceArticleMeta(meta)
             ? (() => {
                 const card = resourceMetaToIndexCard(meta)
                 return {
@@ -847,10 +840,6 @@ export async function resolveRelatedArticles(
 
 function isBlogArticleMeta(meta: ContentArticleBase): meta is BlogArticleMeta {
   return meta.collection === "blog"
-}
-
-function isGuideArticleMeta(meta: ContentArticleBase): meta is GuideArticleMeta {
-  return meta.collection === "guides"
 }
 
 function isResourceArticleMeta(
@@ -988,7 +977,7 @@ export async function resolveRelatedArticlesForVisa(
   const max = options.max ?? DEFAULT_MAX_CROSS_LINKS
   const collections =
     options.collections ??
-    (options.collection ? [options.collection] : (["blog", "guides"] as const))
+    (options.collection ? [options.collection] : (["blog"] as const))
 
   const source: VisaLinkSource = {
     slug: visa.slug,
@@ -1018,7 +1007,7 @@ export async function resolveRelatedArticlesForVisa(
 
 const CTA_PATHS = {
   contact: "/consultation",
-  guides: "/guides",
+  guides: "/blog",
   blog: "/blog",
 } as const
 

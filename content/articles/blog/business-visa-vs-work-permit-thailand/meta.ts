@@ -1,7 +1,8 @@
-import { defineGuideArticle } from "@/lib/content/collections/guides"
+import { defineBlogArticle } from "@/lib/content/collections/blog"
 import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
 
-export const meta = defineGuideArticle({
+export const meta = defineBlogArticle({
+  contentType: "comparison",
   slug: "business-visa-vs-work-permit-thailand",
   title: "Business Visa vs Work Permit in Thailand",
   description:
@@ -36,8 +37,8 @@ export const meta = defineGuideArticle({
       "They are not the same document. Learn what each one does, why employers confuse them, and the normal visa-then-permit process before you file.",
   },
   index: {
-    categoryId: "visa-comparisons",
-    categoryLabel: "Visa comparisons",
+    clusterId: "business",
+    clusterLabel: "Business Visa",
   },
   headingId: "business-visa-vs-work-permit-heading",
   eyebrow: "Business & work",
@@ -146,7 +147,7 @@ export const meta = defineGuideArticle({
       title: "Thailand Business Visa Guides",
       description:
         "More evergreen guides on business visas, work permits, and company sponsorship.",
-      href: "/guides/topic/business",
+      href: "/blog/cluster/business",
     },
     {
       category: "Alternative route",

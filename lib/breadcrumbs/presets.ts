@@ -1,4 +1,4 @@
-import { blogPath, guidesPath } from "@/lib/navigation"
+import { blogPath } from "@/lib/navigation"
 import type { BreadcrumbLink } from "@/lib/breadcrumbs/types"
 
 export const homeBreadcrumb: BreadcrumbLink = {
@@ -6,9 +6,10 @@ export const homeBreadcrumb: BreadcrumbLink = {
   href: "/",
 }
 
+/** @deprecated Use `blogIndexBreadcrumb` */
 export const guidesIndexBreadcrumb: BreadcrumbLink = {
-  label: "Guides",
-  href: guidesPath,
+  label: "Blog",
+  href: blogPath,
 }
 
 /** @deprecated Use `guidesIndexBreadcrumb` */
@@ -22,30 +23,6 @@ export function getVisaPageBreadcrumbs(input: {
   path: string
 }): BreadcrumbLink[] {
   return [homeBreadcrumb, { label: input.title, href: input.path }]
-}
-
-export function getGuideArticleBreadcrumbs(input: {
-  title: string
-  path: string
-  categoryLabel?: string
-  categoryPath?: string
-}): BreadcrumbLink[] {
-  const crumbs: BreadcrumbLink[] = [homeBreadcrumb, guidesIndexBreadcrumb]
-
-  if (input.categoryLabel && input.categoryPath) {
-    crumbs.push({ label: input.categoryLabel, href: input.categoryPath })
-  }
-
-  crumbs.push({ label: input.title, href: input.path })
-  return crumbs
-}
-
-/** @deprecated Use `getGuideArticleBreadcrumbs` */
-export function getResourceArticleBreadcrumbs(input: {
-  title: string
-  path: string
-}): BreadcrumbLink[] {
-  return getGuideArticleBreadcrumbs(input)
 }
 
 export const blogIndexBreadcrumb: BreadcrumbLink = {
@@ -67,6 +44,21 @@ export function getBlogArticleBreadcrumbs(input: {
 
   crumbs.push({ label: input.title, href: input.path })
   return crumbs
+}
+
+/** @deprecated Use `getBlogArticleBreadcrumbs` */
+export function getGuideArticleBreadcrumbs(
+  input: Parameters<typeof getBlogArticleBreadcrumbs>[0],
+): BreadcrumbLink[] {
+  return getBlogArticleBreadcrumbs(input)
+}
+
+/** @deprecated Use `getBlogArticleBreadcrumbs` */
+export function getResourceArticleBreadcrumbs(input: {
+  title: string
+  path: string
+}): BreadcrumbLink[] {
+  return getBlogArticleBreadcrumbs(input)
 }
 
 export function getConsultationPageBreadcrumbs(): BreadcrumbLink[] {

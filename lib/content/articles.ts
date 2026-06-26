@@ -5,7 +5,6 @@
  */
 
 import { blogMetaToIndexCard, resourceMetaToIndexCard } from "@/lib/content/adapters"
-import { getSyncPublishedGuideIndexArticles } from "@/lib/guides"
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
 import { plannedBlogArticles } from "@/lib/content/planned/blog"
 import type { BlogPostCard } from "@/lib/blog/types"
@@ -346,9 +345,9 @@ export function getResourceIndexArticlesSync(): ResourceArticle[] {
 }
 
 function getSyncPublishedResourceIndexArticles(): ResourceArticle[] {
-  return getSyncPublishedGuideIndexArticles().map((card) => ({
+  return getBlogIndexArticlesSync().map((card) => ({
     slug: card.slug,
-    categoryId: card.categoryId,
+    categoryId: card.clusterId,
     category: card.category,
     title: card.title,
     description: card.description,

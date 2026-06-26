@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 
 import type { ArticlePageProps } from "@/lib/content/article-page"
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
-import type { GuideArticleMeta } from "@/lib/content/collections/guides"
 import type {
   ResourceArticleMeta,
   ResourceArticlePageProps,
@@ -10,7 +9,6 @@ import type {
 import {
   breadcrumbsToSchemaItems,
   getBlogArticleBreadcrumbs,
-  getGuideArticleBreadcrumbs,
   getResourceArticleBreadcrumbs,
 } from "@/lib/breadcrumbs"
 import {
@@ -34,20 +32,6 @@ export function getResourceArticleRouteBreadcrumbs(
   })
 }
 
-export function getGuideArticleRouteBreadcrumbs(
-  article: Pick<ArticlePageProps, "title" | "path"> & {
-    categoryLabel?: string
-    categoryPath?: string
-  },
-) {
-  return getGuideArticleBreadcrumbs({
-    title: article.title,
-    path: article.path,
-    categoryLabel: article.categoryLabel,
-    categoryPath: article.categoryPath,
-  })
-}
-
 export function getBlogArticleRouteBreadcrumbs(
   article: Pick<ArticlePageProps, "title" | "path"> & {
     categoryLabel?: string
@@ -63,7 +47,7 @@ export function getBlogArticleRouteBreadcrumbs(
 }
 
 type ArticleMetadataSource = Pick<
-  ResourceArticleMeta | BlogArticleMeta | GuideArticleMeta,
+  ResourceArticleMeta | BlogArticleMeta,
   | "path"
   | "seo"
   | "publishedAt"
@@ -98,10 +82,6 @@ export function buildBlogArticleMetadata(meta: BlogArticleMeta): Metadata {
   return buildArticleMetadata(meta)
 }
 
-export function buildGuideArticleMetadata(meta: GuideArticleMeta): Metadata {
-  return buildArticleMetadata(meta)
-}
-
 // -----------------------------------------------------------------------------
 // JSON-LD  -  Article + BreadcrumbList (+ per-article schema extensions)
 // -----------------------------------------------------------------------------
@@ -124,9 +104,7 @@ export function buildArticleRouteSchemaGraph(
     breadcrumbsToSchemaItems(
       "collection" in input.article && input.article.collection === "blog"
         ? getBlogArticleRouteBreadcrumbs(input.article)
-        : "collection" in input.article && input.article.collection === "guides"
-          ? getGuideArticleRouteBreadcrumbs(input.article)
-          : getResourceArticleRouteBreadcrumbs(input.article),
+        : getResourceArticleRouteBreadcrumbs(input.article),
     )
 
   const extensionNodes: JsonLdNode[] = [

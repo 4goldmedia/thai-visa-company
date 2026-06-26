@@ -1,7 +1,8 @@
-import { defineGuideArticle } from "@/lib/content/collections/guides"
+import { defineBlogArticle } from "@/lib/content/collections/blog"
 import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
 
-export const meta = defineGuideArticle({
+export const meta = defineBlogArticle({
+  contentType: "guide",
   slug: "how-to-get-thailand-retirement-visa",
   title: "How to Get a Thailand Retirement Visa",
   description:
@@ -25,8 +26,8 @@ export const meta = defineGuideArticle({
     ],
   },
   index: {
-    categoryId: "visa-requirements",
-    categoryLabel: "Retirement",
+    clusterId: "retirement",
+    clusterLabel: "Retirement Visa",
   },
   headingId: "retirement-visa-guide-heading",
   eyebrow: "Retirement",
@@ -77,7 +78,7 @@ export const meta = defineGuideArticle({
       title: "How Long Does a Thai Visa Take",
       description:
         "Processing times by visa type and what affects your file.",
-      href: "/guides/how-long-does-thai-visa-take",
+      href: "/blog/how-long-does-thai-visa-take",
     },
     {
       category: "Visa services",
