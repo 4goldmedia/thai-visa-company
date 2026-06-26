@@ -28,7 +28,6 @@ function ArticleHero({
       {summary ? <p className="editorial-hero__summary">{summary}</p> : null}
       <ArticleMetadataRow
         author={metadata?.author}
-        reviewedBy={metadata?.reviewedBy}
         published={metadata?.published}
         updated={metadata?.updated}
         readingTime={metadata?.readingTime}

@@ -141,62 +141,27 @@ function ArticleMetadataBar({ metadata }: { metadata: ArticleMetadata }) {
 // Byline
 // -----------------------------------------------------------------------------
 
-function ArticleByline({
-  author,
-  reviewedBy,
-}: {
-  author?: ContentArticleAuthor
-  reviewedBy?: ContentArticleReviewedBy
-}) {
-  if (!author && !reviewedBy) return null
+function ArticleByline({ author }: { author?: ContentArticleAuthor }) {
+  if (!author) return null
 
-  const authorLabel = author ? (
-    author.url ? (
-      <Link href={author.url} className="font-medium text-foreground/75 hover:text-foreground">
-        {author.name}
-      </Link>
-    ) : (
-      <span className="font-medium text-foreground/75">{author.name}</span>
-    )
-  ) : null
-
-  const reviewedLabel = reviewedBy ? (
-    reviewedBy.url ? (
-      <Link href={reviewedBy.url} className="hover:text-foreground">
-        {reviewedBy.name}
-      </Link>
-    ) : (
-      <span>{reviewedBy.name}</span>
-    )
-  ) : null
+  const authorLabel = author.url ? (
+    <Link href={author.url} className="font-medium text-foreground/75 hover:text-foreground">
+      {author.name}
+    </Link>
+  ) : (
+    <span className="font-medium text-foreground/75">{author.name}</span>
+  )
 
   return (
     <p className={articleBylineClass}>
-      {author ? (
+      <span className="sr-only">Written by </span>
+      <span>By {authorLabel}</span>
+      {author.role ? (
         <>
-          <span className="sr-only">Written by </span>
-          <span>By {authorLabel}</span>
-          {author.role ? (
-            <>
-              <span aria-hidden className="text-muted-foreground/35">
-                ·
-              </span>
-              <span>{author.role}</span>
-            </>
-          ) : null}
-        </>
-      ) : null}
-      {reviewedBy ? (
-        <>
-          {author ? (
-            <span aria-hidden className="text-muted-foreground/35">
-              ·
-            </span>
-          ) : null}
-          <span>
-            <span className="sr-only">Reviewed by </span>
-            Reviewed by {reviewedLabel}
+          <span aria-hidden className="text-muted-foreground/35">
+            ·
           </span>
+          <span>{author.role}</span>
         </>
       ) : null}
     </p>
@@ -257,11 +222,8 @@ function ArticleHeader({
         </p>
       ) : null}
 
-      {metadata?.author || metadata?.reviewedBy ? (
-        <ArticleByline
-          author={metadata.author}
-          reviewedBy={metadata.reviewedBy}
-        />
+      {metadata?.author ? (
+        <ArticleByline author={metadata.author} />
       ) : null}
 
       {heroImage ? (

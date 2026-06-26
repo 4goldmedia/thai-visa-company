@@ -1,14 +1,10 @@
 import Link from "next/link"
 
-import type {
-  ContentArticleAuthor,
-  ContentArticleReviewedBy,
-} from "@/lib/content/types"
+import type { ContentArticleAuthor } from "@/lib/content/types"
 import { cn } from "@/lib/utils"
 
 type ArticleMetadataRowProps = {
   author?: ContentArticleAuthor
-  reviewedBy?: ContentArticleReviewedBy
   published?: string
   updated?: string
   readingTime?: string
@@ -40,7 +36,6 @@ function MetaSeparator() {
 
 function ArticleMetadataRow({
   author,
-  reviewedBy,
   published,
   updated,
   readingTime,
@@ -60,22 +55,6 @@ function ArticleMetadataRow({
           </Link>
         ) : (
           author.name
-        )}
-      </MetaItem>,
-    )
-  }
-
-  if (reviewedBy) {
-    items.push(
-      <MetaItem key="reviewed">
-        <span className="sr-only">Reviewed by </span>
-        Reviewed by{" "}
-        {reviewedBy.url ? (
-          <Link href={reviewedBy.url} className="hover:text-foreground">
-            {reviewedBy.name}
-          </Link>
-        ) : (
-          reviewedBy.name
         )}
       </MetaItem>,
     )
