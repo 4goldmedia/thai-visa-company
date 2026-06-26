@@ -10,7 +10,7 @@ function Definition({ term, children, className }: DefinitionProps) {
   return (
     <dl
       className={cn(
-        "editorial-definition my-6 rounded-[var(--radius-card)] border border-border/50 px-5 py-4 sm:px-6 sm:py-5",
+        "editorial-definition my-8 border border-border/50 px-5 py-5 sm:px-6 sm:py-6",
         className,
       )}
     >

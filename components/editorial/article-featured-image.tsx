@@ -16,7 +16,7 @@ function ArticleFeaturedImage({ src, alt, className }: ArticleFeaturedImageProps
         alt={alt}
         fill
         className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 792px"
+            sizes="(max-width: 1024px) 100vw, min(52rem, 72vw)"
         priority
       />
     </div>

@@ -5,7 +5,6 @@ import { ArticleHero } from "@/components/editorial/article-hero"
 import { ArticleQuickAnswer } from "@/components/editorial/article-quick-answer"
 import { ArticleSidebarTools } from "@/components/editorial/article-sidebar-tools"
 import { ArticleStickySidebar } from "@/components/editorial/article-sticky-sidebar"
-import { ArticleTOCMobile } from "@/components/editorial/article-toc"
 import { Container } from "@/components/layout/container"
 import type { ArticleLayoutProps } from "@/components/layout/article-layout"
 import { Breadcrumbs } from "@/components/navigation/breadcrumbs"
@@ -59,18 +58,18 @@ function BlogArticleLayout({
               "editorial-article-frame--no-breadcrumbs",
           )}
         >
+          <div className="editorial-article-hero-band">
+            <ArticleHero
+              category={category}
+              title={title}
+              headingId={headingId}
+              summary={lead}
+              metadata={metadata}
+            />
+          </div>
+
           <div className="editorial-article-layout-grid">
             <div className="editorial-article-main-column">
-              <div className="editorial-article-hero-band">
-                <ArticleHero
-                  category={category}
-                  title={title}
-                  headingId={headingId}
-                  summary={lead}
-                  metadata={metadata}
-                />
-              </div>
-
               {heroImage ? (
                 <div className="editorial-article-image-slot">
                   <ArticleFeaturedImage src={heroImage} alt={title} />
@@ -78,7 +77,14 @@ function BlogArticleLayout({
               ) : null}
 
               <div className="editorial-article-body-slot min-w-0">
-                <ArticleTOCMobile items={tableOfContents} />
+                <div className="editorial-sidebar-mobile">
+                  <ArticleSidebarTools
+                    items={tableOfContents}
+                    path={path}
+                    title={title}
+                    showQuickAnswerLink={Boolean(answer)}
+                  />
+                </div>
                 {answer ? <ArticleQuickAnswer answer={answer} /> : null}
                 <div className="editorial-prose">{children}</div>
               </div>
@@ -89,6 +95,7 @@ function BlogArticleLayout({
                 items={tableOfContents}
                 path={path}
                 title={title}
+                showQuickAnswerLink={Boolean(answer)}
               />
             </ArticleStickySidebar>
           </div>
@@ -96,7 +103,13 @@ function BlogArticleLayout({
       </Container>
 
       {cta}
-      {relatedResources}
+      {relatedResources ? (
+        <Container className="editorial-article-stage editorial-article-stage--after-cta">
+          <div className="editorial-article-frame">
+            <div className="editorial-article-keep-reading-slot">{relatedResources}</div>
+          </div>
+        </Container>
+      ) : null}
     </article>
   )
 }

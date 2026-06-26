@@ -1,4 +1,4 @@
-import { blogMetaToIndexCard } from "@/lib/blog/adapters"
+import { blogMetaToIndexCard, blogMetaToRelatedLink } from "@/lib/blog/adapters"
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
 import type { BlogPostCard } from "@/lib/blog/types"
 import type { ResourceArticleMeta } from "@/lib/content/collections/resources"
@@ -18,7 +18,7 @@ export function resourceMetaToIndexCard(meta: ResourceArticleMeta): ResourceArti
   }
 }
 
-export { blogMetaToIndexCard }
+export { blogMetaToIndexCard, blogMetaToRelatedLink }
 
 export function blogMetaToCard(meta: BlogArticleMeta): BlogPostCard {
   return blogMetaToIndexCard(meta)

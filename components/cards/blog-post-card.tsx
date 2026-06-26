@@ -16,6 +16,7 @@ type BlogPostCardProps = {
   publishedAt?: string
   updatedAt?: string
   image?: string
+  authorName?: string
   ctaLabel?: string
   variant?: "default" | "editorial"
   className?: string
@@ -41,6 +42,7 @@ function BlogPostCard({
   readingTime,
   publishedAt,
   image,
+  authorName,
   ctaLabel = ctaLabels.readGuide,
   variant = "default",
   className,
@@ -82,6 +84,9 @@ function BlogPostCard({
           </p>
           <h3 className="blog-index-card__title">{title}</h3>
           <p className="blog-index-card__excerpt">{description}</p>
+          {authorName ? (
+            <p className="blog-index-card__author">{authorName}</p>
+          ) : null}
           <div className="blog-index-card__meta">
             {publishDate && !isPlanned ? (
               <time dateTime={publishedAt}>{publishDate}</time>

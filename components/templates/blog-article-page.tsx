@@ -1,9 +1,13 @@
+import { ArticleConsultationBand } from "@/components/articles/article-consultation-band"
 import { ArticleInlineFaq } from "@/components/articles/article-inline-faq"
+import { ArticleRelatedGuideStrip } from "@/components/articles/article-related-guide-strip"
+import { ArticleSeriesNav } from "@/components/articles/article-series-nav"
+import { ArticleSources } from "@/components/articles/article-sources"
+import { ArticleTopicHubStrip } from "@/components/articles/article-topic-hub-strip"
 import { ArticleCTA } from "@/components/editorial/article-cta"
 import { ArticleLinkCard } from "@/components/editorial/article-link-card"
 import { RelatedArticles } from "@/components/editorial/related-articles"
 import { BlogArticleLayout } from "@/components/layout/blog-article-layout"
-import { ArticlePageTemplate } from "@/components/templates/article-page"
 import { ArticleJsonLd } from "@/components/seo/article-json-ld"
 import type { ResolvedBlogArticlePageContext } from "@/lib/content/routing/blog-types"
 
@@ -17,94 +21,98 @@ function usesAuthorityArticleTemplate(
   return contentType === "guide" || contentType === "comparison"
 }
 
+const editorialFaqClassName = "editorial-faq-card"
+
 function BlogArticlePageView({ context }: BlogArticlePageViewProps) {
-  const { route, related, relatedVisas, relatedGuide, topicHub, breadcrumbs, seriesNav } =
-    context
+  const { route, related, relatedGuide, topicHub, breadcrumbs, seriesNav } = context
   const { MdxContent, page } = route
-
-  if (usesAuthorityArticleTemplate(page.contentType)) {
-    const article = {
-      ...page,
-      related,
-      relatedVisas,
-      topicHubHref: topicHub?.href,
-      topicHubLabel: topicHub?.title,
-    }
-
-    return (
-      <ArticlePageTemplate
-        article={article}
-        breadcrumbs={breadcrumbs}
-        seriesNav={seriesNav}
-      >
-        <MdxContent />
-      </ArticlePageTemplate>
-    )
-  }
-
-  const article = {
-    ...page,
-    related,
-    relatedVisas,
-    relatedGuide,
-  }
+  const isAuthority = usesAuthorityArticleTemplate(page.contentType)
 
   const category =
-    article.index?.clusterLabel ?? article.metadata.category ?? article.eyebrow
+    page.index?.clusterLabel ?? page.metadata.category ?? page.eyebrow ?? "Article"
+
+  const topicHubStrip =
+    topicHub?.href && topicHub?.title
+      ? {
+          category: "Guides",
+          title: topicHub.title,
+          description: "More evergreen guides on this visa route.",
+          href: topicHub.href,
+        }
+      : undefined
+
+  const relatedSlot = related.length > 0 ? <RelatedArticles items={related} /> : null
 
   return (
     <>
-      <ArticleJsonLd article={article} />
+      <ArticleJsonLd article={{ ...page, related }} />
       <main
         id="main-content"
         tabIndex={-1}
-        aria-label={article.title}
+        aria-label={page.title}
         className="flex flex-1 flex-col"
       >
         <BlogArticleLayout
           breadcrumbs={breadcrumbs}
-          title={article.title}
-          headingId={article.headingId}
-          lead={article.lead}
-          answer={article.answer}
-          heroImage={article.heroImage}
-          metadata={article.metadata}
+          title={page.title}
+          headingId={page.headingId}
+          lead={page.lead}
+          answer={page.answer}
+          heroImage={page.heroImage}
+          metadata={page.metadata}
           category={category}
-          path={article.path}
-          tableOfContents={article.tableOfContents}
+          path={page.path}
+          tableOfContents={page.tableOfContents}
           cta={
-            <ArticleCTA
-              title={article.cta.title}
-              description={article.cta.description}
-              articleSlug={article.slug}
-            />
+            isAuthority ? (
+              <ArticleConsultationBand
+                title={page.cta.title}
+                description={page.cta.description}
+                articleSlug={page.slug}
+              />
+            ) : (
+              <ArticleCTA
+                title={page.cta.title}
+                description={page.cta.description}
+                articleSlug={page.slug}
+              />
+            )
           }
-          relatedResources={
-            article.related.length > 0 ? (
-              <RelatedArticles items={article.related} />
-            ) : null
-          }
+          relatedResources={relatedSlot}
         >
+          {isAuthority && relatedGuide ? (
+            <ArticleRelatedGuideStrip guide={relatedGuide} />
+          ) : null}
           <MdxContent />
-          {article.relatedGuide ? (
+          {topicHubStrip ? (
+            <ArticleTopicHubStrip topicHub={topicHubStrip} className="mt-10" />
+          ) : null}
+          {page.sources?.length ? (
+            <ArticleSources
+              headingId={`${page.slug}-sources`}
+              items={page.sources}
+            />
+          ) : null}
+          {seriesNav ? <ArticleSeriesNav {...seriesNav} /> : null}
+          {!isAuthority && relatedGuide ? (
             <ArticleLinkCard
-              href={article.relatedGuide.href}
+              href={relatedGuide.href}
               category="Canonical guide"
-              title={article.relatedGuide.title}
-              description={article.relatedGuide.description}
+              title={relatedGuide.title}
+              description={relatedGuide.description}
               ctaLabel="Read the full guide"
             />
           ) : null}
           <ArticleInlineFaq
-            headingId={`${article.slug}-faq`}
-            title="Frequently asked questions"
-            description={`Short answers about ${article.title.toLowerCase()}.`}
-            items={article.faq}
-            className="!mt-[var(--editorial-section-gap,3.5rem)] !border-t !border-border/35 !pt-10 sm:!pt-12"
+            headingId={`${page.slug}-faq`}
+            title={isAuthority ? "Common questions" : "Frequently asked questions"}
+            description={`Short answers about ${page.title.toLowerCase()}.`}
+            items={page.faq}
+            className={editorialFaqClassName}
             jsonLd={{
-              name: `${article.title}: FAQ`,
-              path: article.path,
-              description: article.lead,
+              name: `${page.title}: FAQ`,
+              path: page.path,
+              description: page.lead,
               aboutArticle: true,
             }}
           />

@@ -3,9 +3,10 @@
 @layer components {
   :root {
     --premium-cta-bg: #1f1b18;
-    --premium-cta-heading: #f5f1e7;
-    --premium-cta-title: #ffffff;
-    --premium-cta-body: color-mix(in srgb, #f5f1e7 72%, transparent);
+    --premium-cta-cream: #f5f1e7;
+    --premium-cta-heading: var(--premium-cta-cream);
+    --premium-cta-title: var(--premium-cta-cream);
+    --premium-cta-body: var(--premium-cta-cream);
     --premium-cta-button-bg: #ffffff;
     --premium-cta-button-fg: #23211e;
     --premium-cta-button-hover-bg: #f2ece6;
@@ -67,26 +68,26 @@
     }
   }
 
-  .premium-cta__title {
+  .premium-cta__card .premium-cta__title {
     font-family: var(--font-display);
     font-size: clamp(1.625rem, 2.8vw, 2.125rem);
     font-weight: 500;
     line-height: 1.12;
     letter-spacing: -0.025em;
-    color: var(--premium-cta-title);
+    color: var(--premium-cta-cream);
   }
 
-  .premium-cta__description {
+  .premium-cta__card .premium-cta__description {
     margin-top: 0.875rem;
     max-width: var(--premium-cta-copy-max);
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: 1.62;
-    color: var(--premium-cta-body);
+    color: var(--premium-cta-cream);
   }
 
   @media (min-width: 640px) {
-    .premium-cta__description {
+    .premium-cta__card .premium-cta__description {
       margin-top: 1rem;
       font-size: var(--text-body-md);
       line-height: 1.58;
@@ -142,7 +143,7 @@
   }
 
   .premium-cta__button:focus-visible {
-    outline: 2px solid color-mix(in srgb, var(--premium-cta-heading) 45%, transparent);
+    outline: 2px solid color-mix(in srgb, var(--premium-cta-cream) 45%, transparent);
     outline-offset: 3px;
   }
 
@@ -163,10 +164,10 @@
     }
   }
 
-  .premium-cta__contact-label {
+  .premium-cta__card .premium-cta__contact-label {
     font-size: var(--text-small);
     font-weight: 400;
-    color: var(--premium-cta-body);
+    color: var(--premium-cta-cream);
   }
 
   .premium-cta__contact-links {
@@ -175,31 +176,31 @@
     gap: var(--premium-cta-link-gap);
   }
 
-  .premium-cta__contact-link {
+  .premium-cta__card .premium-cta__contact-link {
     font-size: var(--text-body);
     font-weight: 600;
-    color: var(--premium-cta-heading);
+    color: var(--premium-cta-cream);
     text-decoration: underline;
     text-decoration-thickness: 1px;
-    text-decoration-color: color-mix(in srgb, var(--premium-cta-heading) 55%, transparent);
+    text-decoration-color: color-mix(in srgb, var(--premium-cta-cream) 45%, transparent);
     text-underline-offset: 0.2em;
     transition: color 0.2s ease, text-decoration-color 0.2s ease;
   }
 
   @media (min-width: 640px) {
-    .premium-cta__contact-link {
+    .premium-cta__card .premium-cta__contact-link {
       font-size: var(--text-body-md);
     }
   }
 
-  .premium-cta__contact-link:hover {
-    color: color-mix(in srgb, var(--premium-cta-heading) 90%, transparent);
+  .premium-cta__card .premium-cta__contact-link:hover {
+    color: color-mix(in srgb, var(--premium-cta-cream) 82%, #ffffff);
     text-decoration: underline;
-    text-decoration-color: color-mix(in srgb, var(--premium-cta-heading) 75%, transparent);
+    text-decoration-color: color-mix(in srgb, var(--premium-cta-cream) 65%, #ffffff);
   }
 
-  .premium-cta__contact-link:focus-visible {
-    outline: 2px solid color-mix(in srgb, var(--premium-cta-heading) 45%, transparent);
+  .premium-cta__card .premium-cta__contact-link:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--premium-cta-cream) 45%, transparent);
     outline-offset: 3px;
   }
 

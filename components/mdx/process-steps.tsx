@@ -20,13 +20,10 @@ function ProcessSteps({
   return (
     <ol
       aria-label={ariaLabel}
-      className={cn("my-8 space-y-5 sm:my-10 sm:space-y-6", className)}
+      className={cn("editorial-process-steps", className)}
     >
       {steps.map((item) => (
-        <li
-          key={item.step}
-          className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 border-t border-border/35 pt-5 first:border-t-0 first:pt-0"
-        >
+        <li key={item.step} className="editorial-process-steps__item">
           <span className="text-[12px] font-medium uppercase tracking-[0.08em] text-muted-foreground/75">
             Step {item.step}
           </span>

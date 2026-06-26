@@ -17,7 +17,7 @@ function KeyFacts({ title = "Key facts", items, className }: KeyFactsProps) {
   return (
     <aside
       className={cn(
-        "editorial-key-facts my-8 rounded-[var(--radius-card)] border border-border/50 px-5 py-5 sm:px-6 sm:py-6",
+        "editorial-key-facts my-8 border border-border/50 px-5 py-5 sm:px-6 sm:py-6",
         className,
       )}
       aria-label={title}

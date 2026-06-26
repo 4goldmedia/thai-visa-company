@@ -90,6 +90,10 @@ export type ContentRelatedLink = {
   image?: ContentFeaturedImage
   imageAlt?: string
   objectPosition?: string
+  /** Blog card metadata for related-article surfaces */
+  publishedAt?: string
+  readingTime?: string
+  authorName?: string
 }
 
 /** @alias ContentRelatedLink  -  used by `RelatedResources` section */

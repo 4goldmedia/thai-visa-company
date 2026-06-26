@@ -269,6 +269,13 @@
     color: var(--text-secondary);
   }
 
+  .blog-index-card__author {
+    margin-top: 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: color-mix(in srgb, var(--foreground) 72%, transparent);
+  }
+
   .blog-index-card__meta {
     display: flex;
     flex-wrap: wrap;

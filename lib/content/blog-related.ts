@@ -1,4 +1,5 @@
 import { getBlogClusterById } from "@/lib/blog"
+import { blogMetaToRelatedLink } from "@/lib/blog/adapters"
 import { blogClusterPath } from "@/lib/blog/types"
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
 import {
@@ -9,8 +10,23 @@ import {
 import type { ContentRelatedLink } from "@/lib/content/types"
 import { getVisaFromRegistry } from "@/lib/visas/registry"
 import { visaToRelatedLink } from "@/lib/content/related"
-import { isRegisteredContentArticleKey, loadArticleMeta } from "@/lib/content/registry"
+import {
+  isRegisteredContentArticleKey,
+  loadArticleMeta,
+  loadContentArticleBySlug,
+} from "@/lib/content/registry"
 import { toContentArticleKey } from "@/lib/content/collections"
+import type { ContentSlug } from "@/lib/content/types"
+
+async function enrichBlogArticleLink(link: ContentRelatedLink): Promise<ContentRelatedLink> {
+  const match = link.href.match(/^\/blog\/([^/?#]+)\/?$/)
+  if (!match?.[1]) return link
+
+  const module = await loadContentArticleBySlug("blog", match[1] as ContentSlug)
+  if (!module?.meta.published || module.meta.collection !== "blog") return link
+
+  return blogMetaToRelatedLink(module.meta)
+}
 
 export type ResolvedBlogCrossLinks = ResolvedCrossLinks & {
   relatedGuide?: ContentRelatedLink
@@ -82,8 +98,13 @@ export async function resolveBlogCrossLinks(
     ),
   ])
 
+  const articles = await Promise.all(
+    crossLinks.articles.map((link) => enrichBlogArticleLink(link)),
+  )
+
   return {
     ...crossLinks,
+    articles,
     relatedGuide,
     pillarVisa,
   }

@@ -7,6 +7,7 @@
 
 import {
   blogMetaToIndexCard,
+  blogMetaToRelatedLink,
   resourceMetaToIndexCard,
 } from "@/lib/content/adapters"
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
@@ -773,15 +774,7 @@ export async function resolveRelatedArticles(
 
       const relatedLink: ContentRelatedLink =
         input.collection === "blog" && isBlogArticleMeta(meta)
-          ? (() => {
-              const card = blogMetaToIndexCard(meta)
-              return {
-                category: card.category,
-                title: card.title,
-                description: card.description,
-                href: card.path,
-              }
-            })()
+          ? blogMetaToRelatedLink(meta)
           : input.collection === "resources" && isResourceArticleMeta(meta)
             ? (() => {
                 const card = resourceMetaToIndexCard(meta)
