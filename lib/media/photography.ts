@@ -3,12 +3,20 @@
  *
  * Production heroes live under `/public/images/hero/` (local paths only).
  * Visa gallery imagery lives under `/public/images/visas/`.
+ * Blog art direction: `editorial-asset-library.ts` + `blogArticlePhotography`.
  *
  * Art direction: people + lifestyle context (relocation / mobility), not empty architecture.
  *
  * @see PHOTOGRAPHY_DIRECTION.md
  * @see public/images/visas/README.md
+ * @see rules/content/visual-storytelling-system.mdc
  */
+
+import {
+  editorialAssetLibrary,
+  getEditorialAsset,
+  getVisaPageImageSrcsFromLibrary,
+} from "@/lib/media/editorial-asset-library"
 
 export type HeroMediaAsset = {
   /** Path under `/public` (e.g. `/images/hero/Bangkok-skyline-LS.webp`) or allowed remote URL */
@@ -109,6 +117,35 @@ export const visaGalleryPhotography = {
     objectPosition: "center 40%",
   },
 } as const satisfies Record<string, VisaGalleryImage>
+
+/** All image paths reserved for visa service pages — blog articles must not use these */
+export const visaPageImageSrcs = new Set<string>([
+  ...getVisaPageImageSrcsFromLibrary(),
+  ...Object.values(visaGalleryPhotography).map((image) => image.src),
+])
+
+export type BlogArticleImage = {
+  src: string
+  alt: string
+  objectPosition?: string
+}
+
+/**
+ * Blog article photography — independent from visa page heroes.
+ * Assign assets from `editorial-asset-library.ts` after the visual storytelling review.
+ */
+export const blogArticlePhotography = {
+  "best-visa-for-living-in-thailand": {
+    hero: getEditorialAsset("pattaya-coastline-hero"),
+    supporting: getEditorialAsset("work-income-thailand"),
+  },
+  "business-visa-vs-work-permit-thailand": {
+    hero: getEditorialAsset("business-visa-work-permit-comparison-hero"),
+  },
+} as const satisfies Record<string, { hero: BlogArticleImage; supporting?: BlogArticleImage }>
+
+/** @deprecated Use editorialAssetLibrary — re-export for discoverability */
+export { editorialAssetLibrary, getBlogAvailableEditorialAssets } from "@/lib/media/editorial-asset-library"
 
 /** @deprecated Use visaGalleryPhotography */
 export const visaCardPhotography = visaGalleryPhotography

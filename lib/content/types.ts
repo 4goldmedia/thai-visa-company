@@ -15,7 +15,7 @@ export const contentCollectionIds = [
 
 export type ContentCollectionId = (typeof contentCollectionIds)[number]
 
-/** App Router path segment for an article, e.g. `how-to-get-thailand-retirement-visa` */
+/** App Router path segment for an article, e.g. `business-visa-vs-work-permit-thailand` */
 export type ContentSlug = string
 
 export type ContentArticlePath = `/${string}`

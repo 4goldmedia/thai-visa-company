@@ -21,6 +21,7 @@ export const ctaLabels = {
   exploreVisas: "Explore visas",
   learnMore: "Learn more",
   readGuide: "Read guide",
+  readArticle: "Read article",
   /** @deprecated Use requestConsultation */
   contactForm: "Request a consultation",
 } as const

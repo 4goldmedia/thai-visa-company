@@ -85,6 +85,18 @@ Full rule: [`rules/content/content-clusters.mdc`](../rules/content/content-clust
 
 Put answers early. Sections should stand alone if quoted by an AI system.
 
+### Visual editorial
+
+Images are part of the reading experience, not decoration. After writing, run a visual storytelling review before selecting assets. Every visual needs a clear editorial purpose.
+
+Full rules:
+
+- [`rules/content/visual-storytelling-system.mdc`](../rules/content/visual-storytelling-system.mdc)
+- [`rules/content/visual-editorial-system.mdc`](../rules/content/visual-editorial-system.mdc)
+- [`rules/content/editorial-image-policy.mdc`](../rules/content/editorial-image-policy.mdc)
+
+Asset library: [`lib/media/editorial-asset-library.ts`](../lib/media/editorial-asset-library.ts)
+
 ### Search reality check
 
 Ask: **Would a real applicant type this into Google?**
@@ -219,9 +231,10 @@ When creating or editing content:
 1. Read [`rules/content/`](../rules/content/) for the active task
 2. Confirm cluster, search question, and pillar links
 3. Apply conversion philosophy for process steps, decision frameworks, and CTAs (`editorial-conversion-philosophy.mdc`)
-4. Use existing editorial components (`ArticleQuickAnswer`, `ArticleTable`, etc.)
-5. Run `npm run validate:articles` before merge
-6. Do not redesign layouts unless explicitly scoped
+4. Run visual storytelling review; assign assets from `editorial-asset-library.ts` (`visual-storytelling-system.mdc`, `editorial-image-policy.mdc`)
+5. Use existing editorial components (`ArticleQuickAnswer`, `ArticleTable`, etc.)
+6. Run `npm run validate:articles` before merge
+7. Do not redesign layouts unless explicitly scoped
 
 Cursor rule: [`.cursor/rules/content-governance.mdc`](../.cursor/rules/content-governance.mdc)
 
@@ -239,6 +252,9 @@ rules/content/
   internal-linking.mdc        # Knowledge network links
   seo-aeo-standard.mdc        # Citation-oriented structure
   editorial-conversion-philosophy.mdc  # Consultative CTAs and process endings
+  visual-storytelling-system.mdc         # Art direction, visual narrative, asset selection
+  visual-editorial-system.mdc          # Hero and supporting image standards
+  editorial-image-policy.mdc           # Blog independence from visa page imagery
 
 content/articles/
   blog/                     # Freshness / news / rule changes

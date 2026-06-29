@@ -35,7 +35,7 @@ Final cross-cutting review of the Thailand visa marketing platform before launch
 | `/visas/retirement` | Live |
 | `/visas/dtv`, `/elite`, `/business`, `/education` | Live |
 | `/resources` | Live |
-| `/resources/how-to-get-thailand-retirement-visa` | Live |
+| `/blog/how-to-get-thailand-retirement-visa` | Redirects to `/visas/retirement` |
 | `/sitemap.xml`, `/robots.txt` | Live |
 
 **Not built (still linked in UI):** `/visas`, `/contact`, `/reviews`, `/privacy`, `/terms`, 2 planned resource articles.

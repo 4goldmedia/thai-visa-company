@@ -4,12 +4,10 @@ import type { GeneratedArticleRegistryKey } from "@/lib/content/registry.generat
 
 import { meta as meta_best_visa_for_living_in_thailand } from "@/content/articles/blog/best-visa-for-living-in-thailand/meta"
 import { meta as meta_business_visa_vs_work_permit_thailand } from "@/content/articles/blog/business-visa-vs-work-permit-thailand/meta"
-import { meta as meta_how_to_get_thailand_retirement_visa } from "@/content/articles/blog/how-to-get-thailand-retirement-visa/meta"
 
 export const generatedArticleMetaSync: Partial<
   Record<GeneratedArticleRegistryKey, BlogArticleMeta>
 > = {
   "blog/best-visa-for-living-in-thailand": meta_best_visa_for_living_in_thailand,
   "blog/business-visa-vs-work-permit-thailand": meta_business_visa_vs_work_permit_thailand,
-  "blog/how-to-get-thailand-retirement-visa": meta_how_to_get_thailand_retirement_visa,
 }

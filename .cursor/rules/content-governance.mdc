@@ -23,6 +23,10 @@ When creating, editing, auditing, planning, or expanding **blog articles**, **gu
 - No em dashes in user-facing copy (`punctuation.mdc`)
 - Link to visa page, pillar, and supporting articles (`internal-linking.mdc`)
 - End process sections and decision frameworks with a consultative path to expert help (`editorial-conversion-philosophy.mdc`)
+- After drafting, run a visual storytelling review before assigning images (`visual-storytelling-system.mdc`)
+- Select hero and supporting images deliberately; never repeat the hero in the body (`visual-editorial-system.mdc`)
+- Blog articles must not reuse visa page gallery images (`editorial-image-policy.mdc`)
+- Register new photography in `lib/media/editorial-asset-library.ts`
 - Plain English; no filler, jargon, or disguised sales copy
 
 ## Do not

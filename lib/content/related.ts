@@ -203,6 +203,7 @@ export type ContentArticleSummary = {
   description: string
   category: string
   tags: ReadonlyArray<string>
+  resourceCategoryId?: string
   publishedAt: string
   updatedAt?: string
   published: boolean
@@ -350,7 +351,17 @@ export function articleSummaryToRelatedLink(
     title: summary.title,
     description: summary.description,
     href: summary.path,
+    publishedAt: summary.publishedAt,
+    readingTime: summary.readingTime,
   }
+}
+
+/** `/blog/{slug}` article URLs only — excludes index, clusters, and other blog routes */
+export function isBlogArticleHref(href: string): boolean {
+  const normalized = href.replace(/\/$/, "")
+  const match = normalized.match(/^\/blog\/([^/?#]+)$/)
+  if (!match?.[1]) return false
+  return match[1] !== "cluster"
 }
 
 export function visaSlugFromRelatedHref(href: string): VisaSlug | undefined {
@@ -471,7 +482,8 @@ export function scoreArticleToArticle(
 
   if (
     source.resourceCategoryId &&
-    target.key.startsWith("blog/")
+    target.resourceCategoryId &&
+    source.resourceCategoryId === target.resourceCategoryId
   ) {
     score += SCORE.RESOURCE_CATEGORY
     reasons.push("resource-category")
@@ -632,7 +644,12 @@ export function mergeScoredRelatedLinks(
   }
 
   return [...byHref.values()]
-    .sort((a, b) => b.score - a.score)
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score
+      const dateA = Date.parse(a.link.publishedAt ?? "") || 0
+      const dateB = Date.parse(b.link.publishedAt ?? "") || 0
+      return dateB - dateA
+    })
     .slice(0, options.max)
     .map((item) => item.link)
 }
@@ -690,6 +707,16 @@ function toArticleSummary(
   meta: ContentArticleBase,
 ): ContentArticleSummary {
   const parsed = parseContentArticleKey(key)
+  const index =
+    "index" in meta && meta.index && typeof meta.index === "object"
+      ? (meta.index as { categoryId?: string; clusterId?: string })
+      : undefined
+  const resourceCategoryId = index?.clusterId
+    ? String(index.clusterId)
+    : index?.categoryId
+      ? String(index.categoryId)
+      : undefined
+
   return {
     key,
     collection: parsed?.collection ?? meta.collection,
@@ -699,6 +726,7 @@ function toArticleSummary(
     description: meta.description,
     category: meta.category,
     tags: meta.tags,
+    resourceCategoryId,
     publishedAt: meta.publishedAt,
     updatedAt: meta.updatedAt,
     published: meta.published,
@@ -752,6 +780,7 @@ export async function resolveRelatedArticles(
   const excludeHrefs = new Set<string>()
 
   for (const [index, link] of input.related.entries()) {
+    if (input.collection === "blog" && !isBlogArticleHref(link.href)) continue
     if (!(await isPublishedArticleHref(link.href))) continue
 
     scored.push({
@@ -825,10 +854,14 @@ export async function resolveRelatedArticles(
     }
   }
 
-  return mergeScoredRelatedLinks(scored, {
+  const merged = mergeScoredRelatedLinks(scored, {
     max,
     excludeHrefs: [source.path],
   })
+
+  if (input.collection !== "blog") return merged
+
+  return merged.filter((link) => isBlogArticleHref(link.href))
 }
 
 function isBlogArticleMeta(meta: ContentArticleBase): meta is BlogArticleMeta {

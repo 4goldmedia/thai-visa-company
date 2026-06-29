@@ -64,7 +64,7 @@ export const meta = defineBlogArticle({
   reviewedBy: {
     name: "Senior Visa Case Review",
   },
-  heroImage: "/images/visas/dtv-remote-work.jpg",
+  heroImage: "/images/editorial/Pattaya-skyline.webp",
   readingTime: "16 min read",
   tableOfContents: [
     { id: "key-takeaways", label: "Key takeaways" },

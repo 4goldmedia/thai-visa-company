@@ -1,0 +1,66 @@
+---
+description: Blog image independence from visa pages — unique visuals per article
+globs: content/articles/blog/**/*,lib/media/**/*,public/images/**/*
+alwaysApply: false
+---
+
+# Editorial Image Policy
+
+Blog articles must **not** reuse the hero images, supporting images, or visual compositions used on Visa pages.
+
+The blog and the Visa pages serve different purposes:
+
+- **Visa pages** help readers complete an application.
+- **Blog articles** help readers understand, compare, and make decisions.
+
+Although they may discuss the same visa, they should feel like different editorial experiences.
+
+Every blog article should use its own unique visual language while remaining consistent with the overall brand.
+
+Works with [`visual-editorial-system.mdc`](./visual-editorial-system.mdc) for style and quality, and [`visual-storytelling-system.mdc`](./visual-storytelling-system.mdc) for art direction and visual narrative.
+
+## Image selection
+
+For every article, review the completed content and determine where imagery genuinely improves comprehension.
+
+Follow the visual storytelling review in [`visual-storytelling-system.mdc`](./visual-storytelling-system.mdc) before selecting assets.
+
+Possible visual elements include editorial photography, comparison graphics, process diagrams, decision trees, timelines, simple illustrations, and charts.
+
+Only include visuals where they add value. If a section is already clear without an image, do not force one.
+
+## Editorial independence
+
+Never reuse:
+
+- hero images from Visa pages
+- supporting images from Visa pages
+- diagrams from Visa pages
+- compositions that obviously duplicate another page
+
+Every article should introduce fresh imagery.
+
+A returning visitor should immediately recognize they are reading a different article, not looking at recycled assets.
+
+**Forbidden for blog:** any asset with `visaPageOnly: true` in `lib/media/editorial-asset-library.ts`, including all `visaGalleryPhotography` paths. Register blog heroes in `blogArticlePhotography` instead.
+
+## Image variety
+
+If multiple articles discuss similar topics (for example DTV, Business Visa, Retirement Visa, Elite Visa), intentionally vary:
+
+- location
+- subject
+- framing
+- camera angle
+- distance
+- composition
+- lighting
+- perspective
+
+Avoid showing the same scene from a different crop.
+
+Images should feel curated by an editor rather than selected by keywords.
+
+See [`visual-storytelling-system.mdc`](./visual-storytelling-system.mdc) for the full art director workflow.
+
+When sourcing or generating imagery, always follow the Visual Editorial System and maintain the same premium editorial aesthetic across the website.

@@ -1,0 +1,150 @@
+---
+description: Visual storytelling standard — art direction, narrative formats, and asset selection
+globs: content/**/*,lib/media/**/*,public/images/**/*
+alwaysApply: false
+---
+
+# Visual Storytelling System
+
+Refinement of the [Editorial Image Policy](./editorial-image-policy.mdc). Works with the [Visual Editorial System](./visual-editorial-system.mdc) for brand style and quality.
+
+Every article should tell a visual story, not simply display photographs.
+
+Images should help readers understand, remember, and trust the content.
+
+Every visual must have a clear editorial purpose.
+
+## Objective
+
+Readers should never feel that images were added to decorate the page.
+
+Every visual should feel like an intentional editorial decision that makes the article easier to understand, more memorable, and more authoritative.
+
+## Think like an art director
+
+After completing the written article, perform a dedicated visual editorial review.
+
+Do not immediately search for images.
+
+Instead, ask:
+
+- What visual would help the reader most here?
+- Does this section actually need an image?
+- Would a comparison graphic explain this better?
+- Would a process diagram be clearer?
+- Would a decision tree reduce complexity?
+- Would a chart communicate this faster?
+- Is photography even the best choice?
+
+Only after answering those questions should visuals be selected.
+
+## Visual narrative
+
+Every article should intentionally choose which visual elements it needs.
+
+### Hero photography
+
+Sets the mood. Introduces the subject. Creates the first impression.
+
+### Editorial photography
+
+Supports the narrative. Shows realistic situations. Adds atmosphere. Breaks up long reading sections.
+
+### Comparison graphics
+
+Use whenever readers are comparing options.
+
+Examples: Visa A vs Visa B, decision matrices, pros vs cons.
+
+Often more valuable than additional text. Prefer `ArticleComparison` and comparison tables.
+
+### Process diagrams
+
+Use whenever readers need to understand application flow, decision flow, timelines, government process, or required sequence.
+
+Replace multiple paragraphs where possible. Prefer `ProcessSteps` for government sequences.
+
+### Decision trees
+
+Whenever the article helps readers choose between options, consider a simple decision tree.
+
+Examples: Which visa fits your situation? Do you need both? Which route should you choose?
+
+Use structured prose, checklists, or decision framework sections when a dedicated diagram is not yet built.
+
+### Charts
+
+Use only when they genuinely simplify information.
+
+Examples: timelines, comparisons, process duration, relationship diagrams.
+
+Never add charts purely because data exists.
+
+## Editorial independence
+
+Blog articles must remain visually independent from Visa pages.
+
+Do not reuse hero photography, supporting photography, compositions, diagrams, or process graphics from visa service pages.
+
+Every article should introduce fresh visuals.
+
+**Forbidden for blog:** assets marked `visaPageOnly` in `lib/media/editorial-asset-library.ts`.
+
+Register blog assignments in `blogArticlePhotography` (`lib/media/photography.ts`).
+
+## Variety
+
+When multiple articles cover similar topics, intentionally vary subject, framing, location, lighting, perspective, composition, and visual style.
+
+Avoid using the same concept photographed differently.
+
+Every article should feel individually art directed.
+
+Check `previousUsage` in the editorial asset library before assigning an asset.
+
+## Purpose before photography
+
+Never add an image because "the section needs an image."
+
+Instead ask:
+
+**If this visual disappeared, would the article become less useful?**
+
+If the answer is no, do not include it.
+
+## Editorial asset library
+
+Select imagery from `lib/media/editorial-asset-library.ts`.
+
+Assets are organized by editorial themes (Bangkok city life, remote work, Thai business, immigration, and others), not by article slug.
+
+Each asset includes metadata for subject, mood, orientation, location, topics, and previous usage.
+
+When adding new photography:
+
+1. Add the file under `public/images/editorial/` (or `public/images/hero/` for landscape heroes)
+2. Register the asset in `editorial-asset-library.ts` with full metadata
+3. Assign to the article via `blogArticlePhotography`
+4. Update `previousUsage` on the asset
+
+## Final visual review
+
+Before publishing, evaluate every visual.
+
+Ask:
+
+- Does it strengthen the article?
+- Does it communicate something new?
+- Does it improve comprehension?
+- Does it support the surrounding content?
+- Does it fit our premium editorial aesthetic?
+- Does it feel intentionally selected?
+- Would a better visual format (diagram, chart, comparison, decision tree) communicate this more effectively?
+
+Replace or remove any visual that fails these questions.
+
+## Success criteria
+
+The finished article should resemble a premium digital publication where photography, graphics, diagrams, and typography work together to tell a cohesive story.
+
+Do not change layouts, components, or architecture to satisfy this standard. Choose and assign the right visual formats within the existing editorial system.

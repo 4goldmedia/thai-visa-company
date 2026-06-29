@@ -35,21 +35,6 @@ export const generatedArticleEntries = {
       return { default: Content, meta }
     },
   },
-  "blog/how-to-get-thailand-retirement-visa": {
-    collection: "blog",
-    slug: "how-to-get-thailand-retirement-visa",
-    loadMeta: () =>
-      import("@/content/articles/blog/how-to-get-thailand-retirement-visa/meta").then(
-        (m) => m.meta,
-      ),
-    loadModule: async () => {
-      const [{ default: Content }, { meta }] = await Promise.all([
-        import("@/content/articles/blog/how-to-get-thailand-retirement-visa/content.mdx"),
-        import("@/content/articles/blog/how-to-get-thailand-retirement-visa/meta"),
-      ])
-      return { default: Content, meta }
-    },
-  },
 } as const
 
 export type GeneratedArticleRegistryKey = keyof typeof generatedArticleEntries

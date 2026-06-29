@@ -6,7 +6,7 @@ export const meta = defineBlogArticle({
   slug: "business-visa-vs-work-permit-thailand",
   title: "Business Visa vs Work Permit in Thailand",
   description:
-    "A clear comparison of Thailand business visas and work permits: what each document does, why they are confused, the normal process, and which you likely need.",
+    "Business visa vs work permit in Thailand: most employees need both. Compare what each document does, the normal order, and when each applies.",
   publishedAt: "2026-06-25",
   updatedAt: "2026-06-25",
   category: "Visa comparison",
@@ -16,6 +16,8 @@ export const meta = defineBlogArticle({
     "non-immigrant b",
     "thailand employment",
     "visa comparison",
+    "do i need both business visa and work permit",
+    "can i work with business visa thailand",
   ],
   published: true,
   featured: true,
@@ -24,17 +26,18 @@ export const meta = defineBlogArticle({
   seo: {
     title: "Business Visa vs Work Permit in Thailand: What You Actually Need",
     description:
-      "Business visa vs work permit explained: different documents, different agencies, and the normal order of steps for working legally in Thailand with a Thai sponsor.",
+      "Most employees need both a business visa and a work permit. Compare the difference, whether you can work on a business visa alone, and the normal visa-then-permit sequence.",
     keywords: [
       "business visa vs work permit thailand",
       "thailand business visa vs work permit",
+      "do i need both business visa and work permit thailand",
+      "can i work with business visa thailand",
+      "difference between business visa and work permit thailand",
       "non-immigrant b visa work permit",
-      "do i need a work permit with business visa",
-      "thailand work permit requirements",
     ],
     ogTitle: "Business Visa vs Work Permit in Thailand",
     ogDescription:
-      "They are not the same document. Learn what each one does, why employers confuse them, and the normal visa-then-permit process before you file.",
+      "They are not the same document. Most employees need both. Learn what each one does and the normal visa-then-permit process.",
   },
   index: {
     clusterId: "business",
@@ -43,9 +46,9 @@ export const meta = defineBlogArticle({
   headingId: "business-visa-vs-work-permit-heading",
   eyebrow: "Business & work",
   lead:
-    "For foreign nationals planning to work in Thailand with a Thai employer or company sponsor, the business visa and the work permit are the two documents people mix up most often. This guide explains the difference, the normal sequence, and when each applies. For full Non-Immigrant B requirements, use the canonical business visa hub.",
+    "Most foreign employees with a Thai sponsor need both a business visa and a work permit. They are different documents from different agencies: the visa lets you enter and stay; the permit authorizes the job. This guide compares them, explains the normal sequence, and helps you decide if this route fits before you open the full Thailand Business Visa guide.",
   answer:
-    "A Thailand business visa (usually Non-Immigrant B) lets you enter and stay for employment-linked activity with a sponsor. A work permit authorizes you to perform work in Thailand. They are separate: most employees need both, in that order. The visa does not replace the permit, and the permit does not replace the visa.",
+    "Yes, most foreign employees working for a Thai employer need both a Non-Immigrant B business visa and a work permit. The business visa is immigration permission to enter and stay for employment-linked activity with a sponsor. The work permit is labour authorization to perform the job after you arrive. The visa does not authorize work by itself.",
   author: {
     name: "Thai Visa Company Editorial Team",
     role: "Licensed Thailand visa specialists",
@@ -54,17 +57,34 @@ export const meta = defineBlogArticle({
   reviewedBy: {
     name: "Senior Visa Case Review",
   },
-  heroImage: "/images/visas/thailand-business-visa-2.webp",
-  readingTime: "10 min read",
+  heroImage: "/images/editorial/thailand-visa-work-permit.webp",
+  readingTime: "11 min read",
   tableOfContents: [
-    { id: "key-takeaways", label: "Key takeaways" },
-    { id: "business-visa-hub", label: "Business visa hub" },
+    { id: "who-this-article-is-for", label: "Who this article is for" },
+    {
+      id: "where-to-find-full-visa-requirements",
+      label: "Where to find full visa requirements",
+    },
+    {
+      id: "do-you-need-both-a-business-visa-and-a-work-permit",
+      label: "Do you need both?",
+    },
+    {
+      id: "business-visa-vs-work-permit-at-a-glance",
+      label: "Business visa vs work permit",
+    },
     { id: "what-is-a-business-visa", label: "What is a business visa" },
     { id: "what-is-a-work-permit", label: "What is a work permit" },
-    { id: "why-they-are-commonly-confused", label: "Why they are confused" },
+    {
+      id: "how-this-applies-in-real-situations",
+      label: "How this applies in real situations",
+    },
+    {
+      id: "why-are-business-visas-and-work-permits-confused",
+      label: "Why they are confused",
+    },
     { id: "normal-process-timeline", label: "Normal process" },
     { id: "decision-framework", label: "Decision framework" },
-    { id: "comparison-at-a-glance", label: "Comparison" },
     { id: "common-mistakes", label: "Common mistakes" },
   ],
   sources: [
@@ -86,6 +106,18 @@ export const meta = defineBlogArticle({
   ],
   faq: [
     {
+      value: "faq-need-both",
+      question: "Do I need both a business visa and a work permit in Thailand?",
+      answer:
+        "Yes, in most cases. Foreign employees working for a Thai employer usually need a Non-Immigrant B business visa to enter and stay on the correct status, and a work permit from the Ministry of Labour before they perform work. The visa does not authorize employment by itself.",
+    },
+    {
+      value: "faq-difference",
+      question: "What is the difference between a business visa and a work permit in Thailand?",
+      answer:
+        "A business visa is immigration permission issued by a Thai embassy or consulate. It lets you enter and stay for employment-linked activity with a sponsor. A work permit is labour authorization issued by the Department of Employment. It lets you perform a specific job for a specific Thai employer. Most employees need both.",
+    },
+    {
       value: "faq-visa-alone-work",
       question: "Can I work in Thailand with only a business visa?",
       answer:
@@ -95,7 +127,7 @@ export const meta = defineBlogArticle({
       value: "faq-permit-without-visa",
       question: "Can I get a work permit without a business visa?",
       answer:
-        "Most employment cases start with the correct long-stay visa category first. A work permit application is tied to your sponsor and your immigration status. Arriving on a tourist visa and trying to convert without a clear route is a common failure pattern.",
+        "Most employment cases start with the correct long-stay visa category first, usually Non-Immigrant B. A work permit application is tied to your sponsor and your immigration status. Arriving on a tourist visa and trying to convert without a clear route is a common failure pattern.",
     },
     {
       value: "faq-who-applies-permit",
@@ -131,15 +163,21 @@ export const meta = defineBlogArticle({
       value: "faq-remote-worker",
       question: "I work remotely for a foreign company. Do I need either document?",
       answer:
-        "Remote work for foreign income without Thai employment is a different intent family. A business visa and work permit are for Thailand-linked employment or company activity. Compare the DTV or other routes on the hub pages instead of forcing a Non-Immigrant B file.",
+        "Remote work for foreign income without Thai employment is a different intent family. A business visa and work permit are for Thailand-linked employment or company activity. Compare the DTV or other routes in the relevant visa guides instead of forcing a Non-Immigrant B file.",
     },
   ],
   related: [
     {
+      category: "Route selection",
+      title: "Best Visa for Living in Thailand",
+      description: "Compare long-stay routes before you commit to a business visa and work permit file.",
+      href: "/blog/best-visa-for-living-in-thailand",
+    },
+    {
       category: "Visa services",
-      title: "Thailand Business Visa Hub",
+      title: "Thailand Business Visa",
       description:
-        "Canonical requirements, sponsorship pathways, documents, and comparison tables for Non-Immigrant B.",
+        "Complete requirements, sponsorship pathways, documents, and comparison tables for Non-Immigrant B.",
       href: "/visas/business",
     },
     {
@@ -151,13 +189,13 @@ export const meta = defineBlogArticle({
     },
     {
       category: "Alternative route",
-      title: "Thailand DTV Visa Hub",
+      title: "Thailand DTV Visa",
       description:
         "For remote workers and digital nomads without Thai employment, not a business visa substitute.",
       href: "/visas/dtv",
     },
   ],
-  relatedSlugs: ["how-to-get-thailand-retirement-visa"],
+  relatedSlugs: ["best-visa-for-living-in-thailand"],
   cta: {
     title: "Let Thai Visa Company review your situation",
     description:

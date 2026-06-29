@@ -148,7 +148,7 @@ These support **all** visa clusters and belong in the **process** / **comparison
 
 | Slug | Type | Priority | Search intent (summary) |
 |------|------|----------|-------------------------|
-| `how-to-get-thailand-retirement-visa` | Core how-to | **LIVE** | Step-by-step application prep |
+| `how-to-get-thailand-retirement-visa` | Core how-to | **Removed** | Retired from blog; see `/visas/retirement` |
 | `thailand-retirement-visa-requirements` | Eligibility | P2 | Age, financial proof, insurance - embassy variance |
 | `retirement-visa-financial-requirements-thailand` | Eligibility / cost | P2 | Bank balance vs pension routes |
 | `thailand-retirement-visa-renewal` | Renewal | P2 | Extensions, annual reporting, in-country steps |

@@ -69,3 +69,15 @@ The reader should feel:
 - FAQ sections
 
 Every article should remain useful even if Thai Visa Company did not exist.
+
+## Images
+
+After the article is written, run the visual storytelling review (`visual-storytelling-system.mdc`).
+
+- Set `heroImage` in meta from `blogArticlePhotography`
+- Select assets from `lib/media/editorial-asset-library.ts`; never use `visaPageOnly` assets
+- Add `<ArticleImage />` only where it strengthens the section
+- Do not repeat the hero image in the body
+- Prefer comparison graphics (`ArticleComparison`) and process diagrams (`ProcessSteps`) over extra photography where they communicate faster
+
+Full standards: [`visual-storytelling-system.mdc`](./visual-storytelling-system.mdc), [`visual-editorial-system.mdc`](./visual-editorial-system.mdc), [`editorial-image-policy.mdc`](./editorial-image-policy.mdc)

@@ -1,0 +1,169 @@
+---
+description: Visual editorial standard for article imagery — selection, brand style, and review
+globs: content/**/*,lib/blog/**/*,lib/media/**/*,public/images/**/*,components/editorial/**/*
+alwaysApply: false
+---
+
+# Visual Editorial System
+
+Images are part of the editorial experience, not decoration.
+
+Every article must include carefully selected visuals that reinforce the subject, improve readability, and maintain a consistent premium aesthetic.
+
+## Image selection
+
+For every article, determine where images genuinely add value.
+
+Typical locations:
+
+- Hero image
+- One or two supporting editorial images
+- Diagrams
+- Comparison graphics
+- Charts
+- Process illustrations
+
+Never insert images just to fill space.
+
+Every image should help the reader understand, remember, or continue reading.
+
+## Brand style
+
+All imagery should feel like it belongs to the same publication.
+
+Use this visual language:
+
+- premium
+- editorial
+- calm
+- understated
+- sophisticated
+- modern
+- authentic
+- natural
+- human
+- expensive without feeling luxurious
+
+Avoid:
+
+- stock-photo clichés
+- people pointing at laptops
+- fake handshakes
+- smiling call center agents
+- overly saturated colours
+- corporate blue gradients
+- generic office photos
+- AI-looking faces
+- cheesy business scenes
+- exaggerated poses
+
+## Photography style
+
+Prefer photography that feels:
+
+- documentary
+- lifestyle
+- real environments
+- natural light
+- shallow depth of field
+- muted colours
+- warm neutrals
+- soft contrast
+- clean compositions
+- generous negative space
+
+Inspiration: Apple, Monocle, Airbnb, Stripe, Notion, Linear, Kinfolk magazine.
+
+## Subject matter
+
+Images should directly support the article.
+
+**Visa articles:** modern Bangkok, airport arrival, immigration desk, passports, professionals working remotely, retirees living in Thailand, entrepreneurs, cafés, coworking spaces, Thai city life, condominium living, business meetings.
+
+**Accounting articles:** receipts, bookkeeping, invoices, accountant meetings, organized desks, laptops, small businesses, cafés, freelancers.
+
+Never use random decorative images.
+
+## Consistency
+
+Across the website:
+
+- identical visual quality
+- identical editing style
+- identical colour palette
+- identical tone
+- similar framing
+- similar lighting
+
+Readers should immediately recognize the publication regardless of the article.
+
+## Hero images
+
+Hero images should:
+
+- be landscape
+- full-width
+- sharp corners
+- cinematic composition
+- immediately communicate the article topic
+- avoid excessive text or clutter
+
+They should look suitable for a magazine cover.
+
+**Blog articles:** set `heroImage` in `meta.ts` from `blogArticlePhotography` in `lib/media/photography.ts`, sourcing assets from `lib/media/editorial-asset-library.ts`. Do **not** use `visaPageOnly` assets (see [`editorial-image-policy.mdc`](./editorial-image-policy.mdc)). Follow [`visual-storytelling-system.mdc`](./visual-storytelling-system.mdc) for format selection.
+
+**Visa pages:** use `visaGalleryPhotography` via the visa hero system.
+
+## Supporting images
+
+Supporting images should:
+
+- break up long reading sections
+- reinforce the surrounding content
+- **not repeat the hero image**
+- feel intentional
+
+Use `<ArticleImage />` in MDX. One excellent image is better than five average ones.
+
+## Charts and graphics
+
+When a comparison, timeline, decision tree, process, or statistic is better communicated visually, create a clean graphic instead of more paragraphs.
+
+Style:
+
+- minimal
+- white cards
+- thin borders
+- subtle typography
+- no unnecessary colours
+- match the website design system
+
+Prefer existing editorial components (`ArticleComparison`, `ProcessSteps`, `ArticleTable`) before custom graphics. See [`visual-storytelling-system.mdc`](./visual-storytelling-system.mdc) for when each format applies.
+
+## Image source priority
+
+When selecting visuals:
+
+1. Blog-only assets (`editorial-asset-library.ts`, then `blogArticlePhotography`)
+2. Licensed editorial photography
+3. Carefully curated premium stock photography
+4. AI-generated imagery only when no suitable authentic image exists
+
+Blog articles must not use visa page gallery assets. See [`editorial-image-policy.mdc`](./editorial-image-policy.mdc).
+
+Generated images must still follow the same editorial photography style.
+
+## Final review
+
+Before approving an article, run the final visual review in [`visual-storytelling-system.mdc`](./visual-storytelling-system.mdc).
+
+Also confirm brand quality:
+
+- Does this feel premium?
+- Would Apple publish this?
+- Would Monocle publish this?
+- Does it strengthen the article?
+- Does it match the rest of the website?
+- If this image disappeared, would the article become worse?
+
+If the answer to the last question is **no**, remove the image.

@@ -1,4 +1,5 @@
 import { BlogPostCard } from "@/components/cards/blog-post-card"
+import { ctaLabels } from "@/lib/cta"
 import type { ContentRelatedLink } from "@/lib/content/types"
 import { cn } from "@/lib/utils"
 
@@ -36,6 +37,7 @@ function RelatedArticles({
               publishedAt={item.publishedAt}
               readingTime={item.readingTime}
               authorName={item.authorName}
+              ctaLabel={ctaLabels.readArticle}
             />
           </li>
         ))}

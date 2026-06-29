@@ -3,6 +3,7 @@ import { blogMetaToRelatedLink } from "@/lib/blog/adapters"
 import { blogClusterPath } from "@/lib/blog/types"
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
 import {
+  isBlogArticleHref,
   resolveArticleCrossLinks,
   type ResolveRelatedArticlesInput,
   type ResolvedCrossLinks,
@@ -99,7 +100,9 @@ export async function resolveBlogCrossLinks(
   ])
 
   const articles = await Promise.all(
-    crossLinks.articles.map((link) => enrichBlogArticleLink(link)),
+    crossLinks.articles
+      .filter((link) => isBlogArticleHref(link.href))
+      .map((link) => enrichBlogArticleLink(link)),
   )
 
   return {

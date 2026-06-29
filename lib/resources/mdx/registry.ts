@@ -19,9 +19,7 @@ export async function loadResourceArticleDefinition(slug: string) {
 
 export type ResourceMdxSlug = string
 
-export const resourceMdxSlugs: ResourceMdxSlug[] = [
-  "how-to-get-thailand-retirement-visa",
-]
+export const resourceMdxSlugs: ResourceMdxSlug[] = []
 
 export function isResourceMdxSlug(slug: string): slug is ResourceMdxSlug {
   return resourceMdxSlugs.includes(slug)
