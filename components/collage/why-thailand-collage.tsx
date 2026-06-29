@@ -7,19 +7,18 @@ type WhyThailandCollageProps = {
   className?: string
 }
 
-function WhyThailandCollageCell({
-  image,
-  variant,
-}: {
+type MosaicCellProps = {
   image: WhyThailandCollageImage
-  variant: "feature" | "tile"
-}) {
+  role: "lead" | "support"
+}
+
+function WhyThailandMosaicCell({ image, role }: MosaicCellProps) {
   return (
     <figure
       className={cn(
-        "why-thailand__cell group",
-        variant === "feature" && "why-thailand__cell--feature",
-        variant === "tile" && "why-thailand__cell--tile",
+        "why-thailand__mosaic-cell group",
+        role === "lead" && "why-thailand__mosaic-cell--lead",
+        role === "support" && "why-thailand__mosaic-cell--support",
       )}
     >
       <OptimizedImage
@@ -27,12 +26,12 @@ function WhyThailandCollageCell({
         alt={image.alt}
         fill
         sizes={
-          variant === "feature"
-            ? "(max-width: 1023px) 100vw, 42vw"
-            : "(max-width: 1023px) 50vw, 22vw"
+          role === "lead"
+            ? "(max-width: 1023px) 100vw, 32vw"
+            : "(max-width: 1023px) 50vw, 26vw"
         }
         quality={90}
-        className="why-thailand__image object-cover"
+        className="why-thailand__mosaic-image object-cover"
         style={
           image.objectPosition
             ? { objectPosition: image.objectPosition }
@@ -44,20 +43,20 @@ function WhyThailandCollageCell({
 }
 
 function WhyThailandCollage({ images, className }: WhyThailandCollageProps) {
-  const [feature, ...tiles] = images
+  const [lead, ...supporting] = images
 
-  if (!feature) {
+  if (!lead) {
     return null
   }
 
   return (
     <div
-      className={cn("why-thailand__collage", className)}
+      className={cn("why-thailand__mosaic", className)}
       aria-label="Life in Thailand"
     >
-      <WhyThailandCollageCell image={feature} variant="feature" />
-      {tiles.map((image) => (
-        <WhyThailandCollageCell key={image.id} image={image} variant="tile" />
+      <WhyThailandMosaicCell image={lead} role="lead" />
+      {supporting.map((image) => (
+        <WhyThailandMosaicCell key={image.id} image={image} role="support" />
       ))}
     </div>
   )

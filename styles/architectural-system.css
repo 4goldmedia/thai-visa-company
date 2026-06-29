@@ -5,7 +5,7 @@
   .hero-media-frame:not(.hero-media-frame--immersive),
   .moving-simple__media,
   .visa-gallery__media,
-  .why-thailand__cell {
+  .why-thailand__mosaic-cell {
     border-radius: 0;
   }
 
