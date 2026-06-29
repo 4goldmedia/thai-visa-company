@@ -24,16 +24,12 @@ function ProcessSteps({
     >
       {steps.map((item) => (
         <li key={item.step} className="editorial-process-steps__item">
-          <span className="text-[12px] font-medium uppercase tracking-[0.08em] text-muted-foreground/75">
+          <span className="editorial-process-steps__step-label">
             Step {item.step}
           </span>
           <div>
-            <h3 className="text-[15px] font-semibold tracking-[-0.01em] text-foreground sm:text-[16px]">
-              {item.title}
-            </h3>
-            <p className="mt-2 text-[15px] leading-[1.72] text-muted-foreground sm:text-[16px]">
-              {item.description}
-            </p>
+            <h3 className="editorial-process-steps__step-title">{item.title}</h3>
+            <p className="editorial-process-steps__step-body">{item.description}</p>
           </div>
         </li>
       ))}

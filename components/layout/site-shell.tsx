@@ -1,4 +1,4 @@
-import { HashScrollHandler } from "@/components/navigation/hash-scroll-handler"
+import { NavigationScrollHandler } from "@/components/navigation/navigation-scroll-handler"
 import { Navbar } from "@/components/layout/navbar"
 import { SiteShellChrome } from "@/components/layout/site-shell-chrome"
 import { SkipLink } from "@/components/layout/skip-link"
@@ -16,7 +16,7 @@ function SiteShell({ children, className }: SiteShellProps) {
   return (
     <>
       <SkipLink />
-      <HashScrollHandler />
+      <NavigationScrollHandler />
       <Navbar />
       <SiteShellChrome className={className}>{children}</SiteShellChrome>
     </>

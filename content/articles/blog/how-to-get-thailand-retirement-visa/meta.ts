@@ -89,9 +89,9 @@ export const meta = defineBlogArticle({
     },
   ],
   cta: {
-    title: "Need help with your retirement visa file?",
+    title: "Book a visa consultation",
     description:
-      "Share your age, nationality, and whether you are applying from abroad or already in Thailand. We reply with clear next steps.",
+      "Share your age, nationality, and whether you are applying from abroad or already in Thailand. We confirm eligibility and manage your application to reduce delays and mistakes.",
     footnote: defaultFinalCtaFootnote,
   },
 })

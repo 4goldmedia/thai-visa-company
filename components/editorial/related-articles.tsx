@@ -20,7 +20,7 @@ function RelatedArticles({
       className={cn("editorial-keep-reading", className)}
       aria-labelledby="related-articles-heading"
     >
-      <h2 id="related-articles-heading" className="editorial-keep-reading__title">
+      <h2 id="related-articles-heading" className="editorial-card-title">
         {title}
       </h2>
       <ul className="editorial-keep-reading__grid">

@@ -1,10 +1,5 @@
 import { FaqJsonLd } from "@/components/seo/faq-json-ld"
 import { FAQAccordion, FAQItem } from "@/components/ui/faq-item"
-import {
-  articleFaqDescriptionClass,
-  articleFaqSectionClass,
-  articleFaqTitleClass,
-} from "@/lib/article-styles"
 import type { VisaFaqItem } from "@/lib/visas/types"
 import { cn } from "@/lib/utils"
 
@@ -43,7 +38,7 @@ function ArticleInlineFaq({
     <section
       id={headingId}
       aria-labelledby={titleHeadingId}
-      className={cn(articleFaqSectionClass, className)}
+      className={cn("editorial-faq-card", className)}
     >
       {schemaEnabled ? (
         <FaqJsonLd
@@ -56,16 +51,16 @@ function ArticleInlineFaq({
         />
       ) : null}
 
-      <h2 id={titleHeadingId} className={articleFaqTitleClass}>
+      <h2 id={titleHeadingId} className="editorial-card-title">
         {title}
       </h2>
       {description ? (
-        <p className={articleFaqDescriptionClass}>{description}</p>
+        <p className="editorial-card-lead">{description}</p>
       ) : null}
 
       <FAQAccordion
         aria-labelledby={titleHeadingId}
-        className="mt-8 sm:mt-9"
+        className="editorial-faq-card__accordion"
       >
         {items.map((item) => (
           <FAQItem

@@ -2,8 +2,6 @@ import { ArticleConsultationBand } from "@/components/articles/article-consultat
 import { ArticleInlineFaq } from "@/components/articles/article-inline-faq"
 import { ArticleRelatedGuideStrip } from "@/components/articles/article-related-guide-strip"
 import { ArticleSeriesNav } from "@/components/articles/article-series-nav"
-import { ArticleSources } from "@/components/articles/article-sources"
-import { ArticleTopicHubStrip } from "@/components/articles/article-topic-hub-strip"
 import { ArticleCTA } from "@/components/editorial/article-cta"
 import { ArticleLinkCard } from "@/components/editorial/article-link-card"
 import { RelatedArticles } from "@/components/editorial/related-articles"
@@ -21,25 +19,13 @@ function usesAuthorityArticleTemplate(
   return contentType === "guide" || contentType === "comparison"
 }
 
-const editorialFaqClassName = "editorial-faq-card"
-
 function BlogArticlePageView({ context }: BlogArticlePageViewProps) {
-  const { route, related, relatedGuide, topicHub, breadcrumbs, seriesNav } = context
+  const { route, related, relatedGuide, breadcrumbs, seriesNav } = context
   const { MdxContent, page } = route
   const isAuthority = usesAuthorityArticleTemplate(page.contentType)
 
   const category =
     page.index?.clusterLabel ?? page.metadata.category ?? page.eyebrow ?? "Article"
-
-  const topicHubStrip =
-    topicHub?.href && topicHub?.title
-      ? {
-          category: "Guides",
-          title: topicHub.title,
-          description: "More evergreen guides on this visa route.",
-          href: topicHub.href,
-        }
-      : undefined
 
   const relatedSlot = related.length > 0 ? <RelatedArticles items={related} /> : null
 
@@ -84,15 +70,6 @@ function BlogArticlePageView({ context }: BlogArticlePageViewProps) {
             <ArticleRelatedGuideStrip guide={relatedGuide} />
           ) : null}
           <MdxContent />
-          {topicHubStrip ? (
-            <ArticleTopicHubStrip topicHub={topicHubStrip} className="mt-10" />
-          ) : null}
-          {page.sources?.length ? (
-            <ArticleSources
-              headingId={`${page.slug}-sources`}
-              items={page.sources}
-            />
-          ) : null}
           {seriesNav ? <ArticleSeriesNav {...seriesNav} /> : null}
           {!isAuthority && relatedGuide ? (
             <ArticleLinkCard
@@ -108,7 +85,6 @@ function BlogArticlePageView({ context }: BlogArticlePageViewProps) {
             title={isAuthority ? "Common questions" : "Frequently asked questions"}
             description={`Short answers about ${page.title.toLowerCase()}.`}
             items={page.faq}
-            className={editorialFaqClassName}
             jsonLd={{
               name: `${page.title}: FAQ`,
               path: page.path,

@@ -1,3 +1,5 @@
+import { Sparkles } from "lucide-react"
+
 import { cn } from "@/lib/utils"
 
 type ArticleQuickAnswerProps = {
@@ -38,9 +40,16 @@ function ArticleQuickAnswer({
       className={cn("editorial-quick-answer", className)}
       aria-labelledby="article-quick-answer-heading"
     >
-      <h2 id="article-quick-answer-heading" className="editorial-quick-answer__label">
-        {title}
-      </h2>
+      <div className="editorial-quick-answer__label-row">
+        <Sparkles
+          className="editorial-quick-answer__icon"
+          strokeWidth={1.75}
+          aria-hidden
+        />
+        <h2 id="article-quick-answer-heading" className="editorial-quick-answer__label">
+          {title}
+        </h2>
+      </div>
       <div className="editorial-quick-answer__body">
         {children ??
           bodyParagraphs?.map((paragraph) => (

@@ -35,6 +35,12 @@ If unclear, do not create the article.
 
 Full rule: [`rules/content/content-philosophy.mdc`](../rules/content/content-philosophy.mdc)
 
+### Conversion (consultative, not promotional)
+
+Articles build trust first, then make the logical next step obvious. Thai Visa Company is the supported implementation path after the reader understands their route, not a sales pitch inside the education.
+
+Process sections, decision frameworks, and CTAs follow [`rules/content/editorial-conversion-philosophy.mdc`](../rules/content/editorial-conversion-philosophy.mdc).
+
 ---
 
 ## 2. Content clusters
@@ -212,9 +218,10 @@ When creating or editing content:
 
 1. Read [`rules/content/`](../rules/content/) for the active task
 2. Confirm cluster, search question, and pillar links
-3. Use existing editorial components (`ArticleQuickAnswer`, `ArticleTable`, etc.)
-4. Run `npm run validate:articles` before merge
-5. Do not redesign layouts unless explicitly scoped
+3. Apply conversion philosophy for process steps, decision frameworks, and CTAs (`editorial-conversion-philosophy.mdc`)
+4. Use existing editorial components (`ArticleQuickAnswer`, `ArticleTable`, etc.)
+5. Run `npm run validate:articles` before merge
+6. Do not redesign layouts unless explicitly scoped
 
 Cursor rule: [`.cursor/rules/content-governance.mdc`](../.cursor/rules/content-governance.mdc)
 
@@ -231,6 +238,7 @@ rules/content/
   search-reality-rule.mdc   # Google query validation
   internal-linking.mdc        # Knowledge network links
   seo-aeo-standard.mdc        # Citation-oriented structure
+  editorial-conversion-philosophy.mdc  # Consultative CTAs and process endings
 
 content/articles/
   blog/                     # Freshness / news / rule changes

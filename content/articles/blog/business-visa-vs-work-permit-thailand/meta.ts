@@ -159,9 +159,9 @@ export const meta = defineBlogArticle({
   ],
   relatedSlugs: ["how-to-get-thailand-retirement-visa"],
   cta: {
-    title: "Unsure whether you need a business visa, a work permit, or both?",
+    title: "Let Thai Visa Company review your situation",
     description:
-      "Share your role, sponsor status, and where you are applying from. We map the normal sequence and flag document gaps before you file.",
+      "Share your role, sponsor status, and where you are applying from. We confirm the normal sequence and check your documents before you file.",
     footnote: defaultFinalCtaFootnote,
   },
 })
