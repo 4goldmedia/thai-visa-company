@@ -363,6 +363,27 @@ export const editorialAssetLibrary = {
     location: "Thailand",
     topics: ["dtv", "retirement", "visa comparison", "long-stay"],
     themes: ["relocation-lifestyle", "retirement-lifestyle"],
+    previousUsage: [],
+  },
+  "dtv-vs-retirement-lifestyle-hero": {
+    id: "dtv-vs-retirement-lifestyle-hero",
+    src: "/images/editorial/dtv-vs-retirement-visa-thailand-hero.jpg",
+    alt: "Remote worker and retired couple enjoying different lifestyles on a beachfront promenade in Thailand",
+    caption:
+      "The DTV Visa and Retirement Visa both support long-term living in Thailand, but they are designed for people with very different lifestyles, eligibility requirements, and long-term goals.",
+    objectPosition: "center 52%",
+    subject: "Remote worker and retirees sharing a beachfront promenade",
+    mood: "documentary, lifestyle-led, calm, natural",
+    orientation: "landscape",
+    location: "Thailand coast",
+    topics: [
+      "dtv",
+      "retirement visa",
+      "remote work",
+      "retiree lifestyle",
+      "visa comparison",
+    ],
+    themes: ["remote-work", "retirement-lifestyle", "thai-coastline"],
     previousUsage: ["blog/dtv-vs-retirement-visa-thailand"],
   },
   "blog-premium-long-stay-interior": {

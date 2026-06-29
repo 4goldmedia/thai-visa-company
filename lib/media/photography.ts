@@ -159,7 +159,7 @@ export const blogArticlePhotography = {
     hero: getEditorialAsset("dtv-vs-tourist-visa-hero"),
   },
   "dtv-vs-retirement-visa-thailand": {
-    hero: getEditorialAsset("blog-dtv-retirement-comparison"),
+    hero: getEditorialAsset("dtv-vs-retirement-lifestyle-hero"),
   },
   "re-entry-permit-thailand": {
     hero: getEditorialAsset("re-entry-permit-thailand-hero"),
