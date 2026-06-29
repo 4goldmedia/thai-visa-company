@@ -17,6 +17,8 @@ export const editorialArticleRoles = {
   "dtv-visa-vs-tourist-visa-thailand": "ComparisonArticle",
   "can-i-work-in-thailand-without-a-work-permit": "AuthorityArticle",
   "can-foreigners-live-in-thailand-permanently": "LifestyleHub",
+  "dtv-vs-education-visa-thailand": "ComparisonArticle",
+  "can-you-work-on-an-education-visa-in-thailand": "AuthorityArticle",
 } as const
 
 export type EditorialArticleSlug = keyof typeof editorialArticleRoles
@@ -85,6 +87,18 @@ export const frozenRelatedSlugs: Readonly<
     "thailand-elite-visa-worth-it",
     "can-i-work-in-thailand-without-a-work-permit",
   ],
+  "dtv-vs-education-visa-thailand": [
+    "best-visa-for-living-in-thailand",
+    "dtv-visa-vs-tourist-visa-thailand",
+    "dtv-vs-retirement-visa-thailand",
+    "can-you-work-on-an-education-visa-in-thailand",
+  ],
+  "can-you-work-on-an-education-visa-in-thailand": [
+    "best-visa-for-living-in-thailand",
+    "can-i-work-in-thailand-without-a-work-permit",
+    "business-visa-vs-work-permit-thailand",
+    "dtv-vs-education-visa-thailand",
+  ],
 }
 
 export type EditorialHubSlug = "dtv" | "retirement" | "elite" | "business" | "education"
@@ -108,7 +122,10 @@ export const hubPrimaryArticleSlugs: Readonly<
     "business-visa-vs-work-permit-thailand",
     "can-i-work-in-thailand-without-a-work-permit",
   ],
-  education: [],
+  education: [
+    "dtv-vs-education-visa-thailand",
+    "can-you-work-on-an-education-visa-in-thailand",
+  ],
 }
 
 export const hubDecisionHubSlug = "best-visa-for-living-in-thailand" as const

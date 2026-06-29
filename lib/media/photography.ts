@@ -161,6 +161,9 @@ export const blogArticlePhotography = {
   "dtv-vs-retirement-visa-thailand": {
     hero: getEditorialAsset("dtv-vs-retirement-lifestyle-hero"),
   },
+  "dtv-vs-education-visa-thailand": {
+    hero: getEditorialAsset("dtv-vs-education-lifestyle-hero"),
+  },
   "re-entry-permit-thailand": {
     hero: getEditorialAsset("re-entry-permit-thailand-hero"),
   },
@@ -172,6 +175,9 @@ export const blogArticlePhotography = {
   },
   "thailand-elite-visa-worth-it": {
     hero: getEditorialAsset("elite-worth-it-lobby-hero"),
+  },
+  "can-you-work-on-an-education-visa-in-thailand": {
+    hero: getEditorialAsset("education-visa-work-rule-hero"),
   },
 } as const satisfies Record<string, { hero: BlogArticleImage; supporting?: BlogArticleImage }>
 

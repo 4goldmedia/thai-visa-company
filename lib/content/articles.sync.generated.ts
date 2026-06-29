@@ -6,9 +6,11 @@ import { meta as meta_best_visa_for_living_in_thailand } from "@/content/article
 import { meta as meta_business_visa_vs_work_permit_thailand } from "@/content/articles/blog/business-visa-vs-work-permit-thailand/meta"
 import { meta as meta_can_foreigners_live_in_thailand_permanently } from "@/content/articles/blog/can-foreigners-live-in-thailand-permanently/meta"
 import { meta as meta_can_i_work_in_thailand_without_a_work_permit } from "@/content/articles/blog/can-i-work-in-thailand-without-a-work-permit/meta"
+import { meta as meta_can_you_work_on_an_education_visa_in_thailand } from "@/content/articles/blog/can-you-work-on-an-education-visa-in-thailand/meta"
 import { meta as meta_change_visa_type_in_thailand } from "@/content/articles/blog/change-visa-type-in-thailand/meta"
 import { meta as meta_dtv_visa_rejection_reasons } from "@/content/articles/blog/dtv-visa-rejection-reasons/meta"
 import { meta as meta_dtv_visa_vs_tourist_visa_thailand } from "@/content/articles/blog/dtv-visa-vs-tourist-visa-thailand/meta"
+import { meta as meta_dtv_vs_education_visa_thailand } from "@/content/articles/blog/dtv-vs-education-visa-thailand/meta"
 import { meta as meta_dtv_vs_retirement_visa_thailand } from "@/content/articles/blog/dtv-vs-retirement-visa-thailand/meta"
 import { meta as meta_re_entry_permit_thailand } from "@/content/articles/blog/re-entry-permit-thailand/meta"
 import { meta as meta_retirement_visa_o_vs_o_a_thailand } from "@/content/articles/blog/retirement-visa-o-vs-o-a-thailand/meta"
@@ -22,9 +24,11 @@ export const generatedArticleMetaSync: Partial<
   "blog/business-visa-vs-work-permit-thailand": meta_business_visa_vs_work_permit_thailand,
   "blog/can-foreigners-live-in-thailand-permanently": meta_can_foreigners_live_in_thailand_permanently,
   "blog/can-i-work-in-thailand-without-a-work-permit": meta_can_i_work_in_thailand_without_a_work_permit,
+  "blog/can-you-work-on-an-education-visa-in-thailand": meta_can_you_work_on_an_education_visa_in_thailand,
   "blog/change-visa-type-in-thailand": meta_change_visa_type_in_thailand,
   "blog/dtv-visa-rejection-reasons": meta_dtv_visa_rejection_reasons,
   "blog/dtv-visa-vs-tourist-visa-thailand": meta_dtv_visa_vs_tourist_visa_thailand,
+  "blog/dtv-vs-education-visa-thailand": meta_dtv_vs_education_visa_thailand,
   "blog/dtv-vs-retirement-visa-thailand": meta_dtv_vs_retirement_visa_thailand,
   "blog/re-entry-permit-thailand": meta_re_entry_permit_thailand,
   "blog/retirement-visa-o-vs-o-a-thailand": meta_retirement_visa_o_vs_o_a_thailand,

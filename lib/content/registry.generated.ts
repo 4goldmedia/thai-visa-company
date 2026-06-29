@@ -65,6 +65,21 @@ export const generatedArticleEntries = {
       return { default: Content, meta }
     },
   },
+  "blog/can-you-work-on-an-education-visa-in-thailand": {
+    collection: "blog",
+    slug: "can-you-work-on-an-education-visa-in-thailand",
+    loadMeta: () =>
+      import("@/content/articles/blog/can-you-work-on-an-education-visa-in-thailand/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/can-you-work-on-an-education-visa-in-thailand/content.mdx"),
+        import("@/content/articles/blog/can-you-work-on-an-education-visa-in-thailand/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
   "blog/change-visa-type-in-thailand": {
     collection: "blog",
     slug: "change-visa-type-in-thailand",
@@ -106,6 +121,21 @@ export const generatedArticleEntries = {
       const [{ default: Content }, { meta }] = await Promise.all([
         import("@/content/articles/blog/dtv-visa-vs-tourist-visa-thailand/content.mdx"),
         import("@/content/articles/blog/dtv-visa-vs-tourist-visa-thailand/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/dtv-vs-education-visa-thailand": {
+    collection: "blog",
+    slug: "dtv-vs-education-visa-thailand",
+    loadMeta: () =>
+      import("@/content/articles/blog/dtv-vs-education-visa-thailand/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/dtv-vs-education-visa-thailand/content.mdx"),
+        import("@/content/articles/blog/dtv-vs-education-visa-thailand/meta"),
       ])
       return { default: Content, meta }
     },
