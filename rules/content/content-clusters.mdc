@@ -6,81 +6,58 @@ alwaysApply: false
 
 # Thai Visa Company Content Clusters
 
-Every article must belong to one content cluster.
+Every blog article must belong to one content cluster (`meta.index.clusterId`). Do not publish isolated articles.
 
-Do not publish isolated articles.
-
-Every article must strengthen a content cluster.
+**Implementation:** [`lib/blog/content/clusters.ts`](../../lib/blog/content/clusters.ts)  
+**Knowledge graph:** [`docs/editorial-knowledge-graph.md`](../../docs/editorial-knowledge-graph.md)
 
 ## 1. DTV Visa
 
-**Pillar:** Destination Thailand Visa (DTV)
+**Pillar:** [Thailand DTV Visa](/visas/dtv)  
+**Cluster archive:** `/blog/cluster/dtv`
 
-Supporting topics:
-
-- DTV requirements
-- DTV costs
-- DTV processing times
-- DTV rejection reasons
-- DTV dependents
-- DTV extensions
-- DTV remote work rules
+Launch articles: `dtv-visa-rejection-reasons`, `dtv-vs-retirement-visa-thailand`, `dtv-visa-vs-tourist-visa-thailand`
 
 ## 2. Retirement Visa
 
-**Pillar:** Thailand Retirement Visa Guide
+**Pillar:** [Thailand Retirement Visa](/visas/retirement)  
+**Cluster archive:** `/blog/cluster/retirement`
 
-Supporting topics:
-
-- retirement visa requirements
-- retirement visa income requirements
-- retirement visa vs DTV
-- retirement visa renewals
-- retirement visa mistakes
+Launch articles: `retirement-visa-o-vs-o-a-thailand`, `dtv-vs-retirement-visa-thailand`, `thailand-elite-visa-vs-retirement-visa`
 
 ## 3. Business & Work Visas
 
-**Pillar:** Thailand Business Visa Guide
+**Pillar:** [Thailand Business Visa](/visas/business)  
+**Cluster archive:** `/blog/cluster/business`
 
-Supporting topics:
-
-- work permits
-- BOI
-- company sponsorship
-- business visa requirements
-- employment visas
+Launch articles: `business-visa-vs-work-permit-thailand`, `can-i-work-in-thailand-without-a-work-permit`
 
 ## 4. Education Visas
 
-**Pillar:** Thailand Education Visa Guide
+**Pillar:** [Thailand Education Visa](/visas/education)  
+**Cluster archive:** `/blog/cluster/education`
 
-Supporting topics:
+*(No launch blog article yet — hub links to decision hub.)*
 
-- language school visas
-- university visas
-- education visa requirements
-- education visa renewals
+## 5. Thailand Elite Visa
 
-## 5. Immigration Procedures
+**Pillar:** [Thailand Elite Visa](/visas/elite)  
+**Cluster archive:** `/blog/cluster/elite`
 
-**Pillar:** Thailand Immigration Procedures
+Launch articles: `thailand-elite-visa-worth-it`, `thailand-elite-visa-vs-retirement-visa`
 
-Supporting topics:
+## 6. Immigration Procedures
 
-- 90-day reporting
-- TM30
-- re-entry permits
-- visa extensions
-- immigration appointments
+**Pillar:** Procedures cluster (no single visa pillar)  
+**Cluster archive:** `/blog/cluster/immigration-procedures`
 
-## 6. Living In Thailand
+Launch articles: `change-visa-type-in-thailand`, `re-entry-permit-thailand`
 
-**Pillar:** Moving To Thailand Guide
+## 7. Living In Thailand
 
-Supporting topics:
+**Pillar:** Cross-route decision hub  
+**Cluster archive:** `/blog/cluster/living-in-thailand`
 
-- healthcare
-- banking
-- housing
-- taxes
-- family relocation
+Launch article: `best-visa-for-living-in-thailand`, `can-foreigners-live-in-thailand-permanently`
+
+Supporting topics (future): healthcare, banking, housing, taxes, family relocation

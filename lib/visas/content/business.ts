@@ -27,7 +27,11 @@ export const businessVisaPage: VisaPageContent = {
   updatedAt: BUSINESS_UPDATED_AT,
   layout: GOLDEN_VISA_PAGE_LAYOUT,
   topicId: "business",
-  relatedArticleSlugs: ["best-visa-for-living-in-thailand"],
+  relatedArticleSlugs: [
+    "best-visa-for-living-in-thailand",
+    "business-visa-vs-work-permit-thailand",
+    "can-i-work-in-thailand-without-a-work-permit",
+  ],
   lastReviewed: {
     reviewerName: "Thai Visa Company Editorial Team",
     reviewerTitle: "Licensed Thailand visa specialists",

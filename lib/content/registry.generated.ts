@@ -35,6 +35,156 @@ export const generatedArticleEntries = {
       return { default: Content, meta }
     },
   },
+  "blog/can-foreigners-live-in-thailand-permanently": {
+    collection: "blog",
+    slug: "can-foreigners-live-in-thailand-permanently",
+    loadMeta: () =>
+      import("@/content/articles/blog/can-foreigners-live-in-thailand-permanently/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/can-foreigners-live-in-thailand-permanently/content.mdx"),
+        import("@/content/articles/blog/can-foreigners-live-in-thailand-permanently/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/can-i-work-in-thailand-without-a-work-permit": {
+    collection: "blog",
+    slug: "can-i-work-in-thailand-without-a-work-permit",
+    loadMeta: () =>
+      import("@/content/articles/blog/can-i-work-in-thailand-without-a-work-permit/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/can-i-work-in-thailand-without-a-work-permit/content.mdx"),
+        import("@/content/articles/blog/can-i-work-in-thailand-without-a-work-permit/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/change-visa-type-in-thailand": {
+    collection: "blog",
+    slug: "change-visa-type-in-thailand",
+    loadMeta: () =>
+      import("@/content/articles/blog/change-visa-type-in-thailand/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/change-visa-type-in-thailand/content.mdx"),
+        import("@/content/articles/blog/change-visa-type-in-thailand/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/dtv-visa-rejection-reasons": {
+    collection: "blog",
+    slug: "dtv-visa-rejection-reasons",
+    loadMeta: () =>
+      import("@/content/articles/blog/dtv-visa-rejection-reasons/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/dtv-visa-rejection-reasons/content.mdx"),
+        import("@/content/articles/blog/dtv-visa-rejection-reasons/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/dtv-visa-vs-tourist-visa-thailand": {
+    collection: "blog",
+    slug: "dtv-visa-vs-tourist-visa-thailand",
+    loadMeta: () =>
+      import("@/content/articles/blog/dtv-visa-vs-tourist-visa-thailand/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/dtv-visa-vs-tourist-visa-thailand/content.mdx"),
+        import("@/content/articles/blog/dtv-visa-vs-tourist-visa-thailand/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/dtv-vs-retirement-visa-thailand": {
+    collection: "blog",
+    slug: "dtv-vs-retirement-visa-thailand",
+    loadMeta: () =>
+      import("@/content/articles/blog/dtv-vs-retirement-visa-thailand/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/dtv-vs-retirement-visa-thailand/content.mdx"),
+        import("@/content/articles/blog/dtv-vs-retirement-visa-thailand/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/re-entry-permit-thailand": {
+    collection: "blog",
+    slug: "re-entry-permit-thailand",
+    loadMeta: () =>
+      import("@/content/articles/blog/re-entry-permit-thailand/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/re-entry-permit-thailand/content.mdx"),
+        import("@/content/articles/blog/re-entry-permit-thailand/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/retirement-visa-o-vs-o-a-thailand": {
+    collection: "blog",
+    slug: "retirement-visa-o-vs-o-a-thailand",
+    loadMeta: () =>
+      import("@/content/articles/blog/retirement-visa-o-vs-o-a-thailand/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/retirement-visa-o-vs-o-a-thailand/content.mdx"),
+        import("@/content/articles/blog/retirement-visa-o-vs-o-a-thailand/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/thailand-elite-visa-vs-retirement-visa": {
+    collection: "blog",
+    slug: "thailand-elite-visa-vs-retirement-visa",
+    loadMeta: () =>
+      import("@/content/articles/blog/thailand-elite-visa-vs-retirement-visa/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/thailand-elite-visa-vs-retirement-visa/content.mdx"),
+        import("@/content/articles/blog/thailand-elite-visa-vs-retirement-visa/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
+  "blog/thailand-elite-visa-worth-it": {
+    collection: "blog",
+    slug: "thailand-elite-visa-worth-it",
+    loadMeta: () =>
+      import("@/content/articles/blog/thailand-elite-visa-worth-it/meta").then(
+        (m) => m.meta,
+      ),
+    loadModule: async () => {
+      const [{ default: Content }, { meta }] = await Promise.all([
+        import("@/content/articles/blog/thailand-elite-visa-worth-it/content.mdx"),
+        import("@/content/articles/blog/thailand-elite-visa-worth-it/meta"),
+      ])
+      return { default: Content, meta }
+    },
+  },
 } as const
 
 export type GeneratedArticleRegistryKey = keyof typeof generatedArticleEntries

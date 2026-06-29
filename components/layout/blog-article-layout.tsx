@@ -18,6 +18,8 @@ type BlogArticleLayoutProps = Omit<
   path: string
   category: string
   tableOfContents: ReadonlyArray<ContentArticleTocItem>
+  heroImageAlt?: string
+  heroImageObjectPosition?: string
 }
 
 function BlogArticleLayout({
@@ -27,6 +29,8 @@ function BlogArticleLayout({
   lead = "",
   answer,
   heroImage,
+  heroImageAlt,
+  heroImageObjectPosition,
   metadata,
   category,
   path,
@@ -72,7 +76,11 @@ function BlogArticleLayout({
             <div className="editorial-article-main-column">
               {heroImage ? (
                 <div className="editorial-article-image-slot">
-                  <ArticleFeaturedImage src={heroImage} alt={title} />
+                  <ArticleFeaturedImage
+                    src={heroImage}
+                    alt={heroImageAlt ?? title}
+                    objectPosition={heroImageObjectPosition}
+                  />
                 </div>
               ) : null}
 

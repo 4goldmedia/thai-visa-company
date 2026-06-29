@@ -27,7 +27,12 @@ export const retirementVisaPage: VisaPageContent = {
   updatedAt: RETIREMENT_UPDATED_AT,
   layout: GOLDEN_VISA_PAGE_LAYOUT,
   topicId: "retirement",
-  relatedArticleSlugs: ["best-visa-for-living-in-thailand"],
+  relatedArticleSlugs: [
+    "best-visa-for-living-in-thailand",
+    "retirement-visa-o-vs-o-a-thailand",
+    "dtv-vs-retirement-visa-thailand",
+    "thailand-elite-visa-vs-retirement-visa",
+  ],
   lastReviewed: {
     reviewerName: "Thai Visa Company Editorial Team",
     reviewerTitle: "Licensed Thailand visa specialists",

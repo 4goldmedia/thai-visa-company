@@ -2,6 +2,7 @@ import type { BlogClusterId } from "@/lib/blog/types"
 import { getArticlePath } from "@/lib/content/collections"
 import { resolveReadingTimeForArticle } from "@/lib/content/series"
 import { toArticleLayoutMetadata } from "@/lib/content/schema"
+import { getBlogArticleHeroImage, resolveBlogArticleHeroImage } from "@/lib/media/photography"
 import type {
   ContentArticleBase,
   ContentArticleLayoutMeta,
@@ -41,10 +42,13 @@ type DefineBlogArticleInput = Omit<BlogArticleMeta, "collection" | "path"> & {
 }
 
 export function defineBlogArticle(input: DefineBlogArticleInput): BlogArticleMeta {
+  const heroImage = resolveBlogArticleHeroImage(input.slug, input.heroImage)
+
   return {
     ...input,
     collection: "blog",
     path: getArticlePath("blog", input.slug) as `/blog/${string}`,
+    heroImage,
   }
 }
 
@@ -54,6 +58,9 @@ export function toBlogArticlePageProps(meta: BlogArticleMeta) {
     slug: meta.slug,
     readingTime: meta.readingTime,
   })
+
+  const heroImage = resolveBlogArticleHeroImage(meta.slug, meta.heroImage ?? meta.schema?.featuredImage)
+  const heroMeta = getBlogArticleHeroImage(meta.slug)
 
   return {
     slug: meta.slug,
@@ -68,7 +75,9 @@ export function toBlogArticlePageProps(meta: BlogArticleMeta) {
     answer: meta.answer,
     author: meta.author,
     reviewedBy: meta.reviewedBy,
-    heroImage: meta.heroImage ?? meta.schema?.featuredImage,
+    heroImage,
+    heroImageAlt: heroMeta?.alt,
+    heroImageObjectPosition: heroMeta?.objectPosition,
     topicId: meta.topicId,
     pillarSlug: meta.pillarSlug,
     sources: meta.sources,

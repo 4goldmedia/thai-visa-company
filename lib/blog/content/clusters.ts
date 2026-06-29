@@ -34,6 +34,13 @@ export const blogClusters = [
     pillarHref: "/visas/education",
   },
   {
+    id: "elite",
+    label: "Thailand Elite Visa",
+    description:
+      "Elite membership value, comparisons with retirement and other routes, and long-stay premium options.",
+    pillarHref: "/visas/elite",
+  },
+  {
     id: "immigration-procedures",
     label: "Immigration Procedures",
     description:

@@ -1,4 +1,5 @@
 import { defineBlogArticle } from "@/lib/content/collections/blog"
+import { blogArticlePhotography } from "@/lib/media/photography"
 import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
 
 /**
@@ -33,7 +34,7 @@ export const meta = defineBlogArticle({
   seo: {
     title: "Best Visa for Living in Thailand: How to Choose the Right Route",
     description:
-      "No single visa fits everyone. Compare DTV, business, retirement, elite, and education routes by your work, age, and goals, then continue to the relevant visa guide.",
+      "No single visa fits everyone. Compare DTV, business, retirement, elite, and education routes by your work, age, and goals, then continue to the relevant visa page.",
     keywords: [
       "best visa for living in thailand",
       "best visa for long stay in thailand",
@@ -44,7 +45,7 @@ export const meta = defineBlogArticle({
     ],
     ogTitle: "Best Visa for Living in Thailand",
     ogDescription:
-      "A profile-based guide to choosing the right Thailand visa for long-term living. Compare routes, trade-offs, and next steps.",
+      "No single visa fits everyone. Compare DTV, business, retirement, elite, and education routes by profile, then open the visa page for your shortlisted route.",
   },
   index: {
     clusterId: "living-in-thailand",
@@ -53,9 +54,9 @@ export const meta = defineBlogArticle({
   headingId: "best-visa-for-living-in-thailand-heading",
   eyebrow: "Route selection",
   lead:
-    "There is no single best visa for living in Thailand. The right route depends on how you earn income, whether you work for a Thai employer, your age, how long you plan to stay, and whether family will relocate with you. This guide compares the five main long-stay paths and helps you identify which visa fits your profile before you study detailed requirements or start an application.",
+    "There is no single best visa for living in Thailand. The right route depends on how you earn income, whether you work for a Thai employer, your age, how long you plan to stay, and whether family will relocate with you. This article compares the five main long-stay paths and helps you identify which visa fits your profile before you study detailed requirements or start an application.",
   answer:
-    "The best visa for living in Thailand depends on your situation, not one universal answer. Remote workers earning foreign income usually fit the DTV (Destination Thailand Visa). People employed by a Thai company need a business visa and work permit. Applicants 50 and over with qualifying retirement income fit O or O-A retirement routes. Enrolled students fit education visas. The Thailand Elite Visa suits applicants who want a premium long-stay option when other routes are a weak match. Use the relevant visa guide for eligibility, documents, and filing steps.",
+    "The best visa for living in Thailand depends on your situation, not one universal answer. Remote workers earning foreign income usually fit the DTV (Destination Thailand Visa). People employed by a Thai company need a business visa and work permit. Applicants 50 and over with qualifying retirement income fit O or O-A retirement routes. Enrolled students fit education visas. The Thailand Elite Visa suits applicants who want a premium long-stay option when other routes are a weak match. Use the relevant visa page for eligibility, documents, and filing steps.",
   author: {
     name: "Thai Visa Company Editorial Team",
     role: "Licensed Thailand visa specialists",
@@ -64,7 +65,7 @@ export const meta = defineBlogArticle({
   reviewedBy: {
     name: "Senior Visa Case Review",
   },
-  heroImage: "/images/editorial/Pattaya-skyline.webp",
+  heroImage: blogArticlePhotography["best-visa-for-living-in-thailand"].hero.src,
   readingTime: "16 min read",
   tableOfContents: [
     { id: "key-takeaways", label: "Key takeaways" },
@@ -103,13 +104,13 @@ export const meta = defineBlogArticle({
       value: "faq-switch-routes-later",
       question: "Can I switch to a different Thailand visa later?",
       answer:
-        "Yes, in many cases, but switches are not automatic. Whether you can change route depends on your current visa, time left on stay, and the category you want next. Some moves require leaving Thailand and reapplying; others allow in-country steps when policy permits. Map your current status and target route using the relevant visa guide before you file anything new.",
+        "Yes, in many cases, but switches are not automatic. Whether you can change route depends on your current visa, time left on stay, and the category you want next. Some moves require leaving Thailand and reapplying; others allow in-country steps when policy permits. Read Change Visa Type in Thailand and map your target route on the relevant visa page before you file anything new.",
     },
     {
       value: "faq-family-with-children",
       question: "What is the best visa for families moving to Thailand?",
       answer:
-        "There is no single family visa. Households usually anchor on the primary applicant's route: employment leads to business and permit logic, retirement leads to O or O-A for the qualifying retiree, and study leads to education visas for enrolled children. Dependants may follow or parallel-file depending on rules for that category. Choose the main earner's or retiree's route first, then read dependant guidance in that visa guide.",
+        "There is no single family visa. Households usually anchor on the primary applicant's route: employment leads to business and permit logic, retirement leads to O or O-A for the qualifying retiree, and study leads to education visas for enrolled children. Dependants may follow or parallel-file depending on rules for that category. Choose the main earner's or retiree's route first, then read dependant rules on that visa page.",
     },
     {
       value: "faq-remote-worker-thai-spouse",
@@ -121,7 +122,7 @@ export const meta = defineBlogArticle({
       value: "faq-part-time-work-thailand",
       question: "Can I do part-time work in Thailand on a DTV or retirement visa?",
       answer:
-        "Local work in Thailand generally requires the correct business visa and work permit, not DTV or retirement permission. Small or part-time roles still count as work if performed in Thailand for a Thai entity or local labour market. Treat any Thailand-based job as a business-route question and read the Thailand Business Visa guide before you accept work.",
+        "Local work in Thailand generally requires the correct business visa and work permit, not DTV or retirement permission. Small or part-time roles still count as work if performed in Thailand for a Thai entity or local labour market. Treat any Thailand-based job as a business-route question and read the Thailand Business Visa page before you accept work.",
     },
     {
       value: "faq-wrong-visa-already-inside",
@@ -133,19 +134,19 @@ export const meta = defineBlogArticle({
       value: "faq-dtv-vs-retirement-50",
       question: "I am 50. Should I choose DTV or a retirement visa?",
       answer:
-        "At 50, both may be on the table, but the better fit follows your income story. Active remote work for foreign clients usually favors DTV. Stopping work and relying on pension or investment proof usually favors retirement. If you will keep earning remotely, DTV is often Excellent fit; if you will not work, retirement is often Best fit. Compare both visa guides before you file.",
+        "At 50, both may be on the table, but the better fit follows your income story. Active remote work for foreign clients usually favors DTV. Stopping work and relying on pension or investment proof usually favors retirement. Compare DTV vs Retirement Visa before you file.",
     },
     {
       value: "faq-education-language-school-only",
       question: "Is an education visa right if I only want language school?",
       answer:
-        "It can be Good fit to Best fit when you enroll full time at a compliant school that sponsors education-category visas and you maintain attendance. Language study is not a shortcut for living in Thailand without study compliance. Verify the school's visa support history before you pay fees. Full programme and renewal rules are in the Thailand Education Visa guide.",
+        "It can fit well when you enroll full time at a compliant school that sponsors education-category visas and you maintain attendance. Language study is not a shortcut for living in Thailand without study compliance. Verify the school's visa support history before you pay fees. Full programme and renewal rules are on the Thailand Education Visa page.",
     },
     {
       value: "faq-elite-vs-retirement",
       question: "Thailand Elite Visa vs retirement visa: which is better?",
       answer:
-        "Neither is universally better. Retirement is usually Best fit at 50+ when you meet financial proof and do not intend to work. Elite is often Good fit when you want premium long-stay services and membership benefits despite qualifying elsewhere. Compare membership cost, travel needs, and proof burden using the Thailand Elite Visa and Thailand Retirement Visa guides side by side.",
+        "Neither is universally better. Retirement is usually the lower-cost fit at 50+ when you meet financial proof and do not intend to work. Elite can suit applicants who want premium long-stay services despite qualifying elsewhere. Compare Thailand Elite Visa vs Retirement Visa and both visa pages side by side.",
     },
     {
       value: "faq-tourist-visa-long-stay",
@@ -162,9 +163,33 @@ export const meta = defineBlogArticle({
   ],
   related: [
     {
-      category: "Guide topic",
-      title: "Thailand Immigration Guides",
-      description: "Cross-cutting guides on how visa routes fit together.",
+      category: "DTV comparison",
+      title: "DTV vs Tourist Visa Thailand",
+      description: "When tourist entry fits short stays and DTV fits long-stay remote work.",
+      href: "/blog/dtv-visa-vs-tourist-visa-thailand",
+    },
+    {
+      category: "DTV troubleshooting",
+      title: "DTV Visa Rejection Reasons",
+      description: "Why DTV files fail and how to fix them before reapplication.",
+      href: "/blog/dtv-visa-rejection-reasons",
+    },
+    {
+      category: "Living in Thailand",
+      title: "Can Foreigners Live in Thailand Permanently?",
+      description: "Long-term living is possible through lawful visas; start here before route selection.",
+      href: "/blog/can-foreigners-live-in-thailand-permanently",
+    },
+    {
+      category: "Work authorization",
+      title: "Can I Work in Thailand Without a Work Permit?",
+      description: "When labour authorization is required and when remote-work routes apply.",
+      href: "/blog/can-i-work-in-thailand-without-a-work-permit",
+    },
+    {
+      category: "Article topic",
+      title: "Living in Thailand Articles",
+      description: "Cross-cutting articles on how visa routes fit together.",
       href: "/blog/cluster/living-in-thailand",
     },
     {
@@ -203,8 +228,61 @@ export const meta = defineBlogArticle({
       description: "Employment path detail when a Thai employer is involved.",
       href: "/blog/business-visa-vs-work-permit-thailand",
     },
+    {
+      category: "DTV comparison",
+      title: "DTV vs Retirement Visa",
+      description: "Remote work versus retirement intent for applicants 50+.",
+      href: "/blog/dtv-vs-retirement-visa-thailand",
+    },
+    {
+      category: "Retirement comparison",
+      title: "Retirement Visa O vs O-A Thailand",
+      description: "Choose O or O-A after you shortlist retirement.",
+      href: "/blog/retirement-visa-o-vs-o-a-thailand",
+    },
+    {
+      category: "Elite decision",
+      title: "Thailand Elite Visa Worth It",
+      description: "When membership beats purpose-built routes on value.",
+      href: "/blog/thailand-elite-visa-worth-it",
+    },
+    {
+      category: "Immigration procedures",
+      title: "Change Visa Type in Thailand",
+      description: "When you must switch category or reapply abroad.",
+      href: "/blog/change-visa-type-in-thailand",
+    },
+    {
+      category: "Immigration procedures",
+      title: "Re-Entry Permit Thailand",
+      description: "Protect your extension when you travel abroad.",
+      href: "/blog/re-entry-permit-thailand",
+    },
+    {
+      category: "DTV comparison",
+      title: "DTV vs Tourist Visa Thailand",
+      description: "Short tourist stays versus lawful DTV long-stay remote work.",
+      href: "/blog/dtv-visa-vs-tourist-visa-thailand",
+    },
+    {
+      category: "DTV troubleshooting",
+      title: "DTV Visa Rejection Reasons",
+      description: "Diagnose refused DTV files before you reapply.",
+      href: "/blog/dtv-visa-rejection-reasons",
+    },
+    {
+      category: "Elite comparison",
+      title: "Thailand Elite Visa vs Retirement Visa",
+      description: "Membership fee versus retirement proof for applicants 50+.",
+      href: "/blog/thailand-elite-visa-vs-retirement-visa",
+    },
   ],
-  relatedSlugs: ["business-visa-vs-work-permit-thailand"],
+  relatedSlugs: [
+    "can-foreigners-live-in-thailand-permanently",
+    "business-visa-vs-work-permit-thailand",
+    "dtv-vs-retirement-visa-thailand",
+    "can-i-work-in-thailand-without-a-work-permit",
+  ],
   cta: {
     title: "Get expert guidance before you apply",
     description:

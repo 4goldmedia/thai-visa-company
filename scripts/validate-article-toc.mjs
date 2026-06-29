@@ -66,6 +66,30 @@ function extractHeroImage(metaSource) {
   return match?.[1]
 }
 
+function extractBlogPhotographySlugs() {
+  const photographyPath = join(ROOT, "lib/media/photography.ts")
+  if (!existsSync(photographyPath)) return new Set()
+
+  const source = readFileSync(photographyPath, "utf8")
+  const blockMatch = source.match(
+    /export const blogArticlePhotography = \{([\s\S]*?)\} as const/,
+  )
+  if (!blockMatch) return new Set()
+
+  const slugs = new Set()
+  const slugPattern = /["'`]([^"'`]+)["'`]:\s*\{/g
+  let match = slugPattern.exec(blockMatch[1])
+  while (match) {
+    slugs.add(match[1])
+    match = slugPattern.exec(blockMatch[1])
+  }
+  return slugs
+}
+
+function resolveBlogHeroImage(slug, metaSource, photographySlugs) {
+  return extractHeroImage(metaSource) ?? (photographySlugs.has(slug) ? `registry:${slug}` : undefined)
+}
+
 function extractArticleImageSrcs(mdxSource) {
   const srcs = []
   const pattern = /<ArticleImage[\s\S]*?src=["'`]([^"'`]+)["'`]/g
@@ -95,7 +119,7 @@ function findVisaPageImageViolations(collection, metaSource, mdxSource) {
   return violations
 }
 
-function validateArticle(collection, articleDir) {
+function validateArticle(collection, articleDir, photographySlugs) {
   const slug = articleDir.split("/").pop()
   const metaPath = join(articleDir, "meta.ts")
   const mdxPath = join(articleDir, "content.mdx")
@@ -113,6 +137,10 @@ function validateArticle(collection, articleDir) {
   const extraInMdx = headingSlugs.filter((slug) => !tocIds.includes(slug))
   const imageViolations = findVisaPageImageViolations(collection, metaSource, mdxSource)
 
+  const heroImage = resolveBlogHeroImage(slug, metaSource, photographySlugs)
+  const missingHeroImage =
+    collection === "blog" && !heroImage
+
   return {
     slug,
     collection,
@@ -121,18 +149,25 @@ function validateArticle(collection, articleDir) {
     missingInMdx,
     extraInMdx,
     imageViolations,
-    heroImage: extractHeroImage(metaSource),
+    heroImage,
+    missingHeroImage,
     ok:
       missingInMdx.length === 0 &&
       extraInMdx.length === 0 &&
-      imageViolations.length === 0,
+      imageViolations.length === 0 &&
+      !missingHeroImage,
   }
 }
 
 function findDuplicateBlogHeroes(results) {
   const blogHeroes = results
     .filter((result) => !result.skipped && result.collection === "blog" && result.heroImage)
-    .map((result) => ({ slug: result.slug, heroImage: result.heroImage }))
+    .map((result) => ({
+      slug: result.slug,
+      heroImage: result.heroImage.startsWith("registry:")
+        ? result.heroImage
+        : result.heroImage,
+    }))
 
   const byHero = new Map()
   for (const entry of blogHeroes) {
@@ -157,10 +192,11 @@ function main() {
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
 
+  const photographySlugs = extractBlogPhotographySlugs()
   const results = []
   for (const collection of collections) {
     for (const articleDir of listArticleDirs(collection)) {
-      results.push(validateArticle(collection, articleDir))
+      results.push(validateArticle(collection, articleDir, photographySlugs))
     }
   }
 
@@ -197,6 +233,11 @@ function main() {
       for (const violation of result.imageViolations) {
         console.error(`  ${violation}`)
       }
+    }
+    if (result.missingHeroImage) {
+      console.error(
+        "  missing heroImage: set meta.heroImage or register slug in blogArticlePhotography",
+      )
     }
   }
 

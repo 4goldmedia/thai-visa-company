@@ -1,4 +1,5 @@
 import { defineBlogArticle } from "@/lib/content/collections/blog"
+import { blogArticlePhotography } from "@/lib/media/photography"
 import { defaultFinalCtaFootnote } from "@/lib/visas/shared"
 
 export const meta = defineBlogArticle({
@@ -46,7 +47,7 @@ export const meta = defineBlogArticle({
   headingId: "business-visa-vs-work-permit-heading",
   eyebrow: "Business & work",
   lead:
-    "Most foreign employees with a Thai sponsor need both a business visa and a work permit. They are different documents from different agencies: the visa lets you enter and stay; the permit authorizes the job. This guide compares them, explains the normal sequence, and helps you decide if this route fits before you open the full Thailand Business Visa guide.",
+    "Most foreign employees with a Thai sponsor need both a business visa and a work permit. They are different documents from different agencies: the visa lets you enter and stay; the permit authorizes the job. This article compares them, explains the normal sequence, and helps you decide if this route fits before you open the Thailand Business Visa page.",
   answer:
     "Yes, most foreign employees working for a Thai employer need both a Non-Immigrant B business visa and a work permit. The business visa is immigration permission to enter and stay for employment-linked activity with a sponsor. The work permit is labour authorization to perform the job after you arrive. The visa does not authorize work by itself.",
   author: {
@@ -57,7 +58,7 @@ export const meta = defineBlogArticle({
   reviewedBy: {
     name: "Senior Visa Case Review",
   },
-  heroImage: "/images/editorial/thailand-visa-work-permit.webp",
+  heroImage: blogArticlePhotography["business-visa-vs-work-permit-thailand"].hero.src,
   readingTime: "11 min read",
   tableOfContents: [
     { id: "who-this-article-is-for", label: "Who this article is for" },
@@ -163,10 +164,16 @@ export const meta = defineBlogArticle({
       value: "faq-remote-worker",
       question: "I work remotely for a foreign company. Do I need either document?",
       answer:
-        "Remote work for foreign income without Thai employment is a different intent family. A business visa and work permit are for Thailand-linked employment or company activity. Compare the DTV or other routes in the relevant visa guides instead of forcing a Non-Immigrant B file.",
+        "Remote work for foreign income without Thai employment is a different intent family. A business visa and work permit are for Thailand-linked employment or company activity. Compare the DTV visa page or other long-stay routes instead of forcing a Non-Immigrant B file.",
     },
   ],
   related: [
+    {
+      category: "Work authorization",
+      title: "Can I Work in Thailand Without a Work Permit?",
+      description: "When you need labour authorization beyond a business visa.",
+      href: "/blog/can-i-work-in-thailand-without-a-work-permit",
+    },
     {
       category: "Route selection",
       title: "Best Visa for Living in Thailand",
@@ -181,10 +188,10 @@ export const meta = defineBlogArticle({
       href: "/visas/business",
     },
     {
-      category: "Guide topic",
-      title: "Thailand Business Visa Guides",
+      category: "Article topic",
+      title: "Thailand Business Visa Articles",
       description:
-        "More evergreen guides on business visas, work permits, and company sponsorship.",
+        "More articles on business visas, work permits, and company sponsorship.",
       href: "/blog/cluster/business",
     },
     {
@@ -195,7 +202,10 @@ export const meta = defineBlogArticle({
       href: "/visas/dtv",
     },
   ],
-  relatedSlugs: ["best-visa-for-living-in-thailand"],
+  relatedSlugs: [
+    "best-visa-for-living-in-thailand",
+    "can-i-work-in-thailand-without-a-work-permit",
+  ],
   cta: {
     title: "Let Thai Visa Company review your situation",
     description:

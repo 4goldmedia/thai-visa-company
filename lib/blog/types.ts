@@ -7,6 +7,7 @@ export const blogClusterIds = [
   "retirement",
   "business",
   "education",
+  "elite",
   "immigration-procedures",
   "living-in-thailand",
 ] as const

@@ -127,6 +127,7 @@ export const visaPageImageSrcs = new Set<string>([
 export type BlogArticleImage = {
   src: string
   alt: string
+  caption?: string
   objectPosition?: string
 }
 
@@ -142,7 +143,53 @@ export const blogArticlePhotography = {
   "business-visa-vs-work-permit-thailand": {
     hero: getEditorialAsset("business-visa-work-permit-comparison-hero"),
   },
+  "can-foreigners-live-in-thailand-permanently": {
+    hero: getEditorialAsset("can-foreigners-live-permanently-hero"),
+  },
+  "can-i-work-in-thailand-without-a-work-permit": {
+    hero: getEditorialAsset("can-i-work-without-permit-hero"),
+  },
+  "change-visa-type-in-thailand": {
+    hero: getEditorialAsset("change-visa-type-hero"),
+  },
+  "dtv-visa-rejection-reasons": {
+    hero: getEditorialAsset("dtv-visa-rejection-reasons-hero"),
+  },
+  "dtv-visa-vs-tourist-visa-thailand": {
+    hero: getEditorialAsset("dtv-vs-tourist-visa-hero"),
+  },
+  "dtv-vs-retirement-visa-thailand": {
+    hero: getEditorialAsset("blog-dtv-retirement-comparison"),
+  },
+  "re-entry-permit-thailand": {
+    hero: getEditorialAsset("re-entry-permit-thailand-hero"),
+  },
+  "retirement-visa-o-vs-o-a-thailand": {
+    hero: getEditorialAsset("retirement-o-vs-oa-market-hero"),
+  },
+  "thailand-elite-visa-vs-retirement-visa": {
+    hero: getEditorialAsset("elite-vs-retirement-lifestyle-hero"),
+  },
+  "thailand-elite-visa-worth-it": {
+    hero: getEditorialAsset("elite-worth-it-lobby-hero"),
+  },
 } as const satisfies Record<string, { hero: BlogArticleImage; supporting?: BlogArticleImage }>
+
+export type BlogArticlePhotographySlug = keyof typeof blogArticlePhotography
+
+export function getBlogArticleHeroImage(
+  slug: string,
+): BlogArticleImage | undefined {
+  return (blogArticlePhotography as Record<string, { hero: BlogArticleImage }>)[slug]
+    ?.hero
+}
+
+export function resolveBlogArticleHeroImage(
+  slug: string,
+  explicit?: string,
+): string | undefined {
+  return explicit ?? getBlogArticleHeroImage(slug)?.src
+}
 
 /** @deprecated Use editorialAssetLibrary — re-export for discoverability */
 export { editorialAssetLibrary, getBlogAvailableEditorialAssets } from "@/lib/media/editorial-asset-library"

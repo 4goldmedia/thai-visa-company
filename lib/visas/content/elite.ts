@@ -27,7 +27,11 @@ export const eliteVisaPage: VisaPageContent = {
   updatedAt: ELITE_UPDATED_AT,
   layout: GOLDEN_VISA_PAGE_LAYOUT,
   topicId: "elite",
-  relatedArticleSlugs: ["best-visa-for-living-in-thailand"],
+  relatedArticleSlugs: [
+    "best-visa-for-living-in-thailand",
+    "thailand-elite-visa-worth-it",
+    "thailand-elite-visa-vs-retirement-visa",
+  ],
   lastReviewed: {
     reviewerName: "Thai Visa Company Editorial Team",
     reviewerTitle: "Licensed Thailand visa specialists",

@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "validate:articles": "node scripts/validate-article-toc.mjs",
+    "validate:editorial-graph": "node scripts/validate-editorial-graph.mjs",
     "sync:articles": "node scripts/sync-article-registry.mjs",
-    "prebuild": "npm run sync:articles && npm run validate:articles"
+    "prebuild": "npm run sync:articles && npm run validate:articles && npm run validate:editorial-graph"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

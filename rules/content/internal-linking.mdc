@@ -6,26 +6,64 @@ alwaysApply: false
 
 # Thai Visa Company Internal Linking Standard
 
-Every article should strengthen the overall knowledge base.
+Every blog article strengthens the editorial knowledge graph. Links must help readers — never insert links solely for SEO.
 
-Links must help readers.
+**Canonical reference:** [`docs/editorial-knowledge-graph.md`](../../docs/editorial-knowledge-graph.md)  
+**Frozen graph:** [`lib/content/editorial-knowledge-graph.ts`](../../lib/content/editorial-knowledge-graph.ts)  
+**Validation:** `npm run validate:editorial-graph`
 
-Never insert links solely for SEO.
+## Publication terminology
 
-## Each article should
+| Use | Do not use (our content) |
+|-----|--------------------------|
+| blog article | guide, authority guide |
+| visa page | visa guide |
+| Related articles / Keep reading | related guides |
+| Read article | Read guide |
 
-- link to the relevant visa page
-- link to the cluster pillar page
-- link to supporting articles
-- receive links from related content
+## Each blog article must
 
-Content should form a connected knowledge network.
+- link to the relevant **visa page** for requirements
+- link to related **blog articles** when the reader has a fork question
+- link upstream to **best-visa-for-living-in-thailand** when route selection is unclear
+- receive links from visa hubs via `relatedArticleSlugs` when cluster-primary
+- use frozen `relatedSlugs` from the knowledge graph (3–4 max)
 
-## Primary pillars
+Manual `related` + `relatedSlugs` beat algorithmic links in `lib/content/related.ts`.
 
-- DTV Visa
-- Retirement Visa
-- Business Visa
-- Education Visa
-- Immigration Procedures
-- Living In Thailand
+## Frozen `relatedSlugs` (launch set)
+
+```
+best-visa → [business-vs-work-permit, dtv-vs-retirement, elite-worth-it, o-vs-o-a]
+business-vs-work-permit → [best-visa]
+o-vs-o-a → [best-visa, dtv-vs-retirement]
+elite-worth-it → [best-visa, elite-vs-retirement]
+change-visa-type → [best-visa, re-entry-permit]
+dtv-rejection → [best-visa, dtv-vs-tourist]
+dtv-vs-retirement → [best-visa, o-vs-o-a, elite-vs-retirement]
+elite-vs-retirement → [best-visa, elite-worth-it, dtv-vs-retirement]
+re-entry-permit → [best-visa, change-visa-type]
+dtv-vs-tourist → [best-visa, dtv-rejection]
+can-i-work-without-permit → [business-vs-work-permit, best-visa, can-foreigners-live-permanently]
+can-foreigners-live-permanently → [best-visa, dtv-vs-retirement, elite-worth-it, can-i-work-without-permit]
+best-visa → [can-foreigners-live-permanently, business-vs-work-permit, dtv-vs-retirement, can-i-work-without-permit]
+```
+
+## Visa hub backlinks
+
+Each `/visas/*` hub must list `best-visa-for-living-in-thailand` plus cluster-primary articles (see knowledge graph doc §3).
+
+## Anti-patterns
+
+| Anti-pattern | Why |
+|--------------|-----|
+| Hub fee/checklist tables in comparison articles | Visa pages own requirements |
+| Linking `/visas/tourist` from DTV vs tourist | Tourist pillar unpublished |
+| `elite-worth-it` ↔ `elite-vs-retirement` in every section | Hierarchy: worth-it → vs-retirement → hubs |
+| Duplicating re-entry rules on every hub | `re-entry-permit-thailand` owns compliance |
+| Hub ↔ hub loops in blog body | Service navigation belongs on visa pages |
+
+## Clusters
+
+- `dtv`, `retirement`, `business`, `education`, `elite`, `immigration-procedures`, `living-in-thailand`
+- Pillar hrefs in [`lib/blog/content/clusters.ts`](../../lib/blog/content/clusters.ts)

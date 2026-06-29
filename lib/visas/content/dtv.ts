@@ -27,7 +27,12 @@ export const dtvVisaPage: VisaPageContent = {
   updatedAt: DTV_UPDATED_AT,
   layout: DTV_PHASE2_LAYOUT,
   topicId: "dtv",
-  relatedArticleSlugs: ["best-visa-for-living-in-thailand"],
+  relatedArticleSlugs: [
+    "best-visa-for-living-in-thailand",
+    "dtv-visa-rejection-reasons",
+    "dtv-visa-vs-tourist-visa-thailand",
+    "dtv-vs-retirement-visa-thailand",
+  ],
   lastReviewed: {
     reviewerName: "Thai Visa Company Editorial Team",
     reviewerTitle: "Licensed Thailand visa specialists",

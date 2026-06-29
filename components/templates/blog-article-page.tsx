@@ -45,6 +45,8 @@ function BlogArticlePageView({ context }: BlogArticlePageViewProps) {
           lead={page.lead}
           answer={page.answer}
           heroImage={page.heroImage}
+          heroImageAlt={page.heroImageAlt}
+          heroImageObjectPosition={page.heroImageObjectPosition}
           metadata={page.metadata}
           category={category}
           path={page.path}
