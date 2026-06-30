@@ -66,7 +66,10 @@ export const movingPhotography = {
   },
   bands: {
     working: fromVisaGallery("business"),
-    retirement: fromVisaGallery("retirement"),
+    retirement: {
+      src: "/images/moving-to-thailand/retirement-golf.webp",
+      alt: "Retired couple enjoying a golf course in Thailand",
+    },
   },
 } as const satisfies Record<string, unknown>
 

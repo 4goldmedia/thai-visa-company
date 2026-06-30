@@ -40,7 +40,7 @@ function MovingRetirementSection() {
               alt={heroImage.alt}
               fill
               sizes="(max-width: 1280px) 100vw, 1280px"
-              className="moving-retirement__hero-image object-cover"
+              className="moving-retirement__hero-image object-cover rounded-none"
               style={
                 heroImage.objectPosition
                   ? { objectPosition: heroImage.objectPosition }
