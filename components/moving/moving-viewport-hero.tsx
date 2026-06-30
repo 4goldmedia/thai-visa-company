@@ -3,7 +3,6 @@ import Link from "next/link"
 import { OptimizedImage } from "@/components/ui/optimized-image"
 import type { MovingPhoto } from "@/lib/media/moving-photography"
 import {
-  ctaButtonPrimaryClass,
   editorialLinkInverseClass,
 } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
@@ -69,7 +68,7 @@ function MovingViewportHero({
           <div className="moving-hero__actions">
             <Link
               href={primaryCta.href}
-              className={cn(ctaButtonPrimaryClass, "moving-hero__cta-primary")}
+              className={cn("signature-cta-primary sm:w-auto", "moving-hero__cta-primary")}
             >
               {primaryCta.label}
             </Link>
