@@ -14,8 +14,8 @@ export const whyThailandSectionCopy = {
   titleLine1: "More than a destination.",
   titleLine2: "A better way to live.",
   body: "Thailand combines modern convenience, international healthcare, strong connectivity, and a slower pace of life, making it one of the world’s most attractive places to relocate.",
-  ctaLabel: "Explore life in Thailand",
-  ctaHref: "/resources",
+  ctaLabel: "Explore Moving to Thailand",
+  ctaHref: "/moving-to-thailand",
 } as const
 
 /** Editorial collage  -  existing brand photography */

@@ -51,5 +51,6 @@ export const blogClusters = [
     label: "Living in Thailand",
     description:
       "Banking, housing, healthcare, taxes, and practical relocation guidance for foreigners in Thailand.",
+    pillarHref: "/moving-to-thailand",
   },
 ] as const satisfies readonly BlogCluster[]

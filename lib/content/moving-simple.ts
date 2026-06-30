@@ -8,5 +8,5 @@ export const movingSimpleSectionCopy = {
   titleLine2: "completely clear.",
   body: "Visa processes can feel overwhelming. We guide you through each step clearly, from choosing the right pathway to preparing documents and ongoing support after arrival.",
   ctaLabel: "How we help",
-  ctaHref: "/#process",
+  ctaHref: "/moving-to-thailand",
 } as const

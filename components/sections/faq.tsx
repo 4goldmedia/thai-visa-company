@@ -49,6 +49,8 @@ type FaqProps = {
   description?: string
   eyebrow?: string
   items: ReadonlyArray<VisaFaqItem>
+  /** Initially expanded accordion item  -  omit for a fully collapsed list */
+  defaultValue?: string
   className?: string
 }
 
@@ -58,6 +60,7 @@ function Faq({
   description = "Straightforward guidance on timelines, visa options, and how we support you through the process.",
   eyebrow = "Frequently Asked Questions",
   items,
+  defaultValue,
   className,
 }: FaqProps) {
   return (
@@ -74,6 +77,7 @@ function Faq({
 
       <FAQAccordion
         aria-labelledby={headingId}
+        defaultValue={defaultValue}
         className={cn(
           sectionContentOffsetClass,
           "faq-section__accordion",
@@ -109,6 +113,7 @@ type FaqSectionProps = {
   description?: string
   eyebrow?: string
   items?: ReadonlyArray<VisaFaqItem>
+  defaultValue?: string
   className?: string
   /** FAQPage JSON-LD  -  defaults to homepage preset */
   jsonLd?: FaqJsonLdConfig
@@ -119,6 +124,7 @@ function FaqSection({
   sectionClassName,
   headingId = sectionHeadingIds.faq,
   items = defaultFaqItems,
+  defaultValue,
   jsonLd,
   title,
   description,
@@ -153,6 +159,7 @@ function FaqSection({
           items={items}
           title={title}
           description={description}
+          defaultValue={defaultValue}
           {...faqProps}
         />
       </Container>

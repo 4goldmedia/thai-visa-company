@@ -1,0 +1,36 @@
+/** DOM landmark ids — aligned to search-intent section anchors */
+
+export const movingPageSectionIds = {
+  hero: "moving-hero",
+  heroHeading: "moving-hero-heading",
+  quickAnswer: "moving-quick-answer",
+  whyMove: "why-move",
+  whyMoveHeading: "why-move-heading",
+  isThailandGood: "is-thailand-good",
+  isThailandGoodHeading: "is-thailand-good-heading",
+  canForeignersMove: "can-foreigners-move",
+  canForeignersMoveHeading: "can-foreigners-move-heading",
+  everydayLife: "everyday-life",
+  everydayLifeHeading: "everyday-life-heading",
+  costOfLiving: "cost-of-living",
+  costOfLivingHeading: "cost-of-living-heading",
+  budgetEstimator: "budget-estimator",
+  budgetEstimatorHeading: "budget-estimator-heading",
+  budgetEstimatorFaqHeading: "budget-estimator-faq-heading",
+  cities: "cities",
+  citiesHeading: "cities-heading",
+  working: "working",
+  workingHeading: "working-heading",
+  families: "families",
+  familiesHeading: "families-heading",
+  retirement: "retirement",
+  retirementHeading: "retirement-heading",
+  visaRoutes: "visa-routes",
+  visaRoutesHeading: "visa-routes-heading",
+  faq: "moving-faq",
+  faqHeading: "moving-faq-heading",
+  finalCta: "moving-final-cta",
+  finalCtaHeading: "moving-final-cta-heading",
+} as const
+
+export type MovingPageSectionIds = typeof movingPageSectionIds

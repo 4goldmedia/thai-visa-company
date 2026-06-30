@@ -17,6 +17,8 @@ export const homeSectionAnchors = {
 
 export { visasHubPath }
 
+export const movingPagePath = "/moving-to-thailand" as const
+
 export const secondaryNavLinks = [
   { label: "Blog", href: blogPath },
   { label: "Reviews", href: homeSectionAnchors.reviews },
@@ -41,6 +43,7 @@ export const footerVisaLinks = [
 ] as const
 
 export const footerBlogLinks = [
+  { label: "Moving to Thailand", href: movingPagePath },
   { label: "All articles", href: blogPath },
   { label: "DTV Visa", href: "/blog/cluster/dtv" },
   { label: "Retirement Visa", href: "/blog/cluster/retirement" },

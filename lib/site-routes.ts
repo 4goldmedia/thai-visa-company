@@ -49,6 +49,15 @@ export const siteRoutes = [
     published: true,
   },
 
+  // Flagship relocation pillar
+  {
+    path: "/moving-to-thailand",
+    group: "marketing",
+    changeFrequency: "weekly",
+    priority: 0.95,
+    published: true,
+  },
+
   // Visa services
   {
     path: "/visas/retirement",

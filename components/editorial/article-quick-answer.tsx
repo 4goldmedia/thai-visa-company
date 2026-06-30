@@ -8,6 +8,7 @@ type ArticleQuickAnswerProps = {
   /** Explicit paragraphs override `answer` */
   paragraphs?: ReadonlyArray<string>
   title?: string
+  headingId?: string
   children?: React.ReactNode
   className?: string
 }
@@ -25,6 +26,7 @@ function ArticleQuickAnswer({
   answer,
   paragraphs,
   title = "Quick answer",
+  headingId = "article-quick-answer-heading",
   children,
   className,
 }: ArticleQuickAnswerProps) {
@@ -38,7 +40,7 @@ function ArticleQuickAnswer({
   return (
     <section
       className={cn("editorial-quick-answer", className)}
-      aria-labelledby="article-quick-answer-heading"
+      aria-labelledby={headingId}
     >
       <div className="editorial-quick-answer__label-row">
         <Sparkles
@@ -46,7 +48,7 @@ function ArticleQuickAnswer({
           strokeWidth={1.75}
           aria-hidden
         />
-        <h2 id="article-quick-answer-heading" className="editorial-quick-answer__label">
+        <h2 id={headingId} className="editorial-quick-answer__label">
           {title}
         </h2>
       </div>
