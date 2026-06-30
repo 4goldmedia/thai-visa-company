@@ -18,36 +18,31 @@ export const whyThailandSectionCopy = {
   ctaHref: "/moving-to-thailand",
 } as const
 
-/** Editorial collage  -  existing brand photography */
+/** Editorial collage  -  Thailand lifestyle photography */
 export const whyThailandCollageImages: ReadonlyArray<WhyThailandCollageImage> = [
   {
-    id: "remote-work",
-    src: "/images/visas/dtv-remote-work.jpg",
-    alt: "Professional working on a laptop on a balcony overlooking a city skyline, suggesting remote work life in Thailand",
-    objectPosition: "center 38%",
+    id: "bangkok",
+    src: "/images/moving-to-thailand/cities/Bangkok.webp",
+    alt: "Bangkok skyline at sunset with the Chao Phraya River and temples",
   },
   {
-    id: "skyline",
-    src: "/images/hero/Bangkok-skyline-LS.webp",
-    alt: "Bangkok skyline at golden hour from a luxury terrace",
-    objectPosition: "center 42%",
+    id: "phuket",
+    src: "/images/moving-to-thailand/cities/Phuket.webp",
+    alt: "Phuket coastline with turquoise water and hillside villas at sunset",
   },
   {
-    id: "schools",
-    src: "/images/visas/education.jpg",
-    alt: "Warm social setting suggesting international schools and family life in Thailand",
-    objectPosition: "center 36%",
+    id: "chiang-mai",
+    src: "/images/moving-to-thailand/cities/Chiang Mai.webp",
+    alt: "Chiang Mai temple on a forested hillside at golden hour",
   },
   {
-    id: "city",
-    src: "/images/visas/business.jpg",
-    alt: "Modern business district suggesting connectivity and urban infrastructure",
-    objectPosition: "center 48%",
+    id: "golf-course",
+    src: "/images/moving-to-thailand/Thailand-golf-course.png",
+    alt: "Couple walking a golf course fairway with tropical mountains beyond",
   },
   {
-    id: "lifestyle",
-    src: "/images/editorial/moving-simple.jpg",
-    alt: "Calm water and long-tail boats in Thailand, suggesting local lifestyle and leisure",
-    objectPosition: "center 52%",
+    id: "koh-samui",
+    src: "/images/moving-to-thailand/cities/Koh Samui.webp",
+    alt: "Koh Samui coastal road with palm trees and turquoise bay",
   },
 ]

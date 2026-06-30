@@ -59,7 +59,7 @@ export const homepageClientReviews: ReadonlyArray<ClientReview> = [
     review:
       "Consistent support during my business visa application. Practical answers, not vague general advice.",
     avatar: {
-      src: "/images/reviews/markus-w.jpg",
+      src: "/images/reviews/Markus W.webp",
       alt: "Portrait of Markus W., Germany",
     },
   },

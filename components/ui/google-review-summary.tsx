@@ -1,4 +1,5 @@
 import { StarRating } from "@/components/cards/review-card"
+import { GooglePill } from "@/components/ui/google-pill"
 import {
   buildGoogleReviewAriaLabel,
   defaultGoogleReviewSummary,
@@ -28,30 +29,6 @@ export type GoogleReviewSummaryProps = {
   /** Stacked layout  -  editorial score with /5 denominator */
   stackedScoreStyle?: "default" | "editorial"
   className?: string
-}
-
-function GoogleMark({
-  className,
-  variant = "light",
-}: {
-  className?: string
-  variant?: "light" | "dark"
-}) {
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center rounded-md border px-1.5 py-px",
-        "text-[10px] font-medium tracking-tight sm:text-[11px]",
-        variant === "dark"
-          ? "border-[color-mix(in_srgb,#f6f3ee_14%,transparent)] bg-[color-mix(in_srgb,#f6f3ee_6%,transparent)] text-[color-mix(in_srgb,#f6f3ee_55%,transparent)]"
-          : "border-border/50 bg-muted/30 text-muted-foreground",
-        className,
-      )}
-      aria-hidden
-    >
-      Google
-    </span>
-  )
 }
 
 function GoogleReviewSummary({
@@ -163,7 +140,7 @@ function GoogleReviewSummary({
             )}
           >
             <p className={metaClass}>{countLabel}</p>
-            <GoogleMark variant={variant} />
+            <GooglePill variant={variant} />
           </div>
         </>
       ) : (
@@ -176,7 +153,7 @@ function GoogleReviewSummary({
             <p className={metaClass}>
               on {sourceLabel} · {countLabel}
             </p>
-            <GoogleMark variant={variant} />
+            <GooglePill variant={variant} />
           </div>
         </>
       )}
@@ -206,4 +183,4 @@ function GoogleReviewSummary({
   return content
 }
 
-export { GoogleReviewSummary, GoogleMark }
+export { GoogleReviewSummary, GooglePill, GooglePill as GoogleMark }
