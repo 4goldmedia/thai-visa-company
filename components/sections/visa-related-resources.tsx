@@ -39,6 +39,8 @@ function VisaRelatedResourcesSection({
       indexHref={clusterHref}
       indexLabel={clusterLabel}
       showIndexLink={Boolean(clusterHref)}
+      sectionClassName="visa-related-resources-section"
+      className="visa-related-resources__inner"
     />
   )
 }

@@ -2206,6 +2206,21 @@
     color: var(--text-secondary);
   }
 
+  /* ── Related guides and articles ── */
+  .visa-page .visa-related-resources-section {
+    background-color: #ffffff;
+  }
+
+  .visa-page .visa-related-resources__inner {
+    gap: 1.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .visa-page .visa-related-resources__inner {
+      gap: 2rem;
+    }
+  }
+
   /* ── Final CTA on visa pages uses shared premium-cta band ── */
   .visa-page .visa-final-cta {
     border-bottom: none;
