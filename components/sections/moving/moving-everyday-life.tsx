@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionReveal } from "@/components/motion"
 import { movingPageContent } from "@/lib/moving/content"
+import { movingEverydayLifeSubsectionIcons } from "@/lib/moving/everyday-life-section-icons"
 import { movingPageSectionIds } from "@/lib/moving/section-ids"
 import { sectionContentOffsetClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
@@ -31,6 +32,7 @@ function MovingEverydayLifeSection() {
               subsections={everydayLife.subsections}
               columns={3}
               className={cn("moving-everyday-life__grid", sectionContentOffsetClass)}
+              icons={movingEverydayLifeSubsectionIcons}
             />
           ) : null}
         </SectionReveal>

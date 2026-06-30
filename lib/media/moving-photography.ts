@@ -4,29 +4,11 @@
 
 import { getEditorialAsset } from "@/lib/media/editorial-asset-library"
 import { editorialPhotography, visaGalleryPhotography } from "@/lib/media/photography"
-import { whyThailandCollageImages } from "@/lib/content/why-thailand"
 
 export type MovingPhoto = {
   src: string
   alt: string
   objectPosition?: string
-}
-
-const collageById = Object.fromEntries(
-  whyThailandCollageImages.map((image) => [image.id, image]),
-) as Record<string, (typeof whyThailandCollageImages)[number]>
-
-function fromCollage(id: string): MovingPhoto {
-  const image = collageById[id]
-  if (!image) {
-    throw new Error(`Missing moving collage image: ${id}`)
-  }
-
-  return {
-    src: image.src,
-    alt: image.alt,
-    objectPosition: image.objectPosition,
-  }
 }
 
 function fromVisaGallery(key: keyof typeof visaGalleryPhotography): MovingPhoto {
@@ -36,6 +18,10 @@ function fromVisaGallery(key: keyof typeof visaGalleryPhotography): MovingPhoto 
     alt: image.alt,
     objectPosition: image.objectPosition,
   }
+}
+
+function cityPhoto(src: string, alt: string, objectPosition?: string): MovingPhoto {
+  return { src, alt, objectPosition }
 }
 
 export const movingPhotography = {
@@ -52,13 +38,31 @@ export const movingPhotography = {
     "weekend-trips": editorialPhotography.movingSimple,
   },
   cities: {
-    bangkok: fromCollage("skyline"),
-    "chiang-mai": getEditorialAsset("thailand-longtail-boats"),
-    phuket: getEditorialAsset("pattaya-coastline-hero"),
-    "hua-hin": getEditorialAsset("blog-thailand-coast-golden-hour"),
-    pattaya: getEditorialAsset("blog-dtv-retirement-comparison"),
+    bangkok: cityPhoto(
+      "/images/moving-to-thailand/cities/Bangkok.webp",
+      "Bangkok skyline at sunset with the Chao Phraya River and temples",
+    ),
+    "chiang-mai": cityPhoto(
+      "/images/moving-to-thailand/cities/Chiang Mai.webp",
+      "Chiang Mai temple on a forested hillside at golden hour",
+    ),
+    phuket: cityPhoto(
+      "/images/moving-to-thailand/cities/Phuket.webp",
+      "Phuket coastline with turquoise water and hillside villas at sunset",
+    ),
+    "hua-hin": cityPhoto(
+      "/images/moving-to-thailand/cities/Hua Hin.webp",
+      "Hua Hin beach with white sand, palm trees, and coastal resorts",
+    ),
+    pattaya: cityPhoto(
+      "/images/moving-to-thailand/cities/Pattaya.webp",
+      "Pattaya city sign above the harbour with skyline beyond",
+    ),
     krabi: getEditorialAsset("krabi-coastline"),
-    "koh-samui": getEditorialAsset("blog-dtv-retirement-comparison"),
+    "koh-samui": cityPhoto(
+      "/images/moving-to-thailand/cities/Koh Samui.webp",
+      "Koh Samui coastal road with palm trees and turquoise bay",
+    ),
   },
   bands: {
     working: fromVisaGallery("business"),
