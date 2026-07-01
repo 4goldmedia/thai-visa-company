@@ -81,32 +81,4 @@
     }
   }
 
-  /* Footer — understated but same construction */
-  .brand-logo--compact {
-    --brand-logo-height: 2rem; /* 32px */
-    --brand-logo-icon-width: 2.5rem; /* 40px */
-    --brand-logo-icon-height: 1.625rem; /* 26px */
-    --brand-logo-wordmark-size: 1.125rem; /* 18px */
-    --brand-logo-gap: 0.5rem;
-  }
-
-  @media (min-width: 768px) and (max-width: 1199px) {
-    .brand-logo--compact {
-      --brand-logo-height: 1.875rem; /* 30px */
-      --brand-logo-icon-width: 2.25rem; /* 36px */
-      --brand-logo-icon-height: 1.5rem; /* 24px */
-      --brand-logo-wordmark-size: 1rem; /* 16px */
-      --brand-logo-gap: 0.5rem;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .brand-logo--compact {
-      --brand-logo-height: 1.625rem; /* 26px */
-      --brand-logo-icon-width: 1.875rem; /* 30px */
-      --brand-logo-icon-height: 1.25rem; /* 20px */
-      --brand-logo-wordmark-size: 0.8125rem; /* 13px */
-      --brand-logo-gap: 0.375rem;
-    }
-  }
 }

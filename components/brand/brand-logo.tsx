@@ -4,24 +4,17 @@ import { cn } from "@/lib/utils"
 
 type BrandLogoProps = {
   className?: string
-  /** Nav lockup (default) or smaller footer lockup */
-  variant?: "default" | "compact"
   href?: string
 }
 
 function BrandLogo({
   className,
-  variant = "default",
   href = "/",
 }: BrandLogoProps) {
   return (
     <Link
       href={href}
-      className={cn(
-        "brand-logo",
-        variant === "compact" && "brand-logo--compact",
-        className,
-      )}
+      className={cn("brand-logo", className)}
       aria-label="Thai Visa Company"
     >
       <svg

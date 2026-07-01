@@ -61,7 +61,7 @@ function FooterNavGroup({ title, links }: FooterNavGroupProps) {
 function FooterBrand() {
   return (
     <div className="site-footer__brand">
-      <BrandLogo variant="compact" className="site-footer__brand-logo" />
+      <BrandLogo className="site-footer__brand-logo" />
 
       <p className="site-footer__brand-tagline">
         Trusted Thailand visa specialists.
