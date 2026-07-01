@@ -3,10 +3,13 @@
 import * as React from "react"
 import { Loader2 } from "lucide-react"
 
+import { ConsultationFormSuccess } from "@/components/forms/consultation-form-success"
 import { CountrySelect } from "@/components/forms/country-select"
 import { FormField } from "@/components/forms/form-field"
 import { InquiryFormSuccess } from "@/components/forms/inquiry-form-success"
 import { Button } from "@/components/ui/button"
+import { toConsultationApiPayload } from "@/lib/forms/consultation/parse-request"
+import { submitConsultation } from "@/lib/forms/consultation/submit"
 import { createInquiryFormDefaults } from "@/lib/forms/inquiry/defaults"
 import { submitInquiry } from "@/lib/forms/inquiry/submit"
 import {
@@ -85,6 +88,9 @@ export type InquiryFormProps = {
 const NETWORK_ERROR_MESSAGE =
   "Something went wrong. Please try again or message us on LINE or WhatsApp."
 
+const CONSULTATION_ERROR_MESSAGE =
+  "Something went wrong. Please try again or contact us via LINE or WhatsApp."
+
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
@@ -130,6 +136,7 @@ function InquiryForm({
     "idle" | "submitting" | "success" | "error"
   >("idle")
   const [formError, setFormError] = React.useState<string | null>(null)
+  const submitInFlightRef = React.useRef(false)
 
   const isSubmitting = status === "submitting"
   const fieldDisabled = isSubmitting
@@ -175,6 +182,7 @@ function InquiryForm({
   }
 
   function handleReset() {
+    submitInFlightRef.current = false
     setValues(createInquiryFormDefaults({ visaInterest: defaultVisaInterest }))
     setErrors(null)
     setHasAttemptedSubmit(false)
@@ -185,6 +193,11 @@ function InquiryForm({
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
+
+    if (submitInFlightRef.current) {
+      return
+    }
+
     setFormError(null)
 
     const validationErrors = isConsultation
@@ -196,53 +209,88 @@ function InquiryForm({
       return
     }
 
+    submitInFlightRef.current = true
     setErrors(null)
     setHasAttemptedSubmit(false)
     setStatus("submitting")
     inquiryAnalytics.trackSubmit()
 
-    const payload = toInquiryPayload(values, {
-      leadSource,
-      pagePath,
-      mode: isConsultation ? "consultation" : "standard",
-    })
-
     try {
       let result: InquiryFormResult
 
-      if (onSubmit) {
+      if (isConsultation) {
+        const consultationResult = await submitConsultation(
+          toConsultationApiPayload(values, pagePath ?? "/consultation"),
+        )
+        result = consultationResult.ok
+          ? { ok: true }
+          : { ok: false, message: consultationResult.message }
+      } else if (onSubmit) {
+        const payload = toInquiryPayload(values, {
+          leadSource,
+          pagePath,
+          mode: "standard",
+        })
         const custom = await onSubmit(payload)
         result =
           custom && "ok" in custom
             ? custom
             : { ok: true }
       } else {
+        const payload = toInquiryPayload(values, {
+          leadSource,
+          pagePath,
+          mode: "standard",
+        })
         result = await submitInquiry(payload, { skipAirtable: skipDefaultSubmit })
       }
 
       if (!result.ok) {
+        submitInFlightRef.current = false
         setStatus("error")
         if (result.fields) {
           applyFieldErrors(result.fields)
         } else {
           setErrors(null)
-          setFormError(result.message)
+          setFormError(
+            isConsultation ? CONSULTATION_ERROR_MESSAGE : result.message,
+          )
         }
         inquiryAnalytics.trackError()
         return
       }
 
+      setValues(
+        createInquiryFormDefaults({
+          visaInterest: defaultVisaInterest ?? (isConsultation ? "" : undefined),
+        }),
+      )
+      setErrors(null)
+      setHasAttemptedSubmit(false)
+      setFormError(null)
       setStatus("success")
       inquiryAnalytics.trackSuccess()
     } catch {
+      submitInFlightRef.current = false
       setStatus("error")
       setErrors(null)
-      setFormError(NETWORK_ERROR_MESSAGE)
+      setFormError(
+        isConsultation ? CONSULTATION_ERROR_MESSAGE : NETWORK_ERROR_MESSAGE,
+      )
       inquiryAnalytics.trackError()
     }
   }
 
   if (status === "success") {
+    if (isConsultation) {
+      return (
+        <ConsultationFormSuccess
+          className={className}
+          titleId={`${id}-success-title`}
+        />
+      )
+    }
+
     return (
       <InquiryFormSuccess
         className={className}
