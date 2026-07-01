@@ -19,7 +19,7 @@ import {
   isVisasSectionActive,
   visaNavItems,
 } from "@/lib/visas/navigation"
-import { siteBrand } from "@/lib/site"
+import { BrandLogo } from "@/components/brand/brand-logo"
 import { cn } from "@/lib/utils"
 
 const SCROLL_THRESHOLD = 8
@@ -151,8 +151,10 @@ function Navbar({ className }: NavbarProps) {
       )}
     >
       <Container>
-        <div className="relative flex h-14 items-center justify-between gap-4 lg:h-[4.25rem]">
-          <NavbarLogo />
+        <div className="relative flex h-14 items-center justify-between gap-3 lg:h-[4.25rem] lg:gap-4">
+          <div className="shrink-0">
+            <NavbarLogo />
+          </div>
 
           <nav
             className="absolute left-1/2 hidden -translate-x-1/2 lg:flex"
@@ -329,20 +331,7 @@ function MobileNavMenu({ open, panelId, onClose }: MobileNavMenuProps) {
 }
 
 function NavbarLogo() {
-  return (
-    <Link
-      href="/"
-      className={cn(
-        "rounded-md transition-opacity hover:opacity-80",
-        "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
-      )}
-    >
-      <span className="sr-only">{siteBrand.name}, Home</span>
-      <span className="navbar-ref__logo" aria-hidden>
-        {siteBrand.name}
-      </span>
-    </Link>
-  )
+  return <BrandLogo />
 }
 
 export { Navbar }

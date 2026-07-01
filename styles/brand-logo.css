@@ -1,0 +1,112 @@
+/* Thai Visa Company — vector icon + HTML wordmark */
+
+@layer components {
+  .brand-logo {
+    --brand-logo-height: 2.25rem; /* 36px */
+    --brand-logo-icon-width: 2.28125rem; /* 36.5px */
+    --brand-logo-icon-height: 1.78125rem; /* 28.5px */
+    --brand-logo-wordmark-size: 0.5703125rem; /* 9.125px */
+    --brand-logo-gap: 0.5625rem; /* 9px */
+    --brand-logo-color: #23211e;
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--brand-logo-gap);
+    height: var(--brand-logo-height);
+    min-width: 0;
+    flex-shrink: 0;
+    text-decoration: none;
+    color: var(--brand-logo-color);
+    transition: opacity 150ms ease-out;
+  }
+
+  .brand-logo:hover {
+    opacity: 0.9;
+  }
+
+  .brand-logo:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 4px;
+    border-radius: 0.375rem;
+  }
+
+  .brand-logo__icon {
+    display: block;
+    width: var(--brand-logo-icon-width);
+    height: var(--brand-logo-icon-height);
+    flex-shrink: 0;
+  }
+
+  .brand-logo__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+    font-family: var(--font-sans), "Inter", sans-serif;
+    font-size: var(--brand-logo-wordmark-size);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--brand-logo-color);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .brand-logo__line {
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: inherit;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .brand-logo {
+      --brand-logo-height: 2.025rem; /* 32.4px */
+      --brand-logo-icon-width: 2.053125rem; /* 32.85px */
+      --brand-logo-icon-height: 1.603125rem; /* 25.65px */
+      --brand-logo-wordmark-size: 0.51328125rem; /* 8.2125px */
+      --brand-logo-gap: 0.50625rem; /* 8.1px */
+    }
+  }
+
+  /* Mobile — keep horizontal lockup */
+  @media (max-width: 767px) {
+    .brand-logo {
+      --brand-logo-height: 1.6875rem; /* 27px */
+      --brand-logo-icon-width: 1.7109375rem; /* 27.375px */
+      --brand-logo-icon-height: 1.3359375rem; /* 21.375px */
+      --brand-logo-wordmark-size: 0.427734375rem; /* 6.84375px */
+      --brand-logo-gap: 0.45rem; /* 7.2px */
+    }
+  }
+
+  /* Footer — understated but same construction */
+  .brand-logo--compact {
+    --brand-logo-height: 2rem; /* 32px */
+    --brand-logo-icon-width: 2.5rem; /* 40px */
+    --brand-logo-icon-height: 1.625rem; /* 26px */
+    --brand-logo-wordmark-size: 1.125rem; /* 18px */
+    --brand-logo-gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .brand-logo--compact {
+      --brand-logo-height: 1.875rem; /* 30px */
+      --brand-logo-icon-width: 2.25rem; /* 36px */
+      --brand-logo-icon-height: 1.5rem; /* 24px */
+      --brand-logo-wordmark-size: 1rem; /* 16px */
+      --brand-logo-gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .brand-logo--compact {
+      --brand-logo-height: 1.625rem; /* 26px */
+      --brand-logo-icon-width: 1.875rem; /* 30px */
+      --brand-logo-icon-height: 1.25rem; /* 20px */
+      --brand-logo-wordmark-size: 0.8125rem; /* 13px */
+      --brand-logo-gap: 0.375rem;
+    }
+  }
+}

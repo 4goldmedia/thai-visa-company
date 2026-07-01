@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { BrandLogo } from "@/components/brand/brand-logo"
 import { FooterMessagingLinks } from "@/components/cta/footer-messaging-links"
 import { Container } from "@/components/layout/container"
 import {
@@ -60,10 +61,7 @@ function FooterNavGroup({ title, links }: FooterNavGroupProps) {
 function FooterBrand() {
   return (
     <div className="site-footer__brand">
-      <Link href="/" className="site-footer__brand-name">
-        <span className="sr-only">{siteConfig.name}, Home</span>
-        <span aria-hidden>{siteConfig.name}</span>
-      </Link>
+      <BrandLogo variant="compact" className="site-footer__brand-logo" />
 
       <p className="site-footer__brand-tagline">
         Trusted Thailand visa specialists.
