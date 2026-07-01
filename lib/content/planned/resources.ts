@@ -16,15 +16,4 @@ export const plannedResourceArticles = [
     readingTime: "6 min read",
     status: "planned" as const,
   },
-  {
-    slug: "how-long-does-thai-visa-take",
-    categoryId: "process",
-    category: "Timelines",
-    title: "How Long Does a Thai Visa Take",
-    description:
-      "Typical processing windows by visa type and what can shorten or extend your timeline.",
-    path: "/blog/how-long-does-thai-visa-take",
-    readingTime: "5 min read",
-    status: "planned",
-  },
 ] as const satisfies readonly ResourceArticle[]

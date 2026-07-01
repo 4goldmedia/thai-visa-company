@@ -46,6 +46,7 @@ export async function submitInquiry(
       },
       body: JSON.stringify({
         name: payload.name,
+        email: payload.email,
         nationality: payload.nationality,
         visaInterest: payload.visaInterest,
         currentLocation: payload.currentLocation,

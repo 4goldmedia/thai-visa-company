@@ -1,3 +1,4 @@
+import { isKnownCountryName } from "@/lib/forms/countries"
 import {
   inquiryFieldNames,
   type InquiryFormErrors,
@@ -19,6 +20,9 @@ const NATIONALITY_MAX = 80
 const CONSULTATION_PLACEHOLDER = "-"
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const REQUIRED_FIELD_MESSAGE = "Please fill in the required information."
+const INVALID_EMAIL_MESSAGE = "Please enter a valid email address."
 
 function isVisaInterest(value: string): value is InquiryVisaInterest {
   return (inquiryVisaInterestValues as readonly string[]).includes(value)
@@ -75,28 +79,29 @@ export function validateConsultationInquiryForm(
 
   const name = values.name.trim()
   if (!name) {
-    errors[inquiryFieldNames.name] = "Please enter your name."
-  } else if (name.length < NAME_MIN) {
-    errors[inquiryFieldNames.name] = "Name should be at least 2 characters."
-  } else if (name.length > NAME_MAX) {
-    errors[inquiryFieldNames.name] = "Name is too long."
+    errors[inquiryFieldNames.name] = REQUIRED_FIELD_MESSAGE
   }
 
   const email = values.email.trim()
   if (!email) {
-    errors[inquiryFieldNames.email] = "Please enter your email address."
+    errors[inquiryFieldNames.email] = REQUIRED_FIELD_MESSAGE
   } else if (email.length > EMAIL_MAX || !EMAIL_PATTERN.test(email)) {
-    errors[inquiryFieldNames.email] = "Please enter a valid email address."
+    errors[inquiryFieldNames.email] = INVALID_EMAIL_MESSAGE
+  }
+
+  const nationality = values.nationality.trim()
+  if (!nationality || !isKnownCountryName(nationality)) {
+    errors[inquiryFieldNames.nationality] = REQUIRED_FIELD_MESSAGE
   }
 
   const visaInterest = values.visaInterest
   if (!visaInterest || !isVisaInterest(visaInterest)) {
-    errors[inquiryFieldNames.visaInterest] = "Please select what you need help with."
+    errors[inquiryFieldNames.visaInterest] = REQUIRED_FIELD_MESSAGE
   }
 
   const message = values.message.trim()
   if (!message) {
-    errors[inquiryFieldNames.message] = "Please share your question or situation."
+    errors[inquiryFieldNames.message] = REQUIRED_FIELD_MESSAGE
   } else if (message.length > MESSAGE_MAX) {
     errors[inquiryFieldNames.message] = "Message is too long."
   }
@@ -121,10 +126,7 @@ export function toInquiryPayload(
   return {
     name: values.name.trim(),
     ...(email ? { email } : {}),
-    nationality:
-      mode === "consultation"
-        ? CONSULTATION_PLACEHOLDER
-        : values.nationality.trim(),
+    nationality: values.nationality.trim(),
     visaInterest,
     currentLocation:
       mode === "consultation"

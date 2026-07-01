@@ -42,22 +42,17 @@ export const footerVisaLinks = [
   { label: "All Visa Services", href: visasHubPath },
 ] as const
 
-export const footerBlogLinks = [
+export const footerResourcesLinks = [
+  { label: "Blog", href: blogPath },
   { label: "Moving to Thailand", href: movingPagePath },
-  { label: "All articles", href: blogPath },
-  { label: "DTV Visa", href: "/blog/cluster/dtv" },
-  { label: "Retirement Visa", href: "/blog/cluster/retirement" },
-  { label: "Business Visa", href: "/blog/cluster/business" },
-  { label: "Education Visa", href: "/blog/cluster/education" },
-  { label: "Immigration procedures", href: "/blog/cluster/immigration-procedures" },
-  { label: "Living in Thailand", href: "/blog/cluster/living-in-thailand" },
+  { label: "Immigration Procedures", href: "/blog/cluster/immigration-procedures" },
 ] as const
 
 /** @deprecated Guides are supporting SEO assets  -  not in primary nav */
 export const footerGuidesLinks = [] as const
 
-/** @deprecated Use `footerBlogLinks` */
-export const footerResourcesLinks = footerBlogLinks
+/** @deprecated Use `footerResourcesLinks` */
+export const footerBlogLinks = footerResourcesLinks
 
 export const footerCompanyLinks = [
   { label: "Reviews", href: homeSectionAnchors.reviews },

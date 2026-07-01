@@ -4,6 +4,7 @@ import {
   formErrorClass,
   formHintClass,
   formLabelClass,
+  formLabelRequiredClass,
   formOptionalHintClass,
 } from "@/lib/form-styles"
 import { cn } from "@/lib/utils"
@@ -12,6 +13,7 @@ type FormFieldProps = {
   id: string
   label: string
   optional?: boolean
+  required?: boolean
   hint?: string
   error?: string
   children: React.ReactNode
@@ -22,6 +24,7 @@ function FormField({
   id,
   label,
   optional = false,
+  required = false,
   hint,
   error,
   children,
@@ -33,9 +36,15 @@ function FormField({
     [hintId, errorId].filter(Boolean).join(" ") || undefined
 
   return (
-    <div className={cn("flex flex-col gap-2", className)}>
+    <div className={cn("flex flex-col gap-2", className)} data-slot="form-field">
       <label htmlFor={id} className={formLabelClass}>
         {label}
+        {required ? (
+          <span className={formLabelRequiredClass} aria-hidden>
+            {" "}
+            *
+          </span>
+        ) : null}
         {optional ? (
           <span className={formOptionalHintClass}> (optional)</span>
         ) : null}

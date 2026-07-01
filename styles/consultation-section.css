@@ -141,6 +141,21 @@
     outline: none;
   }
 
+  .consultation-experience__control[aria-invalid="true"],
+  .consultation-experience__select[aria-invalid="true"],
+  .consultation-experience__textarea[aria-invalid="true"] {
+    border-color: color-mix(in srgb, var(--destructive) 72%, transparent);
+    background-color: #ffffff;
+  }
+
+  .consultation-experience__country-list {
+    border-color: color-mix(in srgb, var(--border) 75%, transparent);
+  }
+
+  .consultation-experience__country-list .country-select__option[aria-selected="true"] {
+    background-color: color-mix(in srgb, var(--muted) 45%, transparent);
+  }
+
   .consultation-experience__textarea {
     height: auto;
     min-height: 9rem;

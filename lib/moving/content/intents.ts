@@ -38,7 +38,7 @@ export const movingWhyMove: MovingEditorialSection = {
       id: "affordability",
       title: "Affordability",
       quickAnswer:
-        "Baseline living costs are often lower than Western urban centers — if you avoid premium imports.",
+        "Baseline living costs are often lower than Western urban centers if you avoid premium imports.",
       paragraphs: [
         "Housing, transport, and local food can keep baseline monthly spending manageable for many profiles.",
         "Imported goods, private schooling, premium healthcare plans, and frequent travel can narrow the cost advantage.",
@@ -58,7 +58,7 @@ export const movingWhyMove: MovingEditorialSection = {
         "Humidity, seasonal rain, and regional air quality patterns can still be challenging and should be tested in target cities.",
       ],
       bullets: [
-        "No winter season — beaches, parks, and open-air dining stay accessible",
+        "No winter season, so beaches, parks, and open-air dining stay accessible",
         "Humidity, rain, and air quality vary by region and season",
       ],
     },
@@ -129,7 +129,7 @@ export const movingIsThailandGood: MovingIsThailandGood = {
   eyebrow: "Life in Thailand",
   title: "Is Thailand a good place to live?",
   quickAnswer:
-    "Thailand can be an excellent place to live when your visa route, income, and expectations align. Major cities offer strong healthcare, affordable daily life, and genuine lifestyle quality — but climate, bureaucracy, and compliance require real adaptation. The better question is not whether Thailand is good, but whether it fits your life.",
+    "Thailand can be an excellent place to live when your visa route, income, and expectations align. Major cities offer strong healthcare, affordable daily life, and genuine lifestyle quality, but climate, bureaucracy, and compliance require real adaptation. The better question is not whether Thailand is good, but whether it fits your life.",
   advantagesTitle: "Why people love living in Thailand",
   advantages: [
     {
@@ -217,7 +217,7 @@ export const movingIsThailandGood: MovingIsThailandGood = {
 export const movingCanForeignersMove: MovingCanForeignersMove = {
   title: "Can foreigners move to Thailand?",
   intro:
-    "Yes — foreigners can legally relocate to Thailand long term. There is no single move-to-Thailand visa; each pathway is built for a different lifestyle, income source, and length of stay.",
+    "Yes, foreigners can legally relocate to Thailand long term. There is no single move-to-Thailand visa; each pathway is built for a different lifestyle, income source, and length of stay.",
   shortAnswer: {
     lead: "Yes.",
     body:

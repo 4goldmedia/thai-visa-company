@@ -3,6 +3,7 @@ import "server-only"
 import { submitInquiryToAirtable } from "@/lib/airtable"
 import {
   toInquiryPayload,
+  validateConsultationInquiryForm,
   validateInquiryForm,
 } from "@/lib/forms/inquiry/validation"
 import type {
@@ -36,7 +37,10 @@ const VALIDATION_SUMMARY =
 export async function processInquirySubmission(
   input: ProcessInquirySubmissionInput,
 ): Promise<ProcessInquirySubmissionResult> {
-  const fieldErrors = validateInquiryForm(input.values)
+  const isConsultation = input.leadSource === "consultation-page"
+  const fieldErrors = isConsultation
+    ? validateConsultationInquiryForm(input.values)
+    : validateInquiryForm(input.values)
   if (fieldErrors) {
     return {
       ok: false,
@@ -49,6 +53,7 @@ export async function processInquirySubmission(
   const payload = toInquiryPayload(input.values, {
     leadSource: input.leadSource,
     pagePath: input.pagePath,
+    mode: isConsultation ? "consultation" : "standard",
   })
 
   const allowUnconfigured = process.env.NODE_ENV !== "production"

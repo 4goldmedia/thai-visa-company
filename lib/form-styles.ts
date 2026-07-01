@@ -6,6 +6,8 @@ export const formStackClass = "flex flex-col gap-5 sm:gap-6"
 export const formLabelClass =
   "text-[13px] font-medium text-foreground sm:text-sm"
 
+export const formLabelRequiredClass = "text-destructive"
+
 export const formOptionalHintClass = "font-normal text-muted-foreground"
 
 export const formHintClass =

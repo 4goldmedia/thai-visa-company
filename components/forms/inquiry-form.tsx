@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Loader2 } from "lucide-react"
 
+import { CountrySelect } from "@/components/forms/country-select"
 import { FormField } from "@/components/forms/form-field"
 import { InquiryFormSuccess } from "@/components/forms/inquiry-form-success"
 import { Button } from "@/components/ui/button"
@@ -124,6 +125,7 @@ function InquiryForm({
     }),
   )
   const [errors, setErrors] = React.useState<InquiryFormErrors | null>(null)
+  const [hasAttemptedSubmit, setHasAttemptedSubmit] = React.useState(false)
   const [status, setStatus] = React.useState<
     "idle" | "submitting" | "success" | "error"
   >("idle")
@@ -150,8 +152,15 @@ function InquiryForm({
   ) {
     inquiryAnalytics.trackStart()
 
-    setValues((prev) => ({ ...prev, [field]: value }))
-    if (errors?.[field as keyof InquiryFormErrors]) {
+    const nextValues = { ...values, [field]: value }
+    setValues(nextValues)
+
+    if (hasAttemptedSubmit) {
+      const validationErrors = isConsultation
+        ? validateConsultationInquiryForm(nextValues)
+        : validateInquiryForm(nextValues)
+      setErrors(validationErrors)
+    } else if (errors?.[field as keyof InquiryFormErrors]) {
       setErrors((prev) => {
         if (!prev) return null
         const next = { ...prev }
@@ -159,6 +168,7 @@ function InquiryForm({
         return Object.keys(next).length > 0 ? next : null
       })
     }
+
     if (formError) {
       setFormError(null)
     }
@@ -167,6 +177,7 @@ function InquiryForm({
   function handleReset() {
     setValues(createInquiryFormDefaults({ visaInterest: defaultVisaInterest }))
     setErrors(null)
+    setHasAttemptedSubmit(false)
     setFormError(null)
     setStatus("idle")
     inquiryAnalytics.resetSession()
@@ -180,11 +191,13 @@ function InquiryForm({
       ? validateConsultationInquiryForm(values)
       : validateInquiryForm(values)
     if (validationErrors) {
+      setHasAttemptedSubmit(true)
       applyFieldErrors(validationErrors)
       return
     }
 
     setErrors(null)
+    setHasAttemptedSubmit(false)
     setStatus("submitting")
     inquiryAnalytics.trackSubmit()
 
@@ -309,7 +322,8 @@ function InquiryForm({
         >
           <FormField
             id={`${id}-name`}
-            label="Name"
+            label={isConsultation ? "First & last name" : "Name"}
+            required={isConsultation}
             error={errors?.[inquiryFieldNames.name]}
           >
             <input
@@ -318,35 +332,67 @@ function InquiryForm({
               autoComplete="name"
               required
               disabled={fieldDisabled}
-              placeholder={isConsultation ? "Your name" : "e.g. Alex Morgan"}
+              placeholder={isConsultation ? "First & last name" : "e.g. Alex Morgan"}
               value={values.name}
               onChange={(e) =>
                 handleFieldChange(inquiryFieldNames.name, e.target.value)
               }
-              className={resolvedControlClass}
+              className={cn(
+                resolvedControlClass,
+                errors?.[inquiryFieldNames.name] && "border-destructive/70",
+              )}
             />
           </FormField>
 
           {isConsultation ? (
-            <FormField
-              id={`${id}-email`}
-              label="Email"
-              error={errors?.[inquiryFieldNames.email]}
-            >
-              <input
-                type="email"
-                name={inquiryFieldNames.email}
-                autoComplete="email"
+            <>
+              <FormField
+                id={`${id}-email`}
+                label="Email"
                 required
-                disabled={fieldDisabled}
-                placeholder="you@example.com"
-                value={values.email}
-                onChange={(e) =>
-                  handleFieldChange(inquiryFieldNames.email, e.target.value)
-                }
-                className={resolvedControlClass}
-              />
-            </FormField>
+                error={errors?.[inquiryFieldNames.email]}
+              >
+                <input
+                  type="email"
+                  name={inquiryFieldNames.email}
+                  autoComplete="email"
+                  required
+                  disabled={fieldDisabled}
+                  placeholder="you@example.com"
+                  value={values.email}
+                  onChange={(e) =>
+                    handleFieldChange(inquiryFieldNames.email, e.target.value)
+                  }
+                  className={cn(
+                    resolvedControlClass,
+                    errors?.[inquiryFieldNames.email] && "border-destructive/70",
+                  )}
+                />
+              </FormField>
+
+              <FormField
+                id={`${id}-nationality`}
+                label="Nationality"
+                required
+                error={errors?.[inquiryFieldNames.nationality]}
+              >
+                <CountrySelect
+                  name={inquiryFieldNames.nationality}
+                  value={values.nationality}
+                  onChange={(value) =>
+                    handleFieldChange(inquiryFieldNames.nationality, value)
+                  }
+                  disabled={fieldDisabled}
+                  placeholder="Select your nationality"
+                  className={cn(
+                    resolvedControlClass,
+                    errors?.[inquiryFieldNames.nationality] &&
+                      "border-destructive/70",
+                  )}
+                  listClassName="consultation-experience__country-list"
+                />
+              </FormField>
+            </>
           ) : (
             <FormField
               id={`${id}-nationality`}
@@ -380,6 +426,7 @@ function InquiryForm({
                 ? "What do you need help with?"
                 : "Visa you're interested in"
             }
+            required={isConsultation}
             error={errors?.[inquiryFieldNames.visaInterest]}
           >
             <select
@@ -393,7 +440,10 @@ function InquiryForm({
                   e.target.value as InquiryFormValues["visaInterest"],
                 )
               }
-              className={resolvedSelectClass}
+              className={cn(
+                resolvedSelectClass,
+                errors?.[inquiryFieldNames.visaInterest] && "border-destructive/70",
+              )}
             >
               {isConsultation ? (
                 <option value="" disabled>
@@ -437,6 +487,7 @@ function InquiryForm({
           <FormField
             id={`${id}-message`}
             label="Message"
+            required={isConsultation}
             hint={
               isConsultation
                 ? undefined
@@ -458,7 +509,10 @@ function InquiryForm({
               onChange={(e) =>
                 handleFieldChange(inquiryFieldNames.message, e.target.value)
               }
-              className={resolvedTextareaClass}
+              className={cn(
+                resolvedTextareaClass,
+                errors?.[inquiryFieldNames.message] && "border-destructive/70",
+              )}
             />
           </FormField>
         </fieldset>

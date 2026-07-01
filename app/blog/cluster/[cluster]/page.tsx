@@ -97,7 +97,9 @@ export default async function BlogClusterPage({ params }: PageProps) {
               </ul>
             ) : (
               <p className="mt-10 text-[15px] leading-[1.7] text-muted-foreground">
-                Articles for this subject are on the way.
+                {clusterMeta.id === "immigration-procedures"
+                  ? "New immigration procedure guides are coming soon."
+                  : "Articles for this subject are on the way."}
               </p>
             )}
           </Container>

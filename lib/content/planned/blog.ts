@@ -17,17 +17,4 @@ export const plannedBlogArticles = [
     topicId: "dtv",
     status: "planned" as const,
   },
-  {
-    slug: "how-long-does-thai-visa-take",
-    clusterId: "immigration-procedures",
-    category: "Timelines",
-    title: "How Long Does a Thai Visa Take",
-    description:
-      "Typical processing windows by visa type and what can shorten or extend your timeline.",
-    path: "/blog/how-long-does-thai-visa-take",
-    publishedAt: "2026-06-01",
-    readingTime: "5 min read",
-    topicId: "process",
-    status: "planned",
-  },
 ] as const satisfies readonly BlogPostCard[]
