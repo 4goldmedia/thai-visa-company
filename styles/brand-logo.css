@@ -2,10 +2,10 @@
 
 @layer components {
   .brand-logo {
-    --brand-logo-height: 2.25rem; /* 36px */
-    --brand-logo-icon-width: 2.28125rem; /* 36.5px */
-    --brand-logo-icon-height: 1.78125rem; /* 28.5px */
-    --brand-logo-wordmark-size: 0.5703125rem; /* 9.125px */
+    --brand-logo-height: 2.4525rem; /* 39.24px */
+    --brand-logo-icon-width: 2.4865625rem; /* 39.785px */
+    --brand-logo-icon-height: 1.9415625rem; /* 31.065px */
+    --brand-logo-wordmark-size: 0.621640625rem; /* 9.946px */
     --brand-logo-gap: 0.5625rem; /* 9px */
     --brand-logo-color: #23211e;
 
@@ -62,10 +62,10 @@
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1199px) {
     .brand-logo {
-      --brand-logo-height: 2.025rem; /* 32.4px */
-      --brand-logo-icon-width: 2.053125rem; /* 32.85px */
-      --brand-logo-icon-height: 1.603125rem; /* 25.65px */
-      --brand-logo-wordmark-size: 0.51328125rem; /* 8.2125px */
+      --brand-logo-height: 2.2275rem; /* 35.64px */
+      --brand-logo-icon-width: 2.2584375rem; /* 36.135px */
+      --brand-logo-icon-height: 1.7634375rem; /* 28.215px */
+      --brand-logo-wordmark-size: 0.564609375rem; /* 9.034px */
       --brand-logo-gap: 0.50625rem; /* 8.1px */
     }
   }
@@ -73,10 +73,10 @@
   /* Mobile — keep horizontal lockup */
   @media (max-width: 767px) {
     .brand-logo {
-      --brand-logo-height: 1.6875rem; /* 27px */
-      --brand-logo-icon-width: 1.7109375rem; /* 27.375px */
-      --brand-logo-icon-height: 1.3359375rem; /* 21.375px */
-      --brand-logo-wordmark-size: 0.427734375rem; /* 6.84375px */
+      --brand-logo-height: 1.940625rem; /* 31.05px */
+      --brand-logo-icon-width: 1.967578125rem; /* 31.481px */
+      --brand-logo-icon-height: 1.536328125rem; /* 24.581px */
+      --brand-logo-wordmark-size: 0.49189453125rem; /* 7.87px */
       --brand-logo-gap: 0.45rem; /* 7.2px */
     }
   }
