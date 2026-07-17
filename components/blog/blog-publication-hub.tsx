@@ -6,6 +6,7 @@ import { Search } from "lucide-react"
 
 import { BlogPostCard } from "@/components/cards/blog-post-card"
 import { Container } from "@/components/layout/container"
+import { scrollPageToTop } from "@/components/navigation/navigation-scroll-handler"
 import { blogClusters } from "@/lib/blog/content/clusters"
 import {
   BLOG_POSTS_PER_PAGE,
@@ -48,10 +49,27 @@ function BlogPublicationHub({ articles }: BlogPublicationHubProps) {
   const page = parsePage(searchParams.get("page"))
 
   const [searchValue, setSearchValue] = React.useState(query)
+  const shouldScrollToTopOnPageChange = React.useRef(false)
 
   React.useEffect(() => {
     setSearchValue(query)
   }, [query])
+
+  /**
+   * Pagination only changes search params on the same pathname.
+   * NavigationScrollHandler watches pathname alone, so it never scrolls here.
+   * router.replace({ scroll: false }) also preserves scroll after soft nav.
+   * Scroll after the new `page` value commits — not in the click handler.
+   */
+  React.useLayoutEffect(() => {
+    if (!shouldScrollToTopOnPageChange.current) return
+    shouldScrollToTopOnPageChange.current = false
+
+    scrollPageToTop()
+    requestAnimationFrame(() => {
+      scrollPageToTop()
+    })
+  }, [page])
 
   const published = getPublishedBlogPosts(articles)
   const filtered = filterBlogPosts(published, { query, clusterId })
@@ -71,9 +89,18 @@ function BlogPublicationHub({ articles }: BlogPublicationHubProps) {
       }
 
       const next = params.toString()
+      // Preserve scroll for filter/search updates on the same route.
       router.replace(next ? `${pathname}?${next}` : pathname, { scroll: false })
     },
     [pathname, router, searchParams],
+  )
+
+  const goToPage = React.useCallback(
+    (nextPage: number) => {
+      shouldScrollToTopOnPageChange.current = true
+      updateParams({ page: String(nextPage) })
+    },
+    [updateParams],
   )
 
   const onSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -208,7 +235,7 @@ function BlogPublicationHub({ articles }: BlogPublicationHubProps) {
             <PaginationButton
               label="Previous page"
               disabled={pagination.page <= 1}
-              onClick={() => updateParams({ page: String(pagination.page - 1) })}
+              onClick={() => goToPage(pagination.page - 1)}
             >
               Previous
             </PaginationButton>
@@ -218,7 +245,7 @@ function BlogPublicationHub({ articles }: BlogPublicationHubProps) {
             <PaginationButton
               label="Next page"
               disabled={pagination.page >= pagination.totalPages}
-              onClick={() => updateParams({ page: String(pagination.page + 1) })}
+              onClick={() => goToPage(pagination.page + 1)}
             >
               Next
             </PaginationButton>

@@ -92,4 +92,4 @@ function NavigationScrollHandler() {
   return null
 }
 
-export { NavigationScrollHandler, scrollToHashTarget }
+export { NavigationScrollHandler, scrollToHashTarget, scrollPageToTop }
