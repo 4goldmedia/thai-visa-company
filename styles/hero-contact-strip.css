@@ -78,7 +78,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 0.625rem; /* 10px */
-    margin: 1.375rem 0 0; /* 22px below the panel */
+    margin: 1.875rem 0 0; /* 30px below the panel */
     padding: 0;
     border: none;
     background: none;
@@ -86,19 +86,19 @@
   }
 
   .hero-contact-strip__guarantee-icon {
-    width: 1.1875rem; /* 19px */
-    height: 1.1875rem;
+    width: 1.25rem; /* 20px */
+    height: 1.25rem;
     flex-shrink: 0;
     color: #2b2b2b;
   }
 
   .hero-contact-strip__guarantee-text {
     font-family: var(--font-sans);
-    font-size: 0.9375rem; /* 15px */
-    font-weight: 500;
+    font-size: 0.75rem; /* 12px */
+    font-weight: 400;
     font-style: normal;
     line-height: 1.4;
-    letter-spacing: 0.005em;
+    letter-spacing: 0.01em;
     color: #2b2b2b;
   }
 }
