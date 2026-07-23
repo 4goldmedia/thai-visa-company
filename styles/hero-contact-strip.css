@@ -1,23 +1,31 @@
 /* Hero contact strip  -  desktop-only integrated concierge row */
 
 @layer components {
-  .hero-contact-strip {
+  .hero-contact-strip-wrap {
     display: none;
     max-width: 36rem;
   }
 
   @media (min-width: 1100px) {
-    .hero-contact-strip {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 1px auto;
-      align-items: center;
-      gap: 0 1.125rem;
-      border: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
-      border-radius: var(--radius-card);
-      background-color: color-mix(in srgb, var(--surface-elevated) 92%, var(--background));
-      padding: 0.8125rem 1rem 0.8125rem 1.125rem;
-      box-shadow: none;
+    .hero-contact-strip-wrap {
+      display: block;
     }
+  }
+
+  .hero-contact-strip {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1px auto;
+    align-items: center;
+    gap: 0 1.125rem;
+    border: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
+    border-radius: var(--radius-card);
+    background-color: color-mix(
+      in srgb,
+      var(--surface-elevated) 92%,
+      var(--background)
+    );
+    padding: 0.8125rem 1rem 0.8125rem 1.125rem;
+    box-shadow: none;
   }
 
   .hero-contact-strip__intro {
@@ -25,6 +33,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 0.1875rem;
+    min-width: 0;
     padding-block: 0.125rem;
   }
 
@@ -47,18 +56,49 @@
   }
 
   .hero-contact-strip__rule {
-    display: none;
+    display: block;
     width: 1px;
     align-self: center;
+    justify-self: center;
     height: 1.625rem;
     background-color: color-mix(in srgb, var(--border) 38%, transparent);
   }
 
-  @media (min-width: 1100px) {
-    .hero-contact-strip__rule {
-      display: block;
-      justify-self: center;
-    }
+  .hero-contact-strip__actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
   }
 
+  /* Quiet reassurance  -  left-aligned under the panel, not a badge */
+  .hero-contact-strip__guarantee {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.625rem; /* 10px */
+    margin: 1.375rem 0 0; /* 22px below the panel */
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  .hero-contact-strip__guarantee-icon {
+    width: 1.1875rem; /* 19px */
+    height: 1.1875rem;
+    flex-shrink: 0;
+    color: #2b2b2b;
+  }
+
+  .hero-contact-strip__guarantee-text {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem; /* 15px */
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: 0.005em;
+    color: #2b2b2b;
+  }
 }

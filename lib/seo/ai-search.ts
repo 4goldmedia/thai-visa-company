@@ -37,6 +37,7 @@ export const homepageAiCopy = {
     title: "Speak with a specialist",
     subtitle:
       "Replies within 24 hours on visas, timelines, and relocation guidance.",
+    guarantee: "Guaranteed visa approval or your money back.",
   },
   /** Standalone extractable summary (meta description + WebPage schema) */
   extractableSummary:

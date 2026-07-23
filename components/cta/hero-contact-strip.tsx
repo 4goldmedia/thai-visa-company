@@ -1,3 +1,5 @@
+import { ShieldCheck } from "lucide-react"
+
 import { MessagingPlatformAction } from "@/components/cta/messaging-platform-action"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
@@ -11,35 +13,47 @@ type HeroContactStripProps = {
 }
 
 /**
- * Desktop hero messaging panel  -  primary conversion on lg+; hidden on mobile (sticky bar).
+ * Desktop hero messaging panel  -  primary conversion on large screens;
+ * hidden below the hero art-direction breakpoint (sticky bar on mobile).
  */
 function HeroContactStrip({
   analyticsSurface = "homepage",
   className,
 }: HeroContactStripProps) {
-  const { title, subtitle } = homepageAiCopy.heroContactStrip
+  const { title, subtitle, guarantee } = homepageAiCopy.heroContactStrip
 
   return (
-    <div
-      className={cn("hero-contact-strip", className)}
-      role="region"
-      aria-label={title}
-      {...analyticsDataAttributes({
-        ctaId: analyticsCtaIds.heroContact,
-        surface: analyticsSurface,
-      })}
-    >
-      <div className="hero-contact-strip__intro">
-        <p className="hero-contact-strip__title">{title}</p>
-        <p className="hero-contact-strip__subtitle">{subtitle}</p>
+    <div className={cn("hero-contact-strip-wrap", className)}>
+      <div
+        className="hero-contact-strip"
+        role="region"
+        aria-label={title}
+        {...analyticsDataAttributes({
+          ctaId: analyticsCtaIds.heroContact,
+          surface: analyticsSurface,
+        })}
+      >
+        <div className="hero-contact-strip__intro">
+          <p className="hero-contact-strip__title">{title}</p>
+          <p className="hero-contact-strip__subtitle">{subtitle}</p>
+        </div>
+
+        <div className="hero-contact-strip__rule" aria-hidden />
+
+        <div className="hero-contact-strip__actions">
+          <MessagingPlatformAction channel="line" density="hero" />
+          <MessagingPlatformAction channel="whatsapp" density="hero" />
+        </div>
       </div>
 
-      <div className="hero-contact-strip__rule" aria-hidden />
-
-      <div className="hero-contact-strip__actions">
-        <MessagingPlatformAction channel="line" density="hero" />
-        <MessagingPlatformAction channel="whatsapp" density="hero" />
-      </div>
+      <p className="hero-contact-strip__guarantee">
+        <ShieldCheck
+          className="hero-contact-strip__guarantee-icon"
+          aria-hidden
+          strokeWidth={1.5}
+        />
+        <span className="hero-contact-strip__guarantee-text">{guarantee}</span>
+      </p>
     </div>
   )
 }
