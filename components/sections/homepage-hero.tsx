@@ -1,65 +1,14 @@
-import { BadgeCheck, ClipboardList, MessageCircle } from "lucide-react"
-import type { LucideIcon } from "lucide-react"
-
 import { HeroContactStrip } from "@/components/cta/hero-contact-strip"
 import { Container } from "@/components/layout/container"
 import { HeroResponsiveMediaFrame } from "@/components/media/hero-responsive-media-frame"
 import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
+import { homepageMobileTrust } from "@/lib/content/trust-bar"
 import { motionClass } from "@/lib/motion-classes"
 import { heroPhotography } from "@/lib/media/photography"
 import { homepageAiCopy } from "@/lib/seo/ai-search"
 import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { cn } from "@/lib/utils"
-
-const trustIndicators: ReadonlyArray<{
-  icon: LucideIcon
-  title: string
-  subtitle: string
-}> = [
-  {
-    icon: BadgeCheck,
-    title: "Licensed Thai immigration specialists",
-    subtitle: "Personalized guidance for your move to Thailand",
-  },
-  {
-    icon: ClipboardList,
-    title: "Document preparation",
-    subtitle: "Checklists and submission guidance",
-  },
-  {
-    icon: MessageCircle,
-    title: "Tourist, business, and long-stay visas",
-    subtitle: "Guidance through the full process",
-  },
-]
-
-function HomepageHeroTrustPanel() {
-  return (
-    <aside
-      className={cn(
-        "hero-premium__panel",
-        motionClass.fadeUpMount,
-        motionClass.delay60,
-      )}
-      aria-label="Why clients choose Thai Visa Company"
-    >
-      <ul className="hero-premium__panel-list">
-        {trustIndicators.map((item) => (
-          <li key={item.title} className="hero-premium__panel-item">
-            <span className="hero-premium__panel-icon" aria-hidden>
-              <item.icon />
-            </span>
-            <div className="hero-premium__panel-copy">
-              <span className="hero-premium__panel-title">{item.title}</span>
-              <span className="hero-premium__panel-subtitle">{item.subtitle}</span>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </aside>
-  )
-}
 
 function HomepageHeroMobileScene({
   assets,
@@ -69,7 +18,7 @@ function HomepageHeroMobileScene({
   return (
     <div
       className={cn(
-        "hero-premium__scene lg:hidden",
+        "hero-premium__scene min-[1100px]:hidden",
         motionClass.fadeUpMount,
         motionClass.delay60,
       )}
@@ -83,9 +32,38 @@ function HomepageHeroMobileScene({
   )
 }
 
+/** Stacked trust band under the portrait hero (<1100px). */
+function HomepageHeroMobileTrust() {
+  const { ariaLabel, items } = homepageMobileTrust
+
+  return (
+    <div
+      className={cn(
+        "hero-premium__mobile-trust",
+        motionClass.fadeUpMount,
+        motionClass.delay60,
+      )}
+      role="region"
+      aria-label={ariaLabel}
+    >
+      <ul className="hero-premium__mobile-trust-list">
+        {items.map((item) => (
+          <li
+            key={`${item.primary}-${item.secondary}`}
+            className="hero-premium__mobile-trust-item"
+          >
+            <p className="hero-premium__mobile-trust-primary">{item.primary}</p>
+            <p className="hero-premium__mobile-trust-secondary">{item.secondary}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 /**
- * Homepage hero  -  high-fidelity reference composition.
- * Other routes continue to use PageHero.
+ * Homepage hero  -  photography-led composition.
+ * Trust lives in the contact strip, mobile trust band, and TrustBar below.
  */
 function HomepageHero() {
   const heroMedia = heroPhotography.homepage
@@ -98,8 +76,8 @@ function HomepageHero() {
     >
       <div className="hero-premium__atmosphere" aria-hidden />
 
-      {/* Desktop full-bleed  -  not mounted in layout below lg (avoids loading LS on mobile) */}
-      <div className="hero-premium__environment hidden lg:block" aria-hidden>
+      {/* Landscape full-bleed  -  large desktop only (≥1100px) */}
+      <div className="hero-premium__environment hidden min-[1100px]:block" aria-hidden>
         <HeroResponsiveMediaFrame
           assets={heroMedia}
           variant="immersive"
@@ -152,10 +130,7 @@ function HomepageHero() {
           </div>
 
           <HomepageHeroMobileScene assets={heroMedia} />
-
-          <div className="hero-premium__panel-slot">
-            <HomepageHeroTrustPanel />
-          </div>
+          <HomepageHeroMobileTrust />
         </div>
       </Container>
     </section>

@@ -55,12 +55,12 @@ export const editorialPhotography = {
 export const heroPhotography = {
   homepage: {
     desktop: {
-      src: "/images/hero/Bangkok-skyline-LS.webp",
-      alt: "Bangkok skyline at golden hour from a luxury terrace, suggesting premium long-stay living in Thailand",
+      src: "/images/hero/thai-visa-company-hero-option-6.webp",
+      alt: "Couple at a riverside café overlooking Wat Arun at sunset, suggesting a new life beginning in Thailand",
     },
     mobile: {
-      src: "/images/hero/Bangkok-skyline-MV.webp",
-      alt: "Bangkok skyline at golden hour, suggesting premium long-stay living in Thailand",
+      src: "/images/hero/thai-visa-company-bangkok-mobile.webp",
+      alt: "Couple at a riverside café overlooking Wat Arun at sunset, suggesting a new life beginning in Thailand",
     },
     caption: "Long-stay living, handled with care",
   },

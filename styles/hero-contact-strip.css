@@ -6,7 +6,7 @@
     max-width: 36rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1100px) {
     .hero-contact-strip {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 1px auto;
@@ -54,7 +54,7 @@
     background-color: color-mix(in srgb, var(--border) 38%, transparent);
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1100px) {
     .hero-contact-strip__rule {
       display: block;
       justify-self: center;

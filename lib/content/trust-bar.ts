@@ -15,6 +15,7 @@ export type TrustBarContent = {
   items: ReadonlyArray<TrustBarItem>
 }
 
+/** Desktop horizontal trust strip (four pillars, including rating). */
 export const homepageTrustBar: TrustBarContent = {
   ariaLabel: "Why clients trust Thai Visa Company",
   items: [
@@ -33,6 +34,28 @@ export const homepageTrustBar: TrustBarContent = {
     {
       primary: "4.9/5",
       secondary: "Client rating",
+    },
+  ],
+} as const
+
+/**
+ * Mobile trust band directly under the hero image.
+ * Three signals only  -  rating already appears above the image.
+ */
+export const homepageMobileTrust: TrustBarContent = {
+  ariaLabel: "Why clients trust Thai Visa Company",
+  items: [
+    {
+      primary: "Licensed & Fully Compliant",
+      secondary: "Thai immigration specialists",
+    },
+    {
+      primary: "10,000+",
+      secondary: "Clients worldwide",
+    },
+    {
+      primary: "Replies within 24 hours",
+      secondary: "Average response time",
     },
   ],
 } as const
