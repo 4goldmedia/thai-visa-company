@@ -19,8 +19,10 @@ export { visasHubPath }
 
 export const movingPagePath = "/moving-to-thailand" as const
 export const teamPath = "/team" as const
+export const propertyPath = "/property" as const
 
 export const secondaryNavLinks = [
+  { label: "Property", href: propertyPath },
   { label: "Reviews", href: homeSectionAnchors.reviews },
   { label: "Team", href: teamPath },
   { label: "Blog", href: blogPath },
@@ -58,6 +60,7 @@ export const footerBlogLinks = footerResourcesLinks
 
 export const footerCompanyLinks = [
   { label: "Team", href: teamPath },
+  { label: "Property", href: propertyPath },
   { label: "Reviews", href: homeSectionAnchors.reviews },
   { label: "FAQ", href: homeSectionAnchors.faq },
   { label: "Contact", href: consultationPath },

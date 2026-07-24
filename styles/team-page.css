@@ -112,7 +112,7 @@
     max-width: 28.75rem;
     aspect-ratio: 1 / 1;
     margin-inline: auto;
-    border-radius: 1.5rem; /* 24px */
+    border-radius: var(--radius-none); /* square  -  architectural system */
     background-color: var(--ivory-muted, #f3efe8);
   }
 
@@ -523,6 +523,56 @@
     .team-founder-card__bio p {
       font-size: var(--text-body-md);
     }
+  }
+
+  .team-founder-card__heading {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-section-title-xl);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
+    color: var(--foreground);
+    text-wrap: balance;
+  }
+
+  @media (min-width: 768px) {
+    .team-founder-card__heading {
+      font-size: var(--text-display-md);
+    }
+  }
+
+  .team-founder-card__signature {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  }
+
+  .team-founder-card__signature .team-founder-card__name {
+    margin-top: 0;
+    font-size: var(--text-section-title-lg);
+  }
+
+  @media (min-width: 768px) {
+    .team-founder-card__signature .team-founder-card__name {
+      font-size: var(--text-section-title-xl);
+    }
+  }
+
+  .team-founder-card__quote {
+    margin: 1rem 0 0;
+    padding: 0;
+    border: none;
+  }
+
+  .team-founder-card__quote p {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    text-wrap: pretty;
   }
 
   .team-founder-card__linkedin {

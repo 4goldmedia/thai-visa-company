@@ -9,6 +9,7 @@ export type AnalyticsSurface =
   | "resources"
   | "contact"
   | "team"
+  | "property"
   | "global"
 
 /** Stable CTA identifiers for visa landing pages */

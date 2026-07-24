@@ -14,7 +14,7 @@ export const metadata: Metadata = createPageMetadata({
 })
 
 export default function TeamPage() {
-  const { hero, company, values, cta } = teamPageContent
+  const { hero, company, values, cta, founder } = teamPageContent
 
   return (
     <main id="main-content" tabIndex={-1} className="team-page">
@@ -94,7 +94,14 @@ export default function TeamPage() {
               Founder &amp; Lead Consultant
             </h2>
           </div>
-          <TeamFounderCard />
+          <TeamFounderCard
+            name={founder.name}
+            role={founder.role}
+            bio={founder.bio}
+            imageSrc={founder.imageSrc}
+            imageAlt={founder.imageAlt}
+            priority
+          />
         </div>
       </section>
 

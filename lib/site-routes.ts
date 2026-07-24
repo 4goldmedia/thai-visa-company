@@ -232,6 +232,13 @@ export const siteRoutes = [
     published: true,
   },
   {
+    path: "/property",
+    group: "marketing",
+    changeFrequency: "monthly",
+    priority: 0.75,
+    published: true,
+  },
+  {
     path: "/contact",
     group: "marketing",
     changeFrequency: "monthly",

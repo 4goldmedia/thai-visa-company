@@ -1,0 +1,410 @@
+/* Property page  -  extends Team + Homepage patterns (no new design language) */
+
+@layer components {
+  .property-page.team-page {
+    --foreground: #1e1b18;
+    --text-secondary: #6b6762;
+    background-color: #f7f4ef;
+  }
+
+  /* Hero image: square edges (architectural system) */
+  .property-page .property-hero__media.team-hero__media {
+    border-radius: var(--radius-none);
+  }
+
+  .property-hero__lead {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    max-width: 35rem;
+  }
+
+  .property-hero__lead .hero-premium__lead {
+    margin-top: 0;
+    max-width: none;
+  }
+
+  .property-hero__cta {
+    margin-top: 2rem;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  /* About band sits on page cream (not homepage secondary surface) */
+  .property-page .property-about.why-choose-us-section {
+    background-color: transparent;
+  }
+
+  .property-page .team-about__heading {
+    max-width: 16ch;
+  }
+
+  /* Four stacked homepage-style feature cards */
+  .property-feature-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .property-feature-stack__card {
+    padding: 2rem; /* 32px */
+    border: 1px solid #e8e3dc;
+    border-radius: 1.5rem; /* 24px */
+    background-color: #ffffff;
+  }
+
+  .property-feature-stack__card .why-feature {
+    max-width: none;
+  }
+
+  .property-feature-stack__card .why-feature__icon-wrap {
+    border-radius: 999px;
+    background-color: #f8f5f1;
+  }
+
+  /* ── Lifestyle gallery (Apple-style horizontal immersion) ── */
+  .property-gallery-section {
+    padding-block: 5rem 7.5rem; /* ~80–120px */
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery-section {
+      padding-block: 6.5rem 7.5rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .property-gallery-section {
+      padding-block: 7.5rem; /* 120px */
+    }
+  }
+
+  .property-gallery-section__intro {
+    margin-bottom: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery-section__intro {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .property-gallery-section__title {
+    margin: 0;
+    max-width: none;
+    font-family: var(--font-display);
+    font-size: var(--text-section-title-xl);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
+    color: #23211e;
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery-section__title {
+      font-size: var(--text-display-md);
+    }
+  }
+
+  .property-gallery {
+    position: relative;
+    /* Align first card with site container, overflow to the right */
+    padding-left: 1rem;
+    padding-right: 0;
+  }
+
+  @media (min-width: 640px) {
+    .property-gallery {
+      padding-left: 1.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery {
+      padding-left: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .property-gallery {
+      padding-left: max(2.5rem, calc((100vw - var(--width-site, 80rem)) / 2 + 2.5rem));
+    }
+  }
+
+  .property-gallery__track {
+    display: flex;
+    gap: 1.5rem; /* 24px */
+    margin: 0;
+    padding: 0.25rem 4.5rem 0.75rem 0; /* room for Apple-style nav */
+    list-style: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    scrollbar-width: none;
+    touch-action: pan-x;
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery__track {
+      padding-left: 0;
+      padding-right: 4.5rem;
+    }
+  }
+
+  .property-gallery__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .property-gallery__track[data-dragging="true"] {
+    cursor: grabbing;
+    scroll-behavior: auto;
+    user-select: none;
+  }
+
+  .property-gallery__item {
+    flex: 0 0 min(88vw, 22.5rem);
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery__item {
+      flex-basis: 24rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .property-gallery__item {
+      flex-basis: 26.25rem; /* 420px */
+    }
+  }
+
+  .property-gallery__card {
+    height: 100%;
+    border: none;
+    box-shadow: none;
+  }
+
+  .property-gallery__media {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: none;
+    border-radius: var(--radius-none);
+
+    background-color: #f0ebe4;
+    box-shadow: none;
+  }
+
+  .property-gallery__image {
+    object-fit: cover;
+    object-position: center;
+    transition: transform 550ms ease;
+    pointer-events: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .property-gallery__card:hover .property-gallery__image {
+      transform: scale(1.02);
+    }
+
+    .property-gallery__card {
+      cursor: pointer;
+    }
+  }
+
+  .property-gallery__veil {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 1;
+    height: 46%;
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      rgba(30, 27, 24, 0.58) 0%,
+      rgba(30, 27, 24, 0.24) 48%,
+      rgba(30, 27, 24, 0) 100%
+    );
+  }
+
+  .property-gallery__copy {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 1.75rem; /* 28px */
+    pointer-events: none;
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery__copy {
+      padding: 1.875rem; /* 30px */
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .property-gallery__copy {
+      padding: 2rem; /* 32px */
+    }
+  }
+
+  .property-gallery__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.125rem; /* 18px mobile */
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-wrap: balance;
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery__title {
+      font-size: 1.375rem; /* 22px tablet */
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .property-gallery__title {
+      font-size: 1.75rem; /* 28px desktop */
+    }
+  }
+
+  .property-gallery__text {
+    margin: 0.5625rem 0 0; /* ~9px title → subtitle */
+    max-width: 100%;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem; /* 13px mobile */
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: 0;
+    color: rgba(255, 255, 255, 0.88);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery__text {
+      font-size: 0.875rem; /* 14px tablet */
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .property-gallery__text {
+      font-size: 0.9375rem; /* 15px desktop */
+    }
+  }
+
+  /* Apple-style prev/next  -  fade in/out, vertically centered */
+  .property-gallery__nav {
+    display: none;
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.72);
+    color: #1e1b18;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 250ms ease,
+      visibility 250ms ease,
+      background-color 200ms ease;
+    cursor: pointer;
+  }
+
+  .property-gallery__nav.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .property-gallery__nav svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .property-gallery__nav--prev {
+    left: 1.25rem;
+  }
+
+  .property-gallery__nav--prev svg {
+    margin-right: 0.0625rem;
+  }
+
+  .property-gallery__nav--next {
+    right: 1.25rem;
+  }
+
+  .property-gallery__nav--next svg {
+    margin-left: 0.0625rem;
+  }
+
+  .property-gallery__nav:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .property-gallery__nav:focus-visible {
+    outline: 2px solid #1e1b18;
+    outline-offset: 3px;
+  }
+
+  .property-gallery__nav:disabled {
+    cursor: default;
+  }
+
+  @media (min-width: 768px) {
+    .property-gallery__nav {
+      display: inline-flex;
+    }
+
+    .property-gallery__nav--prev {
+      left: 1.5rem;
+    }
+
+    .property-gallery__nav--next {
+      right: 1.75rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .property-gallery__nav {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .property-gallery__nav--prev {
+      left: 1.75rem;
+    }
+
+    .property-gallery__nav--next {
+      right: 2.25rem;
+    }
+  }
+
+  /* Founder card on cream page: keep white surface, match border token */
+  .property-page .team-founder-card {
+    border-color: #e8e3dc;
+    box-shadow: none;
+  }
+}

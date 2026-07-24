@@ -1,37 +1,82 @@
 import { OptimizedImage } from "@/components/ui/optimized-image"
-import { teamPageContent } from "@/lib/content/team"
+
+type TeamFounderCardProps = {
+  name: string
+  role: string
+  bio: ReadonlyArray<string>
+  imageSrc: string
+  imageAlt: string
+  /** Optional section heading above the name (e.g. Property page) */
+  heading?: string
+  headingId?: string
+  quote?: string
+  nameId?: string
+  priority?: boolean
+}
 
 /**
- * Founder feature card  -  biography left, portrait right.
- * Portrait stacks above bio on mobile.
+ * Founder / specialist feature card  -  biography left, portrait right.
+ * Portrait stacks above bio on mobile. Shared by Team and Property pages.
  */
-function TeamFounderCard() {
-  const { founder } = teamPageContent
+function TeamFounderCard({
+  name,
+  role,
+  bio,
+  imageSrc,
+  imageAlt,
+  heading,
+  headingId,
+  quote,
+  nameId = "team-founder-name",
+  priority = false,
+}: TeamFounderCardProps) {
+  const titleId = heading ? (headingId ?? "team-founder-heading") : nameId
 
   return (
-    <article
-      className="team-founder-card"
-      aria-labelledby="team-founder-name"
-    >
+    <article className="team-founder-card" aria-labelledby={titleId}>
       <div className="team-founder-card__body">
-        <h2 id="team-founder-name" className="team-founder-card__name">
-          {founder.name}
-        </h2>
-        <p className="team-founder-card__role">{founder.role}</p>
+        {heading ? (
+          <h2 id={titleId} className="team-founder-card__heading">
+            {heading}
+          </h2>
+        ) : null}
+
+        {!heading ? (
+          <>
+            <h2 id={nameId} className="team-founder-card__name">
+              {name}
+            </h2>
+            <p className="team-founder-card__role">{role}</p>
+          </>
+        ) : null}
 
         <div className="team-founder-card__bio">
-          {founder.bio.map((paragraph) => (
+          {bio.map((paragraph) => (
             <p key={paragraph.slice(0, 48)}>{paragraph}</p>
           ))}
         </div>
+
+        {heading ? (
+          <div className="team-founder-card__signature">
+            <p id={nameId} className="team-founder-card__name">
+              {name}
+            </p>
+            <p className="team-founder-card__role">{role}</p>
+            {quote ? (
+              <blockquote className="team-founder-card__quote">
+                <p>{quote}</p>
+              </blockquote>
+            ) : null}
+          </div>
+        ) : null}
       </div>
 
       <div className="team-founder-card__media">
         <OptimizedImage
-          src={founder.imageSrc}
-          alt={founder.imageAlt}
+          src={imageSrc}
+          alt={imageAlt}
           fill
-          priority
+          priority={priority}
           quality={90}
           sizes="(max-width: 899px) 100vw, 55vw"
           className="team-founder-card__image"
@@ -42,3 +87,4 @@ function TeamFounderCard() {
 }
 
 export { TeamFounderCard }
+export type { TeamFounderCardProps }
