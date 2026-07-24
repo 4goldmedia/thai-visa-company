@@ -10,7 +10,7 @@
     --premium-cta-button-bg: #ffffff;
     --premium-cta-button-fg: #23211e;
     --premium-cta-button-hover-bg: #f2ece6;
-    --premium-cta-radius: clamp(1.75rem, 2vw, 2rem); /* 28-32px */
+    --premium-cta-radius: var(--radius-card); /* same as homepage feature cards */
     --premium-cta-button-min-width: 16.25rem; /* 260px */
     --premium-cta-button-height: 3.5rem; /* 56px */
     --premium-cta-copy-max: 37.5rem; /* 600px */

@@ -251,7 +251,8 @@
     }
   }
 
-  /* One homepage-style feature card — stacked value rows */
+  /* One homepage-style feature card — stacked value rows.
+   * Shell radius: same token as homepage .why-features → var(--radius-card) */
   .team-about__values {
     --team-values-divider: color-mix(
       in srgb,
@@ -266,7 +267,7 @@
     padding: 3rem 1.75rem; /* 48px / ~28px */
     list-style: none;
     border: 1px solid color-mix(in srgb, var(--team-values-divider) 85%, transparent);
-    border-radius: var(--premium-cta-radius, clamp(1.75rem, 2vw, 2rem));
+    border-radius: var(--radius-card);
     background-color: #ffffff;
   }
 
@@ -419,12 +420,13 @@
     }
   }
 
+  /* Same shell radius as homepage .why-features / contact strip */
   .team-founder-card {
     display: grid;
     gap: 0;
     overflow: hidden;
     border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-    border-radius: 1.5rem; /* 24px */
+    border-radius: var(--radius-card);
     background-color: #ffffff;
     box-shadow:
       0 1px 2px oklch(0.2 0.02 55 / 0.03),

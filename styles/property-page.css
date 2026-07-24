@@ -50,10 +50,11 @@
     list-style: none;
   }
 
+  /* Same shell radius as homepage .why-features */
   .property-feature-stack__card {
     padding: 2rem; /* 32px */
     border: 1px solid #e8e3dc;
-    border-radius: 1.5rem; /* 24px */
+    border-radius: var(--radius-card);
     background-color: #ffffff;
   }
 
@@ -61,8 +62,9 @@
     max-width: none;
   }
 
+  /* Same icon container radius as homepage .why-feature__icon-wrap */
   .property-feature-stack__card .why-feature__icon-wrap {
-    border-radius: 999px;
+    border-radius: var(--radius-input);
     background-color: #f8f5f1;
   }
 
