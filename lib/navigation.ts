@@ -18,10 +18,12 @@ export const homeSectionAnchors = {
 export { visasHubPath }
 
 export const movingPagePath = "/moving-to-thailand" as const
+export const teamPath = "/team" as const
 
 export const secondaryNavLinks = [
-  { label: "Blog", href: blogPath },
   { label: "Reviews", href: homeSectionAnchors.reviews },
+  { label: "Team", href: teamPath },
+  { label: "Blog", href: blogPath },
 ] as const
 
 /** @deprecated Use `secondaryNavLinks` plus `VisasNavFlyout` / `visasHubPath` */
@@ -55,6 +57,7 @@ export const footerGuidesLinks = [] as const
 export const footerBlogLinks = footerResourcesLinks
 
 export const footerCompanyLinks = [
+  { label: "Team", href: teamPath },
   { label: "Reviews", href: homeSectionAnchors.reviews },
   { label: "FAQ", href: homeSectionAnchors.faq },
   { label: "Contact", href: consultationPath },

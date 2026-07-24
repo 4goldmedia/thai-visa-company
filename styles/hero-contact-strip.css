@@ -12,6 +12,10 @@
     }
   }
 
+  .hero-contact-strip-wrap--always {
+    display: block;
+  }
+
   .hero-contact-strip {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 1px auto;

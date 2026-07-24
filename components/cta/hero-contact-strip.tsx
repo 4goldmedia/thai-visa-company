@@ -10,32 +10,53 @@ import { cn } from "@/lib/utils"
 type HeroContactStripProps = {
   analyticsSurface?: AnalyticsSurface
   className?: string
+  /** Override homepage default title */
+  title?: string
+  /** Override homepage default subtitle */
+  subtitle?: string
+  /** Show on all breakpoints (e.g. Team page) */
+  alwaysVisible?: boolean
+  /** Hide the guarantee row when not needed */
+  showGuarantee?: boolean
 }
 
 /**
- * Desktop hero messaging panel  -  primary conversion on large screens;
- * hidden below the hero art-direction breakpoint (sticky bar on mobile).
+ * Messaging panel used on the homepage hero and reusable CTAs.
+ * Desktop-gated by default; pass `alwaysVisible` for full-page placements.
  */
 function HeroContactStrip({
   analyticsSurface = "homepage",
   className,
+  title,
+  subtitle,
+  alwaysVisible = false,
+  showGuarantee = true,
 }: HeroContactStripProps) {
-  const { title, subtitle, guarantee } = homepageAiCopy.heroContactStrip
+  const defaults = homepageAiCopy.heroContactStrip
+  const resolvedTitle = title ?? defaults.title
+  const resolvedSubtitle = subtitle ?? defaults.subtitle
+  const { guarantee } = defaults
 
   return (
-    <div className={cn("hero-contact-strip-wrap", className)}>
+    <div
+      className={cn(
+        "hero-contact-strip-wrap",
+        alwaysVisible && "hero-contact-strip-wrap--always",
+        className,
+      )}
+    >
       <div
         className="hero-contact-strip"
         role="region"
-        aria-label={title}
+        aria-label={resolvedTitle}
         {...analyticsDataAttributes({
           ctaId: analyticsCtaIds.heroContact,
           surface: analyticsSurface,
         })}
       >
         <div className="hero-contact-strip__intro">
-          <p className="hero-contact-strip__title">{title}</p>
-          <p className="hero-contact-strip__subtitle">{subtitle}</p>
+          <p className="hero-contact-strip__title">{resolvedTitle}</p>
+          <p className="hero-contact-strip__subtitle">{resolvedSubtitle}</p>
         </div>
 
         <div className="hero-contact-strip__rule" aria-hidden />
@@ -46,16 +67,19 @@ function HeroContactStrip({
         </div>
       </div>
 
-      <p className="hero-contact-strip__guarantee">
-        <ShieldCheck
-          className="hero-contact-strip__guarantee-icon"
-          aria-hidden
-          strokeWidth={1.5}
-        />
-        <span className="hero-contact-strip__guarantee-text">{guarantee}</span>
-      </p>
+      {showGuarantee ? (
+        <p className="hero-contact-strip__guarantee">
+          <ShieldCheck
+            className="hero-contact-strip__guarantee-icon"
+            aria-hidden
+            strokeWidth={1.5}
+          />
+          <span className="hero-contact-strip__guarantee-text">{guarantee}</span>
+        </p>
+      ) : null}
     </div>
   )
 }
 
 export { HeroContactStrip }
+export type { HeroContactStripProps }
