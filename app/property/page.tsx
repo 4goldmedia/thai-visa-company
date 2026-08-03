@@ -26,7 +26,7 @@ export const metadata: Metadata = createPageMetadata({
  * Reuses team hero/about/founder patterns and homepage WhyFeatureItem + PremiumCta.
  */
 export default function PropertyPage() {
-  const { hero, about, features, gallery, specialist, cta } =
+  const { hero, about, features, services, gallery, specialist, cta } =
     propertyPageContent
 
   return (
@@ -101,6 +101,46 @@ export default function PropertyPage() {
                   icon={feature.icon}
                   title={feature.title}
                   description={feature.description}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Renting + buying services */}
+      <section
+        className="property-services"
+        aria-labelledby="property-services-heading"
+      >
+        <div className="team-page__container property-services__inner">
+          <div className="property-services__intro">
+            <p className="team-about__eyebrow">{services.eyebrow}</p>
+            <h2
+              id="property-services-heading"
+              className="property-services__heading"
+            >
+              <span className="property-services__heading-line">
+                {services.headingLine1}
+              </span>
+              <span className="property-services__heading-line">
+                {services.headingLine2}
+              </span>
+            </h2>
+            <div className="property-services__paragraphs">
+              {services.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+
+          <ul className="property-services__grid" role="list">
+            {services.cards.map((card) => (
+              <li key={card.title} className="property-services__card">
+                <WhyFeatureItem
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.description}
                 />
               </li>
             ))}

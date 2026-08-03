@@ -72,8 +72,31 @@ export const propertyPageContent = {
         "From utilities to local advice, we're here even after you've received the keys.",
     },
   ] as const satisfies ReadonlyArray<PropertyFeature>,
+  services: {
+    eyebrow: "Property services",
+    headingLine1: "Whether you're renting or buying,",
+    headingLine2: "we're here to help.",
+    paragraphs: [
+      "Finding the right home is one of the biggest parts of starting your life in Thailand.",
+      "Whether you're looking for a long-term rental or planning to purchase your dream property, we provide trusted local guidance from your first search to the day you receive your keys.",
+    ],
+    cards: [
+      {
+        icon: KeyRound,
+        title: "Renting",
+        description:
+          "We'll help you shortlist properties, arrange viewings, communicate with landlords, review rental agreements, and guide you through the rental process from start to finish.",
+      },
+      {
+        icon: Home,
+        title: "Buying",
+        description:
+          "Whether you're purchasing a condominium, villa, or investment property, we'll help you understand the process, connect you with trusted professionals, and make informed decisions.",
+      },
+    ] as const satisfies ReadonlyArray<PropertyFeature>,
+  },
   /**
-   * Lifestyle immersion gallery  -  editorial Unsplash selects (real photography).
+   * Lifestyle immersion gallery  -  premium property photography.
    * Not property listings; aspirational living in Thailand.
    */
   gallery: {
@@ -83,46 +106,41 @@ export const propertyPageContent = {
         id: "bangkok-condominium",
         title: "Bangkok Condominiums",
         description: "Modern city living in Thailand's capital.",
-        imageSrc:
-          "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85",
+        imageSrc: "/images/property/bangkok-condominiums.webp",
         imageAlt:
-          "Bright designer condominium with floor-to-ceiling windows, oak finishes and warm morning sunlight",
+          "Aerial view of Bangkok condominiums along the Chao Phraya River at golden hour",
       },
       {
         id: "beautiful-interior",
         title: "Beautiful Interiors",
         description: "Spaces you'll love coming home to.",
-        imageSrc:
-          "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=85",
+        imageSrc: "/images/property/beautiful-interiors.webp",
         imageAlt:
-          "Warm living room with linen sofa, books, plants and soft sunlight on wood finishes",
+          "Bright double-height living room with grey sofa, glass staircase and floor-to-ceiling windows",
       },
       {
         id: "modern-townhouse",
         title: "Modern Townhouses",
         description: "Perfect for families and long-term living.",
-        imageSrc:
-          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85",
+        imageSrc: "/images/property/modern-townhouses.webp",
         imageAlt:
-          "Modern townhouse exterior with clean architecture, landscaping and golden afternoon light",
+          "Modern multi-story townhouse glowing with warm light at dusk among tropical landscaping",
       },
       {
         id: "luxury-villa",
         title: "Private Villas",
-        description: "Enjoy tropical living with extra space.",
-        imageSrc:
-          "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=85",
+        description: "Luxury tropical living with complete privacy.",
+        imageSrc: "/images/property/private-villas-thailand.webp",
         imageAlt:
-          "Luxury villa with infinity pool, glass doors and tropical garden in warm evening light",
+          "Luxury hillside villa with infinity pool, terraces and tropical gardens in bright sunlight",
       },
       {
         id: "balcony-view",
         title: "Wake Up to Thailand",
-        description: "A home you'll love every day.",
-        imageSrc:
-          "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1600&q=85",
+        description: "Imagine calling this home every day.",
+        imageSrc: "/images/property/wake-up-to-thailand.webp",
         imageAlt:
-          "Bright apartment with lounge seating and large windows suggesting a calm morning at home",
+          "Bangkok skyline at sunset with elevated train line and modern high-rise condominiums",
       },
     ] as const satisfies ReadonlyArray<PropertyGallerySlide>,
   },

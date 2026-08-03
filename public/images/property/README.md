@@ -1,7 +1,12 @@
 # Property photography
 
-Lifestyle gallery images currently load from curated Unsplash URLs
-(real architectural photography, configured in `lib/content/property.ts`).
+Lifestyle gallery slides for `/property` live here as WebP files and are
+referenced from `lib/content/property.ts` (`gallery.slides`).
 
-When brand shoots are available, place local files here and update the
-`gallery.slides` paths in content.
+Current set:
+
+- `bangkok-condominiums.webp`
+- `beautiful-interiors.webp`
+- `modern-townhouses.webp`
+- `private-villas-thailand.webp`
+- `wake-up-to-thailand.webp`

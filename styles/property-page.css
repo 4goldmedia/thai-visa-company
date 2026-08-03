@@ -68,6 +68,153 @@
     background-color: #f8f5f1;
   }
 
+  /* ── Renting + buying services ── */
+  .property-services {
+    --why-divider: color-mix(in srgb, var(--foreground) 14%, #ffffff);
+    --why-section-bg: #ffffff;
+    background-color: #ffffff;
+    padding-block: 5rem; /* 80px mobile */
+  }
+
+  @media (min-width: 768px) {
+    .property-services {
+      padding-block: 6.5rem; /* 104px */
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .property-services {
+      padding-block: 7.5rem; /* 120px */
+    }
+  }
+
+  .property-services__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .property-services__inner {
+      gap: 3.5rem;
+    }
+  }
+
+  .property-services__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 43.75rem; /* 700px */
+    text-align: center;
+  }
+
+  .property-services__intro .team-about__eyebrow {
+    color: var(--text-secondary);
+  }
+
+  .property-services__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1em;
+    margin: 0.875rem 0 0;
+    max-width: 43.75rem;
+    font-family: var(--font-display);
+    font-size: var(--text-section-title-xl);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
+    color: #23211e;
+    text-wrap: balance;
+  }
+
+  @media (min-width: 768px) {
+    .property-services__heading {
+      margin-top: 1rem;
+      font-size: var(--text-display-md);
+    }
+  }
+
+  .property-services__heading-line {
+    display: block;
+  }
+
+  .property-services__paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+    max-width: 43.75rem;
+  }
+
+  .property-services__paragraphs p {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.72;
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+
+  @media (min-width: 640px) {
+    .property-services__paragraphs p {
+      font-size: var(--text-body-md);
+    }
+  }
+
+  .property-services__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 640px) {
+    .property-services__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .property-services__grid {
+      gap: 1.5rem; /* 24px */
+    }
+  }
+
+  .property-services__card {
+    padding: 2rem; /* 32px */
+    border: 1px solid #e8e3dc;
+    border-radius: var(--radius-card);
+    background-color: #ffffff;
+    box-shadow: none;
+    transition:
+      border-color 250ms ease,
+      transform 250ms ease;
+  }
+
+  .property-services__card .why-feature {
+    max-width: none;
+    text-align: left;
+  }
+
+  .property-services__card .why-feature__icon-wrap {
+    border-radius: var(--radius-input);
+    background-color: #f8f5f1;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .property-services__card:hover {
+      border-color: color-mix(in srgb, #1e1b18 22%, #e8e3dc);
+      transform: translateY(-3px);
+    }
+  }
+
   /* ── Lifestyle gallery (Apple-style horizontal immersion) ── */
   .property-gallery-section {
     padding-block: 5rem 7.5rem; /* ~80–120px */
