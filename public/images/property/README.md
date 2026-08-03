@@ -5,8 +5,10 @@ referenced from `lib/content/property.ts` (`gallery.slides`).
 
 Current set:
 
+- `bangkok-balcony-skyline.webp` (hero)
 - `bangkok-condominiums.webp`
 - `beautiful-interiors.webp`
 - `modern-townhouses.webp`
 - `private-villas-thailand.webp`
 - `wake-up-to-thailand.webp`
+- `nongmai-lifestyle.webp` (specialist card portrait)

@@ -33,9 +33,9 @@ export const propertyPageContent = {
       "Whether you're looking for a condominium in Bangkok, a villa in Phuket, or a family home in Chiang Mai, we'll guide you through every step so you can settle in with confidence.",
     ],
     ctaLabel: "Let Nongmai help you find your home",
-    imageSrc: "/images/moving-to-thailand/cities/Phuket.webp",
+    imageSrc: "/images/property/bangkok-balcony-skyline.webp",
     imageAlt:
-      "Modern villa with a swimming pool surrounded by tropical greenery in warm afternoon light",
+      "Luxury Bangkok condominium interior overlooking the city skyline at golden hour",
   },
   about: {
     eyebrow: "Why choose us",
@@ -156,9 +156,9 @@ export const propertyPageContent = {
     role: "Property & Relocation Specialist",
     quote:
       "I'll help you find not just a property, but the right place to call home.",
-    imageSrc: "/images/team/nongmai.png",
+    imageSrc: "/images/property/nongmai-lifestyle.webp",
     imageAlt:
-      "Nongmai, Property and Relocation Specialist at Thai Visa Company",
+      "Nongmai, Property and Relocation Specialist at Thai Visa Company, photographed outdoors in Thailand",
   },
   cta: {
     title: "Ready to find your new home?",

@@ -12,6 +12,28 @@
     border-radius: var(--radius-none);
   }
 
+  /*
+   * Hero lifestyle crop  -  skyline primary, sofa/balcony retained.
+   * Square source into square frame; slight bias keeps the tallest towers
+   * and interior seating readable from mobile through desktop.
+   */
+  .property-page .property-hero__media .team-hero__image {
+    object-fit: cover;
+    object-position: 42% 38%;
+  }
+
+  @media (min-width: 768px) {
+    .property-page .property-hero__media .team-hero__image {
+      object-position: 45% 42%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .property-page .property-hero__media .team-hero__image {
+      object-position: 48% 45%;
+    }
+  }
+
   .property-hero__lead {
     display: flex;
     flex-direction: column;
@@ -555,5 +577,11 @@
   .property-page .team-founder-card {
     border-color: #e8e3dc;
     box-shadow: none;
+  }
+
+  /* Lifestyle portrait: keep face and upper body in frame across breakpoints */
+  .property-page .team-founder-card__image {
+    object-fit: cover;
+    object-position: center 18%;
   }
 }
