@@ -75,6 +75,7 @@ export function parseInquiryApiBody(body: unknown): ParseInquiryApiBodyResult {
   const values: InquiryFormValues = {
     name,
     email: email ?? "",
+    phone: "",
     nationality,
     visaInterest: visaInterest as InquiryFormValues["visaInterest"],
     currentLocation,

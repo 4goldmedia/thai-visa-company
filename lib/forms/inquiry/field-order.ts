@@ -4,6 +4,7 @@ import { inquiryFieldNames, type InquiryFieldName } from "@/lib/forms/inquiry/ty
 export const inquiryFieldOrder: readonly InquiryFieldName[] = [
   inquiryFieldNames.name,
   inquiryFieldNames.email,
+  inquiryFieldNames.phone,
   inquiryFieldNames.nationality,
   inquiryFieldNames.visaInterest,
   inquiryFieldNames.currentLocation,
@@ -14,6 +15,7 @@ export const inquiryFieldOrder: readonly InquiryFieldName[] = [
 export const inquiryFieldElementId: Record<InquiryFieldName, string> = {
   [inquiryFieldNames.name]: "name",
   [inquiryFieldNames.email]: "email",
+  [inquiryFieldNames.phone]: "phone",
   [inquiryFieldNames.nationality]: "nationality",
   [inquiryFieldNames.visaInterest]: "visa-interest",
   [inquiryFieldNames.currentLocation]: "location",

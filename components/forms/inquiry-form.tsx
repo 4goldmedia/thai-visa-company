@@ -419,6 +419,30 @@ function InquiryForm({
               </FormField>
 
               <FormField
+                id={`${id}-phone`}
+                label="Phone / WhatsApp number"
+                optional
+                error={errors?.[inquiryFieldNames.phone]}
+              >
+                <input
+                  type="tel"
+                  name={inquiryFieldNames.phone}
+                  autoComplete="tel"
+                  inputMode="tel"
+                  disabled={fieldDisabled}
+                  placeholder="+1 555 123 4567"
+                  value={values.phone}
+                  onChange={(e) =>
+                    handleFieldChange(inquiryFieldNames.phone, e.target.value)
+                  }
+                  className={cn(
+                    resolvedControlClass,
+                    errors?.[inquiryFieldNames.phone] && "border-destructive/70",
+                  )}
+                />
+              </FormField>
+
+              <FormField
                 id={`${id}-nationality`}
                 label="Nationality"
                 required

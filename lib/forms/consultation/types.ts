@@ -4,6 +4,7 @@ import type { InquiryVisaInterest } from "@/lib/forms/inquiry/visa-options"
 export const consultationApiFieldNames = {
   name: "name",
   email: "email",
+  phone: "phone",
   nationality: "nationality",
   visaInterest: "visaInterest",
   message: "message",
@@ -13,6 +14,7 @@ export const consultationApiFieldNames = {
 export type ConsultationApiPayload = {
   name: string
   email: string
+  phone: string
   nationality: string
   visaInterest: InquiryVisaInterest
   message: string

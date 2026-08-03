@@ -14,6 +14,7 @@ export type InquiryLeadSource =
 export const inquiryFieldNames = {
   name: "name",
   email: "email",
+  phone: "phone",
   nationality: "nationality",
   visaInterest: "visaInterest",
   currentLocation: "currentLocation",
@@ -26,6 +27,8 @@ export type InquiryFieldName =
 export type InquiryFormValues = {
   name: string
   email: string
+  /** Optional phone / WhatsApp  -  used on consultation form */
+  phone: string
   nationality: string
   visaInterest: InquiryVisaInterest | ""
   currentLocation: string
@@ -34,7 +37,7 @@ export type InquiryFormValues = {
 
 export type InquiryFormPayload = Omit<
   InquiryFormValues,
-  "visaInterest" | "email"
+  "visaInterest" | "email" | "phone"
 > & {
   email?: string
   visaInterest: InquiryVisaInterest

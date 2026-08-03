@@ -37,6 +37,7 @@ export function parseConsultationRequestBody(
 
   const name = readString(body, consultationApiFieldNames.name)
   const email = readString(body, consultationApiFieldNames.email)
+  const phone = readString(body, consultationApiFieldNames.phone) ?? ""
   const nationality = readString(body, consultationApiFieldNames.nationality)
   const visaInterest = readString(body, consultationApiFieldNames.visaInterest)
   const message = readString(body, consultationApiFieldNames.message)
@@ -64,6 +65,7 @@ export function parseConsultationRequestBody(
   const values: InquiryFormValues = {
     name,
     email,
+    phone,
     nationality,
     visaInterest: visaInterest as InquiryFormValues["visaInterest"],
     currentLocation: "",
@@ -86,6 +88,7 @@ export function toConsultationApiPayload(
   return {
     name: values.name.trim(),
     email: values.email.trim(),
+    phone: values.phone.trim(),
     nationality: values.nationality.trim(),
     visaInterest: values.visaInterest as InquiryVisaInterest,
     message: values.message.trim(),

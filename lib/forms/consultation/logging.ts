@@ -43,6 +43,7 @@ export function sanitizeAirtableFieldsForLog(
         : email
           ? "[redacted]"
           : "",
+    phoneLength: fields[consultationAirtableFields.phone]?.length ?? 0,
     nationality: fields[consultationAirtableFields.nationality] ?? "",
     visaType: fields[consultationAirtableFields.visaType] ?? "",
     messageLength: fields[consultationAirtableFields.message]?.length ?? 0,

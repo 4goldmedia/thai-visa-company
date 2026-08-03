@@ -41,6 +41,7 @@ export function toConsultationAirtableRecordFields(
   return {
     [consultationAirtableFields.fullName]: values.name.trim(),
     [consultationAirtableFields.email]: values.email.trim(),
+    [consultationAirtableFields.phone]: values.phone.trim(),
     [consultationAirtableFields.nationality]: values.nationality.trim(),
     [consultationAirtableFields.visaType]: formatHelpWith(visaInterest),
     [consultationAirtableFields.message]: values.message.trim(),

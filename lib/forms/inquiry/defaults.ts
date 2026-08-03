@@ -7,6 +7,7 @@ export function createInquiryFormDefaults(
   return {
     name: "",
     email: "",
+    phone: "",
     nationality: "",
     visaInterest: defaultInquiryVisaInterest,
     currentLocation: "",

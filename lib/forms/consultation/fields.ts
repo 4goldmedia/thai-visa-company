@@ -2,6 +2,7 @@
 export const consultationAirtableFields = {
   fullName: "Full Name",
   email: "Email",
+  phone: "Phone",
   nationality: "Nationality",
   visaType: "Visa Type",
   message: "Message",
