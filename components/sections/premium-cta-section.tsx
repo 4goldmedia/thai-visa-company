@@ -18,6 +18,8 @@ type PremiumCtaBlockProps = {
   description: string
   headingId?: string
   buttonLabel?: string
+  /** Override primary button destination (defaults to consultation page) */
+  buttonHref?: string
   analyticsSurface?: AnalyticsSurface
   analyticsCtaId?: string
   visaSlug?: string
@@ -30,6 +32,7 @@ function PremiumCtaBlock({
   description,
   headingId,
   buttonLabel = premiumCtaButtonLabel,
+  buttonHref = ctaHref.requestConsultation,
   analyticsSurface = "homepage",
   analyticsCtaId = analyticsCtaIds.finalCtaContact,
   visaSlug,
@@ -44,6 +47,8 @@ function PremiumCtaBlock({
     ctaLabel: buttonLabel,
   })
 
+  const isExternalButton = /^https?:\/\//.test(buttonHref)
+
   return (
     <div className={cn("premium-cta__card", className)}>
       <div className="premium-cta__copy">
@@ -54,13 +59,25 @@ function PremiumCtaBlock({
       </div>
 
       <div className="premium-cta__actions">
-        <Link
-          href={ctaHref.requestConsultation}
-          className="premium-cta__button"
-          {...consultationAnalytics}
-        >
-          {buttonLabel}
-        </Link>
+        {isExternalButton ? (
+          <a
+            href={buttonHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="premium-cta__button"
+            {...consultationAnalytics}
+          >
+            {buttonLabel}
+          </a>
+        ) : (
+          <Link
+            href={buttonHref}
+            className="premium-cta__button"
+            {...consultationAnalytics}
+          >
+            {buttonLabel}
+          </Link>
+        )}
 
         <p className="premium-cta__contact" aria-label="Messaging links">
           <span className="premium-cta__contact-label">Chat with us:</span>

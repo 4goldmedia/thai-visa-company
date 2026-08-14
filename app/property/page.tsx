@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 
 import { WhyFeatureItem } from "@/components/cards/why-feature-item"
 import { PropertyLifestyleGallery } from "@/components/property/property-lifestyle-gallery"
@@ -9,7 +8,7 @@ import { OptimizedImage } from "@/components/ui/optimized-image"
 import { analyticsDataAttributes } from "@/lib/analytics/attributes"
 import { analyticsCtaIds } from "@/lib/analytics/cta-ids"
 import { propertyPageContent, propertyPath } from "@/lib/content/property"
-import { ctaHref } from "@/lib/cta"
+import { CONTACT_URLS } from "@/lib/contact"
 import { createPageMetadata } from "@/lib/seo"
 import { signatureCtaPrimaryClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
@@ -46,8 +45,10 @@ export default function PropertyPage() {
                 </p>
               ))}
             </div>
-            <Link
-              href={ctaHref.requestConsultation}
+            <a
+              href={CONTACT_URLS.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
               className={cn(
                 signatureCtaPrimaryClass,
                 "property-hero__cta sm:w-auto",
@@ -59,7 +60,7 @@ export default function PropertyPage() {
               })}
             >
               {hero.ctaLabel}
-            </Link>
+            </a>
           </div>
 
           <div className="team-hero__media property-hero__media relative">
@@ -192,6 +193,7 @@ export default function PropertyPage() {
         title={cta.title}
         description={cta.description}
         buttonLabel={cta.buttonLabel}
+        buttonHref={CONTACT_URLS.whatsapp}
       />
     </main>
   )

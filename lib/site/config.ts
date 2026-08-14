@@ -116,7 +116,7 @@ export function getDefaultOgImageUrl(): string | undefined {
 
 export const siteContactDefaults = {
   supportEmail: "hello@thaivisacompany.com",
-  phone: "+66 00 000 0000",
+  phone: "+66 81 172 4918",
 } as const
 
 export function getSiteSupportEmail(): string {
@@ -142,8 +142,8 @@ export const siteContact = {
 // -----------------------------------------------------------------------------
 
 export const siteSocialPlaceholders = {
-  line: "https://line.me",
-  whatsapp: "https://wa.me",
+  line: "https://line.me/ti/p/~66811724918",
+  whatsapp: "https://wa.me/66811724918",
   googleReviews: "https://www.google.com/maps",
   twitter: undefined as string | undefined,
   facebook: undefined as string | undefined,
