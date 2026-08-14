@@ -91,20 +91,10 @@ function HomepageHero() {
             <p className="hero-premium__eyebrow">{homepageAiCopy.heroEyebrow}</p>
 
             <h1 id={sectionHeadingIds.hero} className="hero-premium__title">
-              Your move to
+              Your Thailand
               <br className="hero-premium__title-br" aria-hidden />
-              Thailand,
-              <br
-                className="hero-premium__title-br hero-premium__title-br--tablet"
-                aria-hidden
-              />
               <span className="hero-premium__title-closing">
-                <span className="hero-premium__title-made">made</span>{" "}
-                <br
-                  className="hero-premium__title-br hero-premium__title-br--desktop"
-                  aria-hidden
-                />
-                <span className="hero-premium__title-simple">simple.</span>
+                Visa, made simple.
               </span>
             </h1>
 
