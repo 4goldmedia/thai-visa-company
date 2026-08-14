@@ -55,11 +55,11 @@ export const editorialPhotography = {
 export const heroPhotography = {
   homepage: {
     desktop: {
-      src: "/images/hero/thai-visa-company-hero-option-6.webp",
+      src: "/images/hero/Move-to-thailand-visa.webp",
       alt: "Couple at a riverside café overlooking Wat Arun at sunset, suggesting a new life beginning in Thailand",
     },
     mobile: {
-      src: "/images/hero/thai-visa-company-bangkok-mobile.webp",
+      src: "/images/hero/Move-to-thailand-visa-mobile.webp",
       alt: "Couple at a riverside café overlooking Wat Arun at sunset, suggesting a new life beginning in Thailand",
     },
     caption: "Long-stay living, handled with care",

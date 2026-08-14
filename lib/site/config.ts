@@ -138,12 +138,23 @@ export const siteContact = {
 } as const
 
 // -----------------------------------------------------------------------------
-// Social & messaging placeholders  -  replace via env / contact config at launch
+// Social & messaging  -  canonical WhatsApp phone + URLs
 // -----------------------------------------------------------------------------
+
+/** E.164 digits only (no +). Thai Visa Company WhatsApp. */
+export const siteWhatsAppPhone = "66811724918" as const
+
+/** Canonical `wa.me` link for the site WhatsApp number. */
+export function buildWhatsAppUrl(
+  phone: string = siteWhatsAppPhone,
+): string {
+  const digits = phone.replace(/\D/g, "")
+  return `https://wa.me/${digits}`
+}
 
 export const siteSocialPlaceholders = {
   line: "https://line.me/ti/p/~66811724918",
-  whatsapp: "https://wa.me/66811724918",
+  whatsapp: buildWhatsAppUrl(siteWhatsAppPhone),
   googleReviews: "https://www.google.com/maps",
   twitter: undefined as string | undefined,
   facebook: undefined as string | undefined,

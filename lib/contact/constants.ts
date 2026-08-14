@@ -1,6 +1,8 @@
 import {
+  buildWhatsAppUrl,
   siteContactDefaults,
   siteSocialPlaceholders,
+  siteWhatsAppPhone,
 } from "@/lib/site/config"
 import { readContactEmailEnv } from "@/lib/site/env"
 
@@ -10,6 +12,9 @@ import { readContactEmailEnv } from "@/lib/site/env"
  * IMPORTANT: Use static `process.env.NEXT_PUBLIC_*` access only.
  * Dynamic `process.env[key]` is not inlined in the client bundle and causes hydration mismatches.
  */
+
+/** Canonical WhatsApp phone (E.164 digits, no +). */
+export { siteWhatsAppPhone, buildWhatsAppUrl }
 
 /** Single source for fallback URLs (no trailing slash) */
 export const CONTACT_URL_FALLBACKS = {
@@ -30,11 +35,56 @@ export function normalizeContactUrl(url: string): string {
   return url.trim().replace(/\/$/, "")
 }
 
+/** Reject launch placeholders still present in env (e.g. Vercel `wa.me/0000000000`). */
+const WHATSAPP_PLACEHOLDER_PHONE = /(?:^|\D)0{7,10}(?:\D|$)/
+
+function extractWhatsAppPhoneCandidate(url: string): string | undefined {
+  try {
+    const parsed = new URL(url)
+    const phoneParam = parsed.searchParams.get("phone")
+    if (phoneParam) return phoneParam.replace(/\D/g, "")
+
+    const host = parsed.hostname.replace(/^www\./, "")
+    if (host === "wa.me" || host === "api.whatsapp.com") {
+      const pathPhone = parsed.pathname.split("/").filter(Boolean)[0]
+      if (pathPhone) return pathPhone.replace(/\D/g, "")
+    }
+  } catch {
+    return undefined
+  }
+
+  return undefined
+}
+
+export function isPlaceholderWhatsAppUrl(url: string): boolean {
+  const candidate = extractWhatsAppPhoneCandidate(url)
+  if (!candidate) return false
+  return WHATSAPP_PLACEHOLDER_PHONE.test(candidate)
+}
+
 function resolveMessagingUrl(
   envValue: string | undefined,
   fallback: string,
 ): string {
-  return normalizeContactUrl(envValue && envValue.length > 0 ? envValue : fallback)
+  return normalizeContactUrl(
+    envValue && envValue.length > 0 ? envValue : fallback,
+  )
+}
+
+function resolveWhatsAppUrl(
+  envValue: string | undefined,
+  fallback: string,
+): string {
+  if (!envValue || envValue.length === 0) {
+    return normalizeContactUrl(fallback)
+  }
+
+  const normalized = normalizeContactUrl(envValue)
+  if (isPlaceholderWhatsAppUrl(normalized)) {
+    return normalizeContactUrl(fallback)
+  }
+
+  return normalized
 }
 
 /** Static env reads  -  required for Next.js client bundle inlining */
@@ -61,7 +111,7 @@ export const CONTACT_URLS: ContactUrls = {
     return resolveMessagingUrl(readLineEnv(), CONTACT_URL_FALLBACKS.line)
   },
   get whatsapp() {
-    return resolveMessagingUrl(readWhatsAppEnv(), CONTACT_URL_FALLBACKS.whatsapp)
+    return resolveWhatsAppUrl(readWhatsAppEnv(), CONTACT_URL_FALLBACKS.whatsapp)
   },
   get email() {
     return readContactEmailEnv() ?? CONTACT_URL_FALLBACKS.email

@@ -7,12 +7,15 @@ export {
   CONTACT_ENV_KEYS,
   CONTACT_URL_FALLBACKS,
   CONTACT_URLS,
+  buildWhatsAppUrl,
   getContactEmail,
   getContactUrl,
   getLineUrl,
   getWhatsAppUrl,
   isDefaultContactUrl,
+  isPlaceholderWhatsAppUrl,
   normalizeContactUrl,
+  siteWhatsAppPhone,
 } from "@/lib/contact/constants"
 
 export type { ContactUrlKey } from "@/lib/contact/constants"
