@@ -32,7 +32,7 @@ export const meta = defineBlogArticle({
   seo: {
     title: "DTV Visa vs Education Visa Thailand: Which Route Fits You?",
     description:
-      "DTV suits qualifying remote workers who need long-stay permission without enrollment. Education Visa suits genuine study at a qualifying institution. Compare fit before you choose.",
+      "DTV suits qualifying remote workers who need long-stay permission without enrollment. Education Visa suits genuine study. Compare lifestyle fit before you apply.",
     keywords: [
       "dtv vs education visa thailand",
       "dtv or education visa thailand",

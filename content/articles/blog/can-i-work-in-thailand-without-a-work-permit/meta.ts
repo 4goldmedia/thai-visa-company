@@ -32,7 +32,7 @@ export const meta = defineBlogArticle({
   seo: {
     title: "Can I Work in Thailand Without a Work Permit? When It Is and Is Not Legal",
     description:
-      "Most work performed in Thailand for a Thai employer requires a work permit. Remote work for foreign income, short meetings, and some activities follow different rules. See when you need authorization.",
+      "Most work for a Thai employer needs a work permit. Remote work for foreign income and some short activities follow different rules. See when you need one.",
     keywords: [
       "can i work in thailand without a work permit",
       "work in thailand without work permit",

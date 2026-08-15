@@ -28,7 +28,7 @@ export const homepageAiCopy = {
   /** Eyebrow above homepage H1 */
   heroEyebrow: "Thailand Visa & Relocation Experts",
   /** Homepage H1  -  visible hero headline */
-  primaryHeading: "Your move to Thailand, made simple.",
+  primaryHeading: "Your Thailand Visa, made simple.",
   secondaryLine: `${siteBrand.name}  -  ${siteBrand.tagline}`,
   /** Visible hero lead  -  scannable in ~5 seconds */
   heroLeadLine:
@@ -41,8 +41,8 @@ export const homepageAiCopy = {
   },
   /** Standalone extractable summary (meta description + WebPage schema) */
   extractableSummary:
-    "Thai Visa Company helps foreigners relocate to Thailand with clear visa guidance, document support, and hands-on application help. Tourist, business, DTV, retirement, Elite, and education routes - with replies on LINE and WhatsApp.",
-  webPageName: "Your move to Thailand, made simple",
+    "Get Thailand visa help for DTV, retirement, business, Elite, and education. We support documents and applications, with specialist replies on LINE or WhatsApp.",
+  webPageName: "Your Thailand Visa, made simple",
   faqSchemaName: "Thailand visa FAQ  -  Thai Visa Company",
   faqSchemaDescription:
     "Common questions about Thailand visa types, processing times, and how Thai Visa Company supports applications.",
@@ -52,7 +52,7 @@ export const homepageAiCopy = {
 export const contactAiCopy = {
   webPageName: "Contact Thai Visa Company",
   extractableSummary:
-    "Contact Thai Visa Company about your Thailand visa on LINE, WhatsApp, or a short inquiry form. Typical reply within one business day.",
+    "Contact Thai Visa Company on LINE, WhatsApp, or email. Visit our Bangkok office or send a short inquiry and a specialist will reply about your visa plans.",
 } as const
 
 /** Homepage document title  -  topic before brand */

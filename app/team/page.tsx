@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/seo"
 export const metadata: Metadata = createPageMetadata({
   title: "Our Team",
   description:
-    "Meet the Thai Visa Company team. Founded by Nongmai to make relocating to Thailand clear, calm, and personally guided.",
+    "Meet Nongmai and the Thai Visa Company team. Learn how we personally guide foreigners through Thailand visas, documents, and relocation decisions.",
   path: teamPath,
 })
 

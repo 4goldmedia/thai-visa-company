@@ -298,15 +298,15 @@ export function createVisaPageMetadata(input: VisaPageMetadataInput): Metadata {
   }
 }
 
-/** Resource / MDX articles  -  article Open Graph + published times */
+  /** Resource / MDX articles  -  article Open Graph + published times */
 export function createArticlePageMetadata(
   input: ArticlePageMetadataInput,
 ): Metadata {
-  const title = input.seo.ogTitle ?? input.seo.title
-  const description = resolvePageDescription(
-    input.seo.ogDescription ?? input.seo.description,
-  )
+  const title = input.seo.title
+  const description = resolvePageDescription(input.seo.description)
   const resolvedTitle = resolvePageTitle(title)
+  const socialTitle = input.seo.ogTitle ?? resolvedTitle
+  const socialDescription = input.seo.ogDescription ?? description
 
   const base = createPageMetadata({
     title,
@@ -321,15 +321,20 @@ export function createArticlePageMetadata(
     ...base,
     openGraph: buildOpenGraph({
       type: "article",
-      title: resolvedTitle,
-      description,
+      title: socialTitle,
+      description: socialDescription,
       path: input.path,
       image: input.image,
       publishedTime: input.publishedAt,
       modifiedTime: input.updatedAt ?? input.publishedAt,
       tags: input.tags ? [...input.tags] : undefined,
     }),
-    twitter: base.twitter,
+    twitter: buildTwitterCard({
+      title: socialTitle,
+      description: socialDescription,
+      path: input.path,
+      image: input.image,
+    }),
   }
 }
 

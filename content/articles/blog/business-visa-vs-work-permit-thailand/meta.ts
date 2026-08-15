@@ -27,7 +27,7 @@ export const meta = defineBlogArticle({
   seo: {
     title: "Business Visa vs Work Permit in Thailand: What You Actually Need",
     description:
-      "Most employees need both a business visa and a work permit. Compare the difference, whether you can work on a business visa alone, and the normal visa-then-permit sequence.",
+      "A Thailand business visa and a work permit are different documents. Most employees need both. See what each does and the usual visa-then-permit sequence.",
     keywords: [
       "business visa vs work permit thailand",
       "thailand business visa vs work permit",

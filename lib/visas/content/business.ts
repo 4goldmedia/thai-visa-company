@@ -45,7 +45,7 @@ export const businessVisaPage: VisaPageContent = {
     title:
       "Thailand Business Visa (Non-Immigrant B)  -  Requirements, Sponsorship & How to Apply",
     description:
-      "Clear Thailand business visa guide: Non-Immigrant B sponsorship, visa vs work permit, employee and director pathways, documents, vs DTV and Elite, and specialist support.",
+      "Thailand business visa guide: Non-Immigrant B sponsorship, how it differs from a work permit, employee and director pathways, documents, and specialist support.",
     keywords: [
       "Thailand business visa",
       "Thailand work visa",

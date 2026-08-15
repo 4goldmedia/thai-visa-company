@@ -31,7 +31,7 @@ export const meta = defineBlogArticle({
   seo: {
     title: "Can Foreigners Live in Thailand Permanently? Long-Stay Options Explained",
     description:
-      "Yes, foreigners can make Thailand a long-term home through lawful visas such as DTV, retirement, business, elite, and education. There is no single permanent living visa. The best route depends on your circumstances.",
+      "Foreigners can live in Thailand long-term on renewable visas such as DTV, retirement, business, Elite, and education. There is no single permanent living visa.",
     keywords: [
       "can foreigners live in thailand permanently",
       "live in thailand permanently",

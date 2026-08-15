@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils"
 export const metadata: Metadata = createPageMetadata({
   title: "Property in Thailand",
   description:
-    "Find your perfect place in Thailand with personal guidance from Nongmai. Curated homes, local expertise, and end-to-end relocation support.",
+    "Find a home in Thailand with personal guidance from Nongmai. Explore condominiums, villas, and family houses alongside visa and relocation support.",
   path: propertyPath,
 })
 

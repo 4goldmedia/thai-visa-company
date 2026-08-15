@@ -44,7 +44,7 @@ export const movingPageContent: MovingPageContent = {
   seo: {
     title: "Moving to Thailand: The Complete Guide to Relocating",
     description:
-      "Should you move to Thailand? An honest guide to daily life, costs, cities, working, families, retirement, and visa pathways. Everything you need before relocating.",
+      "An honest moving-to-Thailand guide: daily life, living costs, cities, remote work, families, retirement, and which visa pathways fit before you relocate.",
     keywords: [
       "moving to thailand",
       "move to thailand",

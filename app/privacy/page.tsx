@@ -19,7 +19,7 @@ const canonicalSiteUrl = siteUrls.productionPlaceholder
 export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
-    "How Thai Visa Company collects, uses, and protects your personal information.",
+    "How Thai Visa Company collects, uses, stores, and protects personal information from visa inquiries, website visits, and consultation requests.",
   path: "/privacy",
   keywords: ["privacy policy", "Thai Visa Company", "data protection"],
 })

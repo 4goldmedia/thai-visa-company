@@ -9,48 +9,48 @@ export const blogClusters = [
     id: "dtv",
     label: "DTV Visa",
     description:
-      "Destination Thailand Visa requirements, costs, remote work rules, rejections, dependents, and extensions.",
+      "DTV visa articles on Destination Thailand Visa requirements, remote work, tourist comparisons, rejection reasons, and how DTV compares with other long-stay routes.",
     pillarHref: "/visas/dtv",
   },
   {
     id: "retirement",
     label: "Retirement Visa",
     description:
-      "Retirement visa income rules, eligibility, renewals, and how retirement compares to other long-stay routes.",
+      "Retirement visa articles on Non-Immigrant O vs O-A, income proof, renewals, and how retirement compares with DTV and Elite for long stays in Thailand.",
     pillarHref: "/visas/retirement",
   },
   {
     id: "business",
     label: "Business Visa",
     description:
-      "Work permits, company sponsorship, BOI routes, and employment visa requirements for Thailand.",
+      "Business visa articles on work permits, Thai employment, and when a Non-Immigrant B visa is enough versus when you also need a separate work permit.",
     pillarHref: "/visas/business",
   },
   {
     id: "education",
     label: "Education Visa",
     description:
-      "Language school and university visas, enrollment requirements, and education visa renewals.",
+      "Education visa articles on study-only rules, language-school and university routes, and when an ED visa is a better fit than DTV for living in Thailand.",
     pillarHref: "/visas/education",
   },
   {
     id: "elite",
     label: "Thailand Elite Visa",
     description:
-      "Elite membership value, comparisons with retirement and other routes, and long-stay premium options.",
+      "Elite visa articles on membership value, Elite vs retirement, and when a Thailand Privilege / Elite visa is worth comparing with other long-stay routes.",
     pillarHref: "/visas/elite",
   },
   {
     id: "immigration-procedures",
     label: "Immigration Procedures",
     description:
-      "90-day reporting, TM30, re-entry permits, visa extensions, and immigration appointments in Thailand.",
+      "Thailand immigration articles on re-entry permits, changing visa types, and how to protect your stay permission when you travel or switch categories.",
   },
   {
     id: "living-in-thailand",
     label: "Living in Thailand",
     description:
-      "Banking, housing, healthcare, taxes, and practical relocation guidance for foreigners in Thailand.",
+      "Living-in-Thailand articles on choosing a visa, long-stay options, and how foreigners make Thailand home through lawful routes rather than tourist stays.",
     pillarHref: "/moving-to-thailand",
   },
 ] as const satisfies readonly BlogCluster[]

@@ -31,7 +31,7 @@ export const meta = defineBlogArticle({
   seo: {
     title: "DTV Visa vs Tourist Visa Thailand: Stay Length & Remote Work",
     description:
-      "Tourist visas suit short visits without long-stay remote work intent. DTV suits qualifying remote workers who need lawful long-stay permission.",
+      "Tourist visas suit short visits. DTV suits qualifying remote workers who need lawful long-stay permission in Thailand. Compare stay length, work intent, and fit.",
     keywords: [
       "dtv visa vs tourist visa thailand",
       "dtv vs tourist visa thailand",

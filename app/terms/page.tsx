@@ -22,7 +22,7 @@ const canonicalSiteUrl = siteUrls.productionPlaceholder
 export const metadata: Metadata = createPageMetadata({
   title: "Terms of Service",
   description:
-    "Terms governing use of the Thai Visa Company website and consultation services.",
+    "Read the terms that govern use of the Thai Visa Company website, visa consultations, and related communications about Thailand visa support.",
   path: "/terms",
   keywords: ["terms of service", "Thai Visa Company", "website terms"],
 })
