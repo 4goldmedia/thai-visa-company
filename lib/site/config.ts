@@ -115,7 +115,7 @@ export function getDefaultOgImageUrl(): string | undefined {
 // -----------------------------------------------------------------------------
 
 export const siteContactDefaults = {
-  supportEmail: "hello@thaivisacompany.com",
+  supportEmail: "thaivisaco@gmail.com",
   phone: "+66 81 172 4918",
 } as const
 
