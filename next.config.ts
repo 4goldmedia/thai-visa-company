@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/contact",
+        destination: "/consultation",
+        permanent: true,
+      },
+      {
         source: "/blog/how-to-get-thailand-retirement-visa",
         destination: "/visas/retirement",
         permanent: true,

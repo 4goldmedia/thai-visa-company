@@ -34,6 +34,7 @@ function RelatedArticles({
               category={item.category}
               href={item.href}
               image={item.image}
+              imageAlt={item.imageAlt}
               publishedAt={item.publishedAt}
               readingTime={item.readingTime}
               authorName={item.authorName}

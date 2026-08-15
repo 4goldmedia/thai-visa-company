@@ -15,11 +15,11 @@ function MovingPhotoMosaic({ topics, className }: MovingPhotoMosaicProps) {
 
   return (
     <div className={cn("moving-photo-mosaic", className)}>
-      <div className="moving-photo-mosaic__grid" aria-hidden>
+      <div className="moving-photo-mosaic__grid">
         <div className="moving-photo-mosaic__lead">
           <OptimizedImage
             src={lead.src}
-            alt=""
+            alt={lead.alt}
             fill
             sizes="(max-width: 768px) 100vw, 40vw"
             className="object-cover"
@@ -30,7 +30,7 @@ function MovingPhotoMosaic({ topics, className }: MovingPhotoMosaicProps) {
           <div key={image.id} className="moving-photo-mosaic__tile">
             <OptimizedImage
               src={image.src}
-              alt=""
+              alt={image.alt}
               fill
               sizes="(max-width: 768px) 50vw, 20vw"
               className="object-cover"

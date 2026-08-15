@@ -167,46 +167,53 @@ export const siteRoutes = [
     published: true,
   },
   {
+    path: "/blog/cluster/elite",
+    group: "resource",
+    changeFrequency: "weekly",
+    priority: 0.85,
+    published: true,
+  },
+  {
     path: "/blog/category/immigration-news",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.75,
-    published: true,
+    published: false,
   },
   {
     path: "/blog/category/visa-rule-changes",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.75,
-    published: true,
+    published: false,
   },
   {
     path: "/blog/category/embassy-updates",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.75,
-    published: true,
+    published: false,
   },
   {
     path: "/blog/category/policy-changes",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.75,
-    published: true,
+    published: false,
   },
   {
     path: "/blog/category/thailand-living",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.75,
-    published: true,
+    published: false,
   },
   {
     path: "/blog/category/comparisons",
     group: "resource",
     changeFrequency: "weekly",
     priority: 0.75,
-    published: true,
+    published: false,
   },
 
   // Marketing
@@ -243,7 +250,7 @@ export const siteRoutes = [
     group: "marketing",
     changeFrequency: "monthly",
     priority: 0.8,
-    published: true,
+    published: false,
   },
 
   // Legal

@@ -43,7 +43,7 @@ export const dtvVisaPage: VisaPageContent = {
   answer:
     "The Destination Thailand Visa (DTV) is a five-year multiple-entry long-stay visa for remote workers, freelancers, and participants in qualifying activities in Thailand. Each entry usually allows up to 180 days in Thailand, often extendable once per visit. Applicants must generally show at least 500,000 Thai baht in savings and evidence of a qualifying activity: remote work for income from outside Thailand, enrolment in approved programmes such as Muay Thai training, cooking courses, or medical treatment, or dependent status linked to an approved DTV holder. The DTV is not for employment with a Thai employer.",
   seo: {
-    title: "Thailand DTV Visa (Destination Thailand Visa)  -  Requirements & How to Apply",
+    title: "Thailand DTV Visa Requirements",
     description:
       "Clear Thailand DTV visa guide: who qualifies, 500,000 THB savings rule, remote work, extensions, documents, and expert help with your application.",
     keywords: [

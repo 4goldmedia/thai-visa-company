@@ -1,13 +1,20 @@
 import {
   buildBreadcrumbList,
+  buildFaqPage,
   buildPageSchemaGraph,
   buildWebPage,
   JsonLdScript,
+  normalizeFaqItems,
 } from "@/lib/seo/schema"
-import { movingPageContent, movingPagePath } from "@/lib/moving/content"
+import {
+  getMovingPageVisibleFaqItems,
+  movingPageContent,
+  movingPagePath,
+} from "@/lib/moving/content"
 
 function MovingToThailandJsonLd() {
-  const { seo } = movingPageContent
+  const { seo, faq } = movingPageContent
+  const faqItems = normalizeFaqItems(getMovingPageVisibleFaqItems())
 
   const graph = buildPageSchemaGraph({
     nodes: [
@@ -20,6 +27,11 @@ function MovingToThailandJsonLd() {
         { name: "Home", path: "/" },
         { name: "Moving to Thailand", path: movingPagePath },
       ]),
+      buildFaqPage(faqItems, {
+        name: faq.title,
+        description: faq.description,
+        path: movingPagePath,
+      }),
     ],
   })
 

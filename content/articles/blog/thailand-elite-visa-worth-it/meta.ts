@@ -39,7 +39,7 @@ export const meta = defineBlogArticle({
       "should i get thailand elite visa",
       "thailand elite visa pros cons",
     ],
-    ogTitle: "Thailand Elite Visa Worth It",
+    ogTitle: "Is the Thailand Elite Visa Worth It?",
     ogDescription:
       "A premium long-stay membership, not a shortcut around immigration law. See when Elite delivers value and when another visa fits better.",
   },

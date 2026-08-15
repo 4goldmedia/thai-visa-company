@@ -4,8 +4,7 @@ import { SectionReveal } from "@/components/motion"
 import { EditorialFaqGrid } from "@/components/moving/editorial-faq-grid"
 import { MovingSectionHeader } from "@/components/moving/moving-section-header"
 import { MonthlyBudgetEstimator } from "@/components/moving/monthly-budget-estimator"
-import { FaqJsonLd } from "@/components/seo/faq-json-ld"
-import { movingPageContent, movingPagePath } from "@/lib/moving/content"
+import { movingPageContent } from "@/lib/moving/content"
 import { movingPageSectionIds } from "@/lib/moving/section-ids"
 import { sectionContentOffsetClass, sectionDividerClass } from "@/lib/section-styles"
 import { cn } from "@/lib/utils"
@@ -20,13 +19,6 @@ function MovingBudgetEstimatorSection() {
       aria-labelledby={movingPageSectionIds.budgetEstimatorHeading}
       className="moving-budget-band"
     >
-      <FaqJsonLd
-        items={budgetEstimator.faq.items}
-        name={budgetEstimator.faq.title}
-        path={movingPagePath}
-        description={budgetEstimator.intro}
-        id="schema-faq-moving-budget-estimator"
-      />
       <Container>
         <SectionReveal>
           <MovingSectionHeader

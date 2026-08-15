@@ -43,7 +43,7 @@ function VisaGuideCard({
         <div className="visa-guide-card__media">
           <Image
             src={image}
-            alt={imageAlt ?? ""}
+            alt={imageAlt?.trim() ? imageAlt : title}
             fill
             className="visa-guide-card__image object-cover"
             style={{ objectPosition }}

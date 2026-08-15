@@ -8,7 +8,8 @@ import { contactAiCopy } from "@/lib/seo/ai-search"
 export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description: contactAiCopy.extractableSummary,
-  path: "/contact",
+  path: "/consultation",
+  noIndex: true,
   keywords: [
     "contact Thai Visa Company",
     "Thailand visa specialist contact",

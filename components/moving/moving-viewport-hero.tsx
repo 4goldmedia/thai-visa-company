@@ -35,7 +35,7 @@ function MovingViewportHero({
       <div className="moving-hero__media" aria-hidden>
         <OptimizedImage
           src={image.src}
-          alt=""
+          alt={image.alt}
           fill
           priority
           quality={90}
@@ -55,8 +55,9 @@ function MovingViewportHero({
           <p className="moving-hero__eyebrow">{eyebrow}</p>
           <h1 id={headingId} className="moving-hero__title">
             {titleLines ? (
-              titleLines.map((line) => (
+              titleLines.map((line, index) => (
                 <span key={line} className="moving-hero__title-line">
+                  {index > 0 ? " " : null}
                   {line}
                 </span>
               ))

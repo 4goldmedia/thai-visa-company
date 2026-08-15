@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { BlogPostCard } from "@/components/cards/blog-post-card"
@@ -14,6 +15,7 @@ import {
 } from "@/lib/blog/routing"
 import { blogClusterPath } from "@/lib/blog/types"
 import { createPageMetadata } from "@/lib/seo"
+import { editorialLinkCompactClass } from "@/lib/section-styles"
 
 export const dynamicParams = false
 
@@ -65,6 +67,7 @@ export default async function BlogClusterPage({ params }: PageProps) {
             blogIndexBreadcrumb,
             { label: clusterMeta.label, href: path },
           ]}
+          includeSchema={false}
         />
 
         <Section spacing="default" aria-labelledby={headingId}>
@@ -75,6 +78,18 @@ export default async function BlogClusterPage({ params }: PageProps) {
               lead={clusterMeta.description}
               headingId={headingId}
             />
+
+            {clusterMeta.pillarHref ? (
+              <p className="mt-5 max-w-xl text-[15px] leading-[1.7] text-muted-foreground">
+                For requirements and application steps, read the{" "}
+                <Link href={clusterMeta.pillarHref} className={editorialLinkCompactClass}>
+                  {clusterMeta.pillarHref === "/moving-to-thailand"
+                    ? "Moving to Thailand guide"
+                    : `${clusterMeta.label} guide`}
+                </Link>
+                .
+              </p>
+            ) : null}
 
             {articles.length > 0 ? (
               <ul className="blog-index__grid mt-8">
@@ -90,6 +105,7 @@ export default async function BlogClusterPage({ params }: PageProps) {
                       publishedAt={article.publishedAt}
                       updatedAt={article.updatedAt}
                       image={article.heroImage}
+                      imageAlt={article.heroImageAlt}
                       variant="editorial"
                     />
                   </li>

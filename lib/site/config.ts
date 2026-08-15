@@ -60,14 +60,12 @@ export const siteLocale = {
 export type SiteLocale = typeof siteLocale
 
 // -----------------------------------------------------------------------------
-// URLs  -  domain changes via env; staging placeholder until production cutover
+// URLs  -  canonical production origin; override with `NEXT_PUBLIC_SITE_URL`
 // -----------------------------------------------------------------------------
 
 export const siteUrls = {
   /** Canonical production origin  -  override with `NEXT_PUBLIC_SITE_URL` */
   productionPlaceholder: "https://thaivisacompany.com",
-  /** Temporary staging / preview origin */
-  staging: "https://thai-visa-company.vercel.app",
   development: getDefaultSiteOrigin(),
 } as const
 

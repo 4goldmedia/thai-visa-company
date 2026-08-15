@@ -1,8 +1,11 @@
 import type { BlogArticleMeta } from "@/lib/content/collections/blog"
 import type { BlogPostCard } from "@/lib/blog/types"
 import type { ContentRelatedLink } from "@/lib/content/types"
+import { getBlogArticleHeroImage } from "@/lib/media/photography"
 
 export function blogMetaToIndexCard(meta: BlogArticleMeta): BlogPostCard {
+  const hero = getBlogArticleHeroImage(meta.slug)
+
   return {
     slug: meta.slug,
     clusterId: meta.index.clusterId,
@@ -17,6 +20,7 @@ export function blogMetaToIndexCard(meta: BlogArticleMeta): BlogPostCard {
     status: "published",
     featured: meta.featured,
     heroImage: meta.heroImage,
+    heroImageAlt: hero?.alt,
   }
 }
 
@@ -29,6 +33,7 @@ export function blogMetaToRelatedLink(meta: BlogArticleMeta): ContentRelatedLink
     description: card.description,
     href: card.path,
     image: meta.heroImage,
+    imageAlt: card.heroImageAlt,
     publishedAt: meta.publishedAt,
     readingTime: meta.readingTime,
     authorName: meta.author?.name,

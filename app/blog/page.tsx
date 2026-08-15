@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { Suspense } from "react"
 
 import { BlogIndexTemplate } from "@/components/templates/blog-index"
 import { blogIndexContent } from "@/lib/blog/content/index"
@@ -28,9 +27,5 @@ export default async function BlogPage({ searchParams }: PageProps) {
   const { sort: sortParam } = await searchParams
   const sort = resolveSort(sortParam)
 
-  return (
-    <Suspense fallback={<BlogIndexTemplate sort={sort} />}>
-      <BlogIndexTemplate sort={sort} />
-    </Suspense>
-  )
+  return <BlogIndexTemplate sort={sort} />
 }

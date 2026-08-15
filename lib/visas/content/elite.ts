@@ -42,8 +42,7 @@ export const eliteVisaPage: VisaPageContent = {
   answer:
     "The Thailand Elite Visa, now commonly called the Thailand Privilege Visa, is a government-backed long-stay membership program for foreigners who want multi-year residence in Thailand through a membership fee rather than retirement age, income proof, or activity evidence. It suits convenience-first long-stay applicants who can meet membership costs and program rules. It is not a work permit route and does not provide a citizenship path.",
   seo: {
-    title:
-      "Thailand Elite Visa (Privilege Visa)  -  Membership, Requirements & How to Apply",
+    title: "Thailand Elite Visa (Privilege Card)",
     description:
       "Clear Thailand Elite / Privilege Visa guide: who it suits, membership model, fee range, family options, vs retirement and DTV, and specialist application support.",
     keywords: [

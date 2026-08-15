@@ -16,6 +16,7 @@ type BlogPostCardProps = {
   publishedAt?: string
   updatedAt?: string
   image?: string
+  imageAlt?: string
   authorName?: string
   ctaLabel?: string
   variant?: "default" | "editorial"
@@ -42,6 +43,7 @@ function BlogPostCard({
   readingTime,
   publishedAt,
   image,
+  imageAlt,
   authorName,
   ctaLabel = ctaLabels.readGuide,
   variant = "default",
@@ -67,7 +69,7 @@ function BlogPostCard({
           {image && !isPlanned ? (
             <Image
               src={image}
-              alt=""
+              alt={imageAlt?.trim() ? imageAlt : title}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

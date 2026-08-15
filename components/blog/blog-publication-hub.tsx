@@ -202,6 +202,7 @@ function BlogPublicationHub({ articles }: BlogPublicationHubProps) {
                   publishedAt={article.publishedAt}
                   updatedAt={article.updatedAt}
                   image={article.heroImage}
+                  imageAlt={article.heroImageAlt}
                   ctaLabel="Read article"
                   variant="editorial"
                 />

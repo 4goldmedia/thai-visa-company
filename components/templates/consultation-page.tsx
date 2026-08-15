@@ -1,4 +1,5 @@
 import { ConsultationExperience } from "@/components/sections/consultation-experience"
+import { ConsultationPageJsonLd } from "@/components/seo/consultation-page-json-ld"
 import { PageBreadcrumbs } from "@/components/navigation/page-breadcrumbs"
 import { getConsultationPageBreadcrumbs } from "@/lib/breadcrumbs"
 import { siteBrand } from "@/lib/site"
@@ -10,21 +11,25 @@ const consultationHeadingId = "consultation-page-heading"
  */
 function ConsultationPageTemplate() {
   return (
-    <main
-      id="main-content"
-      tabIndex={-1}
-      aria-label={`Request a consultation, ${siteBrand.name}`}
-      className="consultation-page flex flex-1 flex-col overflow-x-clip bg-background"
-    >
-      <PageBreadcrumbs
-        items={getConsultationPageBreadcrumbs()}
-        containerSize="default"
-      />
+    <>
+      <ConsultationPageJsonLd />
+      <main
+        id="main-content"
+        tabIndex={-1}
+        aria-label={`Request a consultation, ${siteBrand.name}`}
+        className="consultation-page flex flex-1 flex-col overflow-x-clip bg-background"
+      >
+        <PageBreadcrumbs
+          items={getConsultationPageBreadcrumbs()}
+          containerSize="default"
+          includeSchema={false}
+        />
 
-      <ConsultationExperience headingId={consultationHeadingId} />
+        <ConsultationExperience headingId={consultationHeadingId} />
 
-      {/* Future: testimonials, FAQ, or consultation details */}
-    </main>
+        {/* Future: testimonials, FAQ, or consultation details */}
+      </main>
+    </>
   )
 }
 

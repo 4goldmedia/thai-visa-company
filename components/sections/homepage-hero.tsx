@@ -91,7 +91,7 @@ function HomepageHero() {
             <p className="hero-premium__eyebrow">{homepageAiCopy.heroEyebrow}</p>
 
             <h1 id={sectionHeadingIds.hero} className="hero-premium__title">
-              Your Thailand
+              Your Thailand{" "}
               <br className="hero-premium__title-br" aria-hidden />
               <span className="hero-premium__title-closing">
                 Visa, made simple.

@@ -40,14 +40,14 @@ Brand, metadata defaults, canonical URL, social placeholders, and business locat
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Production origin  -  overrides `siteUrls.productionPlaceholder` and staging fallback |
+| `NEXT_PUBLIC_SITE_URL` | Production origin  -  overrides `siteUrls.productionPlaceholder` |
 | `NEXT_PUBLIC_TWITTER_HANDLE` | Twitter/X card `creator` (optional) |
 | `NEXT_PUBLIC_GOOGLE_REVIEWS_URL` | Google Business / Maps reviews URL (optional) |
 | `NEXT_PUBLIC_OG_IMAGE_PATH` | Default OG image  -  overrides `siteMetadata.defaultOgImagePath` (`/og/default.png`) |
 
-When `NEXT_PUBLIC_SITE_URL` is unset: **development** uses `http://localhost:3000`; **preview/production builds** fall back to `siteUrls.staging` until launch.
+When `NEXT_PUBLIC_SITE_URL` is unset: **development** uses `http://localhost:3000`; **production builds** fall back to `https://thaivisacompany.com`.
 
-Placeholders in config (rebrand / pre-launch): `siteBrand`, `siteSocialPlaceholders`, `siteLocation`, `siteUrls.staging`.
+Placeholders in config: `siteBrand`, `siteSocialPlaceholders`, `siteLocation`.
 
 ```
 NEXT_PUBLIC_SITE_URL=

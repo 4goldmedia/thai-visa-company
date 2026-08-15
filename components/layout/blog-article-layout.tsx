@@ -49,7 +49,7 @@ function BlogArticleLayout({
       {breadcrumbs && breadcrumbs.length > 0 ? (
         <Container className="editorial-article-breadcrumbs-wrap">
           <div className="editorial-article-breadcrumbs">
-            <Breadcrumbs items={breadcrumbs} />
+            <Breadcrumbs items={breadcrumbs} includeSchema={false} />
           </div>
         </Container>
       ) : null}

@@ -302,7 +302,7 @@ export function createVisaPageMetadata(input: VisaPageMetadataInput): Metadata {
 export function createArticlePageMetadata(
   input: ArticlePageMetadataInput,
 ): Metadata {
-  const title = input.seo.title
+  const title = input.seo.ogTitle ?? input.seo.title
   const description = resolvePageDescription(input.seo.description)
   const resolvedTitle = resolvePageTitle(title)
   const socialTitle = input.seo.ogTitle ?? resolvedTitle

@@ -1,5 +1,5 @@
 import { FaqSection } from "@/components/sections/faq"
-import { movingPageContent, movingPagePath } from "@/lib/moving/content"
+import { movingPageContent } from "@/lib/moving/content"
 import { movingPageSectionIds } from "@/lib/moving/section-ids"
 import type { VisaFaqItem } from "@/lib/visas/types"
 
@@ -14,7 +14,7 @@ function toAccordionItems(
 }
 
 function MovingFaqSection() {
-  const { faq, seo } = movingPageContent
+  const { faq } = movingPageContent
   const items = toAccordionItems(faq.items)
 
   return (
@@ -26,11 +26,7 @@ function MovingFaqSection() {
       description={faq.description}
       items={items}
       defaultValue={items[0]?.value}
-      jsonLd={{
-        name: faq.title,
-        path: movingPagePath,
-        description: seo.description,
-      }}
+      jsonLd={{ enabled: false }}
     />
   )
 }

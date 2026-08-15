@@ -42,8 +42,7 @@ export const businessVisaPage: VisaPageContent = {
   answer:
     "The Thailand Business Visa is generally a Non-Immigrant B visa for foreign nationals who need to live in Thailand for employment or company-linked activity with a sponsoring Thai employer or qualifying company. It is not the same as a work permit. A business visa alone does not authorize employment in Thailand; a work permit is usually required separately after arrival.",
   seo: {
-    title:
-      "Thailand Business Visa (Non-Immigrant B)  -  Requirements, Sponsorship & How to Apply",
+    title: "Thailand Business Visa Requirements",
     description:
       "Thailand business visa guide: Non-Immigrant B sponsorship, how it differs from a work permit, employee and director pathways, documents, and specialist support.",
     keywords: [

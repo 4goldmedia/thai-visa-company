@@ -39,7 +39,7 @@ export const meta = defineBlogArticle({
       "remote work or retirement visa thailand",
       "which visa for retirees who still work",
     ],
-    ogTitle: "DTV vs Retirement Visa",
+    ogTitle: "DTV vs Retirement Visa Thailand",
     ogDescription:
       "Age alone does not decide the route. Compare work intent, financial proof, and stay goals before you file DTV or retirement.",
   },

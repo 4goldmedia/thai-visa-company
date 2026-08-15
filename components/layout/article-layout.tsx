@@ -65,6 +65,7 @@ export type ArticleLayoutProps = {
   lead?: string
   /** Optional hero image path under `public/` */
   heroImage?: string
+  heroImageAlt?: string
   metadata?: ArticleMetadata
   /** Optional muted share links below metadata */
   shareRow?: React.ReactNode
@@ -180,6 +181,7 @@ type ArticleHeaderProps = {
   answer?: string
   lead?: string
   heroImage?: string
+  heroImageAlt?: string
   metadata?: ArticleMetadata
   shareRow?: React.ReactNode
 }
@@ -192,6 +194,7 @@ function ArticleHeader({
   answer,
   lead,
   heroImage,
+  heroImageAlt,
   metadata,
   shareRow,
 }: ArticleHeaderProps) {
@@ -230,7 +233,7 @@ function ArticleHeader({
         <figure className={articleHeroImageClass}>
           <Image
             src={heroImage}
-            alt=""
+            alt={heroImageAlt ?? title}
             width={1200}
             height={630}
             className="h-auto w-full object-cover"
@@ -381,6 +384,7 @@ function ArticleLayout({
   answer,
   lead,
   heroImage,
+  heroImageAlt,
   metadata,
   shareRow,
   children,
@@ -420,6 +424,7 @@ function ArticleLayout({
             answer={answer}
             lead={lead}
             heroImage={heroImage}
+            heroImageAlt={heroImageAlt}
             metadata={metadata}
             shareRow={shareRow}
           />

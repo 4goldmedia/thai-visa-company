@@ -43,8 +43,7 @@ export const retirementVisaPage: VisaPageContent = {
   answer:
     "The Thailand Retirement Visa is a long-stay route for foreign nationals aged 50 and over who want to live in Thailand without local employment. Most applicants use either the Non-Immigrant O-A route from abroad or a Non-Immigrant O route that continues with in-country extensions, with financial and insurance rules varying by embassy and nationality.",
   seo: {
-    title:
-      "Thailand Retirement Visa (Non-Immigrant O-A and Non-O)  -  Requirements & How to Apply",
+    title: "Thailand Retirement Visa (O-A & Non-O)",
     description:
       "Clear Thailand retirement visa guide: O-A vs Non-O routes, age and financial requirements, insurance, extensions, documents, and specialist support.",
     keywords: [

@@ -42,7 +42,7 @@ export function resolveMovingPersonaPaths(
 export const movingPageContent: MovingPageContent = {
   path: movingPagePath,
   seo: {
-    title: "Moving to Thailand: The Complete Guide to Relocating",
+    title: "Moving to Thailand: Costs, Cities & Visas",
     description:
       "An honest moving-to-Thailand guide: daily life, living costs, cities, remote work, families, retirement, and which visa pathways fit before you relocate.",
     keywords: [
@@ -375,4 +375,25 @@ export const movingPageContent: MovingPageContent = {
     primaryCta: { label: "Which visa fits me?", href: "#visa-routes" },
     secondaryCta: { label: "Speak with our visa experts", href: "/consultation" },
   },
+}
+
+/** Visible FAQ copy for a single FAQPage graph  -  main FAQ then budget FAQ, no duplicate questions. */
+export function getMovingPageVisibleFaqItems(): ReadonlyArray<{
+  question: string
+  answer: string
+}> {
+  const seen = new Set<string>()
+  const items: Array<{ question: string; answer: string }> = []
+
+  for (const item of [
+    ...movingPageContent.faq.items,
+    ...movingPageContent.budgetEstimator.faq.items,
+  ]) {
+    const key = item.question.trim().toLowerCase()
+    if (!key || seen.has(key)) continue
+    seen.add(key)
+    items.push({ question: item.question, answer: item.answer })
+  }
+
+  return items
 }

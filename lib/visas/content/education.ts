@@ -42,8 +42,7 @@ export const educationVisaPage: VisaPageContent = {
   answer:
     "The Thailand Education Visa, commonly issued as a Non-Immigrant ED visa, is a long-stay route for foreign nationals with genuine study intent who are enrolled at a qualifying Thai institution. It is enrollment-linked, not a work visa and not a remote-work route. Applicants who want to work in Thailand should consider a business visa; remote workers or short structured activity stays may fit the DTV instead.",
   seo: {
-    title:
-      "Thailand Education Visa (Non-Immigrant ED)  -  Requirements, Enrollment & How to Apply",
+    title: "Thailand Education Visa (ED) Guide",
     description:
       "Clear Thailand education visa guide: Non-Immigrant ED enrollment, language and university pathways, vs DTV and Business, attendance rules, and specialist support.",
     keywords: [

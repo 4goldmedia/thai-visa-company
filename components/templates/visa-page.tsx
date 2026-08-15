@@ -31,7 +31,7 @@ function VisaPageTemplate({ context }: VisaPageTemplateProps) {
         aria-label={`${visa.hero.title}: Thailand visa information`}
         className={`${visaPageClass} flex flex-1 flex-col overflow-x-clip bg-background`}
       >
-        <PageBreadcrumbs items={crumbs} />
+        <PageBreadcrumbs items={crumbs} includeSchema={false} />
         {renderVisaPageSections({ context, ids })}
       </main>
     </>

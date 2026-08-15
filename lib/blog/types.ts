@@ -40,6 +40,7 @@ export type BlogPostCard = {
   status?: BlogPostStatus
   featured?: boolean
   heroImage?: string
+  heroImageAlt?: string
 }
 
 export type BlogIndexContent = {
