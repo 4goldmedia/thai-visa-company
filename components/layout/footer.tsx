@@ -67,6 +67,10 @@ function FooterBrand() {
         Trusted Thailand visa specialists.
       </p>
 
+      <p className="site-footer__brand-address">
+        Baan Klang Muang Classe Sukhumvit 77, Onnut 21, Suanluang, Bangkok 10250
+      </p>
+
       <ul className="site-footer__brand-contact">
         <FooterMessagingLinks />
       </ul>

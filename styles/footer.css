@@ -80,6 +80,24 @@
     }
   }
 
+  .site-footer__brand-address {
+    margin-top: 0.75rem;
+    max-width: 16rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: 0.015em;
+    color: var(--footer-fg-muted);
+  }
+
+  @media (min-width: 1024px) {
+    .site-footer__brand-address {
+      margin-top: 0.875rem;
+      max-width: 14rem;
+    }
+  }
+
   .site-footer__brand-contact {
     margin: 0;
     margin-top: 1.5rem;
