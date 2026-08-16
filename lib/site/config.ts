@@ -38,11 +38,13 @@ export const siteMetadata = {
     "visa extension Thailand",
   ] as const,
   /**
-   * Default OG image path (under `public/`) until a branded asset ships.
+   * Default OG / Twitter share image under `public/`.
    * Override per deploy with `NEXT_PUBLIC_OG_IMAGE_PATH`.
    */
-  defaultOgImagePath: "/og/default.svg",
+  defaultOgImagePath: "/og/default.jpg",
   openGraphImageAlt: `${siteBrand.name}: Thailand visa support`,
+  openGraphImageWidth: 1024,
+  openGraphImageHeight: 537,
 } as const
 
 export type SiteMetadata = typeof siteMetadata

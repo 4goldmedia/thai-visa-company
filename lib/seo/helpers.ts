@@ -80,16 +80,30 @@ export function resolveOgImageUrl(imagePath?: string): string | undefined {
     : new URL(path, getSiteUrl()).toString()
 }
 
+function resolveOgImageMimeType(imagePath?: string): string | undefined {
+  const path = (imagePath ?? getDefaultOgImagePath()).split("?")[0]?.toLowerCase() ?? ""
+  if (path.endsWith(".webp")) return "image/webp"
+  if (path.endsWith(".jpg") || path.endsWith(".jpeg")) return "image/jpeg"
+  if (path.endsWith(".png")) return "image/png"
+  if (path.endsWith(".svg")) return "image/svg+xml"
+  return undefined
+}
+
 export function buildOpenGraphImages(imagePath?: string) {
   const imageUrl = resolveOgImageUrl(imagePath)
   if (!imageUrl) return undefined
 
+  const type = resolveOgImageMimeType(imagePath)
+  const usingDefaultShareImage =
+    !imagePath || imagePath === getDefaultOgImagePath()
+
   return [
     {
       url: imageUrl,
-      width: 1200,
-      height: 630,
+      width: usingDefaultShareImage ? siteMetadata.openGraphImageWidth : 1200,
+      height: usingDefaultShareImage ? siteMetadata.openGraphImageHeight : 630,
       alt: siteMetadata.openGraphImageAlt,
+      ...(type ? { type } : {}),
     },
   ]
 }
@@ -150,13 +164,14 @@ export function buildTwitterCard(
   input: SocialMetadataContext,
 ): NonNullable<Metadata["twitter"]> {
   const imageUrl = resolveOgImageUrl(input.image)
+  const images = buildOpenGraphImages(input.image)
 
   return {
     card: imageUrl ? "summary_large_image" : "summary",
     title: input.title,
     description: input.description,
     ...(siteSocial.twitterHandle ? { creator: siteSocial.twitterHandle } : {}),
-    ...(imageUrl ? { images: [imageUrl] } : {}),
+    ...(images ? { images } : {}),
   }
 }
 
