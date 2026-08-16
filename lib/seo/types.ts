@@ -13,6 +13,10 @@ export type PageMetadataInput = {
   keywords?: ReadonlyArray<string>
   noIndex?: boolean
   image?: string
+  /** Social title  -  defaults to the document title */
+  ogTitle?: string
+  /** Social description  -  defaults to the meta description */
+  ogDescription?: string
 }
 
 export type VisaPageMetadataInput = {

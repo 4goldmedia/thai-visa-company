@@ -195,8 +195,12 @@ function assemblePageMetadata(input: {
   keywords?: ReadonlyArray<string>
   noIndex?: boolean
   image?: string
+  ogTitle?: string
+  ogDescription?: string
 }): Metadata {
   const resolvedTitle = resolvePageTitle(input.title)
+  const socialTitle = input.ogTitle ?? resolvedTitle
+  const socialDescription = input.ogDescription ?? input.description
 
   return {
     title: input.title,
@@ -207,8 +211,8 @@ function assemblePageMetadata(input: {
     },
     robots: buildRobots({ noIndex: input.noIndex }),
     ...buildSocialMetadata({
-      title: resolvedTitle,
-      description: input.description,
+      title: socialTitle,
+      description: socialDescription,
       path: input.path,
       image: input.image,
     }),
@@ -227,6 +231,8 @@ export function createPageMetadata({
   keywords,
   noIndex = false,
   image,
+  ogTitle,
+  ogDescription,
 }: PageMetadataInput): Metadata {
   return assemblePageMetadata({
     title,
@@ -235,6 +241,8 @@ export function createPageMetadata({
     keywords,
     noIndex,
     image,
+    ogTitle,
+    ogDescription,
   })
 }
 
@@ -283,12 +291,14 @@ export function createRootMetadata(): Metadata {
   }
 }
 
-/** Homepage  -  topic-first title and extractable summary for AI Overviews */
+/** Homepage  -  search title/description distinct from OG/social metadata */
 export function createHomeMetadata(): Metadata {
   return createPageMetadata({
     title: { absolute: getHomepageDocumentTitle() },
-    description: homepageAiCopy.extractableSummary,
+    description: homepageAiCopy.metaDescription,
     path: "/",
+    ogTitle: homepageAiCopy.primaryHeading,
+    ogDescription: homepageAiCopy.heroLeadLine,
   })
 }
 

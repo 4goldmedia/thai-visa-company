@@ -39,9 +39,12 @@ export const homepageAiCopy = {
       "Replies within 24 hours on visas, timelines, and relocation guidance.",
     guarantee: "Guaranteed visa approval or your money back.",
   },
-  /** Standalone extractable summary (meta description + WebPage schema) */
+  /** Standalone extractable summary (WebPage schema) */
   extractableSummary:
     "Get Thailand visa help for DTV, retirement, business, Elite, and education. We support documents and applications, with specialist replies on LINE or WhatsApp.",
+  /** Homepage meta description  -  search snippet, distinct from OG description */
+  metaDescription:
+    "Get Thailand visa help for DTV, retirement, business, Elite, and education. We handle documents and applications with specialist guidance from start to finish.",
   webPageName: "Your Thailand Visa, made simple",
   faqSchemaName: "Thailand visa FAQ  -  Thai Visa Company",
   faqSchemaDescription:
@@ -55,9 +58,9 @@ export const contactAiCopy = {
     "Contact Thai Visa Company on LINE, WhatsApp, or email. Visit our Bangkok office or send a short inquiry and a specialist will reply about your visa plans.",
 } as const
 
-/** Homepage document title  -  topic before brand */
+/** Homepage document title  -  search-facing; OG title stays the H1 proposition */
 export function getHomepageDocumentTitle(): string {
-  return `${homepageAiCopy.webPageName} | ${siteBrand.shortName}`
+  return "Thailand Visa Services, Made Simple | Thai Visa Company"
 }
 
 /** Re-export default description when pages do not override */
