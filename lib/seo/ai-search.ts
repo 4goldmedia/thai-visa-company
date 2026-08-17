@@ -14,6 +14,7 @@ export const aiSearchEntity = {
   audience:
     "Foreign nationals planning to visit, work, retire, or study in Thailand",
   knowsAboutTopics: [
+    "Thailand visa agent",
     "Thailand tourist visa",
     "Thailand retirement visa",
     "Thailand DTV visa",
@@ -44,7 +45,7 @@ export const homepageAiCopy = {
     "Get Thailand visa help for DTV, retirement, business, Elite, and education. We support documents and applications, with specialist replies on LINE or WhatsApp.",
   /** Homepage meta description  -  search snippet, distinct from OG description */
   metaDescription:
-    "Get Thailand visa help for DTV, retirement, business, Elite, and education. We handle documents and applications with specialist guidance from start to finish.",
+    "Get expert help from a Thailand visa agent for DTV, retirement, business, Elite, and education visas. We handle documents and applications from start to finish.",
   webPageName: "Your Thailand Visa, made simple",
   faqSchemaName: "Thailand visa FAQ  -  Thai Visa Company",
   faqSchemaDescription:
@@ -60,7 +61,7 @@ export const contactAiCopy = {
 
 /** Homepage document title  -  search-facing; OG title stays the H1 proposition */
 export function getHomepageDocumentTitle(): string {
-  return "Thailand Visa Services, Made Simple | Thai Visa Company"
+  return "Thailand Visa Agent & Services | Thai Visa Company"
 }
 
 /** Re-export default description when pages do not override */

@@ -27,6 +27,7 @@ export const platformBusinessProfile = {
   description: siteMetadata.defaultDescription,
   /** Visa expertise signals for search and AI extraction */
   knowsAbout: [
+    "Thailand visa agent",
     "Thailand visa application",
     "Thailand retirement visa",
     "Thailand DTV visa",
@@ -35,7 +36,7 @@ export const platformBusinessProfile = {
     "Thailand visa extension",
     "Thailand immigration support",
   ] as const,
-  serviceType: "Thailand visa consulting",
+  serviceType: "Thailand visa consulting and application support",
   areaServed: ["Thailand", "Worldwide"] as const,
   contact: {
     email: CONTACT_URLS.email,

@@ -54,7 +54,7 @@ function WhyChooseUs() {
           id={sectionHeadingIds.whyChooseUs}
           eyebrow="Why work with us"
           title="Clear support at every step"
-          description="Responsive communication and organized guidance, so you always know what comes next."
+          description="Work with a Thailand visa agent who keeps every step organized, so you always know what comes next."
           titleClassName="max-w-lg"
           descriptionClassName="max-w-xl"
         />

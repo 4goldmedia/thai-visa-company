@@ -4,9 +4,10 @@ export const consultationPageContent = {
   seo: {
     title: "Request a Consultation",
     description:
-      "Request a Thailand visa consultation. Share your plans and a specialist will reply with route guidance, document notes, and next steps for your situation.",
+      "Speak with a Thailand visa agent about your plans. We reply with route guidance, document notes, and next steps for your situation.",
     keywords: [
       "Thailand visa consultation",
+      "Thailand visa agent",
       "visa specialist",
       "Thai visa advice",
       "relocation Thailand",
