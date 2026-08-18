@@ -1,4 +1,8 @@
 const GA_ID_ENV = "NEXT_PUBLIC_GA_ID"
+const AHREFS_DATA_KEY_ENV = "NEXT_PUBLIC_AHREFS_DATA_KEY"
+
+/** Ahrefs Web Analytics data key  -  override via env when rotating keys */
+const AHREFS_DATA_KEY_FALLBACK = "I340I27TOHDKfQ+kGR94OA"
 
 /** GA4 measurement ID format: `G-XXXXXXXXXX` */
 const GA_ID_PATTERN = /^G-[A-Z0-9]+$/i
@@ -28,4 +32,12 @@ export function getGaMeasurementId(): string | undefined {
 
 export function isAnalyticsEnabled(): boolean {
   return getGaMeasurementId() !== undefined
+}
+
+/**
+ * Returns the Ahrefs Web Analytics data key when configured.
+ * Falls back to the site key when `NEXT_PUBLIC_AHREFS_DATA_KEY` is unset.
+ */
+export function getAhrefsDataKey(): string | undefined {
+  return readEnv(AHREFS_DATA_KEY_ENV) ?? AHREFS_DATA_KEY_FALLBACK
 }

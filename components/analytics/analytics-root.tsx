@@ -1,22 +1,28 @@
 import { Suspense } from "react"
 
+import { AhrefsAnalytics } from "@/components/analytics/ahrefs-analytics"
 import { AnalyticsListeners } from "@/components/analytics/analytics-listeners"
 import { GoogleAnalytics } from "@/components/analytics/google-analytics"
-import { getGaMeasurementId } from "@/lib/analytics/env"
+import { getAhrefsDataKey, getGaMeasurementId } from "@/lib/analytics/env"
 
 /**
- * GA4 root  -  scripts + listeners. Omit from layout when ID is unset.
+ * Site analytics root  -  Ahrefs Web Analytics + GA4 scripts and listeners.
  */
 function AnalyticsRoot() {
   const measurementId = getGaMeasurementId()
-  if (!measurementId) return null
+  const ahrefsDataKey = getAhrefsDataKey()
 
   return (
     <>
-      <GoogleAnalytics measurementId={measurementId} />
-      <Suspense fallback={null}>
-        <AnalyticsListeners measurementId={measurementId} />
-      </Suspense>
+      {ahrefsDataKey ? <AhrefsAnalytics dataKey={ahrefsDataKey} /> : null}
+      {measurementId ? (
+        <>
+          <GoogleAnalytics measurementId={measurementId} />
+          <Suspense fallback={null}>
+            <AnalyticsListeners measurementId={measurementId} />
+          </Suspense>
+        </>
+      ) : null}
     </>
   )
 }
