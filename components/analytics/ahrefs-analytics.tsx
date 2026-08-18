@@ -19,6 +19,7 @@ function AhrefsAnalytics({ dataKey }: AhrefsAnalyticsProps) {
       src="https://analytics.ahrefs.com/analytics.js"
       data-key={key}
       strategy="afterInteractive"
+      async
     />
   )
 }

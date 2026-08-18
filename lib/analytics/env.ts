@@ -2,7 +2,7 @@ const GA_ID_ENV = "NEXT_PUBLIC_GA_ID"
 const AHREFS_DATA_KEY_ENV = "NEXT_PUBLIC_AHREFS_DATA_KEY"
 
 /** Ahrefs Web Analytics data key  -  override via env when rotating keys */
-const AHREFS_DATA_KEY_FALLBACK = "I340I27TOHDKfQ+kGR94OA"
+const AHREFS_DATA_KEY_FALLBACK = "Tcbc2gdKb85wCLLozdJldw"
 
 /** GA4 measurement ID format: `G-XXXXXXXXXX` */
 const GA_ID_PATTERN = /^G-[A-Z0-9]+$/i
