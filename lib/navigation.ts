@@ -7,7 +7,8 @@ export const consultationPath = "/consultation" as const
 /** @deprecated Public articles live at `/blog`. Kept for legacy redirects. */
 export const guidesPath = "/blog" as const
 export const blogPath = "/blog" as const
-export const resourcesPath = "/resources" as const
+/** @deprecated Public articles live at `/blog`. */
+export const resourcesPath = blogPath
 
 /** Homepage section anchors until dedicated hub pages ship */
 export const homeSectionAnchors = {

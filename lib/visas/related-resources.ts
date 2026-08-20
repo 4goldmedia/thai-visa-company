@@ -1,9 +1,9 @@
 import {
   isPublishedBlogHref,
-  isPublishedGuideHref,
   resolveRelatedArticlesForVisa,
 } from "@/lib/content/related"
 import type { ContentCollectionId, ContentRelatedLink } from "@/lib/content/types"
+import { resolveInternalHref } from "@/lib/site/internal-links"
 import { blogClusters } from "@/lib/blog/content/clusters"
 import { resolveVisaClusterHref } from "@/lib/visas/topic"
 import type { VisaPageContent } from "@/lib/visas/types"
@@ -29,18 +29,14 @@ async function filterPublishedManualLinks(
   const published: ContentRelatedLink[] = []
 
   for (const item of items) {
-    if (item.href.startsWith("/blog/")) {
-      if (await isPublishedBlogHref(item.href)) published.push(item)
-      continue
-    }
-    if (item.href.startsWith("/guides/")) {
-      const match = item.href.match(/^\/guides\/([^/?#]+)/)
-      if (match?.[1] && (await isPublishedBlogHref(`/blog/${match[1]}`))) {
-        published.push(item)
+    const href = resolveInternalHref(item.href)
+    if (href.startsWith("/blog/")) {
+      if (await isPublishedBlogHref(href)) {
+        published.push({ ...item, href })
       }
       continue
     }
-    published.push(item)
+    published.push({ ...item, href })
   }
 
   return published

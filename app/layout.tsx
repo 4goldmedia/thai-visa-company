@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Inter_Tight } from "next/font/google"
 
-import { AnalyticsRoot } from "@/components/analytics"
+import { AhrefsAnalytics } from "@/components/analytics/ahrefs-analytics"
+import { AnalyticsRoot } from "@/components/analytics/analytics-root"
 import { SiteShell } from "@/components/layout/site-shell"
 import { SiteBusinessJsonLd } from "@/components/seo/site-business-json-ld"
 import { rootMetadata, viewport } from "@/lib/seo"
@@ -47,6 +48,9 @@ export default function RootLayout({
       className={cn(geistSans.variable, geistMono.variable, interTight.variable)}
       suppressHydrationWarning
     >
+      <head>
+        <AhrefsAnalytics />
+      </head>
       <body
         className={cn(
           "flex min-h-dvh flex-col bg-background font-sans antialiased",

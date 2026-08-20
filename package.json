@@ -9,9 +9,10 @@
     "lint": "eslint",
     "validate:articles": "node scripts/validate-article-toc.mjs",
     "validate:editorial-graph": "node scripts/validate-editorial-graph.mjs",
+    "validate:internal-links": "node scripts/validate-internal-links.mjs",
     "sync:articles": "node scripts/sync-article-registry.mjs",
     "generate:favicons": "node scripts/generate-favicons.mjs",
-    "prebuild": "npm run sync:articles && npm run validate:articles && npm run validate:editorial-graph"
+    "prebuild": "npm run sync:articles && npm run validate:articles && npm run validate:editorial-graph && npm run validate:internal-links"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

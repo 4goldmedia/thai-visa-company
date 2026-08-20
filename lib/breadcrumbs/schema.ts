@@ -1,5 +1,6 @@
 import type { BreadcrumbItem } from "@/lib/schema/types"
 import type { BreadcrumbLink } from "@/lib/breadcrumbs/types"
+import { resolveInternalHref } from "@/lib/site/internal-links"
 
 /** Map UI breadcrumbs to schema.org `BreadcrumbList` items */
 export function breadcrumbsToSchemaItems(
@@ -7,6 +8,6 @@ export function breadcrumbsToSchemaItems(
 ): BreadcrumbItem[] {
   return items.map((item) => ({
     name: item.label,
-    path: item.href,
+    path: resolveInternalHref(item.href),
   }))
 }

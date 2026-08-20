@@ -1,24 +1,12 @@
-import Script from "next/script"
-
-import { getAhrefsDataKey } from "@/lib/analytics/env"
-
-type AhrefsAnalyticsProps = {
-  dataKey?: string
-}
-
 /**
- * Loads Ahrefs Web Analytics globally. Non-blocking (`afterInteractive`).
- * Renders nothing when no data key is configured.
+ * Ahrefs Web Analytics  -  native script for the initial HTML <head>.
+ * Do not use next/script here: App Router strategies only preload or inject after JS.
  */
-function AhrefsAnalytics({ dataKey }: AhrefsAnalyticsProps) {
-  const key = dataKey ?? getAhrefsDataKey()
-  if (!key) return null
-
+function AhrefsAnalytics() {
   return (
-    <Script
+    <script
       src="https://analytics.ahrefs.com/analytics.js"
-      data-key={key}
-      strategy="afterInteractive"
+      data-key="Tcbc2gdKb85wCLLozdJldw"
       async
     />
   )

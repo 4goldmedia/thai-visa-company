@@ -11,7 +11,7 @@ function ContactPageJsonLd() {
   const graph = buildPageSchemaGraph({
     nodes: [
       buildWebPage({
-        path: "/contact",
+        path: "/consultation",
         name: contactAiCopy.webPageName,
         description: contactAiCopy.extractableSummary,
       }),

@@ -12,10 +12,10 @@ export const guidesIndexBreadcrumb: BreadcrumbLink = {
   href: blogPath,
 }
 
-/** @deprecated Use `guidesIndexBreadcrumb` */
+/** @deprecated Use `blogIndexBreadcrumb` */
 export const resourcesIndexBreadcrumb: BreadcrumbLink = {
-  label: "Resources",
-  href: "/resources",
+  label: "Blog",
+  href: blogPath,
 }
 
 export function getVisaPageBreadcrumbs(input: {

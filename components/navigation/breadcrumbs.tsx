@@ -10,6 +10,7 @@ import {
   breadcrumbSeparatorClass,
 } from "@/lib/breadcrumb-styles"
 import type { BreadcrumbLink } from "@/lib/breadcrumbs"
+import { resolveInternalHref } from "@/lib/site/internal-links"
 import { cn } from "@/lib/utils"
 
 export type BreadcrumbsProps = {
@@ -46,10 +47,11 @@ function Breadcrumbs({
         <ol className={breadcrumbListClass}>
           {items.map((item, index) => {
             const isCurrent = index === lastIndex
+            const href = resolveInternalHref(item.href)
 
             return (
               <li
-                key={`${item.href}-${index}`}
+                key={`${href}-${index}`}
                 className={breadcrumbItemClass}
               >
                 {index > 0 ? <BreadcrumbSeparator /> : null}
@@ -58,7 +60,7 @@ function Breadcrumbs({
                     {item.label}
                   </span>
                 ) : (
-                  <Link href={item.href} className={breadcrumbLinkClass}>
+                  <Link href={href} className={breadcrumbLinkClass}>
                     {item.label}
                   </Link>
                 )}

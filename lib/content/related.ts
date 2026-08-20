@@ -36,6 +36,7 @@ import { resolveVisaHeroMedia } from "@/lib/visas/hero"
 import { contentTopicIds, type ContentTopicId } from "@/lib/content/topics"
 import { getPublishedVisaSlugs } from "@/lib/visas/publish"
 import type { VisaPageContent, VisaSlug } from "@/lib/visas/types"
+import { resolveInternalHref } from "@/lib/site/internal-links"
 
 export { contentTopicIds, type ContentTopicId } from "@/lib/content/topics"
 
@@ -605,7 +606,12 @@ export async function filterPublishedRelatedLinks(
     })),
   )
 
-  return filtered.filter((entry) => entry.published).map((entry) => entry.item)
+  return filtered
+    .filter((entry) => entry.published)
+    .map((entry) => ({
+      ...entry.item,
+      href: resolveInternalHref(entry.item.href),
+    }))
 }
 
 /** Merge link lists in order  -  manual entries first, deduped by href */
@@ -617,9 +623,10 @@ export function mergeRelatedLinks(
 
   for (const list of lists) {
     for (const item of list) {
-      if (seen.has(item.href)) continue
-      seen.add(item.href)
-      merged.push(item)
+      const href = resolveInternalHref(item.href)
+      if (seen.has(href)) continue
+      seen.add(href)
+      merged.push({ ...item, href })
     }
   }
 

@@ -1,3 +1,4 @@
+import { blogPath } from "@/lib/navigation"
 import { buildArticle } from "@/lib/schema/article"
 import { buildBreadcrumbList } from "@/lib/schema/breadcrumb"
 import { buildFaqPage } from "@/lib/schema/faq"
@@ -44,7 +45,7 @@ export function buildArticlePageSchemaGraph(
   const crumbs = buildBreadcrumbList(
     input.breadcrumbs ?? [
       { name: "Home", path: "/" },
-      { name: "Resources", path: "/resources" },
+      { name: "Blog", path: blogPath },
       { name: input.article.headline, path: input.article.path },
     ],
   )

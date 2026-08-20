@@ -12,6 +12,7 @@
  */
 
 import { homepageAiCopy } from "@/lib/seo/ai-search"
+import { blogPath } from "@/lib/navigation"
 import { siteBrand } from "@/lib/site/config"
 import { buildBreadcrumbList } from "@/lib/schema/breadcrumb"
 import {
@@ -319,7 +320,7 @@ export function buildBlogIndexSchemaGraph(
 export function buildResourcesIndexSchemaGraph(
   input: ResourcesIndexSchemaInput,
 ): JsonLdGraphDocument {
-  const path = input.path ?? "/resources"
+  const path = input.path ?? blogPath
 
   return buildPageSchemaGraph({
     nodes: [
@@ -332,7 +333,7 @@ export function buildResourcesIndexSchemaGraph(
       buildBreadcrumbList(
         input.breadcrumbs ?? [
           { name: "Home", path: "/" },
-          { name: "Resources", path },
+          { name: "Blog", path },
         ],
       ),
     ],
