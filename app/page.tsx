@@ -5,6 +5,7 @@ import { TrustBar } from "@/components/sections/trust-bar"
 import { MovingSimpleSection } from "@/components/sections/moving-simple"
 import { ProcessSection } from "@/components/sections/process"
 import { ReviewsSection } from "@/components/sections/reviews"
+import { TeamIntroSection } from "@/components/sections/team-intro"
 import { WhyThailandSection } from "@/components/sections/why-thailand"
 import { VisaTypesSection } from "@/components/sections/visa-types"
 import { WhyChooseUsSection } from "@/components/sections/why-choose-us"
@@ -31,6 +32,7 @@ export default function Home() {
         <MovingSimpleSection />
         <ProcessSection />
         <ReviewsSection />
+        <TeamIntroSection />
         <WhyThailandSection />
         <FaqSection />
         <HomeFinalCtaSection />
