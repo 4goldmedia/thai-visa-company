@@ -15,7 +15,7 @@ function ArticleTopicHubStrip({ topicHub, className }: ArticleTopicHubStripProps
       className={cn(cardSurfaceClass, "p-5 sm:p-6", className)}
       aria-label="Related topic hub"
     >
-      <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-muted-foreground">
+      <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--text-eyebrow)]">
         Topic hub
       </p>
       <h2 className="mt-2 text-[15px] font-medium leading-snug text-foreground sm:text-base">

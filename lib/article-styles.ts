@@ -46,7 +46,7 @@ export const articleBandInnerClass = articleShellClass
 
 export const articleEyebrowClass = cn(
   sectionEyebrowClass,
-  "tracking-[0.08em] uppercase text-muted-foreground/90",
+  "tracking-[0.08em] uppercase",
 )
 
 export const articleTitleClass = cn(

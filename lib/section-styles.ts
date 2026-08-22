@@ -3,9 +3,9 @@ import { cn } from "@/lib/utils"
 /** Comfortable max width for mobile body copy  -  ~65ch at base size */
 export const mobileReadableWidthClass = "max-w-[32rem]"
 
-/** Eyebrow  -  muted graphite label, modern uppercase tracking */
+/** Eyebrow  -  gold section label, modern uppercase tracking */
 export const sectionEyebrowClass =
-  "font-sans text-[length:var(--text-meta)] font-medium uppercase tracking-[var(--tracking-eyebrow)] text-[var(--text-secondary)] sm:text-[length:var(--text-small)]"
+  "font-sans text-[length:var(--text-meta)] font-medium uppercase tracking-[var(--tracking-eyebrow)] text-[var(--text-eyebrow)] sm:text-[length:var(--text-small)]"
 
 /** Page hero H1  -  Inter Tight display */
 export const pageTitleClass = cn(

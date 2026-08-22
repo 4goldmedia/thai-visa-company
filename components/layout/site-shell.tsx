@@ -2,6 +2,7 @@ import { NavigationScrollHandler } from "@/components/navigation/navigation-scro
 import { Navbar } from "@/components/layout/navbar"
 import { SiteShellChrome } from "@/components/layout/site-shell-chrome"
 import { SkipLink } from "@/components/layout/skip-link"
+import { TrustBanner } from "@/components/layout/trust-banner"
 
 type SiteShellProps = {
   children: React.ReactNode
@@ -17,6 +18,7 @@ function SiteShell({ children, className }: SiteShellProps) {
     <>
       <SkipLink />
       <NavigationScrollHandler />
+      <TrustBanner />
       <Navbar />
       <SiteShellChrome className={className}>{children}</SiteShellChrome>
     </>

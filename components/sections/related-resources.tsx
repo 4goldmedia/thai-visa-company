@@ -30,7 +30,7 @@ const headingClass =
   "text-lg font-semibold tracking-tight text-balance text-foreground sm:text-xl"
 
 const eyebrowClass =
-  "text-[11px] font-medium text-muted-foreground sm:text-xs sm:text-[13px]"
+  "text-[11px] font-medium text-[var(--text-eyebrow)] sm:text-xs sm:text-[13px]"
 
 const descriptionClass =
   "mt-2 max-w-2xl text-[15px] leading-[1.7] text-pretty text-muted-foreground sm:mt-2.5 sm:text-base sm:leading-relaxed"

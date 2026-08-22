@@ -12,8 +12,8 @@
   html {
     @apply h-full font-sans text-foreground;
     scroll-behavior: smooth;
-    /* Sticky navbar (h-14 / lg:h-[4.25rem])  -  anchor + skip-link offset */
-    scroll-padding-top: 3.5rem;
+    /* Sticky header: trust banner (42px) + navbar (h-14 / lg:h-[4.25rem]) */
+    scroll-padding-top: calc(3.5rem + 2.625rem);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -77,9 +77,15 @@
     @apply outline-2 outline-offset-2 outline-ring;
   }
 
+  @media (min-width: 640px) {
+    html {
+      scroll-padding-top: calc(3.5rem + 2.625rem);
+    }
+  }
+
   @media (min-width: 1024px) {
     html {
-      scroll-padding-top: 4.25rem;
+      scroll-padding-top: calc(4.25rem + 2.625rem);
     }
   }
 
@@ -92,7 +98,18 @@
   #visa-services {
     content-visibility: visible;
     contain-intrinsic-size: auto;
-    scroll-margin-top: 3.5rem;
+    scroll-margin-top: calc(3.5rem + 2.625rem);
+  }
+
+  @media (min-width: 640px) {
+    #reviews,
+    #faq,
+    #contact,
+    #final-cta,
+    #visa-options,
+    #visa-services {
+      scroll-margin-top: calc(3.5rem + 2.625rem);
+    }
   }
 
   @media (min-width: 1024px) {
@@ -102,7 +119,7 @@
     #final-cta,
     #visa-options,
     #visa-services {
-      scroll-margin-top: 4.25rem;
+      scroll-margin-top: calc(4.25rem + 2.625rem);
     }
   }
 

@@ -60,7 +60,7 @@
     line-height: 1.3;
     letter-spacing: var(--tracking-eyebrow);
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--text-secondary) 90%, transparent);
+    color: var(--text-eyebrow);
   }
 
   .consultation-experience__title {

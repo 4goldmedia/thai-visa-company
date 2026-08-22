@@ -47,6 +47,7 @@ export const textTokens = {
   primary: "--text-primary",
   secondary: "--text-secondary",
   tertiary: "--text-tertiary",
+  eyebrow: "--text-eyebrow",
 } as const
 
 export const spacingTokens = {

@@ -12,7 +12,7 @@ function ArticleRelatedGuideStrip({ guide }: ArticleRelatedGuideStripProps) {
       className="my-8 rounded-lg border border-border/50 bg-muted/10 p-5 sm:my-10 sm:p-6"
       aria-label="Related guide"
     >
-      <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-muted-foreground">
+      <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--text-eyebrow)]">
         Canonical guide
       </p>
       <h2 className="mt-2 text-[15px] font-medium leading-snug text-foreground sm:text-base">

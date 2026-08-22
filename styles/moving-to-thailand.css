@@ -1651,7 +1651,7 @@
     font-weight: 500;
     letter-spacing: var(--tracking-eyebrow);
     text-transform: uppercase;
-    color: color-mix(in srgb, #fcfaf8 72%, transparent);
+    color: var(--text-eyebrow);
   }
 
   @media (min-width: 640px) {

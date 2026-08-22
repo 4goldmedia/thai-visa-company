@@ -83,6 +83,7 @@
   --text-primary: var(--palette-text);
   --text-secondary: color-mix(in srgb, var(--palette-text) 72%, transparent);
   --text-tertiary: color-mix(in srgb, var(--palette-text) 55%, transparent);
+  --text-eyebrow: #c7a469;
 
   /* ── UI & CTA  -  charcoal primary on cream ── */
   --primary: var(--palette-text);

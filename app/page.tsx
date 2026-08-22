@@ -23,7 +23,7 @@ export default function Home() {
         id="main-content"
         tabIndex={-1}
         aria-label="Homepage"
-        className="flex flex-1 flex-col overflow-x-clip bg-background"
+        className="flex flex-1 flex-col bg-background"
       >
         <HeroSection />
         <TrustBar {...homepageAiCopy.trustBar} className="hidden min-[1100px]:block" />

@@ -133,7 +133,7 @@
   }
 
   .property-services__intro .team-about__eyebrow {
-    color: var(--text-secondary);
+    color: var(--text-eyebrow);
   }
 
   .property-services__heading {

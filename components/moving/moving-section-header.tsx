@@ -67,10 +67,7 @@ function MovingSectionHeader({
         isDark && "text-[color-mix(in_srgb,currentColor_72%,transparent)]",
         descriptionClassName,
       )}
-      eyebrowClassName={cn(
-        isDark && "text-[color-mix(in_srgb,currentColor_68%,transparent)]",
-        eyebrowClassName,
-      )}
+      eyebrowClassName={eyebrowClassName}
     />
   )
 }

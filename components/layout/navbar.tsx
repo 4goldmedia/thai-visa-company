@@ -145,8 +145,8 @@ function Navbar({ className }: NavbarProps) {
         scrolled || menuOpen
           ? "border-b border-border bg-background/95 backdrop-blur-[6px] supports-[backdrop-filter]:bg-background/92"
           : immersiveAtTop
-            ? "border-b border-transparent bg-transparent"
-            : "border-b border-transparent bg-background",
+            ? "border-b-0 bg-transparent"
+            : "border-b-0 bg-background",
         className,
       )}
     >

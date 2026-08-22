@@ -36,7 +36,7 @@ function BlogFeaturedArticle({ article }: BlogFeaturedArticleProps) {
       <Container>
         <article className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-12">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-muted-foreground">
+            <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--text-eyebrow)]">
               Featured · {article.category}
             </p>
             <h2

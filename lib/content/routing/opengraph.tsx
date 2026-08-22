@@ -39,7 +39,7 @@ export async function renderArticleOgImage(input: ArticleOgImageInput) {
                 fontSize: 22,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "#6f6a61",
+                color: "#C7A469",
               }}
             >
               {input.eyebrow}
