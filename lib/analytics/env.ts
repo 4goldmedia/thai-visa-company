@@ -1,6 +1,9 @@
 const GA_ID_ENV = "NEXT_PUBLIC_GA_ID"
 const AHREFS_DATA_KEY_ENV = "NEXT_PUBLIC_AHREFS_DATA_KEY"
 
+/** Canonical GA4 measurement ID  -  override with `NEXT_PUBLIC_GA_ID` */
+const GA_MEASUREMENT_ID = "G-PVFMH90F3X"
+
 /** Ahrefs Web Analytics data key  -  override via env when rotating keys */
 const AHREFS_DATA_KEY_FALLBACK = "Tcbc2gdKb85wCLLozdJldw"
 
@@ -12,13 +15,18 @@ function readEnv(name: string): string | undefined {
   return value && value.length > 0 ? value : undefined
 }
 
+/** Static `process.env.NEXT_PUBLIC_*` access so Next.js can inline on the client. */
+function readGaMeasurementIdEnv(): string | undefined {
+  const trimmed = process.env.NEXT_PUBLIC_GA_ID?.trim()
+  return trimmed && trimmed.length > 0 ? trimmed : undefined
+}
+
 /**
- * Returns the GA4 measurement ID when configured.
+ * Returns the GA4 measurement ID.
  * Safe to call on server and client (`NEXT_PUBLIC_` prefix).
  */
 export function getGaMeasurementId(): string | undefined {
-  const id = readEnv(GA_ID_ENV)
-  if (!id) return undefined
+  const id = readGaMeasurementIdEnv() ?? GA_MEASUREMENT_ID
   if (!GA_ID_PATTERN.test(id)) {
     if (process.env.NODE_ENV === "development") {
       console.warn(

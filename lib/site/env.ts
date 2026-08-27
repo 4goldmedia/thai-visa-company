@@ -10,7 +10,11 @@ function trimEnv(value: string | undefined): string | undefined {
   return trimmed && trimmed.length > 0 ? trimmed : undefined
 }
 
-/** Canonical site origin from `NEXT_PUBLIC_SITE_URL` */
+/**
+ * Site origin from `NEXT_PUBLIC_SITE_URL`.
+ * `getSiteOrigin()` normalizes `http://` and `www.` production variants to
+ * `https://thaivisacompany.com`.
+ */
 export function readSiteOriginEnv(): string | undefined {
   return trimEnv(process.env.NEXT_PUBLIC_SITE_URL)
 }

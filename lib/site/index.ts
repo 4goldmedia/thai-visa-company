@@ -48,3 +48,10 @@ export {
   readSiteOriginEnv,
   readTwitterHandleEnv,
 } from "@/lib/site/env"
+
+export {
+  CANONICAL_PRODUCTION_HOST,
+  CANONICAL_PRODUCTION_ORIGIN,
+  WWW_PRODUCTION_HOST,
+  normalizeSiteOrigin,
+} from "@/lib/site/origin"

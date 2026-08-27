@@ -212,7 +212,7 @@ See **`CONVERSION_INFRASTRUCTURE.md`**.
 **Launch env checklist:**
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://www.yourdomain.com
+NEXT_PUBLIC_SITE_URL=https://thaivisacompany.com
 NEXT_PUBLIC_OG_IMAGE_PATH=/images/og/default.jpg  # 1200×630
 NEXT_PUBLIC_LINE_URL=...
 NEXT_PUBLIC_WHATSAPP_URL=...

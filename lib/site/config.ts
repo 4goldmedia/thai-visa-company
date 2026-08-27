@@ -7,6 +7,10 @@ import {
   readSiteOriginEnv,
   readTwitterHandleEnv,
 } from "@/lib/site/env"
+import {
+  CANONICAL_PRODUCTION_ORIGIN,
+  normalizeSiteOrigin,
+} from "@/lib/site/origin"
 
 // -----------------------------------------------------------------------------
 // Brand  -  rebrand by editing this block only
@@ -67,7 +71,7 @@ export type SiteLocale = typeof siteLocale
 
 export const siteUrls = {
   /** Canonical production origin  -  override with `NEXT_PUBLIC_SITE_URL` */
-  productionPlaceholder: "https://thaivisacompany.com",
+  productionPlaceholder: CANONICAL_PRODUCTION_ORIGIN,
   development: getDefaultSiteOrigin(),
 } as const
 
@@ -75,13 +79,13 @@ export type SiteUrls = typeof siteUrls
 
 export function getSiteOrigin(): string {
   const fromEnv = readSiteOriginEnv()
-  if (fromEnv) return fromEnv
+  const raw =
+    fromEnv ??
+    (process.env.NODE_ENV === "development"
+      ? siteUrls.development
+      : siteUrls.productionPlaceholder)
 
-  if (process.env.NODE_ENV === "development") {
-    return siteUrls.development
-  }
-
-  return siteUrls.productionPlaceholder
+  return normalizeSiteOrigin(raw)
 }
 
 export function getCanonicalSiteUrl(): string {

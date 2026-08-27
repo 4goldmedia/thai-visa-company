@@ -22,7 +22,7 @@ Without these, inquiry submit returns success in development with `id: dev-stub`
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_GA_ID` | GA4 measurement ID (`G-XXXXXXXXXX`). When unset, no scripts load and tracking is a no-op. |
+| `NEXT_PUBLIC_GA_ID` | GA4 measurement ID. Defaults to `G-PVFMH90F3X`. Override only when rotating the property. |
 
 Implemented in `lib/analytics/` and `components/analytics/`. Tracks page views (App Router), LINE/WhatsApp clicks (`data-contact-channel`), and inquiry submissions (`inquiry_submission`).
 
@@ -40,12 +40,12 @@ Brand, metadata defaults, canonical URL, social placeholders, and business locat
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Production origin  -  overrides `siteUrls.productionPlaceholder` |
+| `NEXT_PUBLIC_SITE_URL` | Production origin  -  canonical is `https://thaivisacompany.com`. Overrides `siteUrls.productionPlaceholder`. |
 | `NEXT_PUBLIC_TWITTER_HANDLE` | Twitter/X card `creator` (optional) |
 | `NEXT_PUBLIC_GOOGLE_REVIEWS_URL` | Google Business / Maps reviews URL (optional) |
 | `NEXT_PUBLIC_OG_IMAGE_PATH` | Default OG image  -  overrides `siteMetadata.defaultOgImagePath` (`/og/default.png`) |
 
-When `NEXT_PUBLIC_SITE_URL` is unset: **development** uses `http://localhost:3000`; **production builds** fall back to `https://thaivisacompany.com`.
+When `NEXT_PUBLIC_SITE_URL` is unset: **development** uses `http://localhost:3000`; **production builds** fall back to `https://thaivisacompany.com`. `http://` and `www.` variants of `thaivisacompany.com` are normalized to the HTTPS non-www origin.
 
 Placeholders in config: `siteBrand`, `siteSocialPlaceholders`, `siteLocation`.
 

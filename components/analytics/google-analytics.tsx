@@ -8,7 +8,7 @@ type GoogleAnalyticsProps = {
 
 /**
  * Loads GA4 gtag.js once. Page views are sent manually for App Router navigations.
- * Renders nothing when `NEXT_PUBLIC_GA_ID` is unset.
+ * Renders nothing when no measurement ID is available.
  */
 function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
   const id = measurementId ?? getGaMeasurementId()

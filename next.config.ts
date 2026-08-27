@@ -1,6 +1,11 @@
 import type { NextConfig } from "next"
 import createMDX from "@next/mdx"
 
+import {
+  CANONICAL_PRODUCTION_ORIGIN,
+  WWW_PRODUCTION_HOST,
+} from "./lib/site/origin"
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
@@ -20,6 +25,21 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Host canonicalization  -  www (http or https) → HTTPS non-www, same path.
+      // Do not add a host rule for the apex: matching thaivisacompany.com would loop.
+      // Apex HTTP→HTTPS is terminated at the host (e.g. Vercel TLS).
+      {
+        source: "/",
+        has: [{ type: "host", value: WWW_PRODUCTION_HOST }],
+        destination: `${CANONICAL_PRODUCTION_ORIGIN}/`,
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: WWW_PRODUCTION_HOST }],
+        destination: `${CANONICAL_PRODUCTION_ORIGIN}/:path*`,
+        permanent: true,
+      },
       {
         source: "/contact",
         destination: "/consultation",
