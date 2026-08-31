@@ -1,6 +1,7 @@
+import { preload } from "react-dom"
+
 import { HeroContactStrip } from "@/components/cta/hero-contact-strip"
 import { Container } from "@/components/layout/container"
-import { HeroResponsiveMediaFrame } from "@/components/media/hero-responsive-media-frame"
 import { GoogleReviewSummary } from "@/components/ui/google-review-summary"
 import { homepageMobileTrust } from "@/lib/content/trust-bar"
 import { motionClass } from "@/lib/motion-classes"
@@ -10,29 +11,7 @@ import { defaultGoogleReviewSummary } from "@/lib/reviews/google-summary"
 import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { cn } from "@/lib/utils"
 
-function HomepageHeroMobileScene({
-  assets,
-}: {
-  assets: (typeof heroPhotography)["homepage"]
-}) {
-  return (
-    <div
-      className={cn(
-        "hero-premium__scene min-[1100px]:hidden",
-        motionClass.fadeUpMount,
-        motionClass.delay60,
-      )}
-    >
-      <HeroResponsiveMediaFrame
-        assets={assets}
-        priority
-        className="hero-premium__scene-frame"
-      />
-    </div>
-  )
-}
-
-/** Stacked trust band under the portrait hero (<1100px). */
+/** Stacked trust band under hero copy (<1100px). */
 function HomepageHeroMobileTrust() {
   const { ariaLabel, items } = homepageMobileTrust
 
@@ -62,11 +41,22 @@ function HomepageHeroMobileTrust() {
 }
 
 /**
- * Homepage hero  -  photography-led composition.
- * Trust lives in the contact strip, mobile trust band, and TrustBar below.
+ * Homepage hero.
+ * Desktop (≥1100px): full-bleed 2560×1440 landscape behind copy.
+ * Below 1100px: cream copy, then a standalone 4:5 portrait below reviews.
  */
 function HomepageHero() {
   const heroMedia = heroPhotography.homepage
+  const desktopWidth = heroMedia.desktop.width ?? 2560
+  const desktopHeight = heroMedia.desktop.height ?? 1440
+  preload(heroMedia.desktop.src, {
+    as: "image",
+    media: "(min-width: 1100px)",
+  })
+  preload(heroMedia.mobile.src, {
+    as: "image",
+    media: "(max-width: 1099px)",
+  })
 
   return (
     <section
@@ -74,54 +64,68 @@ function HomepageHero() {
       className="hero-premium"
       aria-labelledby={sectionHeadingIds.hero}
     >
-      <div className="hero-premium__atmosphere" aria-hidden />
+      <div className="hero-premium__visual">
+        <div className="hero-premium__picture">
+          <img
+            className="hero-premium__image"
+            src={heroMedia.desktop.src}
+            alt={heroMedia.desktop.alt}
+            width={desktopWidth}
+            height={desktopHeight}
+            decoding="async"
+            fetchPriority="high"
+          />
+        </div>
 
-      {/* Landscape full-bleed  -  large desktop only (≥1100px) */}
-      <div className="hero-premium__environment hidden min-[1100px]:block" aria-hidden>
-        <HeroResponsiveMediaFrame
-          assets={heroMedia}
-          variant="immersive"
-          priority
+        <Container className="hero-premium__container">
+          <div className="hero-premium__stage">
+            <div className={cn("hero-premium__copy", motionClass.fadeUpMount)}>
+              <p className="hero-premium__eyebrow">{homepageAiCopy.heroEyebrow}</p>
+
+              <h1 id={sectionHeadingIds.hero} className="hero-premium__title">
+                Your Thailand{" "}
+                <br className="hero-premium__title-br" aria-hidden />
+                <span className="hero-premium__title-closing">
+                  Visa, made simple.
+                </span>
+              </h1>
+
+              <p
+                className="hero-premium__lead"
+                data-page-summary={homepageAiCopy.heroLeadLine}
+              >
+                {homepageAiCopy.heroLeadLine}
+              </p>
+
+              <div className="hero-premium__review">
+                <GoogleReviewSummary
+                  rating={defaultGoogleReviewSummary.rating}
+                  reviewCount={defaultGoogleReviewSummary.reviewCount}
+                  sourceLabel={defaultGoogleReviewSummary.sourceLabel}
+                  layout="inline"
+                  size="sm"
+                  includeBusinessInLabel
+                />
+              </div>
+
+              <HeroContactStrip className="hero-premium__contact" />
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      <div className="hero-premium__mobile-image">
+        <img
+          src={heroMedia.mobile.src}
+          alt={heroMedia.mobile.alt}
+          width={heroMedia.mobile.width ?? 1080}
+          height={heroMedia.mobile.height ?? 1350}
+          decoding="async"
         />
       </div>
 
       <Container className="hero-premium__container">
-        <div className="hero-premium__stage">
-          <div className={cn("hero-premium__copy", motionClass.fadeUpMount)}>
-            <p className="hero-premium__eyebrow">{homepageAiCopy.heroEyebrow}</p>
-
-            <h1 id={sectionHeadingIds.hero} className="hero-premium__title">
-              Your Thailand{" "}
-              <br className="hero-premium__title-br" aria-hidden />
-              <span className="hero-premium__title-closing">
-                Visa, made simple.
-              </span>
-            </h1>
-
-            <p
-              className="hero-premium__lead"
-              data-page-summary={homepageAiCopy.heroLeadLine}
-            >
-              {homepageAiCopy.heroLeadLine}
-            </p>
-
-            <div className="hero-premium__review">
-              <GoogleReviewSummary
-                rating={defaultGoogleReviewSummary.rating}
-                reviewCount={defaultGoogleReviewSummary.reviewCount}
-                sourceLabel={defaultGoogleReviewSummary.sourceLabel}
-                layout="inline"
-                size="sm"
-                includeBusinessInLabel
-              />
-            </div>
-
-            <HeroContactStrip className="hero-premium__contact" />
-          </div>
-
-          <HomepageHeroMobileScene assets={heroMedia} />
-          <HomepageHeroMobileTrust />
-        </div>
+        <HomepageHeroMobileTrust />
       </Container>
     </section>
   )

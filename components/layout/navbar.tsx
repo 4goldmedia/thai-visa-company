@@ -22,8 +22,6 @@ import {
 import { BrandLogo } from "@/components/brand/brand-logo"
 import { cn } from "@/lib/utils"
 
-const SCROLL_THRESHOLD = 8
-
 const mobileNavLinkClass = cn(
   "flex min-h-11 items-center rounded-[var(--radius-button)] px-3.5",
   "text-[15px] font-medium leading-snug tracking-normal text-foreground",
@@ -72,35 +70,11 @@ type NavbarProps = {
 }
 
 function Navbar({ className }: NavbarProps) {
-  const pathname = usePathname()
-  const [scrolled, setScrolled] = React.useState(false)
   const [menuOpen, setMenuOpen] = React.useState(false)
   const headerRef = React.useRef<HTMLElement>(null)
   const menuPanelId = React.useId()
 
-  const isHome = pathname === "/"
-  const immersiveAtTop = isHome && !scrolled && !menuOpen
-
   const closeMenu = React.useCallback(() => setMenuOpen(false), [])
-
-  React.useEffect(() => {
-    let ticking = false
-
-    const updateScrolled = () => {
-      setScrolled(window.scrollY > SCROLL_THRESHOLD)
-      ticking = false
-    }
-
-    const onScroll = () => {
-      if (ticking) return
-      ticking = true
-      requestAnimationFrame(updateScrolled)
-    }
-
-    updateScrolled()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
 
   React.useEffect(() => {
     const root = document.documentElement
@@ -138,15 +112,8 @@ function Navbar({ className }: NavbarProps) {
       id="site-header"
       ref={headerRef}
       data-slot="navbar"
-      data-scrolled={scrolled || undefined}
-      data-hero-immersive={immersiveAtTop || undefined}
       className={cn(
-        "sticky top-0 z-50 w-full shrink-0 transition-[background-color,box-shadow,border-color] duration-200 ease-out motion-reduce:transition-none",
-        scrolled || menuOpen
-          ? "border-b border-border bg-background/95 backdrop-blur-[6px] supports-[backdrop-filter]:bg-background/92"
-          : immersiveAtTop
-            ? "border-b-0 bg-transparent"
-            : "border-b-0 bg-background",
+        "sticky top-0 z-50 w-full shrink-0 border-b border-border bg-background/95 backdrop-blur-[6px] supports-[backdrop-filter]:bg-background/92",
         className,
       )}
     >

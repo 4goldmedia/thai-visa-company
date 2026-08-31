@@ -23,9 +23,12 @@ export type HeroMediaAsset = {
   src: string
   alt: string
   caption?: string
+  /** Intrinsic pixel size of the source file. Omit for remote/unknown assets. */
+  width?: number
+  height?: number
 }
 
-/** Homepage hero  -  landscape desktop + portrait mobile */
+/** Homepage hero  -  full-bleed landscape with cream left for copy */
 export type ResponsiveHeroMedia = {
   desktop: HeroMediaAsset
   mobile: HeroMediaAsset
@@ -55,12 +58,16 @@ export const editorialPhotography = {
 export const heroPhotography = {
   homepage: {
     desktop: {
-      src: "/images/hero/Move-to-thailand-visa-company.webp",
-      alt: "Couple at a riverside café overlooking Wat Arun at sunset, suggesting a new life beginning in Thailand",
+      src: "/images/hero/Thai-Visa-Company-hero-image-visaapplication.webp",
+      alt: "Visa consultation at a desk with a visa application and passport, overlooking Wat Arun and the Bangkok skyline",
+      width: 2560,
+      height: 1440,
     },
     mobile: {
-      src: "/images/hero/Move-to-thailand-visa-mobile.webp",
-      alt: "Couple at a riverside café overlooking Wat Arun at sunset, suggesting a new life beginning in Thailand",
+      src: "/images/hero/Thai-Visa-Company-hero-image-visaapplication-mobile.webp",
+      alt: "Hands reviewing a visa application and passport on a desk, with Wat Arun and the Bangkok skyline beyond",
+      width: 1080,
+      height: 1350,
     },
     caption: "Long-stay living, handled with care",
   },

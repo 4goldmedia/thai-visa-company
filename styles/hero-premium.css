@@ -3,20 +3,12 @@
 @layer components {
   .hero-premium {
     --hero-header-offset: 3.5rem;
-    /* Bias right so the couple stays in frame; cream left is expendable */
-    --hero-media-object-position: 78% center;
+    /* Desktop landscape: left-anchor onto baked cream. Unused below 1100px. */
+    --hero-image-position: left center;
     position: relative;
     overflow: hidden;
     margin-top: calc(-1 * var(--hero-header-offset));
-    padding-top: calc(var(--hero-header-offset) + 2rem);
-    padding-bottom: 3rem;
     background-color: var(--background);
-  }
-
-  @media (min-width: 640px) {
-    .hero-premium {
-      --hero-media-object-position: 75% center;
-    }
   }
 
   /* Match navbar `lg:h-[4.25rem]` so the hero meets the announcement banner */
@@ -26,9 +18,15 @@
     }
   }
 
+  .hero-premium__visual {
+    position: relative;
+    overflow: hidden;
+    padding-top: calc(var(--hero-header-offset) + 2rem);
+    padding-bottom: 3rem;
+  }
+
   @media (min-width: 1100px) {
-    .hero-premium {
-      --hero-media-object-position: 72% center;
+    .hero-premium__visual {
       min-height: max(
         calc(var(--hero-ref-min-height-lg) + var(--hero-header-offset)),
         calc(var(--hero-ref-viewport-min) + var(--hero-header-offset))
@@ -38,77 +36,27 @@
     }
   }
 
-  /* Atmospheric left wash over environment */
-  .hero-premium__atmosphere {
+  /* Desktop-only full-bleed landscape. Hidden below 1100px. */
+  .hero-premium__picture {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  .hero-premium__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: var(--hero-image-position);
+  }
+
+  /* Standalone 4:5 portrait  -  mobile/tablet only, never a text background */
+  .hero-premium__mobile-image {
     display: none;
-  }
-
-  @media (min-width: 1100px) {
-    .hero-premium__atmosphere {
-      display: block;
-      position: absolute;
-      inset: 0;
-      left: var(--hero-ref-image-start);
-      z-index: 1;
-      pointer-events: none;
-      background: linear-gradient(
-        90deg,
-        var(--background) 0%,
-        oklch(0.985 0.009 95 / 58%) 14%,
-        oklch(0.985 0.009 95 / 34%) 30%,
-        oklch(0.985 0.009 95 / 10%) 46%,
-        oklch(0.985 0.009 95 / 0%) 54%
-      );
-    }
-  }
-
-  /* Full-bleed landscape environment  -  large desktop only (≥1100px) */
-  @media (min-width: 1100px) {
-    .hero-premium__environment {
-      position: absolute;
-      inset: 0;
-      left: var(--hero-ref-image-start);
-      z-index: 0;
-      min-height: 100%;
-      pointer-events: none;
-    }
-
-    .hero-premium__environment .hero-media-frame--immersive {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-      aspect-ratio: auto;
-      border: none;
-      border-radius: 0;
-    }
-
-    .hero-premium__environment .hero-media-frame__layer img {
-      object-fit: cover;
-      object-position: var(--hero-media-object-position);
-    }
-
-    .hero-premium__environment .hero-media-frame__wash {
-      opacity: 0.2;
-    }
-
-    /* Riverside lifestyle stays sharp  -  no background blur on immersive hero */
-    .hero-premium__environment .hero-media-frame__depth {
-      display: none;
-    }
-
-    .hero-premium__environment .hero-media-frame__overlay {
-      background: linear-gradient(
-        180deg,
-        oklch(0.22 0.02 55 / 0%) 60%,
-        oklch(0.22 0.02 55 / 4%) 100%
-      );
-    }
-
-    .hero-premium__environment .hero-media-caption {
-      display: none;
-    }
   }
 
   .hero-premium__container {
@@ -272,8 +220,16 @@
   /* ── Stacked editorial hero (phones, tablets, small laptops <1100px) ── */
   @media (max-width: 1099px) {
     .hero-premium {
-      padding-top: calc(var(--hero-header-offset) + 1.25rem);
       padding-bottom: 2.25rem;
+    }
+
+    .hero-premium__picture {
+      display: none;
+    }
+
+    .hero-premium__visual {
+      padding-top: calc(var(--hero-header-offset) + 1.25rem);
+      padding-bottom: 1.25rem;
     }
 
     .hero-premium__copy {
@@ -298,90 +254,34 @@
       margin: 0;
     }
 
-    /* Copy → image → mobile trust */
     .hero-premium__stage {
       display: flex;
       flex-direction: column;
       gap: 0;
     }
 
-    /* Edge-to-edge portrait hero  -  dedicated mobile/tablet art */
-    .hero-premium__scene {
-      position: relative;
-      width: 100vw;
-      max-width: 100vw;
-      margin-top: 1.5rem;
-      margin-bottom: 0;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-      aspect-ratio: 4 / 5; /* matches thai-visa-company-bangkok-mobile.webp */
-      overflow: hidden;
-      border: none;
-      border-radius: 0;
-      background-color: var(--ivory-muted);
-    }
-
-    @media (min-width: 640px) {
-      .hero-premium__scene {
-        margin-top: 1.75rem;
-      }
-    }
-
-    .hero-premium__scene-frame.hero-media-frame {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      border: none;
-      border-radius: 0;
-      aspect-ratio: auto;
-      background-color: transparent;
-    }
-
-    /* Portrait asset only in the stacked scene */
-    .hero-premium__scene-frame .hero-media-frame__layer--desktop {
-      display: none;
-    }
-
-    .hero-premium__scene-frame .hero-media-frame__layer--mobile {
+    .hero-premium__mobile-image {
       display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      line-height: 0;
     }
 
-    .hero-premium__scene-frame .hero-media-frame__layer img {
-      object-fit: cover;
-      filter: none;
-    }
-
-    .hero-premium__scene-frame .hero-media-frame__layer--mobile img {
-      object-position: center center;
-    }
-
-    .hero-premium__scene-frame .hero-media-frame__wash,
-    .hero-premium__scene-frame .hero-media-frame__overlay,
-    .hero-premium__scene-frame .hero-media-frame__depth,
-    .hero-premium__scene-frame .hero-media-caption {
-      display: none;
+    .hero-premium__mobile-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      max-width: 100%;
     }
   }
 
-  /* Landscape split hero only at ≥1100px */
-  @media (min-width: 1100px) {
-    .hero-premium__scene {
-      display: none;
-    }
-  }
-
-  /* ── Mobile trust band (directly under hero image) ── */
+  /* ── Mobile trust band (directly under the portrait) ── */
   .hero-premium__mobile-trust {
-    margin-top: 2.75rem;
+    margin-top: 0;
     padding-bottom: 0.25rem;
-  }
-
-  @media (min-width: 640px) {
-    .hero-premium__mobile-trust {
-      margin-top: 3.25rem;
-    }
   }
 
   @media (min-width: 1100px) {
