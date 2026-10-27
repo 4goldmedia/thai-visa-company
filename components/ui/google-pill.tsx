@@ -14,7 +14,7 @@ function GooglePill({ className, variant = "light" }: GooglePillProps) {
         "text-[10px] font-medium tracking-tight sm:text-[11px]",
         variant === "dark"
           ? "border-[color-mix(in_srgb,#f6f3ee_14%,transparent)] bg-[color-mix(in_srgb,#f6f3ee_6%,transparent)] text-[color-mix(in_srgb,#f6f3ee_55%,transparent)]"
-          : "border-border/50 bg-muted/30 text-muted-foreground",
+          : "border-border/50 bg-[#FFFFFF] text-muted-foreground",
         className,
       )}
       aria-hidden

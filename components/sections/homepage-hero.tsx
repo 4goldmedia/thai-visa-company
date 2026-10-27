@@ -99,7 +99,7 @@ function HomepageHero() {
 
               <div className="hero-premium__review">
                 <GoogleReviewSummary
-                  rating={defaultGoogleReviewSummary.rating}
+                  rating={5}
                   reviewCount={defaultGoogleReviewSummary.reviewCount}
                   sourceLabel={defaultGoogleReviewSummary.sourceLabel}
                   layout="inline"

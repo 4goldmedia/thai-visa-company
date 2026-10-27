@@ -109,7 +109,7 @@ function GoogleReviewSummary({
                 ? "google-review-summary--editorial items-start gap-2 sm:items-end sm:gap-2.5 sm:text-right"
                 : "items-start gap-1.5 sm:items-end sm:text-right",
             )
-          : "flex flex-wrap items-center gap-x-2.5 gap-y-1.5",
+          : "inline-flex max-w-full flex-nowrap items-center gap-2.5",
         isDark && "google-review-summary--dark",
         isEditorialStacked && "google-review-summary--editorial",
         className,
@@ -147,14 +147,9 @@ function GoogleReviewSummary({
         <>
           <div className="flex items-center gap-1.5" aria-hidden>
             <StarRating rating={rating} size={isMd ? "md" : "sm"} />
-            <span className={ratingClass}>{rating}</span>
+            <span className={ratingClass}>{rating.toFixed(1)}</span>
           </div>
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-            <p className={metaClass}>
-              on {sourceLabel} · {countLabel}
-            </p>
-            <GooglePill variant={variant} />
-          </div>
+          <GooglePill variant={variant} />
         </>
       )}
     </div>
