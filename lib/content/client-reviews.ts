@@ -8,6 +8,8 @@ export const clientReviewsSectionCopy = {
   title: "People we've helped move to Thailand",
   description:
     "From first questions to final approval, we help make the process easier.",
+  /** Display-only header score; schema keeps the aggregate from the business profile */
+  displayRating: 5,
 } as const
 
 export type ClientReview = {

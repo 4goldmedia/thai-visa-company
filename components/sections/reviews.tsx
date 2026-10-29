@@ -12,7 +12,8 @@ import { sectionHeadingIds, sectionIds } from "@/lib/section-ids"
 import { cn } from "@/lib/utils"
 
 function Reviews() {
-  const { eyebrow, title, description } = clientReviewsSectionCopy
+  const { eyebrow, title, description, displayRating } =
+    clientReviewsSectionCopy
 
   return (
     <SectionReveal className="flex flex-col">
@@ -26,7 +27,7 @@ function Reviews() {
         </div>
 
         <GoogleReviewSummary
-          rating={defaultGoogleReviewSummary.rating}
+          rating={displayRating}
           reviewCount={defaultGoogleReviewSummary.reviewCount}
           bestRating={defaultGoogleReviewSummary.bestRating}
           href={defaultGoogleReviewSummary.href}
@@ -34,6 +35,7 @@ function Reviews() {
           size="md"
           stackedScoreStyle="editorial"
           showStackedStars={false}
+          showReviewCount={false}
           linkToReviews
           variant="dark"
           className="shrink-0"

@@ -28,6 +28,8 @@ export type GoogleReviewSummaryProps = {
   showStackedStars?: boolean
   /** Stacked layout  -  editorial score with /5 denominator */
   stackedScoreStyle?: "default" | "editorial"
+  /** Stacked layout  -  show the "N reviews" line beside the Google pill */
+  showReviewCount?: boolean
   className?: string
 }
 
@@ -44,6 +46,7 @@ function GoogleReviewSummary({
   variant = "light",
   showStackedStars = true,
   stackedScoreStyle = "default",
+  showReviewCount = true,
   className,
 }: GoogleReviewSummaryProps) {
   const isDark = variant === "dark"
@@ -57,11 +60,13 @@ function GoogleReviewSummary({
     sourceLabel,
   }
 
+  const isStacked = layout === "stacked"
+  const showCount = !isStacked || showReviewCount
   const ariaLabel = buildGoogleReviewAriaLabel(data, {
     businessName: includeBusinessInLabel ? siteConfig.name : undefined,
+    includeCount: showCount,
   })
   const countLabel = formatGoogleReviewCount(reviewCount)
-  const isStacked = layout === "stacked"
   const isMd = size === "md"
 
   const best = bestRating ?? 5
@@ -106,7 +111,7 @@ function GoogleReviewSummary({
           ? cn(
               "flex flex-col",
               isEditorialStacked
-                ? "google-review-summary--editorial items-start gap-2 sm:items-end sm:gap-2.5 sm:text-right"
+                ? "google-review-summary--editorial w-fit items-center gap-2 text-center sm:gap-2.5"
                 : "items-start gap-1.5 sm:items-end sm:text-right",
             )
           : "inline-flex max-w-full flex-nowrap items-center gap-2.5",
@@ -120,7 +125,7 @@ function GoogleReviewSummary({
           <p className={ratingClass} data-rating>
             {isEditorialStacked ? (
               <>
-                {rating}
+                {rating.toFixed(1)}
                 <span className="google-review-summary__score-denominator text-[0.58em] font-normal tracking-normal text-[color-mix(in_srgb,#f6f3ee_52%,transparent)]">
                   /{best}
                 </span>
@@ -139,7 +144,7 @@ function GoogleReviewSummary({
                 "google-review-summary__meta-row gap-x-2.5 gap-y-1.5",
             )}
           >
-            <p className={metaClass}>{countLabel}</p>
+            {showReviewCount ? <p className={metaClass}>{countLabel}</p> : null}
             <GooglePill variant={variant} />
           </div>
         </>

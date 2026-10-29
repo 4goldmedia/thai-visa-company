@@ -35,15 +35,18 @@ export function buildGoogleReviewAriaLabel(
     GoogleReviewSummaryData,
     "rating" | "reviewCount" | "sourceLabel" | "bestRating"
   >,
-  options?: { businessName?: string },
+  options?: { businessName?: string; includeCount?: boolean },
 ): string {
   const source = data.sourceLabel ?? "Google"
-  const count = formatGoogleReviewCount(data.reviewCount)
   const best = data.bestRating ?? 5
+  const countSuffix =
+    options?.includeCount === false
+      ? ""
+      : ` from ${formatGoogleReviewCount(data.reviewCount)}`
 
   if (options?.businessName) {
-    return `${options.businessName} is rated ${data.rating} out of ${best} on ${source} from ${count}`
+    return `${options.businessName} is rated ${data.rating} out of ${best} on ${source}${countSuffix}`
   }
 
-  return `Rated ${data.rating} out of ${best} on ${source} from ${count}`
+  return `Rated ${data.rating} out of ${best} on ${source}${countSuffix}`
 }

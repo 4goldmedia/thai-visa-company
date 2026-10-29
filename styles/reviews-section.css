@@ -118,11 +118,9 @@
     align-items: center;
   }
 
-  @media (min-width: 640px) {
-    .reviews-section .google-review-summary--editorial {
-      align-items: flex-end;
-      text-align: right;
-    }
+  .reviews-section .google-review-summary--editorial {
+    align-items: center;
+    text-align: center;
   }
 
   .reviews-section .google-review-summary--editorial [aria-hidden].inline-flex {
