@@ -24,7 +24,7 @@ export const homepageTrustBar: TrustBarContent = {
       secondary: "Fully Compliant",
     },
     {
-      primary: "10,000+",
+      primary: "1,450+",
       secondary: "Clients worldwide",
     },
     {
@@ -32,7 +32,7 @@ export const homepageTrustBar: TrustBarContent = {
       secondary: "Within 24 hours",
     },
     {
-      primary: "4.9/5",
+      primary: "5.0/5",
       secondary: "Client rating",
     },
   ],
@@ -50,7 +50,7 @@ export const homepageMobileTrust: TrustBarContent = {
       secondary: "Thai immigration specialists",
     },
     {
-      primary: "10,000+",
+      primary: "1,450+",
       secondary: "Clients worldwide",
     },
     {
